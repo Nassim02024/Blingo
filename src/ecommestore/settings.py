@@ -263,7 +263,7 @@ import os
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'C:/Users/hp/django_cache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
         'TIMEOUT': 31536000, 
     }
 }
