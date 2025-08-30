@@ -227,7 +227,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://blingo-production-0e82.up.railway.app',
+    'https://blingo-production-0e82.up.railway.app', "http://127.0.0.1:8000"
 ]
 
 
