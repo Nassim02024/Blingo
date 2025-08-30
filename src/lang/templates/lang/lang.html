@@ -1,0 +1,282 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+<!-- From Uiverse.io by Galahhad --> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+
+
+<label class="popup">
+  <input type="checkbox">
+  <div class="language-icon" tabindex="0">
+
+    <i class="bi bi-translate" style="color: white; font-size: 1.5rem;"></i>
+
+  </div>
+  <nav class="popup-window">
+    <ul>
+
+
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+
+      
+      <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <ul class="list">
+          <li class="element">          
+            <button type="submit" name="language" value="ar"
+                    style="font-size: 16px; color: rgb(146, 146, 146); font-weight: 400;">
+              العربية
+            </button>
+          </li> 
+          <hr> 
+          <li class="element">         
+            <button type="submit" name="language" value="en"
+                    style="font-size: 16px; color: rgb(146, 146, 146); font-weight: 400;">
+              English
+            </button>
+          </li>   
+        </ul>   
+      </form>
+      
+      
+
+    </ul>
+  </nav>
+</label>
+
+<style>
+
+
+.popup {
+  --language-icon-line-width: 1.125em;
+  --language-icon-line-height: 0.125em;
+  --language-icon-offset: 0.625em;
+  --language-icon-bg: rgba(0, 0, 0, .15);
+  --language-icon-color: #333;
+  --language-icon-line-border-radius: 0.1875em;
+  --language-icon-diameter: 3.125em;
+  --language-icon-btn-border-radius: calc(var(--language-icon-diameter) / 2);
+  --language-icon-line-transition: .3s;
+  --language-icon-transition: all .1s ease-in-out;
+  --language-icon-hover-scale: 1.1;
+  --language-icon-active-scale: .95;
+  --language-icon-enable-outline-color: var(--language-icon-bg);
+  --language-icon-enable-outline-width: 0.225em;
+  --language-icon-enable-outline-offset: var(--language-icon-enable-outline-width);
+  /* nav */
+  --nav-padding-x: 0.25em;
+  --nav-padding-y: 0.625em;
+  --nav-border-radius: 0.375em;
+  --nav-border-color: #ccc;
+  --nav-border-width: 0.0625em;
+  --nav-shadow-color: rgba(0, 0, 0, .2);
+  --nav-shadow-width: 0 1px 5px;
+  --nav-bg: #eee;
+  --nav-font-family: Menlo, Roboto Mono, monospace;
+  --nav-default-scale: .8;
+  --nav-active-scale: 1;
+  --nav-position-left: unset;
+  --nav-position-right: 0;
+  z-index: 999;
+  /* if you want to change sides just switch one property */
+  /* from properties to "unset" and the other to 0 */
+  /* title */
+  --nav-title-size: 0.125em;
+  --nav-title-color: #777;
+  --nav-title-padding-x: 1rem;
+  --nav-title-padding-y: 0.25em;
+  /* nav button */
+  --nav-button-padding-x: 1rem;
+  --nav-button-padding-y: 0.375em;
+  --nav-button-border-radius: 0.375em;
+  --nav-button-font-size: 12px;
+  --nav-button-hover-bg: #6495ed;
+  --nav-button-hover-text-color: #fff;
+  --nav-button-distance: 0.875em;
+  /* underline */
+  --underline-border-width: 0.0625em;
+  --underline-border-color: #ccc;
+  --underline-margin-y: 0.3125em;
+}
+
+/* popup settings 👆 */
+
+.popup {
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+.popup input {
+  display: none;
+}
+
+.language-icon {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background: var(--language-icon-bg);
+  width: var(--language-icon-diameter);
+  height: var(--language-icon-diameter);
+  border-radius: var(--language-icon-btn-border-radius);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--language-icon-transition);
+  outline: var(--language-icon-enable-outline-width) solid transparent;
+  outline-offset: 0;
+}
+
+.language-icon span {
+  height: var(--language-icon-line-height);
+  width: var(--language-icon-line-width);
+  background: var(--language-icon-color);
+  border-radius: var(--language-icon-line-border-radius);
+  position: absolute;
+  transition: var(--language-icon-line-transition);
+}
+
+.language-icon span:nth-child(1) {
+  top: var(--language-icon-offset);
+}
+
+.language-icon span:nth-child(2) {
+  bottom: var(--language-icon-offset);
+}
+
+.language-icon span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.popup-window {
+  
+  transform: scale(var(--nav-default-scale));
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding: var(--nav-padding-y) var(--nav-padding-x);
+  background: var(--nav-bg);
+  font-family: var(--nav-font-family);
+  color: var(--nav-text-color);
+  border-radius: var(--nav-border-radius);
+  box-shadow: var(--nav-shadow-width) var(--nav-shadow-color);
+  border: var(--nav-border-width) solid var(--nav-border-color);
+  top: calc(var(--language-icon-diameter) + var(--language-icon-enable-outline-width) + var(--language-icon-enable-outline-offset));
+  left: var(--nav-position-left);
+  right: var(--nav-position-right);
+  transition: var(--language-icon-transition);
+}
+
+.popup-window legend {
+  padding: var(--nav-title-padding-y) var(--nav-title-padding-x);
+  margin: 0;
+  color: var(--nav-title-color);
+  font-size: var(--nav-title-size);
+  text-transform: uppercase;
+}
+
+.popup-window ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.popup-window ul button {
+  outline: none;
+  width: 100%;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  color: var(--language-icon-color);
+  font-size: var(--nav-button-font-size);
+  padding: var(--nav-button-padding-y) var(--nav-button-padding-x);
+  white-space: nowrap;
+  border-radius: var(--nav-button-border-radius);
+  cursor: pointer;
+  column-gap: var(--nav-button-distance);
+}
+
+.popup-window ul li:nth-child(1) svg,
+.popup-window ul li:nth-child(2) svg {
+  color: cornflowerblue;
+}
+
+.popup-window ul li:nth-child(4) svg,
+.popup-window ul li:nth-child(5) svg {
+  color: rgb(153, 153, 153);
+}
+
+.popup-window ul li:nth-child(7) svg {
+  color: red;
+}
+
+.popup-window hr {
+  margin: var(--underline-margin-y) 0;
+  border: none;
+  border-bottom: var(--underline-border-width) solid var(--underline-border-color);
+}
+
+/* actions */
+
+.popup-window ul button:hover,
+.popup-window ul button:focus-visible,
+.popup-window ul button:hover svg,
+.popup-window ul button:focus-visible svg {
+  color: var(--nav-button-hover-text-color);
+  background: var(--nav-button-hover-bg);
+}
+
+.language-icon:hover {
+  transform: scale(var(--language-icon-hover-scale));
+}
+
+.language-icon:active {
+  transform: scale(var(--language-icon-active-scale));
+}
+
+.language-icon:focus:not(:hover) {
+  outline-color: var(--language-icon-enable-outline-color);
+  outline-offset: var(--language-icon-enable-outline-offset);
+}
+
+.popup input:checked+.language-icon span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.popup input:checked+.language-icon span:nth-child(2) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.popup input:checked+.language-icon span:nth-child(3) {
+  transform: translateX(calc(var(--language-icon-diameter) * -1 - var(--language-icon-line-width)));
+}
+
+.popup input:checked~nav {
+  transform: scale(var(--nav-active-scale));
+  visibility: visible;
+  opacity: 1;
+}
+button span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+</style>
+</body>
+</html>

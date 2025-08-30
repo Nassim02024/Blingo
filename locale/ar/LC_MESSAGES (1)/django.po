@@ -1,0 +1,2022 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 08:42+0100\n"
+"PO-Revision-Date: 2025-08-17 13:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.6\n"
+
+#: .\src\aboutus\templates\aboutus\aboutus.html:55
+msgid "Who are we?"
+msgstr "من نحن ؟"
+
+#: .\src\aboutus\templates\aboutus\aboutus.html:77
+msgid "Our Vision"
+msgstr "نظرتنا"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:7
+msgid "Coming soon page by GraphBerry"
+msgstr "ستأتي قريبًا صفحة Grapherry"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:31
+msgid "Comming soon!"
+msgstr "قادم قريبا!"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:32
+msgid "Be ready, there is just:"
+msgstr "كن مستعدًا ، هناك فقط:"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:35
+msgid "OO"
+msgstr "oo"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:36
+msgid "days"
+msgstr "أيام"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:39
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:43
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:47
+msgid ":OO"
+msgstr ": oo"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:40
+msgid "hours"
+msgstr "ساعات"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:44
+msgid "minutes"
+msgstr "دقائق"
+
+#: .\src\commingsoon\templates\commingsoon\commingsoon.html:48
+msgid "seconds"
+msgstr "ثوان"
+
+#: .\src\contactpage\templates\contactpage\contactpage.html:33
+msgid "Thank you for your communication."
+msgstr "شكرا لك على تواصلك!"
+
+#: .\src\contactpage\templates\contactpage\contactpage.html:34
+msgid ""
+"We are happy to hear from you for any inquiries or requests. Our team is "
+"always available to answer your questions and provide the necessary support. "
+"Dont hesitate to contact us through the form below or via the available "
+"communication channels."
+msgstr ""
+"نحن سعداء لسماعك لأي استفسارات أو طلبات. فريقنا متاح دائمًا للإجابة على "
+"أسئلتك وتقديم الدعم اللازم. لا تتردد في الاتصال بنا من خلال النموذج أدناه أو "
+"عبر قنوات الاتصال المتاحة."
+
+#: .\src\contactpage\templates\contactpage\contactpage.html:44
+msgid "Contact form"
+msgstr "نموذج الاتصال"
+
+#: .\src\contactpage\templates\contactpage\contactpage.html:45
+msgid "We will respond as soon as possible."
+msgstr "سنرد في اقرب وقت"
+
+#: .\src\contactpage\templates\contactpage\contactpage.html:64
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:62
+msgid "submit"
+msgstr "ارسال"
+
+#: .\src\core\templates\base.html:135 .\src\core\templates\base.html:292
+msgid "Free delivery"
+msgstr "عروض توصيل مجاني "
+
+#: .\src\core\templates\base.html:144 .\src\core\templates\base.html:306
+msgid "secure payment"
+msgstr "الدفع الآمن"
+
+#: .\src\core\templates\base.html:154 .\src\core\templates\base.html:320
+msgid "Quality guarantee"
+msgstr "ضمان الجودة"
+
+#: .\src\core\templates\base.html:164 .\src\core\templates\base.html:348
+msgid "Daily offers"
+msgstr "العروض اليومية"
+
+#: .\src\core\templates\base.html:265
+msgid "Shop faster with Blingo App"
+msgstr "تسوق بشكل أسرع مع تطبيق Blingo"
+
+#: .\src\core\templates\base.html:266
+msgid ""
+"Wait for the Blingo app, through which you can shop comfortably and well."
+msgstr "انتظرو تطبيق Blingo ، حيث يمكنك التسوق بسهولة وفعالية."
+
+#: .\src\core\templates\base.html:334
+msgid "guaranteed savings"
+msgstr "مدخرات مضمونة"
+
+#: .\src\core\templates\core\cardorder.html:15
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:10
+#: .\src\customer\templates\customer\customer.html:10
+msgid "Document"
+msgstr "وثيقة"
+
+#: .\src\core\templates\core\cardorder.html:28
+msgid "Details order"
+msgstr " التفاصيل"
+
+#: .\src\core\templates\core\cardorder.html:52
+#: .\src\customer\templates\customer\customer.html:93
+msgid "Order"
+msgstr "طلب"
+
+#: .\src\core\templates\core\cardorder.html:53
+msgid "Cancel"
+msgstr "يلغي"
+
+#: .\src\core\templates\core\cardorder.html:73
+msgid "Address Form"
+msgstr "نموذج العنوان"
+
+#: .\src\core\templates\core\cardorder.html:75
+msgid ""
+"Please provide your address details below. Fields marked with  are required."
+msgstr ""
+
+#: .\src\core\templates\core\cardorder.html:103
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: .\src\core\templates\core\cardorder.html:114
+msgid "Street Address (Line 1)*"
+msgstr "عنوان الشارع (السطر 1)*"
+
+#: .\src\core\templates\core\cardorder.html:126
+msgid "Street Address (Line 2) (Optional)"
+msgstr "عنوان الشارع (السطر 2) (اختياري)"
+
+#: .\src\core\templates\core\cardorder.html:169
+msgid "I confirm this address is accurate for "
+msgstr ""
+
+#: .\src\core\templates\core\cardorder.html:174
+msgid "Submit Address"
+msgstr "إرسال العنوان"
+
+#: .\src\core\templates\core\category.html:11
+#: .\src\core\templates\core\category.html:29
+#: .\src\core\templates\core\header.html:380
+msgid "Catecory"
+msgstr "فئة"
+
+#: .\src\core\templates\core\category.html:14
+#: .\src\core\templates\core\header.html:369
+#: .\src\core\templates\core\product_category.html:14
+msgid "Home"
+msgstr "بيت"
+
+#: .\src\core\templates\core\category.html:14
+#: .\src\core\templates\core\product_category.html:14
+#: .\src\core\templates\core\productsforvendor.html:227
+msgid "category"
+msgstr "فئة"
+
+#: .\src\core\templates\core\category.html:42
+msgid "Product"
+msgstr "منتج"
+
+#: .\src\core\templates\core\footer.html:13
+msgid ""
+"A company specialized in fast and easy delivery services. Our goal is to "
+"make your daily life simpler. We provide a platform that brings together "
+"restaurants, shops, and various services in one place, ensuring your orders "
+"reach your doorstep safely, quickly, and at the best prices."
+msgstr ""
+"شركة متخصصة في خدمات التوصيل السريعة والسهلة. هدفنا هو جعل حياتك اليومية "
+"أبسط. نقدم منصة تجمع بين المطاعم والمتاجر والخدمات المتنوعة في مكان واحد، "
+"مما يضمن وصول طلباتك إلى باب منزلك بأمان وسرعة وبأفضل الأسعار."
+
+#: .\src\core\templates\core\footer.html:16
+msgid "Stay Updated"
+msgstr "ابق على اطلاع"
+
+#: .\src\core\templates\core\footer.html:25
+msgid "Thank you for subscribing!"
+msgstr "شكرا لك على الاشتراك!"
+
+#: .\src\core\templates\core\footer.html:33
+msgid "Company"
+msgstr "شركة"
+
+#: .\src\core\templates\core\footer.html:35
+#: .\src\servece\templates\servece\servece.html:256
+msgid "About"
+msgstr "عن"
+
+#: .\src\core\templates\core\footer.html:36
+msgid "Work team"
+msgstr "فريق العمل"
+
+#: .\src\core\templates\core\footer.html:37
+msgid "Career opportunities"
+msgstr "فرص العمل"
+
+#: .\src\core\templates\core\footer.html:38
+#: .\src\core\templates\core\header.html:430
+#: .\src\core\templates\core\header.html:463
+msgid "Blog"
+msgstr "مدونة"
+
+#: .\src\core\templates\core\footer.html:39
+msgid "Our partners"
+msgstr "عنواننا"
+
+#: .\src\core\templates\core\footer.html:46
+msgid "Services"
+msgstr "الخدمات"
+
+#: .\src\core\templates\core\footer.html:48
+msgid "Order Delivery"
+msgstr "التوصيل و طلبات"
+
+#: .\src\core\templates\core\footer.html:49
+msgid "Pricing"
+msgstr "التسعير"
+
+#: .\src\core\templates\core\footer.html:50
+msgid "Inquiries"
+msgstr "استفسارات"
+
+#: .\src\core\templates\core\footer.html:57
+#: .\src\servece\templates\servece\servece.html:1590
+msgid "Get in Touch"
+msgstr "تواصل على اتصال"
+
+#: .\src\core\templates\core\footer.html:63
+#, fuzzy
+#| msgid "Touggourt"
+msgid "Algeria , Touggourt"
+msgstr "Tougchourt"
+
+#: .\src\core\templates\core\footer.html:72
+msgid "+213 669010670"
+msgstr ""
+
+#: .\src\core\templates\core\footer.html:81
+msgid "blingohyper@gmail.com"
+msgstr ""
+
+#: .\src\core\templates\core\footer.html:103
+msgid "All Rights Reserved"
+msgstr "كل الحقوق محفوظة"
+
+#: .\src\core\templates\core\footer.html:108
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\src\core\templates\core\footer.html:109
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+#: .\src\core\templates\core\footer.html:110
+msgid "Cookie Policy"
+msgstr "سياسة ملفات تعريف الارتباط"
+
+#: .\src\core\templates\core\footer.html:117
+msgid "Designed by"
+msgstr "صممه"
+
+#: .\src\core\templates\core\header.html:104
+#, fuzzy
+msgid "Your cart"
+msgstr "عربة التسوق الخاصة بك"
+
+#: .\src\core\templates\core\header.html:110
+#, fuzzy
+#| msgid "Total (DZ)"
+msgid "Total (Dz)"
+msgstr "المجموع (DZ)"
+
+#: .\src\core\templates\core\header.html:117
+msgid "Continue to checkout"
+msgstr " استمر لتاكيد "
+
+#: .\src\core\templates\core\header.html:133
+#: .\src\core\templates\core\header.html:138
+#: .\src\core\templates\core\header.html:146
+msgid "Search"
+msgstr "يبحث"
+
+#: .\src\core\templates\core\header.html:249
+#: .\src\core\templates\core\header.html:408
+msgid "My Account"
+msgstr "حسابي"
+
+#: .\src\core\templates\core\header.html:257
+#: .\src\customer\templates\customer\customer.html:83
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#: .\src\core\templates\core\header.html:266
+msgid "Order Tracking"
+msgstr "تتبع الطلب"
+
+#: .\src\core\templates\core\header.html:273
+msgid "My Wishlist"
+msgstr "قائمة أمنياتي"
+
+#: .\src\core\templates\core\header.html:280
+#, fuzzy
+#| msgid "Create store"
+msgid "Create store "
+msgstr "إنشاء متجر "
+
+#: .\src\core\templates\core\header.html:287
+msgid "Notifications"
+msgstr "إشعار"
+
+#: .\src\core\templates\core\header.html:294
+msgid "logout"
+msgstr "تسجيل الخروج"
+
+#: .\src\core\templates\core\header.html:324
+msgid "load"
+msgstr "تحميل"
+
+#: .\src\core\templates\core\header.html:363
+msgid "Shop by Departments"
+msgstr "تسوق من قبل الإدارات"
+
+#: .\src\core\templates\core\header.html:364
+msgid "Groceries"
+msgstr "محلات البقالة"
+
+#: .\src\core\templates\core\header.html:365
+msgid "Drinks"
+msgstr "مشروبات"
+
+#: .\src\core\templates\core\header.html:366
+msgid "Chocolates"
+msgstr "الشوكولاتة"
+
+#: .\src\core\templates\core\header.html:376
+msgid "Most searched"
+msgstr "الأكثر بحثاً"
+
+#: .\src\core\templates\core\header.html:404
+msgid "Pages"
+msgstr "الصفحات"
+
+#: .\src\core\templates\core\header.html:413
+msgid "servece"
+msgstr "الخدمات"
+
+#: .\src\core\templates\core\header.html:416
+msgid "Shop"
+msgstr "محل"
+
+#: .\src\core\templates\core\header.html:416
+#: .\src\core\templates\core\header.html:433
+msgid "PRO"
+msgstr "المحترف"
+
+#: .\src\core\templates\core\header.html:416
+msgid "-->"
+msgstr ""
+
+#: .\src\core\templates\core\header.html:416
+msgid "Single Product"
+msgstr "منتج واحد"
+
+#: .\src\core\templates\core\header.html:419
+msgid "Cart"
+msgstr "عربة"
+
+#: .\src\core\templates\core\header.html:425
+msgid "Checkout"
+msgstr "الدفع"
+
+#: .\src\core\templates\core\header.html:433
+msgid "Single Post"
+msgstr "وظيفة واحدة"
+
+#: .\src\core\templates\core\header.html:436
+msgid "contact"
+msgstr "اتصل بنا"
+
+#: .\src\core\templates\core\header.html:441
+msgid "About Us"
+msgstr "معلومات عنا"
+
+#: .\src\core\templates\core\header.html:447
+msgid "Thank You"
+msgstr "شكرًا لك"
+
+#: .\src\core\templates\core\header.html:453
+msgid "404 Error"
+msgstr "404 خطأ"
+
+#: .\src\core\templates\core\header.html:459
+msgid "Brand"
+msgstr "ماركة"
+
+#: .\src\core\templates\core\header.html:461
+msgid "Sale"
+msgstr "بيع"
+
+#: .\src\core\templates\core\header.html:478
+msgid "Get PRO Version"
+msgstr "احصل على نسخة محترفة"
+
+#: .\src\core\templates\core\index.html:8
+#: .\src\core\templates\core\index.html:11
+msgid " Home | A multi-vendor store for purchasing food products in Touggourt "
+msgstr ""
+
+#: .\src\core\templates\core\index.html:10
+msgid ""
+" Discover the Blino store  a multi-vendor shopping platform that offers you "
+"the best food products and more from trusted sellers. Shop easily and "
+"securely, with multiple payment options and fast shipping. "
+msgstr ""
+
+#: .\src\core\templates\core\index.html:12
+#: .\src\core\templates\core\index.html:18
+msgid ""
+" Discover the Blino store  a multi-vendor shopping platform that offers you "
+"the best food products and more from trusted sellers. Shop easily and "
+"securely, with multiple payment options and fast shipping."
+msgstr ""
+
+#: .\src\core\templates\core\index.html:17
+msgid ""
+" Blingo | Home | A multi-vendor store for purchasing food products in "
+"Touggourt "
+msgstr ""
+
+#: .\src\core\templates\core\index.html:41
+msgid "Shop from the best stores in your city."
+msgstr "تسوق من افضل المحلات في مدينتك"
+
+#: .\src\core\templates\core\index.html:42
+msgid "With the press of a button."
+msgstr "بضغطة زر"
+
+#: .\src\core\templates\core\index.html:43
+#: .\src\core\templates\core\index.html:49
+msgid "start"
+msgstr "انطلق"
+
+#: .\src\core\templates\core\index.html:47
+msgid "Choose the store that suits you"
+msgstr "اختر متجرك المفضل"
+
+#: .\src\core\templates\core\index.html:48
+msgid "And we will be with you !"
+msgstr "! و سنكون عندك"
+
+#: .\src\core\templates\core\index.html:63
+msgid " Services"
+msgstr " الخدمة"
+
+#: .\src\core\templates\core\index.html:66
+msgid "View All Services"
+msgstr "عرض جميع الخدمات"
+
+#: .\src\core\templates\core\index.html:83
+#: .\src\core\templates\core\index.html:91
+#: .\src\core\templates\core\index.html:107
+#: .\src\core\templates\core\index.html:115
+#: .\src\core\templates\core\index.html:149
+msgid "Fruits & Veges"
+msgstr "الفواكه والخضار"
+
+#: .\src\core\templates\core\index.html:87
+#: .\src\core\templates\core\index.html:111
+msgid "Breads & Sweets"
+msgstr "الخبز والحلويات"
+
+#: .\src\core\templates\core\index.html:95
+#: .\src\core\templates\core\index.html:119
+msgid "Beverages"
+msgstr "المشروبات"
+
+#: .\src\core\templates\core\index.html:99
+#: .\src\core\templates\core\index.html:123
+msgid "Meat Products"
+msgstr "منتجات اللحوم"
+
+#: .\src\core\templates\core\index.html:103
+#: .\src\core\templates\core\index.html:127
+msgid "Breads"
+msgstr "الخبز"
+
+#: .\src\core\templates\core\index.html:145
+msgid "Vendors"
+msgstr "البائعون"
+
+#: .\src\core\templates\core\index.html:148
+msgid "All"
+msgstr "الجميع"
+
+#: .\src\core\templates\core\index.html:150
+msgid "Juices"
+msgstr "العصائر"
+
+#: .\src\core\templates\core\index.html:170
+#: .\src\core\templates\core\search_vendor.html:28
+msgid "Store"
+msgstr "محل"
+
+#: .\src\core\templates\core\index.html:197
+#: .\src\core\templates\core\index.html:244
+#: .\src\core\templates\core\index.html:287
+#: .\src\core\templates\core\productDetils.html:89
+#: .\src\core\templates\core\productsforvendor.html:499
+msgid "4.5"
+msgstr ""
+
+#: .\src\core\templates\core\index.html:199
+msgid "${{p.old_price}}"
+msgstr ""
+
+#: .\src\core\templates\core\index.html:214
+#: .\src\core\templates\core\index.html:260
+#: .\src\core\templates\core\index.html:303
+#: .\src\core\templates\core\productDetils.html:106
+#: .\src\core\templates\core\product_category.html:65
+#: .\src\core\templates\core\productsforvendor.html:515
+#: .\src\core\templates\core\search_product.html:53
+msgid "Add to Cart"
+msgstr "أضف إلى السلة"
+
+#: .\src\core\templates\core\index.html:236
+#, python-format
+msgid "-30%%"
+msgstr ""
+
+#: .\src\core\templates\core\index.html:243
+#: .\src\core\templates\core\index.html:286
+msgid "Sunstar Fresh Melon Juice"
+msgstr "Sunstar Fresh Melon Juice"
+
+#: .\src\core\templates\core\index.html:244
+#: .\src\core\templates\core\index.html:287
+msgid "1 Unit"
+msgstr "1 وحدة"
+
+#: .\src\core\templates\core\index.html:245
+#: .\src\core\templates\core\index.html:288
+msgid "$18.00"
+msgstr ""
+
+#: .\src\core\templates\core\index.html:330
+#: .\src\core\templates\core\index.html:341
+#, fuzzy, python-format
+#| msgid "Upto 25% Off"
+msgid "Upto 25%% Off"
+msgstr "تصل إلى 25 ٪ بقالة"
+
+#: .\src\core\templates\core\index.html:331
+msgid "Luxa Dark Chocolate"
+msgstr "لوكسا الشوكولاته الداكنة"
+
+#: .\src\core\templates\core\index.html:332
+#: .\src\core\templates\core\index.html:343
+msgid "Very tasty & creamy vanilla flavour creamy muffins."
+msgstr "لذيذ جدا ودسم النكهة الكعك دسم."
+
+#: .\src\core\templates\core\index.html:333
+#: .\src\core\templates\core\index.html:344
+msgid "Show Now"
+msgstr "تظهر الآن"
+
+#: .\src\core\templates\core\index.html:342
+msgid "Creamy Muffins"
+msgstr "الكعك الكريمي"
+
+#: .\src\core\templates\core\index.html:363
+msgid "Get"
+msgstr "احصلو على"
+
+#: .\src\core\templates\core\index.html:363
+msgid "free delivery"
+msgstr "توصيل مجاني"
+
+#: .\src\core\templates\core\index.html:363
+msgid "on your first order"
+msgstr "في أول عملية شراء لكم"
+
+#: .\src\core\templates\core\index.html:365
+msgid "You can also get a gift coupon and free delivery."
+msgstr "يمكنك أيضا الحصول على قسيمة الهدايا و توصيلات مجاني."
+
+#: .\src\core\templates\core\index.html:370
+#: .\src\customer\templates\customer\customer.html:177
+msgid "Name"
+msgstr "اسم"
+
+#: .\src\core\templates\core\index.html:375
+#: .\src\customer\templates\customer\customer.html:206
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+#: .\src\core\templates\core\index.html:380
+msgid "Subscribe to the newsletter"
+msgstr "اشترك في النشرة الإخبارية"
+
+#: .\src\core\templates\core\index.html:383
+msgid "Submit"
+msgstr "يُقدِّم"
+
+#: .\src\core\templates\core\productDetils.html:34
+msgid "4.5 (120 reviews)"
+msgstr "4.5 (120 مراجعة)"
+
+#: .\src\core\templates\core\productDetils.html:39
+msgid "Color:"
+msgstr "لون:"
+
+#: .\src\core\templates\core\productDetils.html:46
+#, fuzzy
+msgid "Dont have color"
+msgstr "ليس لديك لون"
+
+#: .\src\core\templates\core\productDetils.html:51
+msgid "Quantity:"
+msgstr "كمية:"
+
+#: .\src\core\templates\core\productDetils.html:56
+msgid "Add to Wishlist"
+msgstr "أضف إلى قائمة الرغبات"
+
+#: .\src\core\templates\core\productDetils.html:57
+msgid "Key Features:"
+msgstr "الميزات الرئيسية:"
+
+#: .\src\core\templates\core\productDetils.html:59
+msgid "Industry-leading noise cancellation"
+msgstr "إلغاء الضوضاء الرائدة في الصناعة"
+
+#: .\src\core\templates\core\productDetils.html:60
+msgid "30-hour battery life"
+msgstr "عمر البطارية 30 ساعة"
+
+#: .\src\core\templates\core\productDetils.html:61
+msgid "Touch sensor controls"
+msgstr "اللمس عناصر التحكم في المستشعر"
+
+#: .\src\core\templates\core\productDetils.html:62
+msgid "Speak-to-chat technology"
+msgstr "التكنولوجيا التحدث إلى الدردشة"
+
+#: .\src\core\templates\core\productDetils.html:120
+msgid "Reviews"
+msgstr "المراجعات"
+
+#: .\src\core\templates\core\productsforvendor.html:231
+msgid "❮"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:232
+msgid "❯"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:286
+msgid "Not just food, it’s an experience"
+msgstr "ليس فقط الطعام ، إنها تجربة"
+
+#: .\src\core\templates\core\productsforvendor.html:289
+#: .\src\core\templates\core\productsforvendor.html:365
+msgid "From giggles to cuddles — we’ve got it all"
+msgstr "من الضحك إلى الحضن - لقد حصلنا على كل شيء"
+
+#: .\src\core\templates\core\productsforvendor.html:292
+msgid "Your next favorite bag is just a click away"
+msgstr "حقيبتك المفضلة التالية هي مجرد نقرة بعيدا"
+
+#: .\src\core\templates\core\productsforvendor.html:295
+msgid "tep into comfort. Walk with confidence"
+msgstr "TEP في الراحة. المشي بثقة"
+
+#: .\src\core\templates\core\productsforvendor.html:298
+#: .\src\core\templates\core\productsforvendor.html:381
+#, fuzzy
+msgid "Beauty as pure as your heart"
+msgstr "الجمال نقي مثل قلبك"
+
+#: .\src\core\templates\core\productsforvendor.html:301
+#: .\src\core\templates\core\productsforvendor.html:397
+msgid "Shine brighter than ever — one piece at a time"
+msgstr "تألق أكثر إشراقًا من أي وقت مضى - قطعة واحدة في وقت واحد"
+
+#: .\src\core\templates\core\productsforvendor.html:304
+#: .\src\core\templates\core\productsforvendor.html:413
+msgid "Elegance isn’t optional — it’s you"
+msgstr "الأناقة ليست اختيارية - إنها أنت"
+
+#: .\src\core\templates\core\productsforvendor.html:307
+#: .\src\core\templates\core\productsforvendor.html:429
+msgid "Because your home deserves love too"
+msgstr "لأن منزلك يستحق الحب أيضًا"
+
+#: .\src\core\templates\core\productsforvendor.html:310
+#: .\src\core\templates\core\productsforvendor.html:445
+msgid "Where elegance lives in the little things"
+msgstr "حيث تعيش الأناقة في الأشياء الصغيرة"
+
+#: .\src\core\templates\core\productsforvendor.html:313
+#: .\src\core\templates\core\productsforvendor.html:461
+msgid "Power in every detail"
+msgstr "القوة في كل التفاصيل"
+
+#: .\src\core\templates\core\productsforvendor.html:332
+msgid "Bags"
+msgstr "أكياس"
+
+#: .\src\core\templates\core\productsforvendor.html:333
+msgid "Your next favorite bag is just a click away."
+msgstr "حقيبتك المفضلة التالية هي مجرد نقرة."
+
+#: .\src\core\templates\core\productsforvendor.html:348
+msgid "shoes"
+msgstr "أحذية"
+
+#: .\src\core\templates\core\productsforvendor.html:349
+msgid "Step into comfort. Walk with confidence"
+msgstr "خطوة إلى الراحة. المشي بثقة"
+
+#: .\src\core\templates\core\productsforvendor.html:364
+msgid "kids"
+msgstr "أطفال"
+
+#: .\src\core\templates\core\productsforvendor.html:380
+msgid "beauty"
+msgstr "جمال"
+
+#: .\src\core\templates\core\productsforvendor.html:396
+msgid "jewelry"
+msgstr "مجوهرات"
+
+#: .\src\core\templates\core\productsforvendor.html:412
+msgid "women"
+msgstr "نحيف"
+
+#: .\src\core\templates\core\productsforvendor.html:428
+msgid "home"
+msgstr "بيت"
+
+#: .\src\core\templates\core\productsforvendor.html:444
+msgid "accessories"
+msgstr "مُكَمِّلات"
+
+#: .\src\core\templates\core\productsforvendor.html:460
+msgid "man"
+msgstr "رجل"
+
+
+#: .\src\core\templates\core\productsforvendor.html:540
+msgid "People are also looking for"
+msgstr "الناس يبحثون عن"
+
+#: .\src\core\templates\core\productsforvendor.html:541
+msgid "tomat"
+msgstr "طعام"
+
+#: .\src\core\templates\core\productsforvendor.html:542
+msgid "margarin"
+msgstr "زبدة"
+
+#: .\src\core\templates\core\productsforvendor.html:543
+#: .\src\core\templates\core\productsforvendor.html:552
+msgid "Salty kettle Corn"
+msgstr "ذرة غلاية المالحة"
+
+#: .\src\core\templates\core\productsforvendor.html:544
+#: .\src\core\templates\core\productsforvendor.html:553
+msgid "Chobani Greek Yogurt"
+msgstr "chobani الزبادي اليوناني"
+
+#: .\src\core\templates\core\productsforvendor.html:545
+#: .\src\core\templates\core\productsforvendor.html:554
+msgid "Sweet Vanilla Yogurt"
+msgstr "زبادي الفانيليا الحلو"
+
+#: .\src\core\templates\core\productsforvendor.html:546
+#: .\src\core\templates\core\productsforvendor.html:555
+msgid "Foster Farms Takeout Crispy wings"
+msgstr "Foster Farms Takeout Crispy Wings"
+
+#: .\src\core\templates\core\productsforvendor.html:547
+#: .\src\core\templates\core\productsforvendor.html:556
+msgid "Warrior Blend Organic"
+msgstr "محارب مزيج عضوي"
+
+#: .\src\core\templates\core\productsforvendor.html:548
+#: .\src\core\templates\core\productsforvendor.html:557
+msgid "Chao Cheese Creamy"
+msgstr "تشاو جبن دسم"
+
+#: .\src\core\templates\core\productsforvendor.html:549
+#: .\src\core\templates\core\productsforvendor.html:558
+msgid "Chicken meatballs"
+msgstr "كرات اللحم"
+
+#: .\src\core\templates\core\productsforvendor.html:550
+msgid "Blue diamon almonds"
+msgstr "لوز ديامون الأزرق"
+
+#: .\src\core\templates\core\productsforvendor.html:551
+msgid "Angie’s Boomchickapop Corn"
+msgstr "أنجي بومتشكابوب الذرة"
+
+#: .\src\core\templates\core\vendor_orders.html:12
+msgid "customer:"
+msgstr "عميل:"
+
+#: .\src\core\templates\core\vendor_orders.html:13
+msgid "product:"
+msgstr "منتج:"
+
+#: .\src\core\templates\core\vendor_orders.html:14
+msgid "price:"
+msgstr "سعر:"
+
+#: .\src\core\templates\core\vendor_orders.html:15
+msgid "stats:"
+msgstr "الإحصائيات:"
+
+#: .\src\core\templates\core\vendor_orders.html:17
+msgid " date of order:"
+msgstr "تاريخ الطلب:"
+
+#: .\src\core\templates\core\vendor_orders.html:22
+msgid "Empty"
+msgstr "فارغ"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:21
+#, fuzzy
+msgid "Create your store now"
+msgstr "قم بإنشاء متجرك الآن"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:35
+msgid "Name:"
+msgstr "اسم:"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:38
+msgid "Phone:"
+msgstr "هاتف:"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:41
+msgid "Store name:"
+msgstr "اسم المتجر:"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:48
+msgid "Store type:"
+msgstr "نوع المتجر:"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:52
+msgid "Description:"
+msgstr "وصف:"
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:56
+msgid "Address:"
+msgstr "عنوان:"
+
+#: .\src\customer\templates\customer\customer.html:23
+msgid "Profile "
+msgstr "حساب تعريفي"
+
+#: .\src\customer\templates\customer\customer.html:35
+msgid "Welcome"
+msgstr "مرحباً"
+
+#: .\src\customer\templates\customer\customer.html:40
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#: .\src\customer\templates\customer\customer.html:42
+#: .\src\customer\templates\customer\customer.html:188
+msgid "Address"
+msgstr "عنوان"
+
+#: .\src\customer\templates\customer\customer.html:43
+#: .\src\customer\templates\customer\customer.html:191
+msgid "Touggourt"
+msgstr "Tougchourt"
+
+#: .\src\customer\templates\customer\customer.html:46
+msgid "Log Out"
+msgstr "تسجيل الخروج"
+
+#: .\src\customer\templates\customer\customer.html:68
+msgid "Overview"
+msgstr "ملخص"
+
+#: .\src\customer\templates\customer\customer.html:71
+msgid "Orders"
+msgstr "طلبات"
+
+#: .\src\customer\templates\customer\customer.html:74
+#: .\src\customer\templates\customer\customer.html:174
+msgid "Profile"
+msgstr "حساب تعريفي"
+
+#: .\src\customer\templates\customer\customer.html:78
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\src\customer\templates\customer\customer.html:99
+msgid "Total spant"
+msgstr "إجمالي المدفوعات"
+
+#: .\src\customer\templates\customer\customer.html:105
+msgid "Notification"
+msgstr "إشعار"
+
+#: .\src\customer\templates\customer\customer.html:130
+msgid "Budget"
+msgstr "ميزانية"
+
+#: .\src\customer\templates\customer\customer.html:131
+msgid "Date"
+msgstr "تاريخ"
+
+#: .\src\customer\templates\customer\customer.html:132
+msgid "State"
+msgstr "الحالة"
+
+#: .\src\customer\templates\customer\customer.html:133
+msgid "Action"
+msgstr "فعل"
+
+#: .\src\customer\templates\customer\customer.html:158
+msgid "view"
+msgstr "منظر"
+
+#: .\src\customer\templates\customer\customer.html:183
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+#: .\src\customer\templates\customer\customer.html:186
+msgid "Leo"
+msgstr "ليو"
+
+#: .\src\customer\templates\customer\customer.html:194
+msgid "Country"
+msgstr "دولة"
+
+#: .\src\customer\templates\customer\customer.html:197
+msgid "Algeria"
+msgstr "الجزائر"
+
+#: .\src\customer\templates\customer\customer.html:200
+msgid "Phone"
+msgstr "هاتف"
+
+#: .\src\customer\templates\customer\customer.html:203
+msgid "+213 **********"
+msgstr "+213 **********"
+
+#: .\src\customer\templates\customer\customer.html:215
+msgid "nn1509789@gmail.com"
+msgstr "nn1509789@gmail.com"
+
+#: .\src\customer\templates\customer\detilsview.html:22
+msgid "name"
+msgstr "اسم"
+
+#: .\src\customer\templates\customer\detilsview.html:23
+msgid "image"
+msgstr "صورة"
+
+#: .\src\customer\templates\customer\detilsview.html:24
+msgid "price"
+msgstr "سعر"
+
+#: .\src\customer\templates\customer\detilsview.html:25
+msgid "quantity"
+msgstr "كمية"
+
+#: .\src\customer\templates\customer\detilsview.html:26
+msgid "total"
+msgstr "المجموع"
+
+#: .\src\ecommestore\settings.py:164 .\src\users\translate.py:4
+msgid "French"
+msgstr "فرنسي"
+
+#: .\src\ecommestore\settings.py:165 .\src\users\translate.py:5
+msgid "English"
+msgstr "إنجليزي"
+
+#: .\src\ecommestore\settings.py:166 .\src\users\translate.py:6
+#, fuzzy
+msgid "Arabic"
+msgstr "عربي"
+
+#: .\src\errorpage\templates\errorpage\errorpage.html:14
+msgid " HTML Template by Colorlib"
+msgstr "قالب HTML بواسطة ColorLib"
+
+#: .\src\errorpage\templates\errorpage\errorpage.html:39
+msgid "Page not found"
+msgstr "الصفحة لم يتم العثور عليها"
+
+#: .\src\errorpage\templates\errorpage\errorpage.html:41
+msgid "Homepage"
+msgstr "الصفحة الرئيسية"
+
+#: .\src\servece\templates\servece\servece.html:72
+msgid "Platia"
+msgstr "بلاتيا"
+
+#: .\src\servece\templates\servece\servece.html:93
+msgid "Experience Culinary Excellence"
+msgstr "تجربة التميز في الطهي"
+
+#: .\src\servece\templates\servece\servece.html:96
+msgid "Savor Every Moment at Platia"
+msgstr "تذوق كل لحظة في بلاتيا"
+
+#: .\src\servece\templates\servece\servece.html:111
+msgid "Book a Table"
+msgstr "حجز طاولة"
+
+#: .\src\servece\templates\servece\servece.html:114
+msgid "View Menu"
+msgstr "عرض القائمة"
+
+#: .\src\servece\templates\servece\servece.html:126
+msgid "Open Daily"
+msgstr "مفتوح يوميا"
+
+#: .\src\servece\templates\servece\servece.html:128
+msgid "7:00 AM - 23:00 PM"
+msgstr "7:00 صباحًا - 23:00 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:135
+msgid "Location"
+msgstr "موقع"
+
+#: .\src\servece\templates\servece\servece.html:136
+msgid "Downtown Chicago"
+msgstr "وسط مدينة شيكاغو"
+
+#: .\src\servece\templates\servece\servece.html:142
+#: .\src\servece\templates\servece\servece.html:1106
+#: .\src\servece\templates\servece\servece.html:1207
+msgid "Reservations"
+msgstr "التحفظات"
+
+#: .\src\servece\templates\servece\servece.html:143
+msgid "+1 (312) 555-0198"
+msgstr "+1 (312) 555-0198"
+
+#: .\src\servece\templates\servece\servece.html:156
+#: .\src\servece\templates\servece\servece.html:908
+#: .\src\servece\templates\servece\servece.html:1246
+msgid "Make a Reservation"
+msgstr "قم بالحجز"
+
+#: .\src\servece\templates\servece\servece.html:192
+#: .\src\servece\templates\servece\servece.html:972
+msgid "Guests"
+msgstr "الضيوف"
+
+#: .\src\servece\templates\servece\servece.html:193
+msgid "1 Person"
+msgstr "شخص واحد"
+
+#: .\src\servece\templates\servece\servece.html:194
+msgid "2 People"
+msgstr "2 شخص"
+
+#: .\src\servece\templates\servece\servece.html:195
+msgid "3 People"
+msgstr "3 أشخاص"
+
+#: .\src\servece\templates\servece\servece.html:196
+msgid "4 People"
+msgstr "4 أشخاص"
+
+#: .\src\servece\templates\servece\servece.html:197
+msgid "5+ People"
+msgstr "5+ الناس"
+
+#: .\src\servece\templates\servece\servece.html:225
+#: .\src\servece\templates\servece\servece.html:1013
+#: .\src\servece\templates\servece\servece.html:1659
+msgid "Loading"
+msgstr "تحميل"
+
+#: .\src\servece\templates\servece\servece.html:232
+msgid "Reserve Now"
+msgstr "احتياطي الآن"
+
+#: .\src\servece\templates\servece\servece.html:243
+msgid "Scroll to Explore"
+msgstr "التمرير لاستكشاف"
+
+#: .\src\servece\templates\servece\servece.html:255
+msgid "&nbsp;About"
+msgstr "& nbsp ؛ حول"
+
+#: .\src\servece\templates\servece\servece.html:268
+msgid "Experience Our Unique Approach"
+msgstr "تجربة نهجنا الفريد"
+
+#: .\src\servece\templates\servece\servece.html:289
+msgid "Exceptional Service"
+msgstr "خدمة استثنائية"
+
+#: .\src\servece\templates\servece\servece.html:303
+msgid "Industry Recognition"
+msgstr "التعرف على الصناعة"
+
+#: .\src\servece\templates\servece\servece.html:335
+msgid "18"
+msgstr "18"
+
+#: .\src\servece\templates\servece\servece.html:337
+msgid "Years of Dedication"
+msgstr "سنوات التفاني"
+
+#: .\src\servece\templates\servece\servece.html:359
+#: .\src\servece\templates\servece\servece.html:360
+msgid "Testimonials"
+msgstr "شهادات"
+
+#: .\src\servece\templates\servece\servece.html:427
+msgid "Marcus Chen"
+msgstr "ماركوس تشن"
+
+#: .\src\servece\templates\servece\servece.html:431
+msgid "@marcuschen"
+msgstr "marcuschen"
+
+#: .\src\servece\templates\servece\servece.html:497
+msgid "James Wilson"
+msgstr "جيمس ويلسون"
+
+#: .\src\servece\templates\servece\servece.html:501
+msgid "@jwilson"
+msgstr "jwilson"
+
+#: .\src\servece\templates\servece\servece.html:533
+msgid "Emma Rodriguez"
+msgstr "إيما رودريغيز"
+
+#: .\src\servece\templates\servece\servece.html:537
+msgid "@emmarod"
+msgstr "emmarod"
+
+#: .\src\servece\templates\servece\servece.html:569
+msgid "David Kumar"
+msgstr "ديفيد كومار"
+
+#: .\src\servece\templates\servece\servece.html:573
+msgid "@davidkumar"
+msgstr "davidkumar"
+
+#: .\src\servece\templates\servece\servece.html:605
+msgid "Sophia Lee"
+msgstr "صوفيا لي"
+
+#: .\src\servece\templates\servece\servece.html:609
+msgid "@sophialee"
+msgstr "sophialee"
+
+#: .\src\servece\templates\servece\servece.html:627
+#: .\src\servece\templates\servece\servece.html:628
+msgid "Chefs"
+msgstr "الطهاة"
+
+#: .\src\servece\templates\servece\servece.html:663
+msgid "Featured Chef"
+msgstr "شيف مميز"
+
+#: .\src\servece\templates\servece\servece.html:665
+msgid "Avery Montrose"
+msgstr "أفيري مونتروز"
+
+#: .\src\servece\templates\servece\servece.html:666
+msgid "Executive Chef"
+msgstr "الشيف التنفيذي"
+
+#: .\src\servece\templates\servece\servece.html:725
+msgid "Jordan Lee"
+msgstr "الأردن لي"
+
+#: .\src\servece\templates\servece\servece.html:726
+msgid "Sous Chef"
+msgstr "شيف سوس"
+
+#: .\src\servece\templates\servece\servece.html:774
+msgid "Mila Santos"
+msgstr "ميلا سانتوس"
+
+#: .\src\servece\templates\servece\servece.html:775
+msgid "Pastry Chef"
+msgstr "طاهي المعجنات"
+
+#: .\src\servece\templates\servece\servece.html:823
+msgid "Kai Thompson"
+msgstr "كاي طومسون"
+
+#: .\src\servece\templates\servece\servece.html:824
+msgid "Grill Master"
+msgstr "شواية سيد"
+
+#: .\src\servece\templates\servece\servece.html:873
+msgid "Renee Collins"
+msgstr "رينيه كولينز"
+
+#: .\src\servece\templates\servece\servece.html:874
+msgid "Line Cook"
+msgstr "خط الطهي"
+
+#: .\src\servece\templates\servece\servece.html:973
+msgid "1 Guest"
+msgstr "1 ضيف"
+
+#: .\src\servece\templates\servece\servece.html:974
+msgid "2 Guests"
+msgstr "2 ضيوف"
+
+#: .\src\servece\templates\servece\servece.html:975
+msgid "3 Guests"
+msgstr "3 ضيوف"
+
+#: .\src\servece\templates\servece\servece.html:976
+msgid "4 Guests"
+msgstr "4 ضيوف"
+
+#: .\src\servece\templates\servece\servece.html:977
+msgid "5 Guests"
+msgstr "5 ضيوف"
+
+#: .\src\servece\templates\servece\servece.html:978
+msgid "6+ Guests"
+msgstr "6+ ضيوف"
+
+#: .\src\servece\templates\servece\servece.html:983
+msgid "Occasion"
+msgstr "مناسبة"
+
+#: .\src\servece\templates\servece\servece.html:985
+msgid "Birthday"
+msgstr "عيد ميلاد"
+
+#: .\src\servece\templates\servece\servece.html:988
+msgid "Anniversary"
+msgstr "عيد"
+
+#: .\src\servece\templates\servece\servece.html:991
+msgid "Business Dinner"
+msgstr "عشاء العمل"
+
+#: .\src\servece\templates\servece\servece.html:994
+msgid "Date Night"
+msgstr "ليلة التاريخ"
+
+#: .\src\servece\templates\servece\servece.html:997
+msgid "Celebration"
+msgstr "احتفال"
+
+#: .\src\servece\templates\servece\servece.html:999
+msgid "Other"
+msgstr "آخر"
+
+#: .\src\servece\templates\servece\servece.html:1044
+msgid "Experience Fine Dining"
+msgstr "تجربة طعام جيد"
+
+#: .\src\servece\templates\servece\servece.html:1065
+msgid "Business Hours"
+msgstr "ساعات العمل"
+
+#: .\src\servece\templates\servece\servece.html:1071
+msgid "Closed Mondays"
+msgstr "مغلق الاثنين"
+
+#: .\src\servece\templates\servece\servece.html:1087
+#: .\src\servece\templates\servece\servece.html:1186
+msgid "Find Us"
+msgstr "تجدنا"
+
+#: .\src\servece\templates\servece\servece.html:1089
+msgid "4567 Elm Avenue, Floor 2"
+msgstr "4567 Elm Avenue ، Floor 2"
+
+#: .\src\servece\templates\servece\servece.html:1108
+msgid "+1 (312) 555-9876"
+msgstr "+1 (312) 555-9876"
+
+#: .\src\servece\templates\servece\servece.html:1128
+msgid "Email Us"
+msgstr "أرسل لنا مراسلتي عبر البريد الإلكتروني"
+
+#: .\src\servece\templates\servece\servece.html:1130
+msgid "reservations@example.com"
+msgstr "chargetations@example.com"
+
+#: .\src\servece\templates\servece\servece.html:1187
+msgid "Visit Us Today"
+msgstr "قم بزيارتنا اليوم"
+
+#: .\src\servece\templates\servece\servece.html:1195
+msgid "Our Location"
+msgstr "موقعنا"
+
+#: .\src\servece\templates\servece\servece.html:1197
+msgid "123 Culinary Avenue, Manhattan, NY 10001"
+msgstr "123 شارع الطهي ، مانهاتن ، نيويورك 10001"
+
+#: .\src\servece\templates\servece\servece.html:1208
+msgid "+1 (212) 555-7890"
+msgstr "+1 (212) 555-7890"
+
+#: .\src\servece\templates\servece\servece.html:1221
+msgid "Hours"
+msgstr "ساعات"
+
+#: .\src\servece\templates\servece\servece.html:1223
+msgid "Monday - Thursday"
+msgstr "الاثنين - الخميس"
+
+#: .\src\servece\templates\servece\servece.html:1224
+msgid "11:00 AM - 10:00 PM"
+msgstr "11:00 صباحًا - 10:00 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1226
+msgid "Friday - Saturday"
+msgstr "الجمعة - السبت"
+
+#: .\src\servece\templates\servece\servece.html:1227
+msgid "11:00 AM - 11:30 PM"
+msgstr "11:00 صباحًا - 11:30 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1229
+msgid "Sunday"
+msgstr "الأحد"
+
+#: .\src\servece\templates\servece\servece.html:1230
+msgid "10:00 AM - 9:00 PM"
+msgstr "10:00 صباحًا - 9:00 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1232
+msgid "Brunch Hours"
+msgstr "ساعات الغداء"
+
+#: .\src\servece\templates\servece\servece.html:1234
+msgid "Sat &amp; Sun, 10:00 AM - 2:00 PM"
+msgstr "SAT & amp ؛ الشمس ، 10:00 صباحًا - 2:00 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1248
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: .\src\servece\templates\servece\servece.html:1261
+#: .\src\servece\templates\servece\servece.html:1262
+msgid "Events"
+msgstr "الأحداث"
+
+#: .\src\servece\templates\servece\servece.html:1278
+msgid "Limited Time"
+msgstr "وقت محدود"
+
+#: .\src\servece\templates\servece\servece.html:1279
+msgid "Autumn Harvest Festival"
+msgstr "مهرجان حصاد الخريف"
+
+#: .\src\servece\templates\servece\servece.html:1287
+msgid "October 15 - November 30, 2024"
+msgstr "15 أكتوبر - 30 نوفمبر 2024"
+
+#: .\src\servece\templates\servece\servece.html:1305
+msgid "Chef's Special"
+msgstr "شيف خاص"
+
+#: .\src\servece\templates\servece\servece.html:1309
+msgid "Seasonal Harvest Menu"
+msgstr "قائمة الحصاد الموسمية"
+
+#: .\src\servece\templates\servece\servece.html:1318
+msgid "Farm-to-Table Ingredients"
+msgstr "مكونات المزرعة إلى الطاولة"
+
+#: .\src\servece\templates\servece\servece.html:1322
+msgid "Locally Sourced Produce"
+msgstr "المنتجات المصدر محليا"
+
+#: .\src\servece\templates\servece\servece.html:1326
+msgid "Explore Menu"
+msgstr "استكشف القائمة"
+
+#: .\src\servece\templates\servece\servece.html:1337
+msgid "Award Winning"
+msgstr "الفوز بالجائزة"
+
+#: .\src\servece\templates\servece\servece.html:1341
+msgid "Wine Pairing Experience"
+msgstr "تجربة الاقتران النبيذ"
+
+#: .\src\servece\templates\servece\servece.html:1350
+msgid "Sommelier Curated"
+msgstr "برعاية سوميلير"
+
+#: .\src\servece\templates\servece\servece.html:1354
+msgid "Premium Selection"
+msgstr "اختيار قسط"
+
+#: .\src\servece\templates\servece\servece.html:1358
+msgid "Book Tasting"
+msgstr "تذوق الكتاب"
+
+#: .\src\servece\templates\servece\servece.html:1369
+msgid "Recognition &amp; Awards"
+msgstr "الاعتراف & amp ؛ جوائز"
+
+#: .\src\servece\templates\servece\servece.html:1383
+msgid "Best Restaurant 2024"
+msgstr "أفضل مطعم 2024"
+
+#: .\src\servece\templates\servece\servece.html:1384
+msgid "City Dining Awards"
+msgstr "جوائز لتناول الطعام في المدينة"
+
+#: .\src\servece\templates\servece\servece.html:1392
+msgid "5-Star Rating"
+msgstr "تصنيف 5 نجوم"
+
+#: .\src\servece\templates\servece\servece.html:1393
+msgid "Local Food Guide"
+msgstr "دليل الطعام المحلي"
+
+#: .\src\servece\templates\servece\servece.html:1401
+msgid "Excellence Award"
+msgstr "جائزة التميز"
+
+#: .\src\servece\templates\servece\servece.html:1402
+msgid "Culinary Institute"
+msgstr "معهد الطهي"
+
+#: .\src\servece\templates\servece\servece.html:1410
+msgid "Customer Choice"
+msgstr "اختيار العميل"
+
+#: .\src\servece\templates\servece\servece.html:1411
+msgid "Community Favorite"
+msgstr "المجتمع المفضل"
+
+#: .\src\servece\templates\servece\servece.html:1432
+msgid "Community Involvement"
+msgstr "مشاركة المجتمع"
+
+#: .\src\servece\templates\servece\servece.html:1442
+msgid "$50K+"
+msgstr "50 ألف دولار+"
+
+#: .\src\servece\templates\servece\servece.html:1444
+msgid "Donated to Local Charities"
+msgstr "تبرعت للجمعيات الخيرية المحلية"
+
+#: .\src\servece\templates\servece\servece.html:1448
+msgid "25+"
+msgstr "25+"
+
+#: .\src\servece\templates\servece\servece.html:1450
+msgid "Local Farm Partners"
+msgstr "شركاء المزرعة المحليين"
+
+#: .\src\servece\templates\servece\servece.html:1456
+msgid "100+"
+msgstr "100+"
+
+#: .\src\servece\templates\servece\servece.html:1458
+msgid "Community Events Hosted"
+msgstr "الأحداث المجتمعية المستضافة"
+
+#: .\src\servece\templates\servece\servece.html:1462
+msgid "500+"
+msgstr "500+"
+
+#: .\src\servece\templates\servece\servece.html:1464
+msgid "Volunteer Hours"
+msgstr "ساعات التطوع"
+
+#: .\src\servece\templates\servece\servece.html:1479
+msgid "Eco-Friendly Practices"
+msgstr "الممارسات الصديقة للبيئة"
+
+#: .\src\servece\templates\servece\servece.html:1489
+#, fuzzy, python-format
+#| msgid "100% Compostable Packaging"
+msgid "100%% Compostable Packaging"
+msgstr "100 ٪ عبوة سميد"
+
+#: .\src\servece\templates\servece\servece.html:1493
+msgid "Water Conservation Program"
+msgstr "برنامج الحفاظ على المياه"
+
+#: .\src\servece\templates\servece\servece.html:1497
+msgid "Renewable Energy Powered"
+msgstr "الطاقة المتجددة مدعومة"
+
+#: .\src\servece\templates\servece\servece.html:1501
+msgid "Local Sourcing Priority"
+msgstr "أولوية المصادر المحلية"
+
+#: .\src\servece\templates\servece\servece.html:1516
+#: .\src\servece\templates\servece\servece.html:1517
+msgid "Contact"
+msgstr "اتصال"
+
+#: .\src\servece\templates\servece\servece.html:1534
+msgid "Our Address"
+msgstr "عنواننا"
+
+#: .\src\servece\templates\servece\servece.html:1535
+msgid "1842 Maple Avenue, Portland, Oregon 97204"
+msgstr "1842 Maple Avenue ، Portland ، Oregon 97204"
+
+#: .\src\servece\templates\servece\servece.html:1546
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: .\src\servece\templates\servece\servece.html:1547
+msgid "info@example.com"
+msgstr "info@example.com"
+
+#: .\src\servece\templates\servece\servece.html:1548
+msgid "contact@example.com"
+msgstr "contact@example.com"
+
+#: .\src\servece\templates\servece\servece.html:1559
+msgid "Hours of Operation"
+msgstr "ساعات العمل"
+
+#: .\src\servece\templates\servece\servece.html:1560
+msgid "Sunday-Fri: 9 AM - 6 PM"
+msgstr "الأحد -الجمعة: 9 صباحًا - 6 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1561
+msgid "Saturday: 9 AM - 4 PM"
+msgstr "السبت: 9 صباحًا - 4 مساءً"
+
+#: .\src\servece\templates\servece\servece.html:1662
+msgid "Your message has been sent. Thank you!"
+msgstr "تم إرسال رسالتك. شكرًا لك!"
+
+#: .\src\servece\templates\servece\servece.html:1668
+msgid "SEND MESSAGE"
+msgstr "أرسل رسالة"
+
+#: .\src\users\templates\users\register.html:15
+msgid "Blingo | Login"
+msgstr ""
+
+#: .\src\users\templates\users\register.html:19
+msgid "Welcom in your market"
+msgstr "مرحبا بك في متجرك"
+
+#: .\src\users\templates\users\register.html:29
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+#: .\src\users\templates\users\register.html:34
+#: .\src\users\templates\users\register.html:80
+msgid "Sign Up"
+msgstr "اشتراك"
+
+#: .\src\users\templates\users\register.html:36
+msgid "Already have account ?"
+msgstr "هل لديك بالفعل حساب؟"
+
+#: .\src\users\templates\users\register.html:38
+msgid "sign In"
+msgstr "تسجيل الدخول"
+
+#: .\src\users\templates\users\register.html:46
+#: .\src\users\templates\users\register.html:54
+msgid "Log In"
+msgstr "تسجيل الدخول"
+
+#: .\src\users\templates\users\register.html:56
+#, fuzzy
+#| msgid "Don`t have account ?"
+msgid "Don't have account ?"
+msgstr "ليس لديك حساب؟"
+
+#: .\src\users\templates\users\register.html:58
+msgid "sign Up"
+msgstr "اشتراك"
+
+#: .\src\users\templates\users\register.html:66
+msgid "Welcome Back!"
+msgstr "مرحبًا بعودتك!"
+
+#: .\src\users\templates\users\register.html:71
+msgid "login"
+msgstr "تسجيل الدخول"
+
+#: .\src\users\templates\users\register.html:74
+msgid "Hello, Friend!"
+msgstr "مرحبا يا صديقي!"
+
+#~ msgid ""
+#~ "We are a company specialized in delivering orders quickly and easily, our "
+#~ "goal is to make your daily life simpler. We provide you with a platform "
+#~ "that brings together restaurants, shops, and various services in one "
+#~ "place, and we ensure that your orders arrive safely at your doorstep, on "
+#~ "time, and at the best prices."
+#~ msgstr ""
+#~ "شركة متخصصة في خدمات التوصيل السريعة والسهلة. هدفنا هو جعل حياتك اليومية "
+#~ "أبسط. نقدم منصة تجمع بين المطاعم والمتاجر والخدمات المتنوعة في مكان واحد، "
+#~ "مما يضمن وصول طلباتك إلى باب منزلك بأمان وسرعة وبأفضل الأسعار."
+
+#~ msgid ""
+#~ "We strive to be the first choice in the field of delivery services by "
+#~ "building a reliable platform that connects customers with various "
+#~ "restaurants, stores, and service providers in an easy and fast manner. We "
+#~ "aim to redefine the delivery experience to be more comfortable and "
+#~ "flexible, not only meeting the daily needs of customers but also "
+#~ "exceeding them to give them extra time to enjoy their lives. Our vision "
+#~ "is to become the essential partner for every individual and family in "
+#~ "their daily lives, by providing innovative services based on modern "
+#~ "technology that meet the highest standards of quality, safety, and speed."
+#~ msgstr ""
+#~ "نسعى ليكون لنا الخيار الأول في مجال خدمات التوصيل من خلال بناء منصة "
+#~ "موثوقة تربط العملاء بمختلف المطاعم والمتاجر ومزودي الخدمات بطريقة سهلة "
+#~ "وسريعة. نحن نهدف إلى إعادة تعريف تجربة التوصيل لتكون أكثر راحة ومرونة، "
+#~ "ليس فقط لتلبية الاحتياجات اليومية للعملاء بل لتجاوزها أيضًا لمنحهم المزيد "
+#~ "من الوقت للاستمتاع بحياتهم. رؤيتنا هي أن نصبح الشريك الأساسي لكل فرد "
+#~ "وعائلة في حياتهم اليومية، من خلال توفير خدمات مبتكرة تعتمد على "
+#~ "التكنولوجيا الحديثة التي تلبي أعلى معايير الجودة والسلامة والسرعة."
+
+#~ msgid "Home → category"
+#~ msgstr "الصفحة الرئيسية → فئة"
+
+#, fuzzy
+#~| msgid "Home → category"
+#~ msgid "Home → category → "
+#~ msgstr "الصفحة الرئيسية → فئة"
+
+#~ msgid "All types of orders"
+#~ msgstr "كل انواع الطلبات"
+
+#~ msgid ""
+#~ "Indulge in authentic Italian cuisine crafted with passion and the finest "
+#~ "ingredients. From traditional recipes passed down through generations to "
+#~ "innovative culinary creations, we offer an unforgettable dining "
+#~ "experience."
+#~ msgstr ""
+#~ "تنغمس في المطبخ الإيطالي الأصيل المصنوع من العاطفة وأرقى المكونات. من "
+#~ "الوصفات التقليدية التي تنتقل عبر الأجيال إلى إبداعات الطهي المبتكرة ، "
+#~ "نقدم تجربة طعام لا تنسى."
+
+#~ msgid "Your reservation request has been sent. We'll contact you shortly!"
+#~ msgstr "تم إرسال طلب الحجز الخاص بك. سوف نتصل بك قريبا!"
+
+#~ msgid ""
+#~ "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint "
+#~ "consectetur velit"
+#~ msgstr "ضرورية eius نتيجة ex aliquid fuga eum quidem sint incectetur velit"
+
+#~ msgid ""
+#~ "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. "
+#~ "Vestibulum id ligula porta felis euismod semper."
+#~ msgstr ""
+#~ "عدد صحيح posuere erat a ante venenatis dapibus posuere velit aliquet. "
+#~ "الدهليز معرف Ligula porta felis euismod semper."
+
+#~ msgid ""
+#~ "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu "
+#~ "leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. "
+#~ "Curabitur blandit tempus porttitor."
+#~ msgstr ""
+#~ "Morbi Leo Risus ، Porta AC incectetur AC ، الدهليز في إيروس. AENEAN EU "
+#~ "LEO QUAM. Pellentesque Ornare Sem lacinia quam venenatis الدهليز. "
+#~ "Curabitur Blandit tempus porttitor."
+
+#~ msgid "Donec sed odio dui. Nulla vitae elit libero, a pharetra augue."
+#~ msgstr "Donec Sed Odio DUI. Nulla Vitae Elit Libero ، A Pharetra Augue."
+
+#~ msgid "Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
+#~ msgstr "Praesent Commodo Cursus Magna ، Vel Scelerisque Nisl incectetur et."
+
+#~ msgid ""
+#~ "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum "
+#~ "suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh "
+#~ "et. Maecen aliquam, risus at semper."
+#~ msgstr ""
+#~ "proin iaculis purus نتيجة SEM Cure digni ssim donec porttitora entum "
+#~ "suscipit rhoncus. Quam Quam ، Ultricies eget id ، aliquam eget nibh et. "
+#~ "Maecen Aliquam ، Risus في Semper."
+
+#~ msgid ""
+#~ "Enim nisi quem export duis labore cillum quae magna enim sint quorum "
+#~ "nulla quem veniam duis minim tempor labore quem eram duis noster aute "
+#~ "amet eram fore quis sint minim."
+#~ msgstr ""
+#~ "enim nisi quem esport duis labore cillum quae magna enim sint quorum "
+#~ "nulla quem veniam duis minimt labore quem eram duis noster aute amet eram "
+#~ "fore quis sint minim."
+
+#~ msgid ""
+#~ "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export "
+#~ "minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna "
+#~ "sunt elit fore quem dolore labore."
+#~ msgstr ""
+#~ "fugiat enim eram quae cillum dolore dolor amet nulla culpa multos esport "
+#~ "minim fugiat minime velit minim dolor enim duis veniam ipsum anim magna "
+#~ "sunt leit leit quem dolore labore."
+
+#~ msgid ""
+#~ "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam "
+#~ "tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum "
+#~ "fugiat legam esse veniam culpa."
+#~ msgstr ""
+#~ "quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam "
+#~ "tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum "
+#~ "fugiat legam esse veniam culpa."
+
+#~ msgid ""
+#~ "Export tempor illum tamen malis malis eram quae irure esse labore quem "
+#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
+#~ "noster fugiat irure amet legam anim culpa."
+#~ msgstr ""
+#~ "صادرات مؤقتة Illum tamen malis malis eram quae irure esse labore quem "
+#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
+#~ "noster fugiat irure amet legam ant culpa."
+
+#~ msgid ""
+#~ "Texit tempor illum tamen malis malis eram quae irure esse labore quem "
+#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
+#~ "noster fugiat irure amet legam anim culpa."
+#~ msgstr ""
+#~ "TEXIT TEMPOR ILLUM TAMEN MALIS ERAM QUAE IRURE ESSE LABORE QUEM CILLUM "
+#~ "QUID CILLUM ERAM MALIS QUORUM VELIT ERAM VELIT SUNT ALIQUA Noster Fugiat "
+#~ "iRure Amet Legam Anim Culpa."
+
+#~ msgid "Michelin Mention"
+#~ msgstr "ميشلان ذكر"
+
+#~ msgid ""
+#~ "Curabitur convallis lectus a sapien dictum, sed posuere urna fermentum. "
+#~ "Maecenas sodales, neque non pretium ultrices, lacus nibh finibus mi, non "
+#~ "vulputate arcu quam at nisl."
+#~ msgstr ""
+#~ "curabitur convallis محاضرة dictum sapien ، sed posuere urna تخمير. "
+#~ "Maecenas Sodales ، neque non pretium ultrices ، lacus nibh finibus mi ، "
+#~ "غير الجذابة arcu quam في nisl."
+
+#~ msgid "Gourmand Trophy 2022"
+#~ msgstr "Gourmand Trophy 2022"
+
+#~ msgid "Le Cordon Bleu Honors"
+#~ msgstr "LE CORDON BLEU يكرم"
+
+#~ msgid "City Best Tasting Menu"
+#~ msgstr "أفضل قائمة تذوق المدينة"
+
+#~ msgid ""
+#~ "Donec feugiat, arcu non pulvinar posuere, risus libero cursus nibh, sed "
+#~ "dictum nibh arcu non augue."
+#~ msgstr ""
+#~ "Donec Feugiat ، Arcu non Pulvinar posuere ، Risus Libero Cursus nibh ، "
+#~ "sed dictum nibh arcu non Augue."
+
+#~ msgid "Street Food Fest"
+#~ msgstr "مهرجان طعام الشارع"
+
+#~ msgid ""
+#~ "Integer aliquet, urna et commodo gravida, libero lacus aliquam velit, "
+#~ "vitae iaculis sem velit in purus."
+#~ msgstr ""
+#~ "integer aliquet ، urna et commodo gravida ، libero lacus aliquam velit ، "
+#~ "vitae iaculis sem velit in purus."
+
+#~ msgid "Cocoa Summit"
+#~ msgstr "قمة الكاكاو"
+
+#~ msgid ""
+#~ "Pellentesque dapibus, nibh id pharetra interdum, risus est vehicula "
+#~ "lectus, non iaculis velit elit ut felis."
+#~ msgstr ""
+#~ "Pellentesque dapibus ، nibh id pharetra interdum ، Risus est queicula "
+#~ "lectus ، non iaculis velit elit ut felis."
+
+#~ msgid "Smoke-Off Winner"
+#~ msgstr "فائز دخان"
+
+#~ msgid ""
+#~ "Vestibulum congue, justo eget ultricies posuere, erat nunc viverra arcu, "
+#~ "vitae cursus arcu nunc at erat."
+#~ msgstr ""
+#~ "الدهليز congue ، justo eget intricies posuere ، erat nunc viverra arcu ، "
+#~ "Vitae cursus arcu nunc في erat."
+
+#~ msgid "Guest Favorite"
+#~ msgstr "مفضل ضيف"
+
+#~ msgid ""
+#~ "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
+#~ "enim ad minim veniam quis nostrud exercitation."
+#~ msgstr ""
+#~ "SED do eiusmod regiDunt ut labore et dolore magna aliqua. UT ENIM AD الحد "
+#~ "الأدنى في Veniam quis nostrud."
+
+#~ msgid ""
+#~ "Your reservation request has been submitted successfully. We'll contact "
+#~ "you shortly to confirm."
+#~ msgstr "تم تقديم طلب الحجز الخاص بك بنجاح. سنتصل بك قريبًا للتأكيد."
+
+#~ msgid ""
+#~ "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum "
+#~ "dolore eu fugiat nulla pariatur."
+#~ msgstr ""
+#~ "DUIS AUTE IRURE DOLOR في refrehenderit في voluptate velit esse cillum "
+#~ "dolore eu fugiat nulla pariatur."
+
+#~ msgid "Tuesday - Thursday: 5:00 PM - 10:00 PM"
+#~ msgstr "الثلاثاء - الخميس: 5:00 مساءً - 10:00 مساءً"
+
+#~ msgid "Available daily 2:00 PM - 9:00 PM"
+#~ msgstr "متاح يوميًا 2:00 مساءً - 9:00 مساءً"
+
+#~ msgid "Response within 24 hours"
+#~ msgstr "الاستجابة في غضون 24 ساعة"
+
+#~ msgid "Recommended to book 2-3 days in advance for weekend dining"
+#~ msgstr "موصى به لحجز 2-3 أيام مقدمًا لتناول الطعام في عطلة نهاية الأسبوع"
+
+#~ msgid "We recommend making reservations at least 48 hours in advance"
+#~ msgstr "نوصي بإجراء الحجوزات قبل 48 ساعة على الأقل"
+
+#~ msgid ""
+#~ "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore "
+#~ "et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud "
+#~ "exercitation ullamco laboris."
+#~ msgstr ""
+#~ "incectetur adipiscing leit ، sed do eiusmod regiDUnt ut labore et dolore "
+#~ "magna aliqua. UT ENIM AD الحد الأدنى من Veniam ، QUIS NOSTRUD تمارس "
+#~ "Ullamco LABORIS."
+
+#~ msgid ""
+#~ "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum "
+#~ "dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non "
+#~ "proident."
+#~ msgstr ""
+#~ "DUIS AUTE IRURE DOLOR في refrehenderit في voluptate velit esse cillum "
+#~ "dolore eu fugiat nulla pariatur. باستثناء sint occaecat cupidatat غير "
+#~ "برومنت."
+
+#~ msgid ""
+#~ "Sed ut perspiciatis unde omnis iste natus error sit voluptatem "
+#~ "accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab "
+#~ "illo."
+#~ msgstr ""
+#~ "sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium "
+#~ "doloremque laudantium ، totam rem aperiam ، eque ipsa quae ab illo."
+
+#~ msgid ""
+#~ "At enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi "
+#~ "ut aliquip ex ea commodo consequat."
+#~ msgstr ""
+#~ "في enim ad maint Veniam ، تمارس quis nostrud ullamco laboris nisi ut "
+#~ "aliquip ex ea commodo."
+
+#~ msgid "Supporting local farmers and charities since 2015"
+#~ msgstr "دعم المزارعين المحليين والجمعيات الخيرية منذ عام 2015"
+
+#~ msgid "Committed to sustainable dining and zero waste"
+#~ msgstr "ملتزمون بتناول الطعام المستدامة والنفايات الصفرية"
+
+#~ msgid "To keep connected with us please login with your personal info"
+#~ msgstr "للحفاظ على اتصال معنا ، يرجى تسجيل الدخول بمعلوماتك الشخصية"
+
+#~ msgid "Enter your personal details and start journey with us"
+#~ msgstr "أدخل بياناتك الشخصية وابدأ الرحلة معنا"
+
+#~ msgid "Lorem ipsum amet dolor"
+#~ msgstr "Lorem ipsum amet dolor"
+
+#~ msgid ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+#~ "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim "
+#~ "veniam, quis volupta"
+#~ msgstr ""
+#~ "lorem ipsum dolor sit amet ، exectetur adipiscing elit ، sed do eiusmod "
+#~ "regiDunt ut labore et dolore magna aliqua. UT ENIM AD MINIM VENIAM ، QUIS "
+#~ "VOLUPTA"
+
+#~ msgid "View All Categories →"
+#~ msgstr "عرض جميع الخدمات"
+
+#~ msgid "Lorem ipsum dolor sit amet, consectetur adipi elit."
+#~ msgstr "lorem ipsum dolor sit amet ، incectetur adipi elit."
+
+#~ msgid "FoodMart - Free eCommerce Grocery Store HTML Website Template"
+#~ msgstr "Foodmart - قالب موقع الويب الخاص بالتجارة الإلكترونية مجانًا"
+
+#~ msgid ""
+#~ "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere "
+#~ "cubilia curae. Donec velit neque auctor sit amet aliquam vel ullamcorper "
+#~ "sit amet ligula."
+#~ msgstr ""
+#~ "الدهليز ante ipsum primis في faucibus orci luctus et ultrices posuere "
+#~ "cubilia curae. Donec Velit neque auctor sit amet aliquam vel ulamcorper "
+#~ "sit amet ligula."
+
+#~ msgid "Careers"
+#~ msgstr "وظائف"
+
+#~ msgid "Press"
+#~ msgstr "يضعط"
+
+#~ msgid "Solutions"
+#~ msgstr "الحلول"
+
+#~ msgid "Digital Strategy"
+#~ msgstr "الاستراتيجية الرقمية"
+
+#~ msgid "Cloud Computing"
+#~ msgstr "الحوسبة السحابية"
+
+#~ msgid "Data Analytics"
+#~ msgstr "تحليلات البيانات"
+
+#~ msgid "AI Solutions"
+#~ msgstr "حلول الذكاء الاصطناعي"
+
+#~ msgid "Cybersecurity"
+#~ msgstr "الأمن السيبراني"
+
+#~ msgid "2847 Maple Avenue"
+#~ msgstr "2847 شارع القيقب"
+
+#~ msgid "Los Angeles, CA 90210"
+#~ msgstr "لوس أنجلوس ، كاليفورنيا 90210"
+
+#~ msgid "United States"
+#~ msgstr "الولايات المتحدة"
+
+#~ msgid "+1 (555) 987-6543"
+#~ msgstr "+1 (555) 987-6543"
+
+#~ msgid "Accessories"
+#~ msgstr "مُكَمِّلات"
+
+#, fuzzy, python-format
+#~| msgid "100% natural"
+#~ msgid "100%% natural"
+#~ msgstr "100 ٪ الطبيعي"
+
+#~ msgid "Fresh Smoothie & Summer Juice"
+#~ msgstr "عصير جديد وعصير الصيف"
+
+#~ msgid "Shop Now"
+#~ msgstr "تسوق الآن"
+
+#~ msgid "Shop Collection"
+#~ msgstr "مجموعة المتجر"
+
+#~ msgid "Heinz Tomato Ketchup"
+#~ msgstr "هاينز الطماطم ketchup"
+
+#, python-format
+#~ msgid "20%% off"
+#~ msgstr "20 ٪ بقالة "
+
+#~ msgid "Fruits & Vegetables"
+#~ msgstr "الفواكه والخضروات"
+
+#~ msgid "Baked Products"
+#~ msgstr "المنتجات المخبوزة"
+
+#~ msgid "Category"
+#~ msgstr "فئة"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "نسيت كلمة السر؟"
+
+#~ msgid "Full Name"
+#~ msgstr "الاسم الكامل"
+
+#~ msgid "Setting"
+#~ msgstr "جلسة"
+
+#, python-format
+#~ msgid "15%% off"
+#~ msgstr "15 ٪٪ قبالة"
+
+#~ msgid "or use your account"
+#~ msgstr "أو استخدم حسابك"
+
+#~ msgid "Home → category → {{category.categoress}}"
+#~ msgstr "الصفحة الرئيسية → الفئة → ___CURLY_0___"

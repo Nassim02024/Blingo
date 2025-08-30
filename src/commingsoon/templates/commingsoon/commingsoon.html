@@ -1,0 +1,86 @@
+{% load static %} {% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% trans "Coming soon page by GraphBerry" %}</title>
+    <link href="{% static 'css/commingsoon.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <style>
+      html {
+        background: url("{% static 'images/bg-image.jpg' %}");
+      }
+    </style>
+
+    <div class="wrapper">
+      <div class="logo">
+        <img
+          src="{% static 'images/logo-soon.png' %}"
+          alt="GraphBerry coming soon theme"
+          loading="lazy"
+        />
+      </div>
+      <h1>{% trans "Comming soon!" %}</h1>
+      <h2>{% trans "Be ready, there is just:" %}</h2>
+      <ul class="countdown">
+        <li>
+          <span class="days">{% trans "OO" %}</span>
+          <p class="days_ref">{% trans "days" %}</p>
+        </li>
+        <li>
+          <span class="hours">{% trans ":OO" %}</span>
+          <p class="hours_ref">{% trans "hours" %}</p>
+        </li>
+        <li>
+          <span class="minutes">{% trans ":OO" %}</span>
+          <p class="minutes_ref">{% trans "minutes" %}</p>
+        </li>
+        <li>
+          <span class="seconds">{% trans ":OO" %}</span>
+          <p class="seconds_ref">{% trans "seconds" %}</p>
+        </li>
+      </ul>
+      <form>
+        <input type="email" placeholder="Enter your email" />
+        <input type="submit" value="Keep me updated" />
+      </form>
+      <ul class="social">
+        <li>
+          <a href=""><i class="icon-facebook"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="icon-twitter-1"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="icon-behance"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="icon-dribbble-1"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="icon-pinterest-circled"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="icon-gplus-1"></i></a>
+        </li>
+      </ul>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/commingsoonjquery.downCount.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/commingsoonapp.js' %}"
+    ></script>
+  </body>
+</html>

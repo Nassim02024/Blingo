@@ -1,0 +1,66 @@
+{% load static %}
+{% load i18n %}
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% trans 'Document' %}</title>
+   
+  <link rel="stylesheet" href="{% static  'css/createStoreVendor.css' %}">
+   eet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div id="body_header">
+  <!--This is a division tag for body header-->
+  <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{% trans 'Create your store now' %}<i class="fas fa-store"></i></h1>
+
+</div>
+{% if messages %}
+{% for message in messages %}
+  <div class="alert">
+    <strong>{{message}}</strong>
+  </div>
+{% endfor %}
+{% endif %}
+<form action="{% url 'createstorevendorform' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <fieldset>
+    <label for="name">{% trans 'Name:' %}</label>
+    {{form.name}}
+
+    <label for="phone">{% trans 'Phone:' %}</label>
+    {{form.phone_number}}
+
+    <label for="tel">{% trans 'Store name:' %}</label>
+    {{form.store_name}}
+
+
+  </fieldset>
+
+  <fieldset>
+    <label for="appointment_for">{% trans 'Store type:' %}</label>
+      {{form.store_type}}
+  
+      
+    <label for="appointment_description">{% trans 'Description:' %}</label>
+    {{form.description}}
+
+    
+    <label for="time">{% trans 'Address:' %}</label>
+    {{form.address}}
+    <br>
+    {{form.image}}
+
+  </fieldset>
+  <button type="submit">{% trans 'submit' %}</button>
+</form>
+</div>
+</body>
+</html>

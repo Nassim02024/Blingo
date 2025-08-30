@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+ 
+{% block content %}
+
+<main style="padding: 5% 2%;">
+  <section class="banner">
+    <div class="left" style="width: max-content;">
+      <div class="top">
+        <h2>{% trans 'Catecory' %}</h2>
+      </div>
+      <div class="bottom">
+         <span class="material-symbols-outlined" style="font-size: 17px;margin:3px 0;" >{% trans 'Home' %}</span> → <p>{% trans 'category' %}</p>
+      </div>
+    </div>
+    <div class="right">
+      <ul>
+
+        {% for categorys in categorys %}
+        <li>{{categorys.categoress}}</li>
+        {% endfor %}
+        
+      </ul>
+    </div>
+  </section>
+
+  <div class="category_section">
+    <h2>{{category.count}} {% trans "Catecory" %}</h2>
+    
+  <div class="category_card">
+    {% for category_card in category %}
+
+      <div class="product-item">
+      <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
+      <figure>
+        <a href="{% url 'product_category' category_card.cid %}" title="Product Title">
+          <img src="{{category_card.imge.url}}" alt="Product Thumbnail" class="category-image" loading="lazy">
+        </a>
+      </figure>
+      <center><h3>{{category_card.categoress}}</h3></center>
+      <center><p>{{category_card.Category.count}} {% trans "Product" %}{{category_card.Category.count| pluralize:"s"}}</p></center>
+     </div>
+
+    {% endfor %}
+  </div>
+  
+</main>
+
+{% endblock content %}

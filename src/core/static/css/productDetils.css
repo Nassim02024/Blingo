@@ -1,0 +1,91 @@
+/* .rev-section{
+    width: 100%;
+    padding: 1rem 1rem;
+
+    text-align: center;
+  }
+  
+  .title{
+    font-size: 3.5rem;
+    color: rgb(50, 50, 50);
+     margin-bottom: .5rem;
+    color:#fff;
+    font-family:cursive;
+  }
+
+  .reviews{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .review{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+
+  .head-review img{
+    position: relative;
+    top: 60px;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+  }
+  
+  .body-review{
+    width: 50%;
+    padding: 1rem;
+    background-color: rgb(238, 238, 238);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .name-review{
+    font-size: 1.5rem;
+    color: rgb(50, 50, 50);
+    margin-bottom: .25rem;
+  }
+  .place-review{
+    color: violet;
+    font-style: italic;
+  }
+  .rating{
+    color: rgb(253, 180, 42);
+    margin: 1rem 0;
+  }
+  .desc-review{
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    color: rgb(150, 150, 150);
+  }
+  
+  @media (max-width: 678px){
+    .review{
+      margin-top: 1.5rem;
+    }
+  }
+  .credit a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  
+  .title{
+    font-size: 3.5rem;
+    color: rgb(50, 50, 50);
+    margin-bottom: .5rem;
+    color:#fff;
+    font-family:cursive;
+  }
+
+
+
+  
+  .head-review{
+    
+    width: 100px;
+    height: 100px;
+  }
+  
+  
+   */

@@ -1,0 +1,27 @@
+{% load static %} {% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blingo | orders</title>
+  </head>
+  <body>
+    {% for order in orders %}
+    <div class="order-box">
+      <p><strong>{% trans 'customer:' %}</strong> {{ order.customer_name }}</p>
+      <p><strong>{% trans 'product:' %}</strong> {{ order.product_name }}</p>
+      <p><strong>{% trans 'price:' %}</strong> {{ order.product_price }} DA</p>
+      <p><strong>{% trans 'stats:' %}</strong> {{ order.product_status }}</p>
+      <p>
+        <strong>{% trans ' date of order:' %}</strong> {{ order.order_date }}
+      </p>
+      <hr />
+    </div>
+    {% empty %}
+    <p>{% trans 'Empty' %}</p>
+    {% endfor %}
+
+    <script src="{% static 'js/sucsses.js' %}"></script>
+  </body>
+</html>

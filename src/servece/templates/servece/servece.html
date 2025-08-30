@@ -1,0 +1,1699 @@
+{% load static %} {% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Service</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link
+      href="{% static 'images/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- cdn bootstrap -->
+    <!-- CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- animation -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- glightbox -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Main CSS File -->
+
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header fixed-top">
+      <div class="branding d-flex align-items-cente">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="aboutus.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="{% static 'img/logo.webp' %}" alt="logo" loading="lazy"> -->
+            <h1 class="sitename">{% trans "Platia" %}</h1>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+        <div class="hero-background">
+          <video autoplay="" muted="" loop="" playsinline="">
+            <source src="{% static 'images/video-4.mp4' %}" type="video/mp4" />
+          </video>
+          <div class="overlay"></div>
+        </div>
+
+        <div class="container hero-content">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="hero-text" data-aos="fade-up" data-aos-delay="100">
+                <span class="tagline"
+                  >{% trans "Experience Culinary Excellence" %}</span
+                >
+                <h1 class="hero-title">
+                  {% trans "Savor Every Moment at Platia" %}
+                </h1>
+                <p class="hero-description">
+                  {% trans "Indulge in authentic Italian cuisine crafted with
+                  passion and the finest ingredients. From traditional recipes
+                  passed down through generations to innovative culinary
+                  creations, we offer an unforgettable dining experience." %}
+                </p>
+
+                <div
+                  class="hero-actions"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <a href="#" class="btn btn-primary"
+                    >{% trans "Book a Table" %}</a
+                  >
+                  <a href="#" class="btn btn-outline"
+                    >{% trans "View Menu" %}</a
+                  >
+                </div>
+
+                <div
+                  class="hero-features"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="feature-item">
+                    <i class="bi bi-clock"></i>
+                    <div class="feature-text">
+                      <span class="label">{% trans "Open Daily" %}</span>
+                      <span class="value"
+                        >{% trans "7:00 AM - 23:00 PM" %}</span
+                      >
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <div class="feature-text">
+                      <span class="label">{% trans "Location" %}</span>
+                      <span class="value">{% trans "Downtown Chicago" %}</span>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-telephone"></i>
+                    <div class="feature-text">
+                      <span class="label">{% trans "Reservations" %}</span>
+                      <span class="value">{% trans "+1 (312) 555-0198" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div
+                class="booking-card"
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
+                <h3>{% trans "Make a Reservation" %}</h3>
+                <form
+                  action="forms/book-a-table.php"
+                  method="post"
+                  class="php-email-form"
+                >
+                  <div class="row gy-3">
+                    <div class="col-md-6">
+                      <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        placeholder="Your Name"
+                        required=""
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Your Email"
+                        required=""
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="tel"
+                        name="phone"
+                        class="form-control"
+                        placeholder="Your Phone"
+                        required=""
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <select name="people" class="form-control" required="">
+                        <option value="">{% trans "Guests" %}</option>
+                        <option value="1">{% trans "1 Person" %}</option>
+                        <option value="2">{% trans "2 People" %}</option>
+                        <option value="3">{% trans "3 People" %}</option>
+                        <option value="4">{% trans "4 People" %}</option>
+                        <option value="5">{% trans "5+ People" %}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="date"
+                        name="date"
+                        class="form-control"
+                        required=""
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="time"
+                        name="time"
+                        class="form-control"
+                        required=""
+                      />
+                    </div>
+                    <div class="col-12">
+                      <textarea
+                        name="message"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Special requests or dietary restrictions"
+                      ></textarea>
+                    </div>
+                    <div class="col-12">
+                      <div class="loading">{% trans "Loading" %}</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">
+                        {% trans "Your reservation request has been sent. We'll
+                        contact you shortly!" %}
+                      </div>
+                      <button type="submit" class="btn btn-primary w-100">
+                        {% trans "Reserve Now" %}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+          <div class="scroll-text">{% trans "Scroll to Explore" %}</div>
+          <div class="scroll-arrow">
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">{% trans "&nbsp;About" %}</span>
+          <h2>{% trans "About" %}</h2>
+          <p>
+            {% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem
+            sint consectetur velit" %}
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-up">
+              <div class="about-content">
+                <h2>{% trans "Experience Our Unique Approach" %}</h2>
+                <p class="fst-italic">
+                  {% trans "Integer posuere erat a ante venenatis dapibus
+                  posuere velit aliquet. Vestibulum id ligula porta felis
+                  euismod semper." %}
+                </p>
+                <p>
+                  {% trans "Morbi leo risus, porta ac consectetur ac, vestibulum
+                  at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia
+                  quam venenatis vestibulum. Curabitur blandit tempus
+                  porttitor." %}
+                </p>
+
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div
+                      class="feature-item"
+                      data-aos="fade-up"
+                      data-aos-delay="150"
+                    >
+                      <i class="bi bi-award"></i>
+                      <h4>{% trans "Exceptional Service" %}</h4>
+                      <p>
+                        {% trans "Donec sed odio dui. Nulla vitae elit libero, a
+                        pharetra augue." %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div
+                      class="feature-item"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      <i class="bi bi-trophy"></i>
+                      <h4>{% trans "Industry Recognition" %}</h4>
+                      <p>
+                        {% trans "Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et." %}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="about-gallery">
+                <div class="row g-3">
+                  <div class="col-6">
+                    <img
+                      src="{% static 'images/showcase-3.webp' %}"
+                      class="img-fluid rounded"
+                      alt="Restaurant Image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <img
+                      src="{% static 'images/showcase-8.webp' %}"
+                      class="img-fluid rounded"
+                      alt="Restaurant Image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="col-12 mt-3">
+                    <div class="years-badge">
+                      <span class="number">{% trans "18" %}</span>
+                      <span class="text"
+                        >{% trans "Years of Dedication" %}</span
+                      >
+                    </div>
+                    <img
+                      src="{% static 'images/showcase-6.webp' %}"
+                      class="img-fluid rounded"
+                      alt="Restaurant Image"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">{% trans "Testimonials" %}</span>
+          <h2>{% trans "Testimonials" %}</h2>
+          <p>
+            {% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem
+            sint consectetur velit" %}
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonials-14 swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": 3,
+                "spaceBetween": 24,
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                },
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 16
+                  },
+                  "768": {
+                    "slidesPerView": 2,
+                    "spaceBetween": 24
+                  },
+                  "1200": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 24
+                  }
+                }
+              }
+            </script>
+
+            <div class="swiper-wrapper">
+              <!-- Testimonial Item 1 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Proin iaculis purus consequat sem cure digni ssim
+                    donec porttitora entum suscipit rhoncus. Accusantium quam,
+                    ultricies eget id, aliquam eget nibh et. Maecen aliquam,
+                    risus at semper." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static 'images/person-m-9.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        {% trans "Marcus Chen" %}<i
+                          class="bi bi-patch-check-fill"
+                        ></i>
+                      </h4>
+                      <span>{% trans "@marcuschen" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <!-- Testimonial Item 2 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Enim nisi quem export duis labore cillum quae
+                    magna enim sint quorum nulla quem veniam duis minim tempor
+                    labore quem eram duis noster aute amet eram fore quis sint
+                    minim." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static ' images/person-f-5.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        Sarah Mitchell<i class="bi bi-patch-check-fill"></i>
+                      </h4>
+                      <span>@sarahmitch</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <!-- Testimonial Item 3 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Fugiat enim eram quae cillum dolore dolor amet
+                    nulla culpa multos export minim fugiat minim velit minim
+                    dolor enim duis veniam ipsum anim magna sunt elit fore quem
+                    dolore labore." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static 'images/person-f-12.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        {% trans "James Wilson" %}<i
+                          class="bi bi-patch-check-fill"
+                        ></i>
+                      </h4>
+                      <span>{% trans "@jwilson" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <!-- Testimonial Item 4 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Quis quorum aliqua sint quem legam fore sunt eram
+                    irure aliqua veniam tempor noster veniam enim culpa labore
+                    duis sunt culpa nulla illum cillum fugiat legam esse veniam
+                    culpa." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static 'images/person-m-12.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        {% trans "Emma Rodriguez" %}<i
+                          class="bi bi-patch-check-fill"
+                        ></i>
+                      </h4>
+                      <span>{% trans "@emmarod" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <!-- Testimonial Item 5 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Export tempor illum tamen malis malis eram quae
+                    irure esse labore quem cillum quid cillum eram malis quorum
+                    velit fore eram velit sunt aliqua noster fugiat irure amet
+                    legam anim culpa." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static 'images/person-m-13.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        {% trans "David Kumar" %}<i
+                          class="bi bi-patch-check-fill"
+                        ></i>
+                      </h4>
+                      <span>{% trans "@davidkumar" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <!-- Testimonial Item 6 -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    {% trans "Texit tempor illum tamen malis malis eram quae
+                    irure esse labore quem cillum quid cillum eram malis quorum
+                    velit fore eram velit sunt aliqua noster fugiat irure amet
+                    legam anim culpa." %}
+                  </p>
+                  <div class="profile">
+                    <img
+                      src="{% static 'images/person-f-13.webp' %}"
+                      class="testimonial-img"
+                      alt="testimonial"
+                      loading="lazy"
+                    />
+                    <div class="info">
+                      <h4>
+                        {% trans "Sophia Lee" %}<i
+                          class="bi bi-patch-check-fill"
+                        ></i>
+                      </h4>
+                      <span>{% trans "@sophialee" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- /Testimonials Section -->
+
+      <!-- Chefs Section -->
+      <section id="chefs" class="chefs section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">{% trans "Chefs" %}</span>
+          <h2>{% trans "Chefs" %}</h2>
+          <p>
+            {% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem
+            sint consectetur velit" %}
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="featured-chef row align-items-center g-4"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="col-lg-5">
+              <figure class="chef-photo m-0">
+                <img
+                  src="{% static 'images/chef-4.webp' %}"
+                  alt="Executive chef portrait"
+                  class="img-fluid"
+                  loading="lazy"
+                />
+                <div class="badge-overlay">
+                  <span class="pill"
+                    ><i class="bi bi-star-fill me-1"></i>{% trans "Michelin
+                    Mention" %}</span
+                  >
+                </div>
+              </figure>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="chef-content">
+                <div class="topline d-inline-flex align-items-center mb-2">
+                  <i class="bi bi-patch-check-fill me-2"></i>
+                  <span>{% trans "Featured Chef" %}</span>
+                </div>
+                <h3 class="name">{% trans "Avery Montrose" %}</h3>
+                <p class="role mb-3">{% trans "Executive Chef" %}</p>
+                <p class="bio mb-4">
+                  {% trans "Curabitur convallis lectus a sapien dictum, sed
+                  posuere urna fermentum. Maecenas sodales, neque non pretium
+                  ultrices, lacus nibh finibus mi, non vulputate arcu quam at
+                  nisl." %}
+                </p>
+
+                <ul class="awards list-unstyled d-flex flex-wrap gap-2 mb-4">
+                  <li class="award-badge">
+                    <i class="bi bi-award me-1"></i>{% trans "Gourmand Trophy
+                    2022" %}
+                  </li>
+                  <li class="award-badge">
+                    <i class="bi bi-bookmark-star me-1"></i>{% trans "Le Cordon
+                    Bleu Honors" %}
+                  </li>
+                  <li class="award-badge">
+                    <i class="bi bi-trophy me-1"></i>{% trans "City Best Tasting
+                    Menu" %}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 team-grid mt-2">
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <article class="chef-card h-100">
+                <div class="image-wrapper">
+                  <img
+                    src="{% static 'images/chef-1.webp' %}"
+                    alt="Sous chef portrait"
+                    class="img-fluid"
+                    loading="lazy"
+                  />
+                  <ul class="social list-unstyled m-0">
+                    <li>
+                      <a href="#" aria-label="Instagram"
+                        ><i class="bi bi-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Twitter"
+                        ><i class="bi bi-twitter-x"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="LinkedIn"
+                        ><i class="bi bi-linkedin"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content p-3">
+                  <h4 class="name mb-1">{% trans "Jordan Lee" %}</h4>
+                  <p class="role mb-2">{% trans "Sous Chef" %}</p>
+                  <p class="excerpt mb-3">
+                    {% trans "Donec feugiat, arcu non pulvinar posuere, risus
+                    libero cursus nibh, sed dictum nibh arcu non augue." %}
+                  </p>
+                  <div class="badges d-flex flex-wrap gap-2">
+                    <span class="mini-badge"
+                      ><i class="bi bi-award me-1"></i>{% trans "Street Food
+                      Fest" %}</span
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End Chef Card -->
+
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="250"
+            >
+              <article class="chef-card h-100">
+                <div class="image-wrapper">
+                  <img
+                    src="{% static 'images/chef-6.webp' %}"
+                    alt="Pastry chef portrait"
+                    class="img-fluid"
+                    loading="lazy"
+                  />
+                  <ul class="social list-unstyled m-0">
+                    <li>
+                      <a href="#" aria-label="Instagram"
+                        ><i class="bi bi-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Facebook"
+                        ><i class="bi bi-facebook"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Pinterest"
+                        ><i class="bi bi-pinterest"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content p-3">
+                  <h4 class="name mb-1">{% trans "Mila Santos" %}</h4>
+                  <p class="role mb-2">{% trans "Pastry Chef" %}</p>
+                  <p class="excerpt mb-3">
+                    {% trans "Integer aliquet, urna et commodo gravida, libero
+                    lacus aliquam velit, vitae iaculis sem velit in purus." %}
+                  </p>
+                  <div class="badges d-flex flex-wrap gap-2">
+                    <span class="mini-badge"
+                      ><i class="bi bi-egg-fried me-1"></i>{% trans "Cocoa
+                      Summit" %}</span
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End Chef Card -->
+
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <article class="chef-card h-100">
+                <div class="image-wrapper">
+                  <img
+                    src="{% static 'images/chef-8.webp' %}"
+                    alt="Grill chef portrait"
+                    class="img-fluid"
+                    loading="lazy"
+                  />
+                  <ul class="social list-unstyled m-0">
+                    <li>
+                      <a href="#" aria-label="Instagram"
+                        ><i class="bi bi-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="TikTok"
+                        ><i class="bi bi-tiktok"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="YouTube"
+                        ><i class="bi bi-youtube"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content p-3">
+                  <h4 class="name mb-1">{% trans "Kai Thompson" %}</h4>
+                  <p class="role mb-2">{% trans "Grill Master" %}</p>
+                  <p class="excerpt mb-3">
+                    {% trans "Pellentesque dapibus, nibh id pharetra interdum,
+                    risus est vehicula lectus, non iaculis velit elit ut felis."
+                    %}
+                  </p>
+                  <div class="badges d-flex flex-wrap gap-2">
+                    <span class="mini-badge"
+                      ><i class="bi bi-fire me-1"></i>{% trans "Smoke-Off
+                      Winner" %}</span
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End Chef Card -->
+
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="350"
+            >
+              <article class="chef-card h-100">
+                <div class="image-wrapper">
+                  <img
+                    src="{% static 'images/chef-3.webp' %}"
+                    alt="Line cook portrait"
+                    class="img-fluid"
+                    loading="lazy"
+                  />
+                  <ul class="social list-unstyled m-0">
+                    <li>
+                      <a href="#" aria-label="Instagram"
+                        ><i class="bi bi-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Twitter"
+                        ><i class="bi bi-twitter-x"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="LinkedIn"
+                        ><i class="bi bi-linkedin"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content p-3">
+                  <h4 class="name mb-1">{% trans "Renee Collins" %}</h4>
+                  <p class="role mb-2">{% trans "Line Cook" %}</p>
+                  <p class="excerpt mb-3">
+                    {% trans "Vestibulum congue, justo eget ultricies posuere,
+                    erat nunc viverra arcu, vitae cursus arcu nunc at erat." %}
+                  </p>
+                  <div class="badges d-flex flex-wrap gap-2">
+                    <span class="mini-badge"
+                      ><i class="bi bi-emoji-smile me-1"></i>{% trans "Guest
+                      Favorite" %}</span
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End Chef Card -->
+          </div>
+        </div>
+      </section>
+      <!-- /Chefs Section -->
+
+      <!-- Book A Table Section -->
+      <section id="book-a-table" class="book-a-table section light-background">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-12">
+              <div class="reservation-container">
+                <div class="row g-0">
+                  <div
+                    class="col-lg-5"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                  >
+                    <div class="reservation-form-section">
+                      <div class="form-header text-center">
+                        <h3>{% trans "Make a Reservation" %}</h3>
+                        <p>
+                          {% trans "Sed do eiusmod tempor incididunt ut labore
+                          et dolore magna aliqua. Ut enim ad minim veniam quis
+                          nostrud exercitation." %}
+                        </p>
+                      </div>
+
+                      <form
+                        action="forms/book-a-table.php"
+                        method="post"
+                        role="form"
+                        class="php-email-form"
+                      >
+                        <div class="row gy-3">
+                          <div class="col-12">
+                            <input
+                              type="text"
+                              name="name"
+                              class="form-control"
+                              placeholder="Full Name"
+                              required=""
+                            />
+                          </div>
+                          <div class="col-12">
+                            <input
+                              type="email"
+                              class="form-control"
+                              name="email"
+                              placeholder="Email Address"
+                              required=""
+                            />
+                          </div>
+                          <div class="col-12">
+                            <input
+                              type="tel"
+                              class="form-control"
+                              name="phone"
+                              placeholder="Phone Number"
+                              required=""
+                            />
+                          </div>
+                          <div class="col-6">
+                            <input
+                              type="date"
+                              name="date"
+                              class="form-control"
+                              required=""
+                            />
+                          </div>
+                          <div class="col-6">
+                            <input
+                              type="time"
+                              class="form-control"
+                              name="time"
+                              required=""
+                            />
+                          </div>
+                          <div class="col-6">
+                            <select
+                              name="people"
+                              class="form-select"
+                              required=""
+                            >
+                              <option value="">{% trans "Guests" %}</option>
+                              <option value="1">{% trans "1 Guest" %}</option>
+                              <option value="2">{% trans "2 Guests" %}</option>
+                              <option value="3">{% trans "3 Guests" %}</option>
+                              <option value="4">{% trans "4 Guests" %}</option>
+                              <option value="5">{% trans "5 Guests" %}</option>
+                              <option value="6">{% trans "6+ Guests" %}</option>
+                            </select>
+                          </div>
+                          <div class="col-6">
+                            <select name="occasion" class="form-select">
+                              <option value="">{% trans "Occasion" %}</option>
+                              <option value="birthday">
+                                {% trans "Birthday" %}
+                              </option>
+                              <option value="anniversary">
+                                {% trans "Anniversary" %}
+                              </option>
+                              <option value="business">
+                                {% trans "Business Dinner" %}
+                              </option>
+                              <option value="date">
+                                {% trans "Date Night" %}
+                              </option>
+                              <option value="celebration">
+                                {% trans "Celebration" %}
+                              </option>
+                              <option value="other">{% trans "Other" %}</option>
+                            </select>
+                          </div>
+                          <div class="col-12">
+                            <textarea
+                              class="form-control"
+                              name="message"
+                              rows="3"
+                              placeholder="Special requests or dietary requirements"
+                            ></textarea>
+                          </div>
+                        </div>
+
+                        <div class="my-3">
+                          <div class="loading">{% trans "Loading" %}</div>
+                          <div class="error-message"></div>
+                          <div class="sent-message">
+                            {% trans "Your reservation request has been
+                            submitted successfully. We'll contact you shortly to
+                            confirm." %}
+                          </div>
+                        </div>
+
+                        <button type="submit" class="btn-reserve w-100">
+                          <i class="bi bi-calendar-check me-2"></i>
+                          Reserve Table
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-lg-7"
+                    data-aos="fade-left"
+                    data-aos-delay="300"
+                  >
+                    <div class="reservation-info-section">
+                      <div class="hero-image">
+                        <img
+                          src="{% static 'images/showcase-2.webp' %}"
+                          alt="Restaurant dining area"
+                          class="img-fluid"
+                          loading="lazy"
+                        />
+                        <div class="overlay-content">
+                          <h4>{% trans "Experience Fine Dining" %}</h4>
+                          <p>
+                            {% trans "Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur." %}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="info-cards">
+                        <div class="row g-3">
+                          <div
+                            class="col-md-6"
+                            data-aos="zoom-in"
+                            data-aos-delay="400"
+                          >
+                            <div class="info-card">
+                              <div class="card-icon">
+                                <i class="bi bi-clock"></i>
+                              </div>
+                              <div class="card-content">
+                                <h5>{% trans "Business Hours" %}</h5>
+                                <p>
+                                  {% trans "Tuesday - Thursday: 5:00 PM - 10:00
+                                  PM" %}<br />
+                                  Friday - Saturday: 5:00 PM - 11:00 PM<br />
+                                  Sunday: 4:00 PM - 9:00 PM<br />
+                                  <em>{% trans "Closed Mondays" %}</em>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="col-md-6"
+                            data-aos="zoom-in"
+                            data-aos-delay="450"
+                          >
+                            <div class="info-card">
+                              <div class="card-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                              </div>
+                              <div class="card-content">
+                                <h5>{% trans "Find Us" %}</h5>
+                                <p>
+                                  {% trans "4567 Elm Avenue, Floor 2" %}<br />
+                                  Chicago, IL 60614
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="col-md-6"
+                            data-aos="zoom-in"
+                            data-aos-delay="500"
+                          >
+                            <div class="info-card">
+                              <div class="card-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                              </div>
+                              <div class="card-content">
+                                <h5>{% trans "Reservations" %}</h5>
+                                <p>
+                                  {% trans "+1 (312) 555-9876" %}<br />
+                                  <small
+                                    >{% trans "Available daily 2:00 PM - 9:00
+                                    PM" %}</small
+                                  >
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="col-md-6"
+                            data-aos="zoom-in"
+                            data-aos-delay="550"
+                          >
+                            <div class="info-card">
+                              <div class="card-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                              </div>
+                              <div class="card-content">
+                                <h5>{% trans "Email Us" %}</h5>
+                                <p>
+                                  {% trans "reservations@example.com" %}<br />
+                                  <small
+                                    >{% trans "Response within 24 hours"
+                                    %}</small
+                                  >
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="additional-info"
+                        data-aos="fade-up"
+                        data-aos-delay="600"
+                      >
+                        <div class="info-highlight">
+                          <i class="bi bi-star-fill"></i>
+                          <span
+                            >{% trans "Recommended to book 2-3 days in advance
+                            for weekend dining" %}</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Book A Table Section -->
+
+      <!-- Location Section -->
+      <section id="location" class="location section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.684949335945!2d-73.98658242357565!3d40.75853057126168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzMwLjciTiA3M8KwNTknMDcuNyJX!5e0!3m2!1sen!2sus!4v1654321234567!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+              <div class="info-container">
+                <div class="section-header">
+                  <h2>{% trans "Find Us" %}</h2>
+                  <p>{% trans "Visit Us Today" %}</p>
+                </div>
+
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                  <div class="info-icon">
+                    <i class="bi bi-geo-alt"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>{% trans "Our Location" %}</h3>
+                    <p>
+                      {% trans "123 Culinary Avenue, Manhattan, NY 10001" %}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                  <div class="info-icon">
+                    <i class="bi bi-telephone"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>{% trans "Reservations" %}</h3>
+                    <p>{% trans "+1 (212) 555-7890" %}</p>
+                    <p class="small-text">
+                      {% trans "We recommend making reservations at least 48
+                      hours in advance" %}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-card" data-aos="fade-up" data-aos-delay="500">
+                  <div class="info-icon">
+                    <i class="bi bi-clock"></i>
+                  </div>
+                  <div class="info-content">
+                    <h3>{% trans "Hours" %}</h3>
+                    <div class="hours-grid">
+                      <div class="day">{% trans "Monday - Thursday" %}</div>
+                      <div class="time">{% trans "11:00 AM - 10:00 PM" %}</div>
+
+                      <div class="day">{% trans "Friday - Saturday" %}</div>
+                      <div class="time">{% trans "11:00 AM - 11:30 PM" %}</div>
+
+                      <div class="day">{% trans "Sunday" %}</div>
+                      <div class="time">{% trans "10:00 AM - 9:00 PM" %}</div>
+
+                      <div class="day">{% trans "Brunch Hours" %}</div>
+                      <div class="time">
+                        {% trans "Sat &amp; Sun, 10:00 AM - 2:00 PM" %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="cta-wrapper"
+                  data-aos="fade-up"
+                  data-aos-delay="600"
+                >
+                  <a href="#" class="btn-book"
+                    >{% trans "Make a Reservation" %}</a
+                  >
+                  <a href="#" class="btn-contact">{% trans "Contact Us" %}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Location Section -->
+
+      <!-- Events Section -->
+      <section id="events" class="events section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">{% trans "Events" %}</span>
+          <h2>{% trans "Events" %}</h2>
+          <p>
+            {% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem
+            sint consectetur velit" %}
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div
+              class="col-lg-8 mx-auto text-center"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="seasonal-hero">
+                <span class="seasonal-badge">{% trans "Limited Time" %}</span>
+                <h2>{% trans "Autumn Harvest Festival" %}</h2>
+                <p>
+                  {% trans "Consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                  veniam, quis nostrud exercitation ullamco laboris." %}
+                </p>
+                <div class="festival-dates">
+                  <i class="bi bi-calendar-event"></i>
+                  <span>{% trans "October 15 - November 30, 2024" %}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6" data-aos="slide-right" data-aos-delay="250">
+              <div class="feature-card primary">
+                <div class="feature-visual">
+                  <img
+                    src="{% static 'images/misc-3.webp' %}"
+                    alt="Special Menu"
+                    class="img-fluid"
+                    loading="lazy"
+                  />
+                  <div class="feature-badge">
+                    <i class="bi bi-star-fill"></i>
+                    <span>{% trans "Chef's Special" %}</span>
+                  </div>
+                </div>
+                <div class="feature-content">
+                  <h3>{% trans "Seasonal Harvest Menu" %}</h3>
+                  <p>
+                    {% trans "Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident." %}
+                  </p>
+                  <div class="feature-highlights">
+                    <div class="highlight-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{% trans "Farm-to-Table Ingredients" %}</span>
+                    </div>
+                    <div class="highlight-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{% trans "Locally Sourced Produce" %}</span>
+                    </div>
+                  </div>
+                  <a href="#" class="feature-link"
+                    >{% trans "Explore Menu" %}<i class="bi bi-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="slide-left" data-aos-delay="300">
+              <div class="feature-card secondary">
+                <div class="feature-visual">
+                  <div class="feature-badge">
+                    <i class="bi bi-award-fill"></i>
+                    <span>{% trans "Award Winning" %}</span>
+                  </div>
+                </div>
+                <div class="feature-content">
+                  <h3>{% trans "Wine Pairing Experience" %}</h3>
+                  <p>
+                    {% trans "Sed ut perspiciatis unde omnis iste natus error
+                    sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo." %}
+                  </p>
+                  <div class="feature-highlights">
+                    <div class="highlight-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{% trans "Sommelier Curated" %}</span>
+                    </div>
+                    <div class="highlight-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{% trans "Premium Selection" %}</span>
+                    </div>
+                  </div>
+                  <a href="#" class="feature-link"
+                    >{% trans "Book Tasting" %}<i class="bi bi-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="awards-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="row align-items-center">
+              <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="250">
+                <div class="awards-content">
+                  <h3>{% trans "Recognition &amp; Awards" %}</h3>
+                  <p>
+                    {% trans "At enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat." %}
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
+                <div class="awards-grid">
+                  <div class="award-item">
+                    <div class="award-icon">
+                      <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <div class="award-details">
+                      <h4>{% trans "Best Restaurant 2024" %}</h4>
+                      <span>{% trans "City Dining Awards" %}</span>
+                    </div>
+                  </div>
+                  <div class="award-item">
+                    <div class="award-icon">
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="award-details">
+                      <h4>{% trans "5-Star Rating" %}</h4>
+                      <span>{% trans "Local Food Guide" %}</span>
+                    </div>
+                  </div>
+                  <div class="award-item">
+                    <div class="award-icon">
+                      <i class="bi bi-gem"></i>
+                    </div>
+                    <div class="award-details">
+                      <h4>{% trans "Excellence Award" %}</h4>
+                      <span>{% trans "Culinary Institute" %}</span>
+                    </div>
+                  </div>
+                  <div class="award-item">
+                    <div class="award-icon">
+                      <i class="bi bi-heart-fill"></i>
+                    </div>
+                    <div class="award-details">
+                      <h4>{% trans "Customer Choice" %}</h4>
+                      <span>{% trans "Community Favorite" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="community-section"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="row g-4">
+              <div class="col-lg-6" data-aos="fade-right" data-aos-delay="250">
+                <div class="community-card">
+                  <div class="community-header">
+                    <div class="community-icon">
+                      <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div>
+                      <h3>{% trans "Community Involvement" %}</h3>
+                      <p>
+                        {% trans "Supporting local farmers and charities since
+                        2015" %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="community-stats">
+                    <div class="stat-row">
+                      <div class="stat-item">
+                        <span class="stat-number">{% trans "$50K+" %}</span>
+                        <span class="stat-label"
+                          >{% trans "Donated to Local Charities" %}</span
+                        >
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-number">{% trans "25+" %}</span>
+                        <span class="stat-label"
+                          >{% trans "Local Farm Partners" %}</span
+                        >
+                      </div>
+                    </div>
+                    <div class="stat-row">
+                      <div class="stat-item">
+                        <span class="stat-number">{% trans "100+" %}</span>
+                        <span class="stat-label"
+                          >{% trans "Community Events Hosted" %}</span
+                        >
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-number">{% trans "500+" %}</span>
+                        <span class="stat-label"
+                          >{% trans "Volunteer Hours" %}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                <div class="sustainability-card">
+                  <div class="sustainability-header">
+                    <div class="sustainability-icon">
+                      <i class="bi bi-recycle"></i>
+                    </div>
+                    <div>
+                      <h3>{% trans "Eco-Friendly Practices" %}</h3>
+                      <p>
+                        {% trans "Committed to sustainable dining and zero
+                        waste" %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="sustainability-features">
+                    <div class="feature-item">
+                      <i class="bi bi-leaf-fill"></i>
+                      <span>{% trans "100% Compostable Packaging" %}</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="bi bi-water"></i>
+                      <span>{% trans "Water Conservation Program" %}</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="bi bi-lightning-fill"></i>
+                      <span>{% trans "Renewable Energy Powered" %}</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="bi bi-truck"></i>
+                      <span>{% trans "Local Sourcing Priority" %}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Events Section -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">{% trans "Contact" %}</span>
+          <h2>{% trans "Contact" %}</h2>
+          <p>
+            {% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem
+            sint consectetur velit" %}
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <!-- Contact Info Boxes -->
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="contact-info-box">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>{% trans "Our Address" %}</h4>
+                  <p>{% trans "1842 Maple Avenue, Portland, Oregon 97204" %}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="contact-info-box">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h4>{% trans "Email Address" %}</h4>
+                  <p>{% trans "info@example.com" %}</p>
+                  <p>{% trans "contact@example.com" %}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="contact-info-box">
+                <div class="icon-box">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <div class="info-content">
+                  <h4>{% trans "Hours of Operation" %}</h4>
+                  <p>{% trans "Sunday-Fri: 9 AM - 6 PM" %}</p>
+                  <p>{% trans "Saturday: 9 AM - 4 PM" %}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps (Full Width) -->
+        <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+            width="100%"
+            height="500"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <!-- Contact Form Section (Overlapping) -->
+        <div class="container form-container-overlap">
+          <div
+            class="row justify-content-center"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="col-lg-10">
+              <div class="contact-form-wrapper">
+                <h2 class="text-center mb-4">{% trans "Get in Touch" %}</h2>
+
+                <form
+                  action="forms/contact.php"
+                  method="post"
+                  class="php-email-form"
+                >
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-with-icon">
+                          <i class="bi bi-person"></i>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            placeholder="First Name"
+                            required=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-with-icon">
+                          <i class="bi bi-envelope"></i>
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            placeholder="Email Address"
+                            required=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="input-with-icon">
+                          <i class="bi bi-text-left"></i>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="subject"
+                            placeholder="Subject"
+                            required=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-group">
+                        <div class="input-with-icon">
+                          <i class="bi bi-chat-dots message-icon"></i>
+                          <textarea
+                            class="form-control"
+                            name="message"
+                            placeholder="Write Message..."
+                            style="height: 180px"
+                            required=""
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="loading">{% trans "Loading" %}</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">
+                        {% trans "Your message has been sent. Thank you!" %}
+                      </div>
+                    </div>
+
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary btn-submit">
+                        {% trans "SEND MESSAGE" %}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Contact Section -->
+    </main>
+
+    {% include "core/footer.html" %}
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+
+    <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

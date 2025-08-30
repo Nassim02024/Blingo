@@ -1,0 +1,493 @@
+{% load static %}
+{% load i18n %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    @media (max-width: 701px) {
+      .btn-bar{
+        position: absolute;
+        RIGHT: 10px;
+        TOP: 15px;
+        border:none;
+      }
+      .btn-bar button{
+        padding: 0px;
+        border-radius: 50% !important;
+        width: 42px;
+        height: 42px;
+      }
+    }
+  .inputdrop {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: #0D1117;
+    justify-content: center;
+    border-radius: 5px
+  }
+  
+  .values {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+    display: flex;
+    position: relative;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .values:not(:active):hover,
+  .values:focus {
+    background-color: #21262C;
+  }
+  
+  .values:focus,
+  .values:active {
+    background-color: #1A1F24;
+    outline: none;
+  }
+  
+  .values::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    width: 5px;
+    height: 80%;
+    background-color: #ff0000;
+    border-radius: 5px;
+    opacity: 0;
+  }
+  
+  .values:focus::before,
+  .values:active::before {
+    opacity: 1;
+  }
+  
+  .values svg {
+    width: 15px
+  }
+  .values A {
+  color:white;
+  decoration:none;
+  text-decoration:none;
+  }
+  .search_product_vendor {
+    position: absolute; 
+    right: 0; border: none; 
+    background: unset;
+  }
+  html[dir="rtl"] .search_product_vendor{
+    direction:rtl;
+    left: 0;
+    right:auto;
+  }
+    
+</style>
+</head>
+
+<div class="preloader-wrapper">
+  <div class="preloader">
+  </div>
+</div>
+
+<div  class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">{% trans 'Your cart' %}</span>
+        <span class="badge bg-primary rounded-pill">0</span>
+      </h4>
+      
+          <ul class="list-group mb-3">
+            <li class="list-group-items d-flex justify-content-between " style="align-items: center;">
+              <span>{% trans 'Total (Dz)' %}</span>
+              
+              <strong class="totals-price">0</strong>
+            </li>
+          </ul>
+          {% if vendor and vendor.vid %}
+          <a href="{% url 'cardorder' vendor.vid %}?product={{ product.id }}">
+            <button class="w-100 btn  btn-lg checkouteorder" type="submit" style="background-color: #ffc43f; color: white; border-radius: 5px;">{% trans 'Continue to checkout' %}</button>
+          </a>
+      
+        {% endif %}
+        
+        </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-end hidd-open" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch">
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close  close-session-card" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">{% trans 'Search' %}</span>
+      </h4>
+      {% if request.resolver_match.url_name == "index" or request.resolver_match.url_name == "search_vendor" %}
+      <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_vendor" %}" method="GET">
+        <input name="q"  type="text" class="form-control border-0 bg-transparent " placeholder="Search for more than {{vendor.count}} vendor">
+        <button class="btn btn-dark rounded-end rounded-0" type="submit">{% trans 'Search' %}</button>
+        
+      </form>
+      {% endif %}
+
+      {% if request.resolver_match.url_name == "product" or request.resolver_match.url_name == "search_product" %}
+      <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_product" vendor.vid %}" method="GET">
+        <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="Search for more than {{product.count}} product">
+        <button class="btn btn-dark rounded-end rounded-0" type="submit">{% trans 'Search' %}</button>
+        
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<header >
+  <div class="container-fluid">
+    <div class="row py-3 border-bottom">
+      
+      <div class="col-sm-4 col-lg-3 text-center text-sm-start logo-index">
+        <div  style=" " class="main-logo">
+          <a href="index.html">
+           <img style="width:80px; " src="{% static 'images/logo-blingo.png' %}" alt="logo" class="img-fluid" loading="lazy"> 
+          </a>
+        </div>
+      </div>
+
+
+    <!-- Search  vendor  --> 
+      {% if request.resolver_match.url_name == "index" %}
+
+      <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+        <div class="search-bar row bg-light p-2 my-2 rounded-4">
+          <div class="col-11 col-md-7 w-100">
+            <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_vendor" %}" method="GET">
+              <input name="q"  type="text" class="form-control border-0 bg-transparent search_vendor" placeholder="Search for more than {{vendor.count}} vendor">
+              <button class="search_product_vendor" type="submit">
+                <div class="col-1">
+                  <svg style="border: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
+                </div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+
+      <!-- Search  product  --> 
+      {% if request.resolver_match.url_name == "product"  %}
+
+      <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+        <div class="search-bar row bg-light p-2 my-2 rounded-4">
+          <div class="col-11 col-md-7 w-100">
+            <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_product" vendor.vid %}" method="GET">
+              <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="Search for more than {{product.count}} product">
+              <button class="search_product_vendor"  type="submit">
+                <div class="col-1">
+                  <svg style="border: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
+                </div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+
+      <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+        
+
+        <ul class="d-flex justify-content-end list-unstyled m-0">
+          <li>
+            <a href="#" class="rounded-circle bg-light p-2 mx-1">
+              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
+            </a>
+          </li>
+          <li class="" style="position: relative;">
+            <div  style=" background-color: rgba(157, 248, 77, 0.562);position: absolute;bottom:20px;right: 2px;border-radius: 50%;padding: 0px 10px 0px 10px;">
+               <span class="count-for-card-icon"  style="font-size: 12px;font-weight: 700;color: rgb(0, 0, 0);"></span>
+            </div>
+            <a href="#" class="rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+              <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
+            </a>
+          </li>
+          <li class="d-lg-none">
+           {% comment %} <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_vendor" %}" method="GET"> {% endcomment %}
+            <a href="{% url "search_vendor" %}" class="rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch">
+              <svg width="24" height="24" viewBox="0 0 24 24" style="color:#282828;"><use xlink:href="#search"></use></svg>
+            </a>
+            {% comment %} </form> {% endcomment %}
+
+          </li>
+          <li  style="position: relative;">
+            <input type="checkbox" id="checking" >
+            <label for="checking">
+              <a style="cursor: pointer;" class="rounded-circle bg-light p-2 mx-1">
+                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+              </a>
+            </label>
+
+            <!-- From  --> 
+            <div class="inputdrop card-li-clinte">
+              {% include "lang/lang.html" %}
+
+              <button class="values">              
+                <a href="{% url "customer"  %}">
+                  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2"><path fill="#7D8590" d="m1.5 13v1a.5.5 0 0 0 .3379.4731 18.9718 18.9718 0 0 0 6.1621 1.0269 18.9629 18.9629 0 0 0 6.1621-1.0269.5.5 0 0 0 .3379-.4731v-1a6.5083 6.5083 0 0 0 -4.461-6.1676 3.5 3.5 0 1 0 -4.078 0 6.5083 6.5083 0 0 0 -4.461 6.1676zm4-9a2.5 2.5 0 1 1 2.5 2.5 2.5026 2.5026 0 0 1 -2.5-2.5zm2.5 3.5a5.5066 5.5066 0 0 1 5.5 5.5v.6392a18.08 18.08 0 0 1 -11 0v-.6392a5.5066 5.5066 0 0 1 5.5-5.5z"></path></svg>                
+                  {% trans 'My Account' %}
+                </a>
+              </button>
+
+            {% if request.user.is_authenticated and request.user.is_vendor %}
+              <button class="values"  style="display: flex; align-items: center; ">
+                <a href="{% url "dashbord" %}" >
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>                
+                 {% trans 'Dashboard' %}
+                </a> 
+              </button>
+            {% endif %} 
+
+
+              <button class="values">
+                <a  href="{% url "commingsoon" %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-clock-icon lucide-clipboard-clock"><path d="M16 14v2.2l1.6 1"/><path d="M16 4h2a2 2 0 0 1 2 2v.832"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2"/><circle cx="16" cy="16" r="6"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+                  {% trans 'Order Tracking' %}
+                </a>
+              </button>
+
+              <button class="values">
+                <a  href="{% url "commingsoon" %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-plus-icon lucide-heart-plus"><path d="m14.479 19.374-.971.939a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.219 1.49"/><path d="M15 15h6"/><path d="M18 12v6"/></svg>                 
+                 {% trans 'My Wishlist' %}
+                </a>
+              </button>
+
+              <button class="values">
+                <a  href="{% url 'createstorevendorform' %} "> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>                 
+                 {% trans 'Create store ' %}
+                </a>
+              </button>
+
+              <button class="values">
+                <a  href="{% url "commingsoon" %}">
+                <svg fill="none" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m11.9572 4.31201c-3.35401 0-6.00906 2.59741-6.00906 5.67742v3.29037c0 .1986-.05916.3927-.16992.5576l-1.62529 2.4193-.01077.0157c-.18701.2673-.16653.5113-.07001.6868.10031.1825.31959.3528.67282.3528h14.52603c.2546 0 .5013-.1515.6391-.3968.1315-.2343.1117-.4475-.0118-.6093-.0065-.0085-.0129-.0171-.0191-.0258l-1.7269-2.4194c-.121-.1695-.186-.3726-.186-.5809v-3.29037c0-1.54561-.6851-3.023-1.7072-4.00431-1.1617-1.01594-2.6545-1.67311-4.3019-1.67311zm-8.00906 5.67742c0-4.27483 3.64294-7.67742 8.00906-7.67742 2.2055 0 4.1606.88547 5.6378 2.18455.01.00877.0198.01774.0294.02691 1.408 1.34136 2.3419 3.34131 2.3419 5.46596v2.97007l1.5325 2.1471c.6775.8999.6054 1.9859.1552 2.7877-.4464.795-1.3171 1.4177-2.383 1.4177h-14.52603c-2.16218 0-3.55087-2.302-2.24739-4.1777l1.45056-2.1593zm4.05187 11.32257c0-.5523.44772-1 1-1h5.99999c.5523 0 1 .4477 1 1s-.4477 1-1 1h-5.99999c-.55228 0-1-.4477-1-1z" fill="#7D8590" fill-rule="evenodd"></path></svg>
+                {% trans 'Notifications' %}
+              </a>
+              </button>
+
+              <button class="values">
+                <a href="{% url 'users:logout_view' %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>                  
+                  {% trans 'logout' %}
+                </a>
+              </button>
+
+            </div>
+            {% comment %} <div class="card-li-clinte">
+              <ul>
+                 <a href="{% url "customer"  %}">
+                  <li>{% trans 'My Account' %}</li>
+                 </a>
+                {% if request.user.is_authenticated and request.user.is_vendor %}
+                  <a href="{% url "dashbord" %}">
+                    <li>{% trans 'Dashboard' %}</li>
+                  </a> 
+                {% endif %}            
+                <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}"><li>{% trans 'Order Tracking' %}</li></a>
+                <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}"><li>{% trans 'My Wishlist' %}</li></a>
+                <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}"><li>{% trans 'Setting' %}</li></a>
+                <li class="nav-item">
+                  <a  href="{% url 'createstorevendorform' %}" class="nav-link ">{% trans 'Create store ' %}&nbsp<i class="fas fa-store"></i>
+                  </a> 
+                </li>
+                <li><a href="{% url 'users:logout_view' %}">{% trans 'logout' %}</a></li>
+                
+                
+
+              </ul>
+            </div> {% endcomment %}
+
+            <!-- <div id="alertuser">{% trans 'load' %}</div>{% trans '--></li>
+          
+        </ul>
+        
+      
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+          <strong>{{message}}</strong>
+        </div>
+      {% endfor %}
+    {% endif %}
+    
+
+
+    <div class="row py-3">
+      <div class="d-flex  justify-content-center justify-content-sm-between align-items-center">
+        <nav class="main-menu d-flex navbar navbar-expand-lg btn-bar">
+
+          <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+
+            <div class="offcanvas-header justify-content-center">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
+            <div class="offcanvas-body">
+          
+              <!-- <select class="filter-categories border-0 mb-0 me-5">
+                <option>{% trans 'Shop by Departments' %}</option>
+                <option>{% trans 'Groceries' %}</option>
+                <option>{% trans 'Drinks' %}</option>
+                <option>{% trans 'Chocolates' %}</option>
+              </select>{% trans '--><ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+                <li class="nav-item dropdown">
+                  <a href="{% url "index" %}"  class="nav-link"  id="dropdownMenu"  >{% trans 'Home' %}</a>                  
+                </li>
+                
+
+                {% if request.resolver_match.url_name == "product" %}
+                
+                <li class="nav-item">
+                  <a   class="nav-link most_search_scroll">{% trans 'Most searched' %}</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a  class="nav-link dropdown-toggle" role="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Catecory' %}</a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    {% for c in categorys %}
+                    <li> 
+                      <a href="{% url "product_category" c.cid %}" class="dropdown-item">{{c.categoress}} </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+
+                {% comment %} <li class="nav-item dropdown">
+                  <a  class="nav-link dropdown-toggle" role="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Shop' %}</a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    
+                    <li> <a href="#" class="dropdown-item">{% trans 'All products' %}<span class="badge bg-success text-dark ms-2">{% trans 'PRO' %}</span></a></li>
+                    
+                  </ul>
+                </li> {% endcomment %}
+
+
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Pages' %}</a>
+                  <ul class="dropdown-menu" aria-labelledby="pages">
+                    <li>
+                      <a  href="{% url "customer" %}" class="dropdown-item">
+                        {% trans 'My Account' %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url "commingsoon" %}" class="dropdown-item">
+                        {% trans 'servece' %}
+                      </a>
+                    </li>
+                    <!-- <li><a href="#" class="dropdown-item">{% trans 'Shop' %}<span class="badge bg-success text-dark ms-2">{% trans 'PRO' %}</span></a></li>{% trans '-->' %}<!-- <li><a href="single-product.html" class="dropdown-item">{% trans 'Single Product' %}<span class="badge bg-success text-dark ms-2">{% trans 'PRO' %}</span></a></li>{% trans '-->' %}
+                     <li>
+                      <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}" class="dropdown-item">
+                        {% trans 'Cart' %}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a style="color:rgb(194, 192, 192);" href="checkout.html" class="dropdown-item">
+                        {% trans 'Checkout' %}
+                      </a>
+                    </li>
+                    <li>
+                      <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}" class="dropdown-item">
+                        {% trans 'Blog' %}
+                      </a>
+                    </li>
+                    <!-- <li><a href="single-post.html" class="dropdown-item">{% trans 'Single Post' %}<span class="badge bg-success text-dark ms-2">PRO' %}</span></a></li>--><!-- <li><a href="styles.html" class="dropdown-item">Styles <span class="badge bg-success text-dark ms-2">{% trans 'PRO' %}</span></a></li>-->
+                     <li>
+                      <a  href="{% url "contact" %}" class="dropdown-item">
+                        {% trans 'contact' %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url "aboutus" %}" class="dropdown-item">
+                        {% trans 'About Us' %}
+                      </a>
+                    </li>
+                    <li>
+                    <li>
+                      <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}" class="dropdown-item">
+                        {% trans 'Thank You' %}
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a  href="{% url "errorpage" %}" class="dropdown-item">
+                        {% trans '404 Error' %}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="#brand" class="nav-link">{% trans 'Brand' %}</a>
+                </li>{% trans '--><!-- <li class="nav-item">
+                  <a href="#sale" class="nav-link">{% trans 'Sale' %}</a>
+                </li>{% trans '--><li class="nav-item">
+                  <a style="color:rgb(194, 192, 192);" href="{% url "commingsoon" %}" class="nav-link">{% trans 'Blog' %}</a>
+                </li>
+                
+                
+
+              </ul>
+            
+            </div>
+
+          </div>
+
+        </nav>
+        <!-- <div class="d-none d-lg-block">
+          <a href="https://templatesjungle.gumroad.com/l/foodmart-bootstrap-html-template" target="_blank" class="nav-link btn-coupon-code">
+            <img src="{% static 'images/gift.svg' %}" alt="gift icon" loading="lazy">
+            <strong class="ms-2 text-dark">{% trans 'Get PRO Version' %}</strong>
+          </a>
+        </div>{% trans '--></div>
+    </div>
+    
+  </div>
+
+  {% comment %} <script>
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        window.location.reload();
+      }
+    });
+    
+  </script> {% endcomment %}
+
+  {% comment %} <script src="{% static 'js/cardorder.js' %}"></script>  {% endcomment %}
+
+</header>
+
