@@ -16,6 +16,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from decouple import config
 
 import cloudinary
 import cloudinary.uploader
@@ -68,9 +69,9 @@ INSTALLED_APPS = [
 
 
 cloudinary.config( 
-  cloud_name  = "dc8vp3a4m",
-  api_key = "219968226967658",
-  api_secret = "-uytb1YUJFv9cmebqIEW-BEck6s",
+  cloud_name  = config("CLOUDINARY_NAME"),
+  api_key = config("API_KEY"),
+  api_secret = config("API_SECRET"),
   secure = True
 )
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
@@ -122,7 +123,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommestore.wsgi.application'
 
 
-from decouple import config
 
 
 
