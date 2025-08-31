@@ -24,7 +24,7 @@ def register(request):
           login(request  , new_user)
           messages.success(request , f"your account created successfully {username}")
           print("your account created successfully")
-          return redirect("index" )
+          return redirect("core:index" )
         else:
           print("البريد موجود بالفعل") 
           return render(request , "users/register.html")

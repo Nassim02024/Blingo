@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 
 
 
-@login_required(login_url='register')
+@login_required(login_url='users:register')
 def index(request):
   vendor = Vendor.objects.all()
   product = Product.objects.filter(featured=True , product_status="published")

@@ -10,11 +10,15 @@ urlpatterns = [
   path("i18n/", include("django.conf.urls.i18n"))
 ]
 
+
+app_name = "core"
+
+
 urlpatterns += i18n_patterns (
     path('admin/', admin.site.urls),
+    path('users/', include(('users.urls', 'users'), namespace='users')),    
     path('', include('core.urls') , name='core' ),
-    path('', include('users.urls') , name='users' ),
-    path('', include('createstorevendorform.urls') , name='users' ),
+    path('', include('createstorevendorform.urls') , name='createstorevendorform' ),
     path('', include('userdashbord.urls') , name='userdashbord' ),
     path('', include('commingsoon.urls') , name='commingsoon' ),
     path('', include('customer.urls') , name='customer' ),
@@ -23,6 +27,8 @@ urlpatterns += i18n_patterns (
     path('', include('contactpage.urls') , name='contactpage' ),
     path('', include('lang.urls') , name='lang' ),
     path('', include('servece.urls') , name='servece' ),
+    prefix_default_language=False
+
   )
 
 
