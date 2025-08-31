@@ -1,4 +1,5 @@
-{% load static %} {% load i18n %}
+{% load static %} 
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +12,13 @@
       type="text/css"
       href="{% static 'users/css/login_regester.css' %}"
     />
-
+    
     <title>{% trans 'Blingo | Login' %}</title>
   </head>
   <body style="background-image: url('{% static 'users/images/bglog.jpg' %}')">
-    <div class="lang_icon">{% include "lang/lang.html" %}</div>
+    <div class="lang_icon">
+      {% include "lang/lang.html" %}
+    </div>
     <h2>{% trans "Welcom in your market" %}</h2>
     {% if form.errors %}
     <div class="alert">
