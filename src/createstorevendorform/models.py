@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User  # تأكد أن هذا هو نموذج المستخدم المخصص لديك
+from cloudinary.models import CloudinaryField
 
 chosetypestore = (
   ("men" , "men"),
@@ -21,7 +22,7 @@ class UserStore(models.Model):
     description = models.TextField(max_length=200 , blank=True, null=True)
     phone_number = models.CharField(max_length=10 , blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
-    image = models.ImageField(upload_to='store_images/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
  
     def __str__(self):
         return self.store_name

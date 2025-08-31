@@ -9,12 +9,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/login_regester.css' %}"
+      href="{% static 'users/css/login_regester.css' %}"
     />
 
     <title>{% trans 'Blingo | Login' %}</title>
   </head>
-  <body style="background-image: url('{% static 'images/bglog.jpg' %}')">
+  <body style="background-image: url('{% static 'users/images/bglog.jpg' %}')">
     <div class="lang_icon">{% include "lang/lang.html" %}</div>
     <h2>{% trans "Welcom in your market" %}</h2>
     {% if form.errors %}
@@ -83,6 +83,6 @@
       </div>
     </div>
 
-    <script src="{% static 'js/signup.js' %}"></script>
+    <script src="{% static 'users/js/signup.js' %}"></script>
   </body>
 </html>

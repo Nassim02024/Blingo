@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% trans 'Document' %}</title>
    
-  <link rel="stylesheet" href="{% static 'css/customer.css' %}">
+  <link rel="stylesheet" href="{% static 'customer/css/customer.css' %}">
    
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -35,7 +35,7 @@
               <div class="card-header text-bg-primary">{% trans 'Welcome' %} {{request.user}}</div>
               <div class="card-body">
                 <div class="text-center mb-3">
-                  <img src="{% static 'images/person.svg' %}" alt="persoon" loading="lazy">
+                  <img src="{% static 'customer/images/person.svg' %}" alt="persoon" loading="lazy">
                 </div>
                 <!-- <p class="text-center text-secondary mb-4">{% trans 'Project Manager' %}</p>{% trans '--><ul class="list-group list-group-flush mb-4">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -83,7 +83,7 @@
                 <h5 class="mb-3">{% trans 'Dashboard' %}</h5>
                 <div class="over">
                   <div class="sale align-items-center p-3 d-grid w-100" style="grid-template-columns: repeat(3 , 1fr);">
-                    <i class="d-flex  "  ><img class="icon-oder-detils" src="{% static 'images/shopping_cart_checkout.svg'%}" alt="shopping_cart" loading="lazy">
+                    <i class="d-flex  "  ><img class="icon-oder-detils" src="{% static 'customer/images/shopping_cart_checkout.svg'%}" alt="shopping_cart" loading="lazy">
                       <span class="mt-2" style="line-height: 0.3;">
                         {% comment %} {% for o in order %} {% endcomment %}
                          <p>{{order.count}}</p>
@@ -91,13 +91,13 @@
                         <p>{% trans 'Order' %}</p>
                       </span>
                     </i>
-                    <i class="d-flex "  ><img class="icon-oder-detils" src="{% static 'images/credit.svg'%}" alt="credit-card" loading="lazy">
+                    <i class="d-flex "  ><img class="icon-oder-detils" src="{% static 'customer/images/credit.svg'%}" alt="credit-card" loading="lazy">
                       <span class="mt-2" style="line-height: 0.3;">
                         <p class='spant'>{{order.product_price}}</p>
                         <p>{% trans 'Total spant' %}</p>
                       </span>
                     </i>
-                    <i class="d-flex "  ><img class="icon-oder-detils" src="{% static 'images/notifications.svg'%}" alt="notifications" loading="lazy">
+                    <i class="d-flex "  ><img class="icon-oder-detils" src="{% static 'customer/images/notifications.svg'%}" alt="notifications" loading="lazy">
                       <span class="mt-2" style="line-height: 0.3;">
                         <p>0</p>
                         <p>{% trans 'Notification' %}</p>

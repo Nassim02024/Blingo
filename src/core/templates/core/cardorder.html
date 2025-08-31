@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-  <link rel="stylesheet" href="{% static 'css/cardorder.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/cardorder.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
   <link  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -16,7 +16,7 @@
 </head>
 
 <body >
-  {% comment %} <img src="{% static "images/checkout-order.jpg" %}" alt="checkout" loading="lazy" class="img-fluid imgbg position-fixed" /> {% endcomment %}
+  {% comment %} <img src="{% static "core/images/checkout-order.jpg" %}" alt="checkout" loading="lazy" class="img-fluid imgbg position-fixed" /> {% endcomment %}
   <form
   action="{% url "cardorder" vendor.vid  %}"
   method="POST" 
@@ -31,7 +31,7 @@
 <!-- card order -->
                 <div data-product-id="{{p.pid}}" class="media-body align-items-center checking" style="width: 100%;">
                   {% comment %} <div>
-                    <img src="{% static "images/app-store.jpg" %}" alt="app-store" loading="lazy">
+                    <img src="{% static "core/images/app-store.jpg" %}" alt="app-store" loading="lazy">
                   </div> {% endcomment %}
 
 
@@ -174,7 +174,7 @@
 </div>
 </form>
 
-<script src="{% static 'js/cardorder.js' %}"  ></script> 
+<script src="{% static 'core/js/cardorder.js' %}"  ></script> 
 
 </body>
 </html> 

@@ -10,11 +10,11 @@
   <head>
     <title>{% block title %} Blingo {% endblock %}</title>
   
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo-tap-icon.png' %}?v=2">
-    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/logo-blingo-512x512.png' %}?v=2">
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/logo-blingo-192x192.png' %}?v=2">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logo-blingo-apple-touch-icon.png' %}?v=2">
-    <link rel="shortcut icon" href="{% static 'images/logo-tap-icon.png' %}"> 
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/logo-tap-icon.png' %}?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'core/images/logo-blingo-512x512.png' %}?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/logo-blingo-192x192.png' %}?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/logo-blingo-apple-touch-icon.png' %}?v=2">
+    <link rel="shortcut icon" href="{% static 'core/images/logo-tap-icon.png' %}"> 
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,12 +28,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="{% static 'css/category.css' %}?v={{ timestamp }}">
-    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
-    <link rel="stylesheet"  href="{% static 'css/category.css' %}">
-    <link rel="stylesheet"  href="{% static 'style.css' %}">
-    <link rel="stylesheet"  href="{% static 'products.css' %}">
-    <link rel="stylesheet"  href="{% static 'css/productDetils.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/category.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'core/css/vendor.css' %}">
+    <link rel="stylesheet"  href="{% static 'core/css/category.css' %}">
+    <link rel="stylesheet"  href="{% static 'core/style.css' %}">
+    <link rel="stylesheet"  href="{% static 'core/products.css' %}">
+    <link rel="stylesheet"  href="{% static 'core/css/productDetils.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -121,7 +121,7 @@
 
 
   <section class="py-5 bg-dark text-light"
-  style="background: url({% static 'images/bg-vegetables.jpg' %}) no-repeat;background-size: cover;">
+  style="background: url({% static 'core/images/bg-vegetables.jpg' %}) no-repeat;background-size: cover;">
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-md-6">
@@ -188,7 +188,7 @@
           <article class="post-item card border-0 shadow-sm p-3">
             <div class="image-holder zoom-effect">
               <a href="#">
-                <img src="{% static 'images/post-thumb-1.jpg'%}" alt="post" class="card-img-top" loading="lazy">
+                <img src="{% static 'core/images/post-thumb-1.jpg'%}" alt="post" class="card-img-top" loading="lazy">
               </a>
             </div>
             <div class="card-body">
@@ -209,7 +209,7 @@
           <article class="post-item card border-0 shadow-sm p-3">
             <div class="image-holder zoom-effect">
               <a href="#">
-                <img src="{% static 'images/post-thumb-2.jpg'%}" alt="post" class="card-img-top" loading="lazy">
+                <img src="{% static 'core/images/post-thumb-2.jpg'%}" alt="post" class="card-img-top" loading="lazy">
               </a>
             </div>
             <div class="card-body">
@@ -230,7 +230,7 @@
           <article class="post-item card border-0 shadow-sm p-3">
             <div class="image-holder zoom-effect">
               <a href="#">
-                <img src="{% static 'images/post-thumb-3.jpg'%}" alt="post" class="card-img-top" loading="lazy">
+                <img src="{% static 'core/images/post-thumb-3.jpg'%}" alt="post" class="card-img-top" loading="lazy">
               </a>
             </div>
             <div class="card-body">
@@ -254,18 +254,18 @@
  <section class="py-5 my-5">
       <div class="container-fluid">
 
-        <div class="bg-warning py-5 rounded-5" style="background: url('{% static "images/bg-pattern-2.png" %} ') no-repeat;">
+        <div class="bg-warning py-5 rounded-5" style="background: url('{% static "core/images/bg-pattern-2.png" %} ') no-repeat;">
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                <img src="{% static 'images/phone.png'%}" alt="phone" class="image-float img-fluid" loading="lazy">
+                <img src="{% static 'core/images/phone.png'%}" alt="phone" class="image-float img-fluid" loading="lazy">
               </div>
               <div class="col-md-8">
                 <h2 class="my-5">{% trans 'Shop faster with Blingo App' %}</h2>
                 <p>{% trans 'Wait for the Blingo app, through which you can shop comfortably and well.' %}</p>
                 <div class="d-flex gap-2 flex-wrap">
-                  <img src="{% static 'images/app-store.jpg' %}" alt="app-store" loading="lazy">
-                  <img src="{% static 'images/google-play.jpg'%}" alt="google-play" loading="lazy">
+                  <img src="{% static 'core/images/app-store.jpg' %}" alt="app-store" loading="lazy">
+                  <img src="{% static 'core/images/google-play.jpg'%}" alt="google-play" loading="lazy">
                 </div>
               </div>
             </div>
@@ -358,16 +358,16 @@
 
   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/jquery-1.11.0.min.js' %}" ></script>
-    <script src="{% static 'js/plugins.js' %}"  ></script>
-    <script src="{% static 'js/script.js' %}" ></script> 
+    <script src="{% static 'core/js/jquery-1.11.0.min.js' %}" ></script>
+    <script src="{% static 'core/js/plugins.js' %}" ></script>
+    <script src="{% static 'core/js/script.js' %}" ></script> 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"  ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"  ></script>
     
     <script src="https://kit.fontawesome.com/44f557ccce.js"  ></script>
 
-    <!-- <script src="{% static 'js/scriptproduct.js' %}"></script>--><!-- <script src="{% static 'js/pluginsproduct.js' %}"></script>--><!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- <script src="{% static 'core/js/scriptproduct.js' %}"></script>--><!-- <script src="{% static 'core/js/pluginsproduct.js' %}"></script>--><!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"></script>-->

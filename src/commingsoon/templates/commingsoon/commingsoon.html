@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{% trans "Coming soon page by GraphBerry" %}</title>
-    <link href="{% static 'css/commingsoon.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'commingsoon/css/commingsoon.css' %}" rel="stylesheet" />
+    <link href="{% static 'commingsoon/css/icons.css' %}" rel="stylesheet" />
     <link
       href="http://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
       rel="stylesheet"
@@ -16,14 +16,14 @@
   <body>
     <style>
       html {
-        background: url("{% static 'images/bg-image.jpg' %}");
+        background: url("{% static 'commingsoon/images/bg-image.jpg' %}");
       }
     </style>
 
     <div class="wrapper">
       <div class="logo">
         <img
-          src="{% static 'images/logo-soon.png' %}"
+          src="{% static 'commingsoon/images/logo-soon.png' %}"
           alt="GraphBerry coming soon theme"
           loading="lazy"
         />
@@ -76,11 +76,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script
       type="text/javascript"
-      src="{% static 'js/commingsoonjquery.downCount.js' %}"
+      src="{% static 'commingsoon/js/commingsoonjquery.downCount.js' %}"
     ></script>
     <script
       type="text/javascript"
-      src="{% static 'js/commingsoonapp.js' %}"
+      src="{% static 'commingsoon/js/commingsoonapp.js' %}"
     ></script>
   </body>
 </html>

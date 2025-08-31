@@ -68,20 +68,22 @@ INSTALLED_APPS = [
 ]
 
 
-cloudinary.config( 
-  cloud_name  = config("CLOUDINARY_NAME"),
-  api_key = config("API_KEY"),
-  api_secret = config("API_SECRET"),
-  secure = True
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_NAME'),
+#     'API_KEY': config('API_KEY'),
+#     'API_SECRET': config('API_SECRET')
+# }
+cloudinary.config(
+    cloud_name=config('CLOUDINARY_NAME'),
+    api_key=config('API_KEY'),
+    api_secret=config('API_SECRET'),
+    secure=True
 )
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-
 
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
 ]
 
 
@@ -218,16 +220,17 @@ STATICFILES_DIRS = [
   
   
 ]  
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')         
+STATIC_ROOT = BASE_DIR / "staticfiles"     
 
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://ecommercestore-production-0e82.up.railway.app',
+    'https://blingo-production-0e82.up.railway.app',
+    "http://127.0.0.1:8000",
 ]
 
 
@@ -281,3 +284,15 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+    }
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"

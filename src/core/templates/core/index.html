@@ -78,51 +78,51 @@
             <div class="category-carousel swiper">
               <div class="swiper-wrapper">
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-bread-baguette.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-bread-baguette.png' %}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Breads & Sweets' %}</h2>
                 </a>
                 <a class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Beverages' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Meat Products' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Breads' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-bread-baguette.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-bread-baguette.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Breads & Sweets' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Beverages' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Meat Products' %}</h2>
                 </a>
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Breads' %}</h2>
                 </a>
                 
@@ -157,7 +157,9 @@
                         <div class="row">
                       {% for v in vendor %}
                       <div class="card_ven" >
+                        {% comment %} {%if image %} {% endcomment %}
                         <div class="image" style="overflow: hidden; "><img src="{{v.image.url}}" style="width: 100%; height: 100%; object-fit: cover;"/></div>
+                        {% comment %} {%endif%} {% endcomment %}
                         <div class="card-info">
                           <span class="v_title">{{v.title}}</span>
                           <p class="v_des">{{v.description}}</p>
@@ -323,7 +325,7 @@
         <div class="row">
           
           <div class="col-md-6">
-            <div class="banner-ad bg-info mb-3" style="background-image: url('{%static 'images/ad-image-3.png' %}');background-repeat: no-repeat;background-position: right bottom;">
+            <div class="banner-ad bg-info mb-3" style="background-image: url('{%static 'core/images/ad-image-3.png' %}');background-repeat: no-repeat;background-position: right bottom;">
               <div class="banner-content p-5">
 
                 <div class="categories text-primary fs-3 fw-bold">{% trans 'Upto 25% Off' %}</div>
@@ -334,7 +336,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="banner-ad bg-info" style="background: url('{% static  "images/ad-image-4.png" %} ');background-repeat: no-repeat;background-position: right bottom;">
+            <div class="banner-ad bg-info" style="background: url('{% static  "core/images/ad-image-4.png" %} ');background-repeat: no-repeat;background-position: right bottom;">
               <div class="banner-content p-5">
 
                 <div class="categories text-primary fs-3 fw-bold">{% trans 'Upto 25% Off' %}</div>
@@ -354,7 +356,7 @@
     <section class="py-5">
       <div class="container-fluid">
 
-        <div class=" py-5 my-5 rounded-5" style="background: url(' {% static "images/bg-leaves-img-pattern.png" %} ') no-repeat;background:whitesmoke;">
+        <div class=" py-5 my-5 rounded-5" style="background: url(' {% static "core/images/bg-leaves-img-pattern.png" %} ') no-repeat;background:whitesmoke;">
           <div class="container my-5">
             <div class="row">
               <div class="col-md-6 p-5">
@@ -434,7 +436,7 @@
         top: 0;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
-        background:url({% static 'images/silde_ven.jpg' %});
+        background:url({% static 'core/images/silde_ven.jpg' %});
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
