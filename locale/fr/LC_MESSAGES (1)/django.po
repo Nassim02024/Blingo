@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 15:11+0100\n"
+"POT-Creation-Date: 2025-09-01 16:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,30 @@ msgstr ""
 msgid "Who are we?"
 msgstr ""
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:77
+#: .\src\aboutus\templates\aboutus\aboutus.html:58
+msgid ""
+"We are a company specialized in delivering orders quickly and easily, our "
+"goal is to make your daily life simpler. We provide you with a platform that "
+"brings together restaurants, shops, and various services in one place, and "
+"we ensure that your orders arrive safely at your doorstep, on time, and at "
+"the best prices."
+msgstr ""
+
+#: .\src\aboutus\templates\aboutus\aboutus.html:73
 msgid "Our Vision"
+msgstr ""
+
+#: .\src\aboutus\templates\aboutus\aboutus.html:76
+msgid ""
+"We strive to be the first choice in the field of delivery services by "
+"building a reliable platform that connects customers with various "
+"restaurants, stores, and service providers in an easy and fast manner. We "
+"aim to redefine the delivery experience to be more comfortable and flexible, "
+"not only meeting the daily needs of customers but also exceeding them to "
+"give them extra time to enjoy their lives. Our vision is to become the "
+"essential partner for every individual and family in their daily lives, by "
+"providing innovative services based on modern technology that meet the "
+"highest standards of quality, safety, and speed."
 msgstr ""
 
 #: .\src\commingsoon\templates\commingsoon\commingsoon.html:7
@@ -128,7 +150,7 @@ msgid "Details order"
 msgstr ""
 
 #: .\src\core\templates\core\cardorder.html:52
-#: .\src\customer\templates\customer\customer.html:93
+#: .\src\customer\templates\customer\customer.html:97
 msgid "Order"
 msgstr ""
 
@@ -324,7 +346,7 @@ msgid "My Account"
 msgstr ""
 
 #: .\src\core\templates\core\header.html:257
-#: .\src\customer\templates\customer\customer.html:83
+#: .\src\customer\templates\customer\customer.html:87
 msgid "Dashboard"
 msgstr ""
 
@@ -620,12 +642,12 @@ msgid "You can also get a gift coupon and free delivery."
 msgstr ""
 
 #: .\src\core\templates\core\index.html:374
-#: .\src\customer\templates\customer\customer.html:177
+#: .\src\customer\templates\customer\customer.html:181
 msgid "Name"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:379
-#: .\src\customer\templates\customer\customer.html:206
+#: .\src\customer\templates\customer\customer.html:210
 msgid "Email"
 msgstr ""
 
@@ -887,102 +909,102 @@ msgstr ""
 msgid "Address:"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:23
+#: .\src\customer\templates\customer\customer.html:27
 msgid "Profile "
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:35
+#: .\src\customer\templates\customer\customer.html:39
 msgid "Welcome"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:40
+#: .\src\customer\templates\customer\customer.html:44
 msgid "Project Manager"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:42
-#: .\src\customer\templates\customer\customer.html:188
+#: .\src\customer\templates\customer\customer.html:46
+#: .\src\customer\templates\customer\customer.html:192
 msgid "Address"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:43
-#: .\src\customer\templates\customer\customer.html:191
+#: .\src\customer\templates\customer\customer.html:47
+#: .\src\customer\templates\customer\customer.html:195
 msgid "Touggourt"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:46
+#: .\src\customer\templates\customer\customer.html:50
 msgid "Log Out"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:68
+#: .\src\customer\templates\customer\customer.html:72
 msgid "Overview"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:71
+#: .\src\customer\templates\customer\customer.html:75
 msgid "Orders"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:74
-#: .\src\customer\templates\customer\customer.html:174
+#: .\src\customer\templates\customer\customer.html:78
+#: .\src\customer\templates\customer\customer.html:178
 msgid "Profile"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:78
+#: .\src\customer\templates\customer\customer.html:82
 msgid "Password"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:99
+#: .\src\customer\templates\customer\customer.html:103
 msgid "Total spant"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:105
+#: .\src\customer\templates\customer\customer.html:109
 msgid "Notification"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:130
+#: .\src\customer\templates\customer\customer.html:134
 msgid "Budget"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:131
+#: .\src\customer\templates\customer\customer.html:135
 msgid "Date"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:132
+#: .\src\customer\templates\customer\customer.html:136
 msgid "State"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:133
+#: .\src\customer\templates\customer\customer.html:137
 msgid "Action"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:158
+#: .\src\customer\templates\customer\customer.html:162
 msgid "view"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:183
+#: .\src\customer\templates\customer\customer.html:187
 msgid "Last Name"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:186
+#: .\src\customer\templates\customer\customer.html:190
 msgid "Leo"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:194
+#: .\src\customer\templates\customer\customer.html:198
 msgid "Country"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:197
+#: .\src\customer\templates\customer\customer.html:201
 msgid "Algeria"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:200
+#: .\src\customer\templates\customer\customer.html:204
 msgid "Phone"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:203
+#: .\src\customer\templates\customer\customer.html:207
 msgid "+213 **********"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:215
+#: .\src\customer\templates\customer\customer.html:219
 msgid "nn1509789@gmail.com"
 msgstr ""
 
