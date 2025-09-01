@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
   let btnAddCard = document.querySelectorAll('.btn-add-card');
   let listGroup = document.querySelector('.list-group');
+  let alerts = document.querySelector('.alerts');
 
   // رسم المنتجات من التخزين
   arrayProduct.forEach((storedProduct) => {
@@ -334,14 +335,31 @@ document.addEventListener('DOMContentLoaded', function () {
       let pid = productPid[i].textContent.trim();
       let vId = vendorId[i].textContent.trim();
       let qun = quantityOneProduct[i].value;
-
+      
+    
+    
       if (!arrayProduct.some(item => item.pid === pid)) {
         let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
         arrayProduct.push({ productName, prices, pid, vId, qun });
         createItem(i);
         localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+        console.log("product added to cart");   
+        document.querySelector(".alerts p").innerHTML = "Product is add to card";  
+        alerts.style.visibility="visible"
+        document.querySelector(".alerts").style.background = "#ccff33"
+        setTimeout(() => {
+          alerts.style.visibility="hidden"
+        }, 2000);
+
       } else {
         console.log("product already in cart");
+        document.querySelector(".alerts p").innerHTML = "Product already in cart";
+        alerts.style.visibility="visible"
+        document.querySelector(".alerts").style.background = "#ffcdd2"
+        setTimeout(() => {
+          alerts.style.visibility="hidden"
+        }, 2000);
+        
       }
     });
   }

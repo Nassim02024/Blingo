@@ -134,7 +134,7 @@
       </h4>
       {% if request.resolver_match.url_name == "index" or request.resolver_match.url_name == "search_vendor" %}
       <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_vendor" %}" method="GET">
-        <input name="q"  type="text" class="form-control border-0 bg-transparent " placeholder="Search for more than {{vendor.count}} vendor">
+        <input name="q"  type="text" class="form-control border-0 bg-transparent " placeholder="{% trans "Search for more than" %}  {{vendor.count}} {% trans "vendor" %}">
         <button class="btn btn-dark rounded-end rounded-0" type="submit">{% trans 'Search' %}</button>
         
       </form>
@@ -142,7 +142,7 @@
 
       {% if request.resolver_match.url_name == "product" or request.resolver_match.url_name == "search_product" %}
       <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_product" vendor.vid %}" method="GET">
-        <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="Search for more than {{product.count}} product">
+        <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="{% trans "Search for more than" %} {{product.count}} {% trans "product" %}">
         <button class="btn btn-dark rounded-end rounded-0" type="submit">{% trans 'Search' %}</button>
         
       </form>
@@ -157,7 +157,7 @@
       
       <div class="col-sm-4 col-lg-3 text-center text-sm-start logo-index">
         <div  style=" " class="main-logo">
-          <a href="index.html">
+          <a href="{% url "index" %}">
            <img style="width:80px; " src="{% static 'core/images/logo-blingo.png' %}" alt="logo" class="img-fluid" loading="lazy"> 
           </a>
         </div>
@@ -171,7 +171,7 @@
         <div class="search-bar row bg-light p-2 my-2 rounded-4">
           <div class="col-11 col-md-7 w-100">
             <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_vendor" %}" method="GET">
-              <input name="q"  type="text" class="form-control border-0 bg-transparent search_vendor" placeholder="Search for more than {{vendor.count}} vendor">
+              <input name="q"  type="text" class="form-control border-0 bg-transparent search_vendor" placeholder="{% trans "Search for more than" %} {{vendor.count}} {% trans "vendor" %}">
               <button class="search_product_vendor" type="submit">
                 <div class="col-1">
                   <svg style="border: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
@@ -191,7 +191,7 @@
         <div class="search-bar row bg-light p-2 my-2 rounded-4">
           <div class="col-11 col-md-7 w-100">
             <form style="display: flex; position: relative; width: 100%;" id="search-form" class="text-center" action="{% url "search_product" vendor.vid %}" method="GET">
-              <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="Search for more than {{product.count}} product">
+              <input name="q"  type="text" class="form-control border-0 bg-transparent search_product" placeholder="{% trans "Search for more than" %} {{product.count}} {% trans "product" %}">
               <button class="search_product_vendor"  type="submit">
                 <div class="col-1">
                   <svg style="border: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>

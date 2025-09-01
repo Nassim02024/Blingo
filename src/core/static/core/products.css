@@ -13,6 +13,9 @@ This is main CSS file that contains custom style rules used in this template
 /*--------------------------------------------------------------
 /** VARIABLES
 --------------------------------------------------------------*/
+html{
+  overflow-x: hidden;
+}
 body {
   --heading-font: "Inter", sans-serif;
   --bs-link-color: #333;

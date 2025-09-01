@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 08:42+0100\n"
+"POT-Creation-Date: 2025-09-01 15:11+0100\n"
 "PO-Revision-Date: 2025-08-17 13:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,38 +89,37 @@ msgstr "سنرد في اقرب وقت"
 msgid "submit"
 msgstr "ارسال"
 
-#: .\src\core\templates\base.html:135 .\src\core\templates\base.html:292
+#: .\src\core\templates\base.html:139 .\src\core\templates\base.html:296
 msgid "Free delivery"
 msgstr "عروض توصيل مجاني "
 
-#: .\src\core\templates\base.html:144 .\src\core\templates\base.html:306
+#: .\src\core\templates\base.html:148 .\src\core\templates\base.html:310
 msgid "secure payment"
 msgstr "الدفع الآمن"
 
-#: .\src\core\templates\base.html:154 .\src\core\templates\base.html:320
+#: .\src\core\templates\base.html:158 .\src\core\templates\base.html:324
 msgid "Quality guarantee"
 msgstr "ضمان الجودة"
 
-#: .\src\core\templates\base.html:164 .\src\core\templates\base.html:348
+#: .\src\core\templates\base.html:168 .\src\core\templates\base.html:352
 msgid "Daily offers"
 msgstr "العروض اليومية"
 
-#: .\src\core\templates\base.html:265
+#: .\src\core\templates\base.html:269
 msgid "Shop faster with Blingo App"
 msgstr "تسوق بشكل أسرع مع تطبيق Blingo"
 
-#: .\src\core\templates\base.html:266
+#: .\src\core\templates\base.html:270
 msgid ""
 "Wait for the Blingo app, through which you can shop comfortably and well."
 msgstr "انتظرو تطبيق Blingo ، حيث يمكنك التسوق بسهولة وفعالية."
 
-#: .\src\core\templates\base.html:334
+#: .\src\core\templates\base.html:338
 msgid "guaranteed savings"
 msgstr "مدخرات مضمونة"
 
 #: .\src\core\templates\core\cardorder.html:15
 #: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:10
-#: .\src\customer\templates\customer\customer.html:10
 msgid "Document"
 msgstr "وثيقة"
 
@@ -144,7 +143,7 @@ msgstr "نموذج العنوان"
 #: .\src\core\templates\core\cardorder.html:75
 msgid ""
 "Please provide your address details below. Fields marked with  are required."
-msgstr ""
+msgstr "يرجى تقديم تفاصيل عنوانك أدناه. الحقول المميزة هي المطلوبة."
 
 #: .\src\core\templates\core\cardorder.html:103
 msgid "Phone Number"
@@ -160,7 +159,7 @@ msgstr "عنوان الشارع (السطر 2) (اختياري)"
 
 #: .\src\core\templates\core\cardorder.html:169
 msgid "I confirm this address is accurate for "
-msgstr ""
+msgstr "أؤكد أن هذا العنوان دقيق لـ"
 
 #: .\src\core\templates\core\cardorder.html:174
 msgid "Submit Address"
@@ -310,6 +309,23 @@ msgstr " استمر لتاكيد "
 msgid "Search"
 msgstr "يبحث"
 
+#: .\src\core\templates\core\header.html:137
+#: .\src\core\templates\core\header.html:145
+#: .\src\core\templates\core\header.html:174
+#: .\src\core\templates\core\header.html:194
+msgid "Search for more than"
+msgstr "ابحث عن أكثر من"
+
+#: .\src\core\templates\core\header.html:137
+#: .\src\core\templates\core\header.html:174
+msgid "vendor"
+msgstr "البائعون"
+
+#: .\src\core\templates\core\header.html:145
+#: .\src\core\templates\core\header.html:194
+msgid "product"
+msgstr "منتج:"
+
 #: .\src\core\templates\core\header.html:249
 #: .\src\core\templates\core\header.html:408
 msgid "My Account"
@@ -434,14 +450,14 @@ msgstr "احصل على نسخة محترفة"
 #: .\src\core\templates\core\index.html:8
 #: .\src\core\templates\core\index.html:11
 msgid " Home | A multi-vendor store for purchasing food products in Touggourt "
-msgstr ""
+msgstr "الصفحة الرئيسية | متجر متعدد البائعين لشراء المنتجات الغذائية في توقرط"
 
 #: .\src\core\templates\core\index.html:10
 msgid ""
 " Discover the Blino store  a multi-vendor shopping platform that offers you "
 "the best food products and more from trusted sellers. Shop easily and "
 "securely, with multiple payment options and fast shipping. "
-msgstr ""
+msgstr "اكتشف متجر بلينو، منصة تسوق متعددة البائعين التي تقدم لك أفضل المنتجات الغذائية والمزيد من البائعين الموثوقين. تسوق بسهولة وأمان، مع خيارات دفع متعددة وشحن سريع."
 
 #: .\src\core\templates\core\index.html:12
 #: .\src\core\templates\core\index.html:18
@@ -449,13 +465,13 @@ msgid ""
 " Discover the Blino store  a multi-vendor shopping platform that offers you "
 "the best food products and more from trusted sellers. Shop easily and "
 "securely, with multiple payment options and fast shipping."
-msgstr ""
+msgstr "اكتشف متجر بلينو، وهو منصة تسوق متعددة البائعين التي تقدم لك أفضل المنتجات الغذائية والمزيد من البائعين الموثوقين. تسوق بسهولة وأمان، مع خيارات دفع متعددة وشحن سريع."
 
 #: .\src\core\templates\core\index.html:17
 msgid ""
 " Blingo | Home | A multi-vendor store for purchasing food products in "
 "Touggourt "
-msgstr ""
+msgstr "Blingo | الرئيسية | متجر متعدد البائعين لشراء المنتجات الغذائية في Touggourt"
 
 #: .\src\core\templates\core\index.html:41
 msgid "Shop from the best stores in your city."
@@ -526,26 +542,26 @@ msgstr "الجميع"
 msgid "Juices"
 msgstr "العصائر"
 
-#: .\src\core\templates\core\index.html:170
+#: .\src\core\templates\core\index.html:174
 #: .\src\core\templates\core\search_vendor.html:28
 msgid "Store"
 msgstr "محل"
 
-#: .\src\core\templates\core\index.html:197
-#: .\src\core\templates\core\index.html:244
-#: .\src\core\templates\core\index.html:287
+#: .\src\core\templates\core\index.html:201
+#: .\src\core\templates\core\index.html:248
+#: .\src\core\templates\core\index.html:291
 #: .\src\core\templates\core\productDetils.html:89
 #: .\src\core\templates\core\productsforvendor.html:499
 msgid "4.5"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:199
+#: .\src\core\templates\core\index.html:203
 msgid "${{p.old_price}}"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:214
-#: .\src\core\templates\core\index.html:260
-#: .\src\core\templates\core\index.html:303
+#: .\src\core\templates\core\index.html:218
+#: .\src\core\templates\core\index.html:264
+#: .\src\core\templates\core\index.html:307
 #: .\src\core\templates\core\productDetils.html:106
 #: .\src\core\templates\core\product_category.html:65
 #: .\src\core\templates\core\productsforvendor.html:515
@@ -553,82 +569,82 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "أضف إلى السلة"
 
-#: .\src\core\templates\core\index.html:236
+#: .\src\core\templates\core\index.html:240
 #, python-format
 msgid "-30%%"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:243
-#: .\src\core\templates\core\index.html:286
+#: .\src\core\templates\core\index.html:247
+#: .\src\core\templates\core\index.html:290
 msgid "Sunstar Fresh Melon Juice"
 msgstr "Sunstar Fresh Melon Juice"
 
-#: .\src\core\templates\core\index.html:244
-#: .\src\core\templates\core\index.html:287
+#: .\src\core\templates\core\index.html:248
+#: .\src\core\templates\core\index.html:291
 msgid "1 Unit"
 msgstr "1 وحدة"
 
-#: .\src\core\templates\core\index.html:245
-#: .\src\core\templates\core\index.html:288
+#: .\src\core\templates\core\index.html:249
+#: .\src\core\templates\core\index.html:292
 msgid "$18.00"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:330
-#: .\src\core\templates\core\index.html:341
+#: .\src\core\templates\core\index.html:334
+#: .\src\core\templates\core\index.html:345
 #, fuzzy, python-format
 #| msgid "Upto 25% Off"
 msgid "Upto 25%% Off"
 msgstr "تصل إلى 25 ٪ بقالة"
 
-#: .\src\core\templates\core\index.html:331
+#: .\src\core\templates\core\index.html:335
 msgid "Luxa Dark Chocolate"
 msgstr "لوكسا الشوكولاته الداكنة"
 
-#: .\src\core\templates\core\index.html:332
-#: .\src\core\templates\core\index.html:343
+#: .\src\core\templates\core\index.html:336
+#: .\src\core\templates\core\index.html:347
 msgid "Very tasty & creamy vanilla flavour creamy muffins."
 msgstr "لذيذ جدا ودسم النكهة الكعك دسم."
 
-#: .\src\core\templates\core\index.html:333
-#: .\src\core\templates\core\index.html:344
+#: .\src\core\templates\core\index.html:337
+#: .\src\core\templates\core\index.html:348
 msgid "Show Now"
 msgstr "تظهر الآن"
 
-#: .\src\core\templates\core\index.html:342
+#: .\src\core\templates\core\index.html:346
 msgid "Creamy Muffins"
 msgstr "الكعك الكريمي"
 
-#: .\src\core\templates\core\index.html:363
+#: .\src\core\templates\core\index.html:367
 msgid "Get"
 msgstr "احصلو على"
 
-#: .\src\core\templates\core\index.html:363
+#: .\src\core\templates\core\index.html:367
 msgid "free delivery"
 msgstr "توصيل مجاني"
 
-#: .\src\core\templates\core\index.html:363
+#: .\src\core\templates\core\index.html:367
 msgid "on your first order"
 msgstr "في أول عملية شراء لكم"
 
-#: .\src\core\templates\core\index.html:365
+#: .\src\core\templates\core\index.html:369
 msgid "You can also get a gift coupon and free delivery."
 msgstr "يمكنك أيضا الحصول على قسيمة الهدايا و توصيلات مجاني."
 
-#: .\src\core\templates\core\index.html:370
+#: .\src\core\templates\core\index.html:374
 #: .\src\customer\templates\customer\customer.html:177
 msgid "Name"
 msgstr "اسم"
 
-#: .\src\core\templates\core\index.html:375
+#: .\src\core\templates\core\index.html:379
 #: .\src\customer\templates\customer\customer.html:206
 msgid "Email"
 msgstr "بريد إلكتروني"
 
-#: .\src\core\templates\core\index.html:380
+#: .\src\core\templates\core\index.html:384
 msgid "Subscribe to the newsletter"
 msgstr "اشترك في النشرة الإخبارية"
 
-#: .\src\core\templates\core\index.html:383
+#: .\src\core\templates\core\index.html:387
 msgid "Submit"
 msgstr "يُقدِّم"
 
@@ -777,7 +793,6 @@ msgstr "مُكَمِّلات"
 msgid "man"
 msgstr "رجل"
 
-
 #: .\src\core\templates\core\productsforvendor.html:540
 msgid "People are also looking for"
 msgstr "الناس يبحثون عن"
@@ -888,7 +903,7 @@ msgstr "عنوان:"
 
 #: .\src\customer\templates\customer\customer.html:23
 msgid "Profile "
-msgstr "حساب تعريفي"
+msgstr "حساب"
 
 #: .\src\customer\templates\customer\customer.html:35
 msgid "Welcome"
@@ -1005,15 +1020,15 @@ msgstr "كمية"
 msgid "total"
 msgstr "المجموع"
 
-#: .\src\ecommestore\settings.py:164 .\src\users\translate.py:4
+#: .\src\ecommestore\settings.py:188 .\src\users\translate.py:4
 msgid "French"
 msgstr "فرنسي"
 
-#: .\src\ecommestore\settings.py:165 .\src\users\translate.py:5
+#: .\src\ecommestore\settings.py:189 .\src\users\translate.py:5
 msgid "English"
 msgstr "إنجليزي"
 
-#: .\src\ecommestore\settings.py:166 .\src\users\translate.py:6
+#: .\src\ecommestore\settings.py:190 .\src\users\translate.py:6
 #, fuzzy
 msgid "Arabic"
 msgstr "عربي"
@@ -1576,447 +1591,64 @@ msgstr "تم إرسال رسالتك. شكرًا لك!"
 msgid "SEND MESSAGE"
 msgstr "أرسل رسالة"
 
-#: .\src\users\templates\users\register.html:15
+#: .\src\users\templates\users\register.html:20
 msgid "Blingo | Login"
-msgstr ""
+msgstr "Blingo | تسجيل الدخول"
 
-#: .\src\users\templates\users\register.html:19
+#: .\src\users\templates\users\register.html:26
 msgid "Welcom in your market"
 msgstr "مرحبا بك في متجرك"
 
-#: .\src\users\templates\users\register.html:29
+#: .\src\users\templates\users\register.html:36
 msgid "Create Account"
 msgstr "إنشاء حساب"
 
-#: .\src\users\templates\users\register.html:34
-#: .\src\users\templates\users\register.html:80
+#: .\src\users\templates\users\register.html:41
+#: .\src\users\templates\users\register.html:87
 msgid "Sign Up"
 msgstr "اشتراك"
 
-#: .\src\users\templates\users\register.html:36
+#: .\src\users\templates\users\register.html:43
 msgid "Already have account ?"
 msgstr "هل لديك بالفعل حساب؟"
 
-#: .\src\users\templates\users\register.html:38
+#: .\src\users\templates\users\register.html:45
 msgid "sign In"
 msgstr "تسجيل الدخول"
 
-#: .\src\users\templates\users\register.html:46
-#: .\src\users\templates\users\register.html:54
+#: .\src\users\templates\users\register.html:53
+#: .\src\users\templates\users\register.html:61
 msgid "Log In"
 msgstr "تسجيل الدخول"
 
-#: .\src\users\templates\users\register.html:56
+#: .\src\users\templates\users\register.html:63
 #, fuzzy
 #| msgid "Don`t have account ?"
 msgid "Don't have account ?"
 msgstr "ليس لديك حساب؟"
 
-#: .\src\users\templates\users\register.html:58
+#: .\src\users\templates\users\register.html:65
 msgid "sign Up"
 msgstr "اشتراك"
 
-#: .\src\users\templates\users\register.html:66
+#: .\src\users\templates\users\register.html:73
 msgid "Welcome Back!"
 msgstr "مرحبًا بعودتك!"
 
-#: .\src\users\templates\users\register.html:71
+#: .\src\users\templates\users\register.html:75
+msgid "To keep connected with us please login with your personal info"
+msgstr "للبقاء على اتصال بنا، يرجى تسجيل الدخول باستخدام معلوماتك الشخصية."
+
+#: .\src\users\templates\users\register.html:78
 msgid "login"
 msgstr "تسجيل الدخول"
 
-#: .\src\users\templates\users\register.html:74
-msgid "Hello, Friend!"
-msgstr "مرحبا يا صديقي!"
-
-#~ msgid ""
-#~ "We are a company specialized in delivering orders quickly and easily, our "
-#~ "goal is to make your daily life simpler. We provide you with a platform "
-#~ "that brings together restaurants, shops, and various services in one "
-#~ "place, and we ensure that your orders arrive safely at your doorstep, on "
-#~ "time, and at the best prices."
-#~ msgstr ""
-#~ "شركة متخصصة في خدمات التوصيل السريعة والسهلة. هدفنا هو جعل حياتك اليومية "
-#~ "أبسط. نقدم منصة تجمع بين المطاعم والمتاجر والخدمات المتنوعة في مكان واحد، "
-#~ "مما يضمن وصول طلباتك إلى باب منزلك بأمان وسرعة وبأفضل الأسعار."
-
-#~ msgid ""
-#~ "We strive to be the first choice in the field of delivery services by "
-#~ "building a reliable platform that connects customers with various "
-#~ "restaurants, stores, and service providers in an easy and fast manner. We "
-#~ "aim to redefine the delivery experience to be more comfortable and "
-#~ "flexible, not only meeting the daily needs of customers but also "
-#~ "exceeding them to give them extra time to enjoy their lives. Our vision "
-#~ "is to become the essential partner for every individual and family in "
-#~ "their daily lives, by providing innovative services based on modern "
-#~ "technology that meet the highest standards of quality, safety, and speed."
-#~ msgstr ""
-#~ "نسعى ليكون لنا الخيار الأول في مجال خدمات التوصيل من خلال بناء منصة "
-#~ "موثوقة تربط العملاء بمختلف المطاعم والمتاجر ومزودي الخدمات بطريقة سهلة "
-#~ "وسريعة. نحن نهدف إلى إعادة تعريف تجربة التوصيل لتكون أكثر راحة ومرونة، "
-#~ "ليس فقط لتلبية الاحتياجات اليومية للعملاء بل لتجاوزها أيضًا لمنحهم المزيد "
-#~ "من الوقت للاستمتاع بحياتهم. رؤيتنا هي أن نصبح الشريك الأساسي لكل فرد "
-#~ "وعائلة في حياتهم اليومية، من خلال توفير خدمات مبتكرة تعتمد على "
-#~ "التكنولوجيا الحديثة التي تلبي أعلى معايير الجودة والسلامة والسرعة."
-
-#~ msgid "Home → category"
-#~ msgstr "الصفحة الرئيسية → فئة"
-
+#: .\src\users\templates\users\register.html:81
 #, fuzzy
-#~| msgid "Home → category"
-#~ msgid "Home → category → "
-#~ msgstr "الصفحة الرئيسية → فئة"
-
-#~ msgid "All types of orders"
-#~ msgstr "كل انواع الطلبات"
-
-#~ msgid ""
-#~ "Indulge in authentic Italian cuisine crafted with passion and the finest "
-#~ "ingredients. From traditional recipes passed down through generations to "
-#~ "innovative culinary creations, we offer an unforgettable dining "
-#~ "experience."
-#~ msgstr ""
-#~ "تنغمس في المطبخ الإيطالي الأصيل المصنوع من العاطفة وأرقى المكونات. من "
-#~ "الوصفات التقليدية التي تنتقل عبر الأجيال إلى إبداعات الطهي المبتكرة ، "
-#~ "نقدم تجربة طعام لا تنسى."
-
-#~ msgid "Your reservation request has been sent. We'll contact you shortly!"
-#~ msgstr "تم إرسال طلب الحجز الخاص بك. سوف نتصل بك قريبا!"
-
-#~ msgid ""
-#~ "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint "
-#~ "consectetur velit"
-#~ msgstr "ضرورية eius نتيجة ex aliquid fuga eum quidem sint incectetur velit"
-
-#~ msgid ""
-#~ "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. "
-#~ "Vestibulum id ligula porta felis euismod semper."
-#~ msgstr ""
-#~ "عدد صحيح posuere erat a ante venenatis dapibus posuere velit aliquet. "
-#~ "الدهليز معرف Ligula porta felis euismod semper."
-
-#~ msgid ""
-#~ "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu "
-#~ "leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. "
-#~ "Curabitur blandit tempus porttitor."
-#~ msgstr ""
-#~ "Morbi Leo Risus ، Porta AC incectetur AC ، الدهليز في إيروس. AENEAN EU "
-#~ "LEO QUAM. Pellentesque Ornare Sem lacinia quam venenatis الدهليز. "
-#~ "Curabitur Blandit tempus porttitor."
-
-#~ msgid "Donec sed odio dui. Nulla vitae elit libero, a pharetra augue."
-#~ msgstr "Donec Sed Odio DUI. Nulla Vitae Elit Libero ، A Pharetra Augue."
-
-#~ msgid "Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-#~ msgstr "Praesent Commodo Cursus Magna ، Vel Scelerisque Nisl incectetur et."
-
-#~ msgid ""
-#~ "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum "
-#~ "suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh "
-#~ "et. Maecen aliquam, risus at semper."
-#~ msgstr ""
-#~ "proin iaculis purus نتيجة SEM Cure digni ssim donec porttitora entum "
-#~ "suscipit rhoncus. Quam Quam ، Ultricies eget id ، aliquam eget nibh et. "
-#~ "Maecen Aliquam ، Risus في Semper."
-
-#~ msgid ""
-#~ "Enim nisi quem export duis labore cillum quae magna enim sint quorum "
-#~ "nulla quem veniam duis minim tempor labore quem eram duis noster aute "
-#~ "amet eram fore quis sint minim."
-#~ msgstr ""
-#~ "enim nisi quem esport duis labore cillum quae magna enim sint quorum "
-#~ "nulla quem veniam duis minimt labore quem eram duis noster aute amet eram "
-#~ "fore quis sint minim."
-
-#~ msgid ""
-#~ "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export "
-#~ "minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna "
-#~ "sunt elit fore quem dolore labore."
-#~ msgstr ""
-#~ "fugiat enim eram quae cillum dolore dolor amet nulla culpa multos esport "
-#~ "minim fugiat minime velit minim dolor enim duis veniam ipsum anim magna "
-#~ "sunt leit leit quem dolore labore."
-
-#~ msgid ""
-#~ "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam "
-#~ "tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum "
-#~ "fugiat legam esse veniam culpa."
-#~ msgstr ""
-#~ "quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam "
-#~ "tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum "
-#~ "fugiat legam esse veniam culpa."
-
-#~ msgid ""
-#~ "Export tempor illum tamen malis malis eram quae irure esse labore quem "
-#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
-#~ "noster fugiat irure amet legam anim culpa."
-#~ msgstr ""
-#~ "صادرات مؤقتة Illum tamen malis malis eram quae irure esse labore quem "
-#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
-#~ "noster fugiat irure amet legam ant culpa."
-
-#~ msgid ""
-#~ "Texit tempor illum tamen malis malis eram quae irure esse labore quem "
-#~ "cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua "
-#~ "noster fugiat irure amet legam anim culpa."
-#~ msgstr ""
-#~ "TEXIT TEMPOR ILLUM TAMEN MALIS ERAM QUAE IRURE ESSE LABORE QUEM CILLUM "
-#~ "QUID CILLUM ERAM MALIS QUORUM VELIT ERAM VELIT SUNT ALIQUA Noster Fugiat "
-#~ "iRure Amet Legam Anim Culpa."
-
-#~ msgid "Michelin Mention"
-#~ msgstr "ميشلان ذكر"
-
-#~ msgid ""
-#~ "Curabitur convallis lectus a sapien dictum, sed posuere urna fermentum. "
-#~ "Maecenas sodales, neque non pretium ultrices, lacus nibh finibus mi, non "
-#~ "vulputate arcu quam at nisl."
-#~ msgstr ""
-#~ "curabitur convallis محاضرة dictum sapien ، sed posuere urna تخمير. "
-#~ "Maecenas Sodales ، neque non pretium ultrices ، lacus nibh finibus mi ، "
-#~ "غير الجذابة arcu quam في nisl."
-
-#~ msgid "Gourmand Trophy 2022"
-#~ msgstr "Gourmand Trophy 2022"
-
-#~ msgid "Le Cordon Bleu Honors"
-#~ msgstr "LE CORDON BLEU يكرم"
-
-#~ msgid "City Best Tasting Menu"
-#~ msgstr "أفضل قائمة تذوق المدينة"
-
-#~ msgid ""
-#~ "Donec feugiat, arcu non pulvinar posuere, risus libero cursus nibh, sed "
-#~ "dictum nibh arcu non augue."
-#~ msgstr ""
-#~ "Donec Feugiat ، Arcu non Pulvinar posuere ، Risus Libero Cursus nibh ، "
-#~ "sed dictum nibh arcu non Augue."
-
-#~ msgid "Street Food Fest"
-#~ msgstr "مهرجان طعام الشارع"
-
-#~ msgid ""
-#~ "Integer aliquet, urna et commodo gravida, libero lacus aliquam velit, "
-#~ "vitae iaculis sem velit in purus."
-#~ msgstr ""
-#~ "integer aliquet ، urna et commodo gravida ، libero lacus aliquam velit ، "
-#~ "vitae iaculis sem velit in purus."
-
-#~ msgid "Cocoa Summit"
-#~ msgstr "قمة الكاكاو"
-
-#~ msgid ""
-#~ "Pellentesque dapibus, nibh id pharetra interdum, risus est vehicula "
-#~ "lectus, non iaculis velit elit ut felis."
-#~ msgstr ""
-#~ "Pellentesque dapibus ، nibh id pharetra interdum ، Risus est queicula "
-#~ "lectus ، non iaculis velit elit ut felis."
-
-#~ msgid "Smoke-Off Winner"
-#~ msgstr "فائز دخان"
-
-#~ msgid ""
-#~ "Vestibulum congue, justo eget ultricies posuere, erat nunc viverra arcu, "
-#~ "vitae cursus arcu nunc at erat."
-#~ msgstr ""
-#~ "الدهليز congue ، justo eget intricies posuere ، erat nunc viverra arcu ، "
-#~ "Vitae cursus arcu nunc في erat."
-
-#~ msgid "Guest Favorite"
-#~ msgstr "مفضل ضيف"
-
-#~ msgid ""
-#~ "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
-#~ "enim ad minim veniam quis nostrud exercitation."
-#~ msgstr ""
-#~ "SED do eiusmod regiDunt ut labore et dolore magna aliqua. UT ENIM AD الحد "
-#~ "الأدنى في Veniam quis nostrud."
-
-#~ msgid ""
-#~ "Your reservation request has been submitted successfully. We'll contact "
-#~ "you shortly to confirm."
-#~ msgstr "تم تقديم طلب الحجز الخاص بك بنجاح. سنتصل بك قريبًا للتأكيد."
-
-#~ msgid ""
-#~ "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum "
-#~ "dolore eu fugiat nulla pariatur."
-#~ msgstr ""
-#~ "DUIS AUTE IRURE DOLOR في refrehenderit في voluptate velit esse cillum "
-#~ "dolore eu fugiat nulla pariatur."
-
-#~ msgid "Tuesday - Thursday: 5:00 PM - 10:00 PM"
-#~ msgstr "الثلاثاء - الخميس: 5:00 مساءً - 10:00 مساءً"
-
-#~ msgid "Available daily 2:00 PM - 9:00 PM"
-#~ msgstr "متاح يوميًا 2:00 مساءً - 9:00 مساءً"
-
-#~ msgid "Response within 24 hours"
-#~ msgstr "الاستجابة في غضون 24 ساعة"
-
-#~ msgid "Recommended to book 2-3 days in advance for weekend dining"
-#~ msgstr "موصى به لحجز 2-3 أيام مقدمًا لتناول الطعام في عطلة نهاية الأسبوع"
-
-#~ msgid "We recommend making reservations at least 48 hours in advance"
-#~ msgstr "نوصي بإجراء الحجوزات قبل 48 ساعة على الأقل"
-
-#~ msgid ""
-#~ "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore "
-#~ "et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud "
-#~ "exercitation ullamco laboris."
-#~ msgstr ""
-#~ "incectetur adipiscing leit ، sed do eiusmod regiDUnt ut labore et dolore "
-#~ "magna aliqua. UT ENIM AD الحد الأدنى من Veniam ، QUIS NOSTRUD تمارس "
-#~ "Ullamco LABORIS."
-
-#~ msgid ""
-#~ "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum "
-#~ "dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non "
-#~ "proident."
-#~ msgstr ""
-#~ "DUIS AUTE IRURE DOLOR في refrehenderit في voluptate velit esse cillum "
-#~ "dolore eu fugiat nulla pariatur. باستثناء sint occaecat cupidatat غير "
-#~ "برومنت."
-
-#~ msgid ""
-#~ "Sed ut perspiciatis unde omnis iste natus error sit voluptatem "
-#~ "accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab "
-#~ "illo."
-#~ msgstr ""
-#~ "sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium "
-#~ "doloremque laudantium ، totam rem aperiam ، eque ipsa quae ab illo."
-
-#~ msgid ""
-#~ "At enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi "
-#~ "ut aliquip ex ea commodo consequat."
-#~ msgstr ""
-#~ "في enim ad maint Veniam ، تمارس quis nostrud ullamco laboris nisi ut "
-#~ "aliquip ex ea commodo."
-
-#~ msgid "Supporting local farmers and charities since 2015"
-#~ msgstr "دعم المزارعين المحليين والجمعيات الخيرية منذ عام 2015"
-
-#~ msgid "Committed to sustainable dining and zero waste"
-#~ msgstr "ملتزمون بتناول الطعام المستدامة والنفايات الصفرية"
-
-#~ msgid "To keep connected with us please login with your personal info"
-#~ msgstr "للحفاظ على اتصال معنا ، يرجى تسجيل الدخول بمعلوماتك الشخصية"
-
-#~ msgid "Enter your personal details and start journey with us"
-#~ msgstr "أدخل بياناتك الشخصية وابدأ الرحلة معنا"
-
-#~ msgid "Lorem ipsum amet dolor"
-#~ msgstr "Lorem ipsum amet dolor"
-
-#~ msgid ""
-#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
-#~ "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim "
-#~ "veniam, quis volupta"
-#~ msgstr ""
-#~ "lorem ipsum dolor sit amet ، exectetur adipiscing elit ، sed do eiusmod "
-#~ "regiDunt ut labore et dolore magna aliqua. UT ENIM AD MINIM VENIAM ، QUIS "
-#~ "VOLUPTA"
-
-#~ msgid "View All Categories →"
-#~ msgstr "عرض جميع الخدمات"
-
-#~ msgid "Lorem ipsum dolor sit amet, consectetur adipi elit."
-#~ msgstr "lorem ipsum dolor sit amet ، incectetur adipi elit."
-
-#~ msgid "FoodMart - Free eCommerce Grocery Store HTML Website Template"
-#~ msgstr "Foodmart - قالب موقع الويب الخاص بالتجارة الإلكترونية مجانًا"
-
-#~ msgid ""
-#~ "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere "
-#~ "cubilia curae. Donec velit neque auctor sit amet aliquam vel ullamcorper "
-#~ "sit amet ligula."
-#~ msgstr ""
-#~ "الدهليز ante ipsum primis في faucibus orci luctus et ultrices posuere "
-#~ "cubilia curae. Donec Velit neque auctor sit amet aliquam vel ulamcorper "
-#~ "sit amet ligula."
-
-#~ msgid "Careers"
-#~ msgstr "وظائف"
-
-#~ msgid "Press"
-#~ msgstr "يضعط"
-
-#~ msgid "Solutions"
-#~ msgstr "الحلول"
-
-#~ msgid "Digital Strategy"
-#~ msgstr "الاستراتيجية الرقمية"
-
-#~ msgid "Cloud Computing"
-#~ msgstr "الحوسبة السحابية"
-
-#~ msgid "Data Analytics"
-#~ msgstr "تحليلات البيانات"
-
-#~ msgid "AI Solutions"
-#~ msgstr "حلول الذكاء الاصطناعي"
-
-#~ msgid "Cybersecurity"
-#~ msgstr "الأمن السيبراني"
-
-#~ msgid "2847 Maple Avenue"
-#~ msgstr "2847 شارع القيقب"
-
-#~ msgid "Los Angeles, CA 90210"
-#~ msgstr "لوس أنجلوس ، كاليفورنيا 90210"
-
-#~ msgid "United States"
-#~ msgstr "الولايات المتحدة"
-
-#~ msgid "+1 (555) 987-6543"
-#~ msgstr "+1 (555) 987-6543"
-
-#~ msgid "Accessories"
-#~ msgstr "مُكَمِّلات"
-
-#, fuzzy, python-format
-#~| msgid "100% natural"
-#~ msgid "100%% natural"
-#~ msgstr "100 ٪ الطبيعي"
-
-#~ msgid "Fresh Smoothie & Summer Juice"
-#~ msgstr "عصير جديد وعصير الصيف"
-
-#~ msgid "Shop Now"
-#~ msgstr "تسوق الآن"
-
-#~ msgid "Shop Collection"
-#~ msgstr "مجموعة المتجر"
-
-#~ msgid "Heinz Tomato Ketchup"
-#~ msgstr "هاينز الطماطم ketchup"
-
-#, python-format
-#~ msgid "20%% off"
-#~ msgstr "20 ٪ بقالة "
-
-#~ msgid "Fruits & Vegetables"
-#~ msgstr "الفواكه والخضروات"
-
-#~ msgid "Baked Products"
-#~ msgstr "المنتجات المخبوزة"
-
-#~ msgid "Category"
-#~ msgstr "فئة"
-
-#~ msgid "Forgot your password?"
-#~ msgstr "نسيت كلمة السر؟"
-
-#~ msgid "Full Name"
-#~ msgstr "الاسم الكامل"
-
-#~ msgid "Setting"
-#~ msgstr "جلسة"
-
-#, python-format
-#~ msgid "15%% off"
-#~ msgstr "15 ٪٪ قبالة"
-
-#~ msgid "or use your account"
-#~ msgstr "أو استخدم حسابك"
-
-#~ msgid "Home → category → {{category.categoress}}"
-#~ msgstr "الصفحة الرئيسية → الفئة → ___CURLY_0___"
+#| msgid "Hello, Friend!"
+msgid "Hello!"
+msgstr "مرحبا!"
+
+#: .\src\users\templates\users\register.html:83
+msgid "Enter your personal details and start journey with us"
+msgstr "ادخل بياناتك الشخصية وابدأ رحلتك معنا"

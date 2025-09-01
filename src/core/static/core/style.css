@@ -291,7 +291,7 @@ h6 {
 .card {
   height: fit-content;
   --grad: red, blue;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
   border-radius: 2rem;
   gap: 1.5rem;
@@ -615,6 +615,7 @@ a {
   min-height: 630px;
   display: flex;
 }
+
 /* .banner-ad .banner-content {
   padding: 52px;
 }
@@ -696,12 +697,13 @@ a {
 }
 /* category carousel */
 .category-carousel .category-item {
+  height:auto;
   background: #ffffff;
   border: 1px solid #fbfbfb;
   box-shadow: 0px 5px 22px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
   text-align: center;
-  padding: 60px 20px;
+  padding: 20px 20px;
   margin: 20px 0;
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 }
@@ -921,6 +923,7 @@ a {
 /* هذا CSS يُظهر القائمة عند المرور بالماوس */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
+  padding: 20px;
 }
 
 /* single product */
@@ -1306,15 +1309,13 @@ html {
   width: 105%;
   height: 100%;
   transition: transform 3.5s 770ms;
-}
+  background: url("images/bacgroun-orange.png");}
 
 .app__bgimg-image {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: 100%;
     top: 0px;
-    right: 55%;
-    transform: translate(50%);
 }
 
 .app__bgimg-image--1 {
@@ -1393,7 +1394,7 @@ html {
 
 .app__text--2 {
   right: initial;
-  top: 350px;
+  top: -39vh;
   left: 80px;
   z-index: -1;
   transition: z-index 1500ms;
@@ -1441,7 +1442,7 @@ html {
   transform: translate3d(0, 0, 0);
   transition: transform 1500ms 1625ms, opacity 400ms 1825ms;
   opacity: 1;
-  font-size: clamp(12px, 4vw, 35px);
+  font-size: clamp(25px, 4vw, 35px);
 }
 
 .active .app__bgimg {
@@ -1484,26 +1485,26 @@ html {
   z-index: 1;
 }
 .active .app__text--2 .app__text-line--1 {
-  transform: translate3d(0, -125px, 0);
+  transform: translate3d(0, 85vh, 0);
   transition: transform 2500ms 1100ms, opacity 1300ms 1300ms;
   opacity: 1;
 }
 .active .app__text--2 .app__text-line--2 {
-  transform: translate3d(0, -125px, 0);
+  transform: translate3d(0, 85vh, 0);
   transition: transform 2500ms 1175ms, opacity 1300ms 1575ms;
   opacity: 1;
 }
 .active .app__text--2 .app__text-line--3 {
-  transform: translate3d(0, -125px, 0);
+  transform: translate3d(0, 85vh, 0);
   transition: transform 2500ms 1250ms, opacity 1300ms 1850ms;
   opacity: 1;
   font-size: clamp(18px, 2vw, 32px);
 }
 .active .app__text--2 .app__text-line--4 {
-  transform: translate3d(0, -125px, 0);
+  transform: translate3d(0, 85vh, 0);
   transition: transform 2500ms 1325ms, opacity 1300ms 2125ms;
   opacity: 1;
-  font-size: clamp(16px, 4vw, 42px);
+  font-size: clamp(25px, 4vw, 42px);
 }
 
 .mouse {
@@ -1592,10 +1593,37 @@ html {
   left: auto;
   right: 5px;
 }
+.alerts {
+  position: fixed;
+  top:5vh;
+  right:50%;
+  transform:translateX(50%);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  visibility: hidden;
+}
+.alerts p{
+  white-space: nowrap;
+  align-items: center;
+
+}
+
+
 
 @media (max-width: 768px) {
-  .app__img img {
+
+  .most_search_scroll{
     display: none;
+  }
+  .app__bgimg-image--1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 30%;
   }
   .app__text {
     transform: translateX(50%);
@@ -1605,7 +1633,7 @@ html {
   }
   .app__text--2 {
     right: initial;
-    top: 61vh;
+    top: -38vh;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
@@ -1623,6 +1651,9 @@ html {
   
 }
 
-.main-logo {
+.main-logo{
   width: fit-content;
+  position: relative;
+  bottom: 14px;
+  right: 15px;
 }

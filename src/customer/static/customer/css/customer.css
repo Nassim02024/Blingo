@@ -1,7 +1,11 @@
 .d-flex {
   align-items: flex-start;
-  justify-self: start;
-  gap: 10px;
+  justify-self: normal;
+  gap: 20px;
+}
+#profileTab{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 500px) {
   .d-flex {
