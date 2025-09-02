@@ -74,65 +74,93 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-
+            
             <div class="category-carousel swiper">
-              <div class="swiper-wrapper">
+              <div class="swiper-wrapper d-flex">      
+              
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
+                  <img src="{% static 'core/images/food.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Food & Cooking' %}</h2>
                 </a>
+            
                 <a  class="nav-link category-item swiper-slide">
                   <img src="{% static 'core/images/hand-cleaning.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Cleaning materials' %}</h2>
                 </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-bread-baguette.png' %}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Breads & Sweets' %}</h2>
-                </a>
-                <a class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
-                </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Beverages' %}</h2>
-                </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Meat Products' %}</h2>
-                </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Breads' %}</h2>
-                </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-vegetables-broccoli.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
-                </a>
+              
                 <a  class="nav-link category-item swiper-slide">
                   <img src="{% static 'core/images/icon-bread-baguette.png'%}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Breads & Sweets' %}</h2>
                 </a>
+                
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-soft-drinks-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
-                </a>
-                <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-wine-glass-bottle.png'%}" alt="Category Thumbnail" loading="lazy">
+                  <img src="{% static 'core/images/icon-wine-glass-bottle.png' %}" alt="Category Thumbnail" loading="lazy">
                   <h2 class="category-title">{% trans 'Beverages' %}</h2>
                 </a>
+                
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-animal-products-drumsticks.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Meat Products' %}</h2>
+                  <img src="{% static 'core/images/icon-animal-products-drumsticks.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Meats & derivatives' %}</h2>
                 </a>
+                
+                <a class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/Vegetables-Fruits.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
+                </a>
+                
                 <a  class="nav-link category-item swiper-slide">
-                  <img src="{% static 'core/images/icon-bread-herb-flour.png'%}" alt="Category Thumbnail" loading="lazy">
-                  <h2 class="category-title">{% trans 'Breads' %}</h2>
+                  <img src="{% static 'core/images/canned-food.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Canned foods' %}</h2>
+                </a>
+              
+                <a class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/milk.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Milk & derivatives' %}</h2>
+                </a>
+              
+                <a class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/Oils-and-spices.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Oils & spices' %}</h2>
+                </a>
+              
+                <a  class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/acorn.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Nuts' %}</h2>
+                </a>
+                
+                <a  class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/child-head.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Childrens products' %}</h2>
+                </a>
+                
+                <a  class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/couch.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Household products' %}</h2>
+                </a>
+              
+                <a  class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/Electrical-products.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Electrical products' %}</h2>
+                </a>
+                
+                <a class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/heart-health-muscle.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Health' %}</h2>
+                </a>
+              
+                <a  class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/blush.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'Cosmetics' %}</h2>
+                </a>
+                
+                <a class="nav-link category-item swiper-slide">
+                  <img src="{% static 'core/images/books.png' %}" alt="Category Thumbnail" loading="lazy">
+                  <h2 class="category-title">{% trans 'School supplies' %}</h2>
                 </a>
                 
               </div>
             </div>
-
+  
           </div>
         </div>
       </div>
