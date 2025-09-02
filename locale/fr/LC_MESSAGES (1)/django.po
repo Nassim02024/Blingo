@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 16:17+0100\n"
+"POT-Creation-Date: 2025-09-02 13:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:55
+#: .\src\aboutus\templates\aboutus\aboutus.html:59
 msgid "Who are we?"
 msgstr ""
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:58
+#: .\src\aboutus\templates\aboutus\aboutus.html:62
 msgid ""
 "We are a company specialized in delivering orders quickly and easily, our "
 "goal is to make your daily life simpler. We provide you with a platform that "
@@ -31,11 +31,11 @@ msgid ""
 "the best prices."
 msgstr ""
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:73
+#: .\src\aboutus\templates\aboutus\aboutus.html:77
 msgid "Our Vision"
 msgstr ""
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:76
+#: .\src\aboutus\templates\aboutus\aboutus.html:80
 msgid ""
 "We strive to be the first choice in the field of delivery services by "
 "building a reliable platform that connects customers with various "
@@ -86,11 +86,11 @@ msgstr ""
 msgid "seconds"
 msgstr ""
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:33
+#: .\src\contactpage\templates\contactpage\contactpage.html:39
 msgid "Thank you for your communication."
 msgstr ""
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:34
+#: .\src\contactpage\templates\contactpage\contactpage.html:40
 msgid ""
 "We are happy to hear from you for any inquiries or requests. Our team is "
 "always available to answer your questions and provide the necessary support. "
@@ -98,15 +98,15 @@ msgid ""
 "communication channels."
 msgstr ""
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:44
+#: .\src\contactpage\templates\contactpage\contactpage.html:50
 msgid "Contact form"
 msgstr ""
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:45
+#: .\src\contactpage\templates\contactpage\contactpage.html:51
 msgid "We will respond as soon as possible."
 msgstr ""
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:64
+#: .\src\contactpage\templates\contactpage\contactpage.html:70
 #: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:62
 msgid "submit"
 msgstr ""
@@ -507,155 +507,166 @@ msgid "And we will be with you !"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:63
+#: .\src\core\templates\core\productsforvendor.html:344
 msgid " Services"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:66
+#: .\src\core\templates\core\productsforvendor.html:347
 msgid "View All Services"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:83
-#: .\src\core\templates\core\index.html:91
-#: .\src\core\templates\core\index.html:107
-#: .\src\core\templates\core\index.html:115
-#: .\src\core\templates\core\index.html:149
+#: .\src\core\templates\core\index.html:95
+#: .\src\core\templates\core\index.html:111
+#: .\src\core\templates\core\index.html:119
+#: .\src\core\templates\core\index.html:153
+#: .\src\core\templates\core\productsforvendor.html:403
 msgid "Fruits & Veges"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:87
-#: .\src\core\templates\core\index.html:111
-msgid "Breads & Sweets"
+#: .\src\core\templates\core\productsforvendor.html:284
+#: .\src\core\templates\core\productsforvendor.html:374
+msgid "Cleaning materials"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:95
-#: .\src\core\templates\core\index.html:119
-msgid "Beverages"
+#: .\src\core\templates\core\index.html:91
+#: .\src\core\templates\core\index.html:115
+#: .\src\core\templates\core\productsforvendor.html:381
+msgid "Breads & Sweets"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:99
 #: .\src\core\templates\core\index.html:123
-msgid "Meat Products"
+#: .\src\core\templates\core\productsforvendor.html:389
+msgid "Beverages"
 msgstr ""
 
 #: .\src\core\templates\core\index.html:103
 #: .\src\core\templates\core\index.html:127
+msgid "Meat Products"
+msgstr ""
+
+#: .\src\core\templates\core\index.html:107
+#: .\src\core\templates\core\index.html:131
 msgid "Breads"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:145
+#: .\src\core\templates\core\index.html:149
 msgid "Vendors"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:148
+#: .\src\core\templates\core\index.html:152
 msgid "All"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:150
+#: .\src\core\templates\core\index.html:154
 msgid "Juices"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:174
+#: .\src\core\templates\core\index.html:178
 #: .\src\core\templates\core\search_vendor.html:28
 msgid "Store"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:201
-#: .\src\core\templates\core\index.html:248
-#: .\src\core\templates\core\index.html:291
+#: .\src\core\templates\core\index.html:205
+#: .\src\core\templates\core\index.html:252
+#: .\src\core\templates\core\index.html:295
 #: .\src\core\templates\core\productDetils.html:89
-#: .\src\core\templates\core\productsforvendor.html:499
+#: .\src\core\templates\core\productsforvendor.html:510
 msgid "4.5"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:203
+#: .\src\core\templates\core\index.html:207
 msgid "${{p.old_price}}"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:218
-#: .\src\core\templates\core\index.html:264
-#: .\src\core\templates\core\index.html:307
+#: .\src\core\templates\core\index.html:222
+#: .\src\core\templates\core\index.html:268
+#: .\src\core\templates\core\index.html:311
 #: .\src\core\templates\core\productDetils.html:106
 #: .\src\core\templates\core\product_category.html:65
-#: .\src\core\templates\core\productsforvendor.html:515
+#: .\src\core\templates\core\productsforvendor.html:526
 #: .\src\core\templates\core\search_product.html:53
 msgid "Add to Cart"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:240
+#: .\src\core\templates\core\index.html:244
 #, python-format
 msgid "-30%%"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:247
-#: .\src\core\templates\core\index.html:290
+#: .\src\core\templates\core\index.html:251
+#: .\src\core\templates\core\index.html:294
 msgid "Sunstar Fresh Melon Juice"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:248
-#: .\src\core\templates\core\index.html:291
+#: .\src\core\templates\core\index.html:252
+#: .\src\core\templates\core\index.html:295
 msgid "1 Unit"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:249
-#: .\src\core\templates\core\index.html:292
+#: .\src\core\templates\core\index.html:253
+#: .\src\core\templates\core\index.html:296
 msgid "$18.00"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:334
-#: .\src\core\templates\core\index.html:345
+#: .\src\core\templates\core\index.html:338
+#: .\src\core\templates\core\index.html:349
 #, python-format
 msgid "Upto 25%% Off"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:335
+#: .\src\core\templates\core\index.html:339
 msgid "Luxa Dark Chocolate"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:336
-#: .\src\core\templates\core\index.html:347
+#: .\src\core\templates\core\index.html:340
+#: .\src\core\templates\core\index.html:351
 msgid "Very tasty & creamy vanilla flavour creamy muffins."
 msgstr ""
 
-#: .\src\core\templates\core\index.html:337
-#: .\src\core\templates\core\index.html:348
+#: .\src\core\templates\core\index.html:341
+#: .\src\core\templates\core\index.html:352
 msgid "Show Now"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:346
+#: .\src\core\templates\core\index.html:350
 msgid "Creamy Muffins"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "Get"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "free delivery"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "on your first order"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:369
+#: .\src\core\templates\core\index.html:373
 msgid "You can also get a gift coupon and free delivery."
 msgstr ""
 
-#: .\src\core\templates\core\index.html:374
+#: .\src\core\templates\core\index.html:378
 #: .\src\customer\templates\customer\customer.html:181
 msgid "Name"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:379
+#: .\src\core\templates\core\index.html:383
 #: .\src\customer\templates\customer\customer.html:210
 msgid "Email"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:384
+#: .\src\core\templates\core\index.html:388
 msgid "Subscribe to the newsletter"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:387
+#: .\src\core\templates\core\index.html:391
 msgid "Submit"
 msgstr ""
 
@@ -711,149 +722,106 @@ msgstr ""
 msgid "❯"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:286
-msgid "Not just food, it’s an experience"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:289
-#: .\src\core\templates\core\productsforvendor.html:365
-msgid "From giggles to cuddles — we’ve got it all"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:292
-msgid "Your next favorite bag is just a click away"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:295
-msgid "tep into comfort. Walk with confidence"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:298
-#: .\src\core\templates\core\productsforvendor.html:381
-msgid "Beauty as pure as your heart"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:301
-#: .\src\core\templates\core\productsforvendor.html:397
-msgid "Shine brighter than ever — one piece at a time"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:304
-#: .\src\core\templates\core\productsforvendor.html:413
-msgid "Elegance isn’t optional — it’s you"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:307
-#: .\src\core\templates\core\productsforvendor.html:429
-msgid "Because your home deserves love too"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:310
-#: .\src\core\templates\core\productsforvendor.html:445
-msgid "Where elegance lives in the little things"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:313
-#: .\src\core\templates\core\productsforvendor.html:461
-msgid "Power in every detail"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:332
-msgid "Bags"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:333
-msgid "Your next favorite bag is just a click away."
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:348
-msgid "shoes"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:349
-msgid "Step into comfort. Walk with confidence"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:364
-msgid "kids"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:380
-msgid "beauty"
+#: .\src\core\templates\core\productsforvendor.html:367
+msgid "Food & Cooking"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:396
-msgid "jewelry"
+msgid "Meats & derivatives"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:412
-msgid "women"
+#: .\src\core\templates\core\productsforvendor.html:410
+msgid "Canned foods"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:428
-msgid "home"
+#: .\src\core\templates\core\productsforvendor.html:417
+msgid "Milk & derivatives"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:444
-msgid "accessories"
+#: .\src\core\templates\core\productsforvendor.html:424
+msgid "Oils & spices"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:460
-msgid "man"
+#: .\src\core\templates\core\productsforvendor.html:431
+msgid "Nuts"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:540
-msgid "People are also looking for"
+#: .\src\core\templates\core\productsforvendor.html:438
+msgid "Childrens products"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:541
-msgid "tomat"
+#: .\src\core\templates\core\productsforvendor.html:445
+msgid "Household products"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:542
-msgid "margarin"
+#: .\src\core\templates\core\productsforvendor.html:452
+msgid "Electrical products"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:543
-#: .\src\core\templates\core\productsforvendor.html:552
-msgid "Salty kettle Corn"
+#: .\src\core\templates\core\productsforvendor.html:459
+msgid "Health"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:544
-#: .\src\core\templates\core\productsforvendor.html:553
-msgid "Chobani Greek Yogurt"
+#: .\src\core\templates\core\productsforvendor.html:466
+msgid "Cosmetics"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:545
-#: .\src\core\templates\core\productsforvendor.html:554
-msgid "Sweet Vanilla Yogurt"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:546
-#: .\src\core\templates\core\productsforvendor.html:555
-msgid "Foster Farms Takeout Crispy wings"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:547
-#: .\src\core\templates\core\productsforvendor.html:556
-msgid "Warrior Blend Organic"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:548
-#: .\src\core\templates\core\productsforvendor.html:557
-msgid "Chao Cheese Creamy"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:549
-#: .\src\core\templates\core\productsforvendor.html:558
-msgid "Chicken meatballs"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:550
-msgid "Blue diamon almonds"
+#: .\src\core\templates\core\productsforvendor.html:473
+msgid "School supplies"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:551
+msgid "People are also looking for"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:552
+msgid "tomat"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:553
+msgid "margarin"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:554
+#: .\src\core\templates\core\productsforvendor.html:563
+msgid "Salty kettle Corn"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:555
+#: .\src\core\templates\core\productsforvendor.html:564
+msgid "Chobani Greek Yogurt"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:556
+#: .\src\core\templates\core\productsforvendor.html:565
+msgid "Sweet Vanilla Yogurt"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:557
+#: .\src\core\templates\core\productsforvendor.html:566
+msgid "Foster Farms Takeout Crispy wings"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:558
+#: .\src\core\templates\core\productsforvendor.html:567
+msgid "Warrior Blend Organic"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:559
+#: .\src\core\templates\core\productsforvendor.html:568
+msgid "Chao Cheese Creamy"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:560
+#: .\src\core\templates\core\productsforvendor.html:569
+msgid "Chicken meatballs"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:561
+msgid "Blue diamon almonds"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:562
 msgid "Angie’s Boomchickapop Corn"
 msgstr ""
 

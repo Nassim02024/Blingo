@@ -216,7 +216,7 @@
   </defs>
 </svg> {% endcomment %}
 <body>
-  <section class="py-5 overflow-hidden">
+  {% comment %} <section class="py-5 overflow-hidden">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -277,8 +277,14 @@
                       {% if c.categoress == "food" %}
                       <img src="{% static 'core/images/ad-image-1.png'%}" class="img-fluid rounded" alt="Card title" loading="lazy">
                       {% endif %}
+                      {% if c.categoress == "مواد التنضيف" %}
+                      <a  class="nav-link category-item swiper-slide">
+                        <img src="{% static 'core/images/hand-cleaning.png'%}" alt="Category Thumbnail" loading="lazy">
+                        <h2 class="category-title">{% trans 'Cleaning materials' %}</h2>
+                      </a>
+                      {% endif %}
                     </div>
-                    <div class="col-md-8">
+                    {% comment %} <div class="col-md-8">
                       <div class="card-body py-0">
                         <p class="text-muted mb-0">{{c.categoress}}</p>
                         {% if c.categoress == "food" %}
@@ -312,164 +318,168 @@
                         <h5 class="card-title">{% trans 'Power in every detail' %}</h5>
                         {% endif %}
                       </div>
-                    </div>
+                    </div> 
                   </div>
                 </div>              
               </a>
               </div>
               {% endfor %}
-
-
-              <!-- <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/bags.png' %}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'Bags' %}</p>
-                        <h5 class="card-title">{% trans 'Your next favorite bag is just a click away.' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/shoes.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'shoes' %}</p>
-                        <h5 class="card-title">{% trans 'Step into comfort. Walk with confidence' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
+          </div>
 
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/kids.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'kids' %}</p>
-                        <h5 class="card-title">{% trans 'From giggles to cuddles — we’ve got it all' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+  <section class="py-5 overflow-hidden ">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
 
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/beauty.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'beauty' %}</p>
-                        <h5 class="card-title">{% trans 'Beauty as pure as your heart' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div class="section-header d-flex flex-wrap justify-content-between mb-5">
+            
+            <h2 class="section-title">{% trans ' Services' %}</h2>
+            
+            <div class="d-flex align-items-center">
+              <a  class="btn-link text-decoration-none">{% trans 'View All Services' %}→</a>
+              <div class="swiper-buttons">
+                <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
+                <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
               </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          
+          <div class="category-carousel swiper">
+            <div class="swiper-wrapper d-flex">      
+              {% for c in categorys %}
 
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/jewelry.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'jewelry' %}</p>
-                        <h5 class="card-title">{% trans 'Shine brighter than ever — one piece at a time' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/women.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'women' %}</p>
-                        <h5 class="card-title">{% trans 'Elegance isn’t optional — it’s you' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/home.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'home' %}</p>
-                        <h5 class="card-title">{% trans 'Because your home deserves love too' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/accessories.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'accessories' %}</p>
-                        <h5 class="card-title">{% trans 'Where elegance lives in the little things' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'core/images/man.png'%}" class="img-fluid rounded" alt="Card title">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body py-0">
-                        <p class="text-muted mb-0">{% trans 'man' %}</p>
-                        <h5 class="card-title">{% trans 'Power in every detail' %}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>{% trans '--></div>
+              {% if c.categoress == "طبخ و الماكولات" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/food.png'%}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Food & Cooking' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "مواد التنضيف" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/hand-cleaning.png'%}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Cleaning materials' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "الخبز والحلويات" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/icon-bread-baguette.png'%}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Breads & Sweets' %}</h2>
+              </a>
+              {% endif %}
+            
+            
+              {% if c.categoress == "المشروبات" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/icon-wine-glass-bottle.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Beverages' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "اللحوم و مشتقاتها" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/icon-animal-products-drumsticks.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Meats & derivatives' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "الفواكه والخضروات" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/Vegetables-Fruits.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Fruits & Veges' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "المعلبات و المؤكولات الجاهزة" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/canned-food.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Canned foods' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "الحليب و مشتقاته" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/milk.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Milk & derivatives' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "الزيوت و التوابل" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/Oils-and-spices.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Oils & spices' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "المكسرات" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/acorn.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Nuts' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "منتجات الاطفال" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/child-head.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Childrens products' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "منتجات المنزلية" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/couch.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Household products' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "منتجات كهربائية" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/Electrical-products.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Electrical products' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "منتجات الصحية" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/heart-health-muscle.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Health' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "التجميل" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/blush.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Cosmetics' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% if c.categoress == "الادوات المدرسية" %}
+              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/books.png' %}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'School supplies' %}</h2>
+              </a>
+              {% endif %}
+            
+              {% endfor %}
+            </div>
           </div>
 
         </div>
       </div>
     </div>
   </section>
-
     <div class="row">
       <div class="col-md-12">
 

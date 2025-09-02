@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 16:17+0100\n"
+"POT-Creation-Date: 2025-09-02 13:26+0100\n"
 "PO-Revision-Date: 2025-08-17 13:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,25 +15,27 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:55
+#: .\src\aboutus\templates\aboutus\aboutus.html:59
 msgid "Who are we?"
 msgstr "من نحن ؟"
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:58
+#: .\src\aboutus\templates\aboutus\aboutus.html:62
 msgid ""
 "We are a company specialized in delivering orders quickly and easily, our "
 "goal is to make your daily life simpler. We provide you with a platform that "
 "brings together restaurants, shops, and various services in one place, and "
 "we ensure that your orders arrive safely at your doorstep, on time, and at "
 "the best prices."
-msgstr "نحن شركة متخصصة في توصيل الطلبات بسرعة وسهولة، هدفنا هو جعل حياتك اليومية أبسط. نُقدّم لك منصة تجمع بين المطاعم والمتاجر والخدمات المتنوعة في مكان واحد، ونتأكد من وصول طلباتك بأمان إلى باب منزلك، في الوقت المحدد، وبأفضل الأسعار."
+msgstr ""
+"نحن شركة متخصصة في توصيل الطلبات بسرعة وسهولة، هدفنا هو جعل حياتك اليومية "
+"أبسط. نُقدّم لك منصة تجمع بين المطاعم والمتاجر والخدمات المتنوعة في مكان واحد، "
+"ونتأكد من وصول طلباتك بأمان إلى باب منزلك، في الوقت المحدد، وبأفضل الأسعار."
 
-
-#: .\src\aboutus\templates\aboutus\aboutus.html:73
+#: .\src\aboutus\templates\aboutus\aboutus.html:77
 msgid "Our Vision"
 msgstr "نظرتنا"
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:76
+#: .\src\aboutus\templates\aboutus\aboutus.html:80
 msgid ""
 "We strive to be the first choice in the field of delivery services by "
 "building a reliable platform that connects customers with various "
@@ -44,7 +46,14 @@ msgid ""
 "essential partner for every individual and family in their daily lives, by "
 "providing innovative services based on modern technology that meet the "
 "highest standards of quality, safety, and speed."
-msgstr "نسعى ليكون لنا الخيار الأول في مجال خدمات التوصيل من خلال بناء منصة موثوقة تربط العملاء بمختلف المطاعم والمتاجر ومزودي الخدمات بطريقة سهلة وسريعة. نحن نهدف إلى إعادة تعريف تجربة التوصيل لتكون أكثر راحة ومرونة، ليس فقط لتلبية الاحتياجات اليومية للعملاء بل لتجاوزها أيضًا لمنحهم المزيد من الوقت للاستمتاع بحياتهم. رؤيتنا هي أن نصبح الشريك الأساسي لكل فرد وعائلة في حياتهم اليومية، من خلال توفير خدمات مبتكرة تعتمد على التكنولوجيا الحديثة التي تلبي أعلى معايير الجودة والسلامة والسرعة."
+msgstr ""
+"نسعى ليكون لنا الخيار الأول في مجال خدمات التوصيل من خلال بناء منصة موثوقة "
+"تربط العملاء بمختلف المطاعم والمتاجر ومزودي الخدمات بطريقة سهلة وسريعة. نحن "
+"نهدف إلى إعادة تعريف تجربة التوصيل لتكون أكثر راحة ومرونة، ليس فقط لتلبية "
+"الاحتياجات اليومية للعملاء بل لتجاوزها أيضًا لمنحهم المزيد من الوقت للاستمتاع "
+"بحياتهم. رؤيتنا هي أن نصبح الشريك الأساسي لكل فرد وعائلة في حياتهم اليومية، "
+"من خلال توفير خدمات مبتكرة تعتمد على التكنولوجيا الحديثة التي تلبي أعلى "
+"معايير الجودة والسلامة والسرعة."
 
 #: .\src\commingsoon\templates\commingsoon\commingsoon.html:7
 msgid "Coming soon page by GraphBerry"
@@ -84,11 +93,11 @@ msgstr "دقائق"
 msgid "seconds"
 msgstr "ثوان"
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:33
+#: .\src\contactpage\templates\contactpage\contactpage.html:39
 msgid "Thank you for your communication."
 msgstr "شكرا لك على تواصلك!"
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:34
+#: .\src\contactpage\templates\contactpage\contactpage.html:40
 msgid ""
 "We are happy to hear from you for any inquiries or requests. Our team is "
 "always available to answer your questions and provide the necessary support. "
@@ -99,15 +108,15 @@ msgstr ""
 "أسئلتك وتقديم الدعم اللازم. لا تتردد في الاتصال بنا من خلال النموذج أدناه أو "
 "عبر قنوات الاتصال المتاحة."
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:44
+#: .\src\contactpage\templates\contactpage\contactpage.html:50
 msgid "Contact form"
 msgstr "نموذج الاتصال"
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:45
+#: .\src\contactpage\templates\contactpage\contactpage.html:51
 msgid "We will respond as soon as possible."
 msgstr "سنرد في اقرب وقت"
 
-#: .\src\contactpage\templates\contactpage\contactpage.html:64
+#: .\src\contactpage\templates\contactpage\contactpage.html:70
 #: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:62
 msgid "submit"
 msgstr "ارسال"
@@ -473,7 +482,7 @@ msgstr "احصل على نسخة محترفة"
 #: .\src\core\templates\core\index.html:8
 #: .\src\core\templates\core\index.html:11
 msgid " Home | A multi-vendor store for purchasing food products in Touggourt "
-msgstr "الصفحة الرئيسية | متجر متعدد البائعين لشراء المنتجات الغذائية في توقرط"
+msgstr "الصفحة الرئيسية | متجر متعدد البائعين لشراء المنتجات الغذائية في Touggourt"
 
 #: .\src\core\templates\core\index.html:10
 msgid ""
@@ -525,156 +534,167 @@ msgid "And we will be with you !"
 msgstr "! و سنكون عندك"
 
 #: .\src\core\templates\core\index.html:63
+#: .\src\core\templates\core\productsforvendor.html:344
 msgid " Services"
 msgstr " الخدمة"
 
 #: .\src\core\templates\core\index.html:66
+#: .\src\core\templates\core\productsforvendor.html:347
 msgid "View All Services"
 msgstr "عرض جميع الخدمات"
 
 #: .\src\core\templates\core\index.html:83
-#: .\src\core\templates\core\index.html:91
-#: .\src\core\templates\core\index.html:107
-#: .\src\core\templates\core\index.html:115
-#: .\src\core\templates\core\index.html:149
+#: .\src\core\templates\core\index.html:95
+#: .\src\core\templates\core\index.html:111
+#: .\src\core\templates\core\index.html:119
+#: .\src\core\templates\core\index.html:153
+#: .\src\core\templates\core\productsforvendor.html:403
 msgid "Fruits & Veges"
 msgstr "الفواكه والخضار"
 
 #: .\src\core\templates\core\index.html:87
-#: .\src\core\templates\core\index.html:111
+#: .\src\core\templates\core\productsforvendor.html:284
+#: .\src\core\templates\core\productsforvendor.html:374
+msgid "Cleaning materials"
+msgstr "مواد التنظيف"
+
+#: .\src\core\templates\core\index.html:91
+#: .\src\core\templates\core\index.html:115
+#: .\src\core\templates\core\productsforvendor.html:381
 msgid "Breads & Sweets"
 msgstr "الخبز والحلويات"
 
-#: .\src\core\templates\core\index.html:95
-#: .\src\core\templates\core\index.html:119
+#: .\src\core\templates\core\index.html:99
+#: .\src\core\templates\core\index.html:123
+#: .\src\core\templates\core\productsforvendor.html:389
 msgid "Beverages"
 msgstr "المشروبات"
 
-#: .\src\core\templates\core\index.html:99
-#: .\src\core\templates\core\index.html:123
+#: .\src\core\templates\core\index.html:103
+#: .\src\core\templates\core\index.html:127
 msgid "Meat Products"
 msgstr "منتجات اللحوم"
 
-#: .\src\core\templates\core\index.html:103
-#: .\src\core\templates\core\index.html:127
+#: .\src\core\templates\core\index.html:107
+#: .\src\core\templates\core\index.html:131
 msgid "Breads"
 msgstr "الخبز"
 
-#: .\src\core\templates\core\index.html:145
+#: .\src\core\templates\core\index.html:149
 msgid "Vendors"
 msgstr "البائعون"
 
-#: .\src\core\templates\core\index.html:148
+#: .\src\core\templates\core\index.html:152
 msgid "All"
 msgstr "الجميع"
 
-#: .\src\core\templates\core\index.html:150
+#: .\src\core\templates\core\index.html:154
 msgid "Juices"
 msgstr "العصائر"
 
-#: .\src\core\templates\core\index.html:174
+#: .\src\core\templates\core\index.html:178
 #: .\src\core\templates\core\search_vendor.html:28
 msgid "Store"
 msgstr "محل"
 
-#: .\src\core\templates\core\index.html:201
-#: .\src\core\templates\core\index.html:248
-#: .\src\core\templates\core\index.html:291
+#: .\src\core\templates\core\index.html:205
+#: .\src\core\templates\core\index.html:252
+#: .\src\core\templates\core\index.html:295
 #: .\src\core\templates\core\productDetils.html:89
-#: .\src\core\templates\core\productsforvendor.html:499
+#: .\src\core\templates\core\productsforvendor.html:510
 msgid "4.5"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:203
+#: .\src\core\templates\core\index.html:207
 msgid "${{p.old_price}}"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:218
-#: .\src\core\templates\core\index.html:264
-#: .\src\core\templates\core\index.html:307
+#: .\src\core\templates\core\index.html:222
+#: .\src\core\templates\core\index.html:268
+#: .\src\core\templates\core\index.html:311
 #: .\src\core\templates\core\productDetils.html:106
 #: .\src\core\templates\core\product_category.html:65
-#: .\src\core\templates\core\productsforvendor.html:515
+#: .\src\core\templates\core\productsforvendor.html:526
 #: .\src\core\templates\core\search_product.html:53
 msgid "Add to Cart"
 msgstr "أضف إلى السلة"
 
-#: .\src\core\templates\core\index.html:240
+#: .\src\core\templates\core\index.html:244
 #, python-format
 msgid "-30%%"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:247
-#: .\src\core\templates\core\index.html:290
+#: .\src\core\templates\core\index.html:251
+#: .\src\core\templates\core\index.html:294
 msgid "Sunstar Fresh Melon Juice"
 msgstr "Sunstar Fresh Melon Juice"
 
-#: .\src\core\templates\core\index.html:248
-#: .\src\core\templates\core\index.html:291
+#: .\src\core\templates\core\index.html:252
+#: .\src\core\templates\core\index.html:295
 msgid "1 Unit"
 msgstr "1 وحدة"
 
-#: .\src\core\templates\core\index.html:249
-#: .\src\core\templates\core\index.html:292
+#: .\src\core\templates\core\index.html:253
+#: .\src\core\templates\core\index.html:296
 msgid "$18.00"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:334
-#: .\src\core\templates\core\index.html:345
+#: .\src\core\templates\core\index.html:338
+#: .\src\core\templates\core\index.html:349
 #, fuzzy, python-format
 #| msgid "Upto 25% Off"
 msgid "Upto 25%% Off"
 msgstr "تصل إلى 25 ٪ بقالة"
 
-#: .\src\core\templates\core\index.html:335
+#: .\src\core\templates\core\index.html:339
 msgid "Luxa Dark Chocolate"
 msgstr "لوكسا الشوكولاته الداكنة"
 
-#: .\src\core\templates\core\index.html:336
-#: .\src\core\templates\core\index.html:347
+#: .\src\core\templates\core\index.html:340
+#: .\src\core\templates\core\index.html:351
 msgid "Very tasty & creamy vanilla flavour creamy muffins."
 msgstr "لذيذ جدا ودسم النكهة الكعك دسم."
 
-#: .\src\core\templates\core\index.html:337
-#: .\src\core\templates\core\index.html:348
+#: .\src\core\templates\core\index.html:341
+#: .\src\core\templates\core\index.html:352
 msgid "Show Now"
 msgstr "تظهر الآن"
 
-#: .\src\core\templates\core\index.html:346
+#: .\src\core\templates\core\index.html:350
 msgid "Creamy Muffins"
 msgstr "الكعك الكريمي"
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "Get"
 msgstr "احصلو على"
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "free delivery"
 msgstr "توصيل مجاني"
 
-#: .\src\core\templates\core\index.html:367
+#: .\src\core\templates\core\index.html:371
 msgid "on your first order"
 msgstr "في أول عملية شراء لكم"
 
-#: .\src\core\templates\core\index.html:369
+#: .\src\core\templates\core\index.html:373
 msgid "You can also get a gift coupon and free delivery."
 msgstr "يمكنك أيضا الحصول على قسيمة الهدايا و توصيلات مجاني."
 
-#: .\src\core\templates\core\index.html:374
+#: .\src\core\templates\core\index.html:378
 #: .\src\customer\templates\customer\customer.html:181
 msgid "Name"
 msgstr "اسم"
 
-#: .\src\core\templates\core\index.html:379
+#: .\src\core\templates\core\index.html:383
 #: .\src\customer\templates\customer\customer.html:210
 msgid "Email"
 msgstr "بريد إلكتروني"
 
-#: .\src\core\templates\core\index.html:384
+#: .\src\core\templates\core\index.html:388
 msgid "Subscribe to the newsletter"
 msgstr "اشترك في النشرة الإخبارية"
 
-#: .\src\core\templates\core\index.html:387
+#: .\src\core\templates\core\index.html:391
 msgid "Submit"
 msgstr "يُقدِّم"
 
@@ -731,150 +751,106 @@ msgstr ""
 msgid "❯"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:286
-msgid "Not just food, it’s an experience"
-msgstr "ليس فقط الطعام ، إنها تجربة"
-
-#: .\src\core\templates\core\productsforvendor.html:289
-#: .\src\core\templates\core\productsforvendor.html:365
-msgid "From giggles to cuddles — we’ve got it all"
-msgstr "من الضحك إلى الحضن - لقد حصلنا على كل شيء"
-
-#: .\src\core\templates\core\productsforvendor.html:292
-msgid "Your next favorite bag is just a click away"
-msgstr "حقيبتك المفضلة التالية هي مجرد نقرة بعيدا"
-
-#: .\src\core\templates\core\productsforvendor.html:295
-msgid "tep into comfort. Walk with confidence"
-msgstr "TEP في الراحة. المشي بثقة"
-
-#: .\src\core\templates\core\productsforvendor.html:298
-#: .\src\core\templates\core\productsforvendor.html:381
-#, fuzzy
-msgid "Beauty as pure as your heart"
-msgstr "الجمال نقي مثل قلبك"
-
-#: .\src\core\templates\core\productsforvendor.html:301
-#: .\src\core\templates\core\productsforvendor.html:397
-msgid "Shine brighter than ever — one piece at a time"
-msgstr "تألق أكثر إشراقًا من أي وقت مضى - قطعة واحدة في وقت واحد"
-
-#: .\src\core\templates\core\productsforvendor.html:304
-#: .\src\core\templates\core\productsforvendor.html:413
-msgid "Elegance isn’t optional — it’s you"
-msgstr "الأناقة ليست اختيارية - إنها أنت"
-
-#: .\src\core\templates\core\productsforvendor.html:307
-#: .\src\core\templates\core\productsforvendor.html:429
-msgid "Because your home deserves love too"
-msgstr "لأن منزلك يستحق الحب أيضًا"
-
-#: .\src\core\templates\core\productsforvendor.html:310
-#: .\src\core\templates\core\productsforvendor.html:445
-msgid "Where elegance lives in the little things"
-msgstr "حيث تعيش الأناقة في الأشياء الصغيرة"
-
-#: .\src\core\templates\core\productsforvendor.html:313
-#: .\src\core\templates\core\productsforvendor.html:461
-msgid "Power in every detail"
-msgstr "القوة في كل التفاصيل"
-
-#: .\src\core\templates\core\productsforvendor.html:332
-msgid "Bags"
-msgstr "أكياس"
-
-#: .\src\core\templates\core\productsforvendor.html:333
-msgid "Your next favorite bag is just a click away."
-msgstr "حقيبتك المفضلة التالية هي مجرد نقرة."
-
-#: .\src\core\templates\core\productsforvendor.html:348
-msgid "shoes"
-msgstr "أحذية"
-
-#: .\src\core\templates\core\productsforvendor.html:349
-msgid "Step into comfort. Walk with confidence"
-msgstr "خطوة إلى الراحة. المشي بثقة"
-
-#: .\src\core\templates\core\productsforvendor.html:364
-msgid "kids"
-msgstr "أطفال"
-
-#: .\src\core\templates\core\productsforvendor.html:380
-msgid "beauty"
-msgstr "جمال"
+#: .\src\core\templates\core\productsforvendor.html:367
+msgid "Food & Cooking"
+msgstr "مؤكولات و الطبح"
 
 #: .\src\core\templates\core\productsforvendor.html:396
-msgid "jewelry"
-msgstr "مجوهرات"
+msgid "Meats & derivatives"
+msgstr "اللحوم ومشتقاتها"
 
-#: .\src\core\templates\core\productsforvendor.html:412
-msgid "women"
-msgstr "نحيف"
+#: .\src\core\templates\core\productsforvendor.html:410
+msgid "Canned foods"
+msgstr "معلبات"
 
-#: .\src\core\templates\core\productsforvendor.html:428
-msgid "home"
-msgstr "بيت"
+#: .\src\core\templates\core\productsforvendor.html:417
+msgid "Milk & derivatives"
+msgstr "الحليب ومشتقاته"
 
-#: .\src\core\templates\core\productsforvendor.html:444
-msgid "accessories"
-msgstr "مُكَمِّلات"
+#: .\src\core\templates\core\productsforvendor.html:424
+msgid "Oils & spices"
+msgstr "الزيوت والتوابل"
 
-#: .\src\core\templates\core\productsforvendor.html:460
-msgid "man"
-msgstr "رجل"
+#: .\src\core\templates\core\productsforvendor.html:431
+msgid "Nuts"
+msgstr "المكسرات"
 
-#: .\src\core\templates\core\productsforvendor.html:540
+#: .\src\core\templates\core\productsforvendor.html:438
+msgid "Childrens products"
+msgstr "منتج واحد"
+
+#: .\src\core\templates\core\productsforvendor.html:445
+msgid "Household products"
+msgstr "منتجات منزلية"
+
+#: .\src\core\templates\core\productsforvendor.html:452
+msgid "Electrical products"
+msgstr "منتجات اللحوم"
+
+#: .\src\core\templates\core\productsforvendor.html:459
+msgid "Health"
+msgstr "الصحة "
+
+#: .\src\core\templates\core\productsforvendor.html:466
+msgid "Cosmetics"
+msgstr "مواد التجميل"
+
+#: .\src\core\templates\core\productsforvendor.html:473
+msgid "School supplies"
+msgstr "ادوات مدرسية"
+
+#: .\src\core\templates\core\productsforvendor.html:551
 msgid "People are also looking for"
 msgstr "الناس يبحثون عن"
 
-#: .\src\core\templates\core\productsforvendor.html:541
+#: .\src\core\templates\core\productsforvendor.html:552
 msgid "tomat"
 msgstr "طعام"
 
-#: .\src\core\templates\core\productsforvendor.html:542
+#: .\src\core\templates\core\productsforvendor.html:553
 msgid "margarin"
 msgstr "زبدة"
 
-#: .\src\core\templates\core\productsforvendor.html:543
-#: .\src\core\templates\core\productsforvendor.html:552
+#: .\src\core\templates\core\productsforvendor.html:554
+#: .\src\core\templates\core\productsforvendor.html:563
 msgid "Salty kettle Corn"
 msgstr "ذرة غلاية المالحة"
 
-#: .\src\core\templates\core\productsforvendor.html:544
-#: .\src\core\templates\core\productsforvendor.html:553
+#: .\src\core\templates\core\productsforvendor.html:555
+#: .\src\core\templates\core\productsforvendor.html:564
 msgid "Chobani Greek Yogurt"
 msgstr "chobani الزبادي اليوناني"
 
-#: .\src\core\templates\core\productsforvendor.html:545
-#: .\src\core\templates\core\productsforvendor.html:554
+#: .\src\core\templates\core\productsforvendor.html:556
+#: .\src\core\templates\core\productsforvendor.html:565
 msgid "Sweet Vanilla Yogurt"
 msgstr "زبادي الفانيليا الحلو"
 
-#: .\src\core\templates\core\productsforvendor.html:546
-#: .\src\core\templates\core\productsforvendor.html:555
+#: .\src\core\templates\core\productsforvendor.html:557
+#: .\src\core\templates\core\productsforvendor.html:566
 msgid "Foster Farms Takeout Crispy wings"
 msgstr "Foster Farms Takeout Crispy Wings"
 
-#: .\src\core\templates\core\productsforvendor.html:547
-#: .\src\core\templates\core\productsforvendor.html:556
+#: .\src\core\templates\core\productsforvendor.html:558
+#: .\src\core\templates\core\productsforvendor.html:567
 msgid "Warrior Blend Organic"
 msgstr "محارب مزيج عضوي"
 
-#: .\src\core\templates\core\productsforvendor.html:548
-#: .\src\core\templates\core\productsforvendor.html:557
+#: .\src\core\templates\core\productsforvendor.html:559
+#: .\src\core\templates\core\productsforvendor.html:568
 msgid "Chao Cheese Creamy"
 msgstr "تشاو جبن دسم"
 
-#: .\src\core\templates\core\productsforvendor.html:549
-#: .\src\core\templates\core\productsforvendor.html:558
+#: .\src\core\templates\core\productsforvendor.html:560
+#: .\src\core\templates\core\productsforvendor.html:569
 msgid "Chicken meatballs"
 msgstr "كرات اللحم"
 
-#: .\src\core\templates\core\productsforvendor.html:550
+#: .\src\core\templates\core\productsforvendor.html:561
 msgid "Blue diamon almonds"
 msgstr "لوز ديامون الأزرق"
 
-#: .\src\core\templates\core\productsforvendor.html:551
+#: .\src\core\templates\core\productsforvendor.html:562
 msgid "Angie’s Boomchickapop Corn"
 msgstr "أنجي بومتشكابوب الذرة"
 
@@ -1682,3 +1658,67 @@ msgstr "مرحبا!"
 #: .\src\users\templates\users\register.html:83
 msgid "Enter your personal details and start journey with us"
 msgstr "ادخل بياناتك الشخصية وابدأ رحلتك معنا"
+
+#~ msgid "Not just food, it’s an experience"
+#~ msgstr "ليس فقط الطعام ، إنها تجربة"
+
+#~ msgid "From giggles to cuddles — we’ve got it all"
+#~ msgstr "من الضحك إلى الحضن - لقد حصلنا على كل شيء"
+
+#~ msgid "Your next favorite bag is just a click away"
+#~ msgstr "حقيبتك المفضلة التالية هي مجرد نقرة بعيدا"
+
+#~ msgid "tep into comfort. Walk with confidence"
+#~ msgstr "TEP في الراحة. المشي بثقة"
+
+#, fuzzy
+#~ msgid "Beauty as pure as your heart"
+#~ msgstr "الجمال نقي مثل قلبك"
+
+#~ msgid "Shine brighter than ever — one piece at a time"
+#~ msgstr "تألق أكثر إشراقًا من أي وقت مضى - قطعة واحدة في وقت واحد"
+
+#~ msgid "Elegance isn’t optional — it’s you"
+#~ msgstr "الأناقة ليست اختيارية - إنها أنت"
+
+#~ msgid "Because your home deserves love too"
+#~ msgstr "لأن منزلك يستحق الحب أيضًا"
+
+#~ msgid "Where elegance lives in the little things"
+#~ msgstr "حيث تعيش الأناقة في الأشياء الصغيرة"
+
+#~ msgid "Power in every detail"
+#~ msgstr "القوة في كل التفاصيل"
+
+#~ msgid "Bags"
+#~ msgstr "أكياس"
+
+#~ msgid "Your next favorite bag is just a click away."
+#~ msgstr "حقيبتك المفضلة التالية هي مجرد نقرة."
+
+#~ msgid "shoes"
+#~ msgstr "أحذية"
+
+#~ msgid "Step into comfort. Walk with confidence"
+#~ msgstr "خطوة إلى الراحة. المشي بثقة"
+
+#~ msgid "kids"
+#~ msgstr "أطفال"
+
+#~ msgid "beauty"
+#~ msgstr "جمال"
+
+#~ msgid "jewelry"
+#~ msgstr "مجوهرات"
+
+#~ msgid "women"
+#~ msgstr "نحيف"
+
+#~ msgid "home"
+#~ msgstr "بيت"
+
+#~ msgid "accessories"
+#~ msgstr "مُكَمِّلات"
+
+#~ msgid "man"
+#~ msgstr "رجل"
