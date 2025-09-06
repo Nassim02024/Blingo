@@ -137,8 +137,15 @@ def cardorder(request, vid):
         qun = request.POST.getlist("qun[]")
         lng = request.POST.get("lng")
         lat = request.POST.get("lat")
-        if lng and lat:
+
+        if lng in [None, "", 'null', 'undefined']:
+          lng = None
+        else:  
           lng = float(lng)
+          
+        if lat in [None, "", 'null', 'undefined']:
+          lat = None
+        else: 
           lat = float(lat)
         # fullname = request.POST.get('fullname')
         # email = request.POST.get('email')

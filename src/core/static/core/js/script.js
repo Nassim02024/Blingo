@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
           navigator.geolocation.getCurrentPosition((pos) => {
             productData.lng = pos.coords.longitude;
             productData.lat = pos.coords.latitude;
-      
+      console.log(productData);
             // تحديث التخزين بعد الحصول على الموقع
             localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
           });
