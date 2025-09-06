@@ -85,6 +85,9 @@ body {
 a {
   cursor: pointer;
 }
+#map {
+  position: absolute; top: 180vh; bottom: -180vh; width:35%; height:50vh;z-index: 9999;
+}
 /* The form card itself */
 .form-container {
 
@@ -347,6 +350,14 @@ small {
 }
 
 @media (max-width: 500px) {
+  #map {
+    margin:auto;
+    position: relative; 
+    top: 0; bottom: 0;
+    width:95%; 
+    height:50vh;
+    z-index: 9999;
+  }
   .h6,
   h6 {
     font-size: 12px !important;
