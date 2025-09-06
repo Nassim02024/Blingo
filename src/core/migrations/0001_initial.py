@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('qunt', models.IntegerField()),
                 ('paid_status', models.BooleanField(default=False)),
                 ('order_date', models.DateField(auto_now_add=True)),
-                ('product_status', models.CharField(choices=[('process', 'Processing'), ('shipped', 'Shipped'), ('delivered', 'Delivered')], default='Processing', max_length=30)),
+                ('product_status', models.CharField(choices=[('process', 'processing'), ('shipped', 'shipped'), ('delivered', 'delivered')], default='processing', max_length=30)),
             ],
             options={
                 'verbose_name_plural': 'Cart Order',
@@ -94,7 +94,7 @@ class Migration(migrations.Migration):
                 ('old_price', models.DecimalField(decimal_places=2, max_digits=999)),
                 ('in_stock', models.CharField(choices=[('yes', 'yes'), ('no', 'no')], default='yes')),
                 ('specifications', models.TextField(blank=True, max_length=300, null=True)),
-                ('product_status', models.CharField(choices=[('draft', 'Draft'), ('disabled', 'Disabled'), ('rejected', 'Rejected'), ('in_review', 'In_review'), ('published', 'Published')], default='published', max_length=10)),
+                ('product_status', models.CharField(choices=[('draft', 'Draft'), ('disabled', 'Disabled'), ('rejected', 'Rejected'), ('in_review', 'In_review'), ('published', 'published')], default='published', max_length=10)),
                 ('status', models.BooleanField(default=True)),
                 ('featured', models.BooleanField(default=False)),
                 ('digital', models.BooleanField(default=False)),

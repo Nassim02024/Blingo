@@ -56,8 +56,8 @@ def billing(request):
 def profile(request):
   return render(request, 'userdashbord/profile.html')
 
-def rtl(request):
-  return render(request, 'userdashbord/rtl.html')
+def sideBar(request):
+  return render(request, 'userdashbord/side-bar.html')
 
 def sign_in(request):
   return render(request, 'userdashbord/sign-in.html')
@@ -79,15 +79,18 @@ def tables(request):
     return render(request, 'userdashbord/tables.html', context)
 
 
-
+ 
 
 def orderonecustemor(request , id):
     vendor = Vendor.objects.get(user=request.user)
     order = CartOrder.objects.get(vendor=vendor , id=id)
-    items = order.items.all()  # related_name='items'
+    items = order.items.all()  # related_name='items'    
+    print("DEBUG:", order.lat, order.lng)  # 🔥 يطبع في terminal
     context = {
         'order': order,
         'items': items,
+        'lng' : order.lng,
+        'lat': order.lat,
     }
     return render(request, 'userdashbord/orderonecustemor.html' , context)
 

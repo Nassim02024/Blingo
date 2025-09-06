@@ -612,12 +612,12 @@
         }
       }
     </style>
-    <script>
-      <script>
+    {% block scripts %}
+    <script>  
         // علّم أننا دخلنا لصفحة product_category (نخزن المسار الكامل)
         sessionStorage.setItem('last_product_category_path', location.pathname + location.search);
-      </script>
     </script>
+    {% endblock %}
   
     
   {% endblock content %}

@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // get data from local storage
   let arrayProduct = JSON.parse(localStorage.getItem('arrayProduct')) || [];
-
+ 
   arrayProduct.forEach(element => {
     let productName = element.productName
     let productPrice = element.prices
     let productPid = element.pid
     let vendorVid = element.vid
     let qun = element.qun
-
-
+    let lng = element.lng
+    let lat = element.lat
     
   
     
@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
       <input class="input-product-id" type="hidden"  name="product_id[]" value="${productPid}" />
       <input class="input-vendor-id" type="hidden"  name="vendor_id[]" value="${vendorVid}" />
       <input class="qun" type="hidden"  name="qun[]" value="${qun}" />
+      <input class="lng" type="hidden"  name="lng" value="${lng}" />
+      <input class="lat" type="hidden"  name="lat" value="${lat}" />
+    
 
     </div>
     <hr style="height:20px" />

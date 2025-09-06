@@ -113,7 +113,7 @@
             </li>
           </ul>
           {% if vendor and vendor.vid %}
-          <a href="{% url 'cardorder' vendor.vid %}?product={{ product.id }}">
+          <a href="{% url 'cardorder' vendor.vid %}?product={{ product.vendor }}">
             <button class="w-100 btn  btn-lg checkouteorder" type="submit" style="background-color: #ffc43f; color: white; border-radius: 5px;">{% trans 'Continue to checkout' %}</button>
           </a>
       

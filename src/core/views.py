@@ -7,7 +7,9 @@ from .models import Product , Category , Vendor , ProductReview ,CartOrder , Car
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
-
+# location
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 @login_required(login_url='users:register')
 def index(request):
@@ -122,16 +124,22 @@ def search_product(request , vid):
 
 from decimal import Decimal
 @login_required
+@csrf_exempt
 def cardorder(request, vid):
     vendor = get_object_or_404(Vendor, vid=vid)
     products = Product.objects.filter(vendor=vendor, product_status="published")
 
     if request.method == "POST":
+        # data = json.loads(request.body)
         product_ids = request.POST.getlist("product_id[]")
         product_names = request.POST.getlist("productName[]")
         product_prices = request.POST.getlist("price[]")
         qun = request.POST.getlist("qun[]")
-
+        lng = request.POST.get("lng")
+        lat = request.POST.get("lat")
+        if lng and lat:
+          lng = float(lng)
+          lat = float(lat)
         # fullname = request.POST.get('fullname')
         # email = request.POST.get('email')
 
@@ -147,8 +155,8 @@ def cardorder(request, vid):
             vendor=vendor,
             product=first_product,  # أو يمكن تركه فارغًا
             user=request.user,
-            # fullname=fullname,
-            # email=email,
+            lng = lng,
+            lat = lat,
         )
 
         # ✅ الآن نضيف كل المنتجات المرتبطة بهذا الطلب
@@ -157,11 +165,10 @@ def cardorder(request, vid):
                 product = Product.objects.get(pid=pid)
             except Product.DoesNotExist:
                 continue
-
             CartOrderItems.objects.create(
                 order=order,
                 product=product,
-                product_status="Processing",
+                product_status="processing",
                 item=product.title,
                 image=product.image.url if product.image else "",
                 quantity=int(quantity),
@@ -180,10 +187,11 @@ def cardorder(request, vid):
         #  message = f"New Order \norder id : {order.id} \nfrom : {request.user.username} \nphone : {phone} \naddress 1 : {address1} \naddress 2 : {address2}  \nDelivery service 100 Dz \nand Order total {order.product_price} Dz \nTOTAL==== {order.product_price + 100} Dz ====",
          # recipient_list=["blingohyper@gmail.com"]
       #  )
-        return HttpResponse("✅ تم إنشاء الطلب بكافة العناصر بنجاح")
+        return HttpResponse(f"✅{order.lng} , {order.lat} تم إنشاء الطلب بنجاح!: ")
 
     context = {
         "vendor": vendor,
         "product": products,
+        
     }
     return render(request, "core/cardorder.html", context)

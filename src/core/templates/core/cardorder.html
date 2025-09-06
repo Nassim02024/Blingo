@@ -12,6 +12,10 @@
   <link  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
   <link  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- mapbox JS MAP -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
+  <!--// END  mapbox JS MAP //-->
   <title>{% trans 'Document' %}</title>
 </head>
 
@@ -168,13 +172,39 @@
               
                 
               <button   type="submit" class="form-btn">{% trans 'Submit Address' %}</button>
+
+
       </div>
   </div>
-  
+        
+
 </div>
 </form>
 
+<div id="map" style="position: absolute; top: 180vh; bottom: -180vh; width: 100%;z-index: 9999;"></div>
+
+<!-- Location -->
+{% block scripts %}
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
+  const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-streets-v11', // Use the standard style for the map
+      projection: 'globe', // display the map as a globe
+      zoom: 11, // initial zoom level, 0 is the world view, higher values zoom in
+      center: [6.05796000 , 33.10527000  ], // center the map on this longitude and latitude
+  });
+
+  
+
+  
+  
+</script>
 <script src="{% static 'core/js/cardorder.js' %}"  ></script> 
+{% endblock %}
+
+
 
 </body>
 </html> 

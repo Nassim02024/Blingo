@@ -7,9 +7,9 @@ from cloudinary.models import CloudinaryField
 
 
 status_choices = (
-  ("process" , "Processing"),
-  ("shipped" , "Shipped"),
-  ("delivered" , "Delivered"),
+  ("processing" , "processing"),
+  ("shipped" , "shipped"),
+  ("delivered" , "delivered"),
 )
 
 status = (
@@ -177,8 +177,9 @@ class CartOrder(models.Model):
   qunt = models.IntegerField()
   paid_status = models.BooleanField(default=False) # means that the order is paid(تم الدفع او لا )
   order_date = models.DateField(auto_now_add=True)
-  product_status = models.CharField(choices=status_choices , max_length=30 , default="Processing")
-
+  product_status = models.CharField(choices=status_choices , max_length=30 , default="processing")
+  lng = models.FloatField(null=True, blank=True)
+  lat = models.FloatField(null=True, blank=True)
 
   class Meta:
     verbose_name_plural = "Cart Order"
@@ -192,9 +193,9 @@ class CartOrderItems(models.Model):
   order = models.ForeignKey(CartOrder , on_delete=models.CASCADE , related_name="items")
   product = models.ForeignKey(Product , on_delete=models.CASCADE)
   
-  product_status = models.CharField(max_length=300 )
+  product_status = models.CharField(max_length=300 ) 
   item = models.CharField(max_length=300 )
-  image = models.CharField(max_length=300 )
+  image = CloudinaryField("image")
   quantity = models.IntegerField(default=0)
   price = models.DecimalField(max_digits=999 , decimal_places=2)
   total = models.DecimalField(max_digits=999 , decimal_places=2)

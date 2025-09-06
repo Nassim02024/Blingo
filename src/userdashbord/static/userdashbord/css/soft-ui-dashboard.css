@@ -21565,8 +21565,8 @@ fieldset:disabled .btn {
 }
 
 .avatar-sm {
-  width: 36px !important;
-  height: 36px !important;
+  width: 49px !important;
+  height: 49px !important;
   font-size: 0.875rem;
 }
 
@@ -23655,12 +23655,12 @@ html {
   padding: 0.5rem 1rem;
   font-weight: 400;
   font-size: 0.75rem;
+  z-index: 99999 !important;
 }
 
 .navbar.navbar-absolute {
   position: absolute;
   width: 100%;
-  z-index: 1;
 }
 
 .navbar.navbar-transparent .nav-link,
@@ -24589,6 +24589,7 @@ html {
 
   .g-sidenav-show.g-sidenav-pinned .sidenav {
     transform: translateX(0);
+    z-index:1;
   }
 }
 

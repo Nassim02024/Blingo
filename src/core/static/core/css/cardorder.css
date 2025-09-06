@@ -87,10 +87,11 @@ a {
 }
 /* The form card itself */
 .form-container {
-  transform: translateX(95%);
-  position: relative;
-  left: 70%;
-  width: 65%;
+
+    position: absolute;
+    top: 48px;
+    right: 10px;
+    width: 35%;
   background: white;
   padding: 1rem; /* 40px */
   border-radius: 0.75rem; /* 12px */
@@ -361,6 +362,7 @@ small {
     position: relative !important;
   }
   .form-container {
+    position: relative;
     width: 100%;
     transform: translateX(0%);
     left: 0;

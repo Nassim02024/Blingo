@@ -312,6 +312,32 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
+
+
+  
+    
+  // navigator.geolocation.getCurrentPosition((pos) =>{
+  //   let lng = pos.coords.longitude
+  //   let lat = pos.coords.latitude
+  
+  
+  //   fetch(`${window.location.origin}{% url 'cardorder' vendor.vid %}?product={{ product.vendor }}`, {
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "X-CSRFToken": "{{ csrf_token }}"
+  //     },
+  //     body: JSON.stringify({ lng, lat })
+  //   })
+  //   .then(res => res.text())
+  //   .then(data =>{
+  //     console.log("📌 الرد من السيرفر:", data)
+  //   })
+  // })
+
+  // end location customer
+
+
   // تعريف العناصر
   let nameOfProduct = document.querySelectorAll('.name-of-product');
   let productPid = document.querySelectorAll('.product-pid');
@@ -336,13 +362,9 @@ document.addEventListener('DOMContentLoaded', function () {
       let vId = vendorId[i].textContent.trim();
       let qun = quantityOneProduct[i].value;
       
-    
-    
+      
+    navigator.geolocation.getCurrentPosition((pos) =>{
       if (!arrayProduct.some(item => item.pid === pid)) {
-        let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
-        arrayProduct.push({ productName, prices, pid, vId, qun });
-        createItem(i);
-        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
         console.log("product added to cart");   
         document.querySelector(".alerts p").innerHTML = "Product is add to card";  
         alerts.style.visibility="visible"
@@ -350,6 +372,16 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
           alerts.style.visibility="hidden"
         }, 2000);
+        // add location
+      
+        let lng = pos.coords.longitude
+        let lat = pos.coords.latitude
+    
+        let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
+        arrayProduct.push({ productName, prices, pid, vId, qun  , lng , lat });
+        createItem(i);
+        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+        
 
       } else {
         console.log("product already in cart");
@@ -361,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
         
       }
-    });
+    });})
   }
 
   function createItem(i) {
@@ -478,4 +510,4 @@ if (most_search_scroll && section_most) {
   });
 
   
-});
+})
