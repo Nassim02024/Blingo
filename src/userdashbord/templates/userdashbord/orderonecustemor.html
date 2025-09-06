@@ -139,63 +139,66 @@
         .addTo(map);
 
     // Location customer
-    const lng_customer = {{ lng }};
-    const lat_customer = {{ lat }};
+    
+    const lng_customer = parseFloat("{{ lng }}");
+    const lat_customer = parseFloat("{{ lat }}");
+    console.log(lng_customer);
     const marker2 = new mapboxgl.Marker()
     .setLngLat([lng_customer , lat_customer])
     .addTo(map);
 
 
     // 1. تعريف الـ source أول مرة
-map.addSource('route', {
-  'type': 'geojson',
-  'data': {
-    'type': 'Feature',
-    'geometry': {
-      'type': 'LineString',
-      'coordinates': [
-        [lng_delevery_man, lat_delevery_man],
-        [lng_customer, lat_customer]
-      ]
-    }
-  }
-});
+    map.addSource('route', {
+      'type': 'geojson',
+      'data': {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [lng_delevery_man, lat_delevery_man],
+            [lng_customer, lat_customer]
+          ]
+        }
+      }
+    });
 
-// 2. إضافة layer
-map.addLayer({
-  'id': 'route',
-  'type': 'line',
-  'source': 'route',
-  'layout': {
-    'line-join': 'round',
-    'line-cap': 'round'
-  },
-  'paint': {
-    'line-color': '#0000FF',
-    'line-width': 4
-  }
-});
+    // 2. إضافة layer
+    map.addLayer({
+      'id': 'route',
+      'type': 'line',
+      'source': 'route',
+      'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+        'line-color': '#0000FF',
+        'line-width': 4
+      }
+    });
 
-// 3. تحديث المسار كل مرة يتحرك الـ delivery man
-function updateRoute(newLng, newLat) {
-  const newData = {
-    'type': 'Feature',
-    'geometry': {
-      'type': 'LineString',
-      'coordinates': [
-        [newLng, newLat], // الموقع الجديد
-        [lng_customer, lat_customer]
-      ]
+    // 3. تحديث المسار كل مرة يتحرك الـ delivery man
+    function updateRoute(newLng, newLat) {
+      const newData = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [newLng, newLat], // الموقع الجديد
+            [lng_customer, lat_customer]
+          ]
+        }
+      };
+      map.getSource('route').setData(newData);
     }
-  };
-  map.getSource('route').setData(newData);
-}
 
     
     // Track
   
     
-  });
+});
+  
 
   
 
