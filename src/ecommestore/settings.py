@@ -234,7 +234,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://blingo-production-0e82.up.railway.app',
-    "http://127.0.0.1:8000",
     "https://blingoservic.com",
     "https://www.blingoservic.com",
 ]
