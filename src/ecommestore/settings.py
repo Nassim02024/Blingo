@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
   "blingo-production-0e82.up.railway.app",
-  "127.0.0.1:8000",
+  "127.0.0.1",
   "blingoservic.com",
   "www.blingoservic.com"
 ]
