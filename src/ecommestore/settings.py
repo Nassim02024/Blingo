@@ -31,7 +31,10 @@ SECRET_KEY = 'django-insecure-ag)-2xlg8@nz7d!xuf&y%=+37&g%i@9$p5z(*g%iwb-vcm@zac
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "blingoservic.com",
+    "www.blingoservic.com",       
+]
 
 
 # Application definition
@@ -231,7 +234,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CSRF_TRUSTED_ORIGINS = [
     'https://blingo-production-0e82.up.railway.app',
     "http://127.0.0.1:8000",
-    "https://blingoservic.com/",
+    "https://blingoservic.com",
 ]
 
 
