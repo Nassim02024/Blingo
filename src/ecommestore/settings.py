@@ -30,7 +30,12 @@ SECRET_KEY = 'django-insecure-ag)-2xlg8@nz7d!xuf&y%=+37&g%i@9$p5z(*g%iwb-vcm@zac
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+  "blingo-production-0e82.up.railway.app",
+  "127.0.0.1:8000",
+  "blingoservic.com",
+  "www.blingoservic.com"
+]
 
 
 # Application definition
