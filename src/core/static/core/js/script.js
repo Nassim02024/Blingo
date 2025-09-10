@@ -339,72 +339,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // تعريف العناصر
-  let nameOfProduct = document.querySelectorAll('.name-of-product');
-  let productPid = document.querySelectorAll('.product-pid');
-  let vendorId = document.querySelectorAll('.vendor-id');
-  let categoryOfProduct = document.querySelectorAll('.category-of-product');
-  let priceInProItem = document.querySelectorAll('.price-in-pro-item');
-  let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
-  let btnAddCard = document.querySelectorAll('.btn-add-card');
-  let listGroup = document.querySelector('.list-group');
-  let alerts = document.querySelector('.alerts');
+let nameOfProduct = document.querySelectorAll('.name-of-product');
+let productPid = document.querySelectorAll('.product-pid');
+let vendorId = document.querySelectorAll('.vendor-id');
+let categoryOfProduct = document.querySelectorAll('.category-of-product');
+let priceInProItem = document.querySelectorAll('.price-in-pro-item');
+let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
+let btnAddCard = document.querySelectorAll('.btn-add-card');
+let listGroup = document.querySelector('.list-group');
+let alerts = document.querySelector('.alerts');
 
-  // رسم المنتجات من التخزين
-  arrayProduct.forEach((storedProduct) => {
-    let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
-    if (i !== -1) createItem(i);
+// رسم المنتجات من التخزين
+arrayProduct.forEach((storedProduct) => {
+  let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
+  if (i !== -1) createItem(i);
+});
+
+for (let i = 0; i < btnAddCard.length; i++) {
+  btnAddCard[i].addEventListener('click', function () {
+    let productName = nameOfProduct[i].textContent.trim();
+    let pid = productPid[i].textContent.trim();
+    let vId = vendorId[i].textContent.trim();
+    let qun = quantityOneProduct[i].value;
+
+    if (!arrayProduct.some(item => item.pid === pid)) {
+      document.querySelector(".alerts p").innerHTML = "Product is add to cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ccff33";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+
+      let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
+
+      // جلب الموقع وقت الضغط
+      navigator.geolocation.getCurrentPosition((pos) => {
+        let lng = pos.coords.longitude;
+        let lat = pos.coords.latitude;
+
+        // إنشاء object للمنتج
+        let productData = { productName, prices, pid, vId, qun, lng, lat };
+
+        // حفظه في array + localStorage
+        arrayProduct.push(productData);
+        createItem(i);
+        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      });
+
+    } else {
+      console.log("product already in cart");
+      document.querySelector(".alerts p").innerHTML = "Product already in cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ffcdd2";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+    }
   });
+}
 
-  for (let i = 0; i < btnAddCard.length; i++) {
-    btnAddCard[i].addEventListener('click', function () {
-      let productName = nameOfProduct[i].textContent.trim();
-      let pid = productPid[i].textContent.trim();
-      let vId = vendorId[i].textContent.trim();
-      let qun = quantityOneProduct[i].value;
-      
-
-      // 
-      
-        if (!arrayProduct.some(item => item.pid === pid)) {
-          // الخطوة 1: إضافة المنتج مباشرة بدون الموقع
-          document.querySelector(".alerts p").innerHTML = "Product is add to cart";
-          alerts.style.visibility = "visible";
-          document.querySelector(".alerts").style.background = "#ccff33";
-          setTimeout(() => { alerts.style.visibility="hidden" }, 2000);
-      
-          let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
-      
-          // مبدئيًا نخزن lng و lat بـ null
-          let productData = { productName, prices, pid, vId, qun, lng: null, lat: null };
-      
-          arrayProduct.push(productData);
-          createItem(i);
-          localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      
-          // الخطوة 2: نجلب الموقع في الخلفية ونحدث المنتج
-          navigator.geolocation.getCurrentPosition((pos) => {
-            productData.lng = pos.coords.longitude;
-            productData.lat = pos.coords.latitude;
-      console.log(productData);
-            // تحديث التخزين بعد الحصول على الموقع
-            localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-          });
-      
-        } else {
-          console.log("product already in cart");
-          document.querySelector(".alerts p").innerHTML = "Product already in cart";
-          alerts.style.visibility="visible";
-          document.querySelector(".alerts").style.background = "#ffcdd2";
-          setTimeout(() => { alerts.style.visibility="hidden" }, 2000);
-        }
-    
-      
-  
-    //  
-
-
-    ;})
-  }
 
   function createItem(i) {
     let productName = nameOfProduct[i].textContent.trim();

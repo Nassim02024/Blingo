@@ -137,20 +137,22 @@ def cardorder(request, vid):
         qun = request.POST.getlist("qun[]")
         lng = request.POST.get("lng")
         lat = request.POST.get("lat")
+        print("RAW Lng:", request.POST.get("lng"))
+        print("RAW Lat:", request.POST.get("lat"))
 
         if lng in [None, "", 'null', 'undefined']:
           lng = None
         else:  
           lng = float(lng)
-          
         if lat in [None, "", 'null', 'undefined']:
           lat = None
         else: 
-          lat = float(lat)
+          lat = float(lat) 
+          
         # fullname = request.POST.get('fullname')
         # email = request.POST.get('email')
 
-        if not (len(product_ids) == len(product_names) == len(product_prices) == len(qun)):
+        if not (len(product_ids) == len(product_names) == len(product_prices)):
             return HttpResponse("❌ عدد البيانات غير متطابق", status=400)
 
         # ✅ ننشئ الطلب العام مرة واحدة فقط
@@ -165,6 +167,7 @@ def cardorder(request, vid):
             lng = lng,
             lat = lat,
         )
+        print("Saved in DB:", order.lng, order.lat)
 
         # ✅ الآن نضيف كل المنتجات المرتبطة بهذا الطلب
         for pid, name, price, quantity in zip(product_ids, product_names, product_prices, qun):

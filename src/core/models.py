@@ -185,7 +185,7 @@ class CartOrder(models.Model):
     verbose_name_plural = "Cart Order"
 
   def __str__(self):
-    return f"{self.customer_name} - {self.product_name} - {self.product_price}"
+    return f"{self.customer_name} - {self.product_name} - {self.product_price} - {self.lng} - {self.lat}"
   
 
 class CartOrderItems(models.Model):

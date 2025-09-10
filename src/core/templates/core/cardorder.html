@@ -181,51 +181,13 @@
 </div>
 </form>
 
-<div id="map" style=""></div>
+<!-- <div id="map" style=""></div> -->
 
 <!-- Location -->
 {% block scripts %}
 
 <script>
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
-
-navigator.geolocation.getCurrentPosition((pos) => {
-  const lng = pos.coords.longitude;
-  const lat = pos.coords.latitude;
-
-  // إنشاء الخريطة
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
-    center: [lng, lat],
-    zoom: 17,
-    projection: 'globe'
-  });
-
-  // إضافة علامة على الموقع
-  new mapboxgl.Marker({ color: 'red' })
-    .setLngLat([lng, lat])
-    .addTo(map);
-
-  // استخدام reverse geocoding للحصول على العنوان
-  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${mapboxgl.accessToken}`)
-    .then(response => response.json())
-    .then(data => {
-      const place = data.features[0]?.place_name || "لم يتم العثور على عنوان";
-      document.getElementById("location-address").textContent = `📍 موقعك الحالي: ${place}`;
-    })
-    .catch(error => {
-      console.error("خطأ في جلب العنوان:", error);
-      document.getElementById("location-address").textContent = "تعذر تحديد العنوان.";
-    });
-
-}, (err) => {
-  console.error("فشل الحصول على الموقع:", err.message);
-  document.getElementById("location-address").textContent = "لم يتم منح صلاحية الموقع.";
-}, {
-  enableHighAccuracy: true
-});
 
 
 

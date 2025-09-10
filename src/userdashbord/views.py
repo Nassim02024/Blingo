@@ -84,8 +84,11 @@ def tables(request):
 def orderonecustemor(request , id):
     vendor = Vendor.objects.get(user=request.user)
     order = CartOrder.objects.get(vendor=vendor , id=id)
-    items = order.items.all()  # related_name='items'    
-    print("DEBUG:", order.lat, order.lng)  # 🔥 يطبع في terminal
+    items = order.items.all() 
+    testorder=CartOrder.objects.all()   
+    for o in testorder:
+      print(o.id, o.vendor, o.lng, o.lat)
+ 
     context = {
         'order': order,
         'items': items,

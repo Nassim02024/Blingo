@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let qun = element.qun
     let lng = element.lng
     let lat = element.lat
-    
+    console.log(lng)
   
     
     let html =`
