@@ -119,86 +119,98 @@
 {% block scripts %}
 <script>
 
+  //
+  //
   // Location
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
-  const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/satellite-streets-v11', // Use the standard style for the map
-      projection: 'globe', // display the map as a globe
-      zoom: 11, // initial zoom level, 0 is the world view, higher values zoom in
-      center: [6.05796000 , 33.10527000  ], // center the map on this longitude and latitude
-  });
+mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    projection: 'globe',
+    zoom: 11,
+    center: [6.05796000 , 33.10527000],
+});
 
-  navigator.geolocation.getCurrentPosition((pos) =>{
+// موقع العميل
+const lng_customer = parseFloat("{{ lng }}");
+const lat_customer = parseFloat("{{ lat }}");
 
-    // Location delevry man
-    let lng_delevery_man = pos.coords.longitude
-    let lat_delevery_man = pos.coords.latitude
-    const marker1 = new mapboxgl.Marker({ color: 'red', rotation: 45 })
-        .setLngLat([lng_delevery_man , lat_delevery_man])
-        .addTo(map);
-
-    // Location customer
-    
-    const lng_customer = parseFloat("{{ lng }}");
-    const lat_customer = parseFloat("{{ lat }}");
-    console.log(lng_customer);
-    const marker2 = new mapboxgl.Marker()
+const markerCustomer = new mapboxgl.Marker()
     .setLngLat([lng_customer , lat_customer])
     .addTo(map);
 
+// marker للمندوب
+const markerDelivery = new mapboxgl.Marker({ color: 'red', rotation: 45 })
+    .setLngLat([0,0])
+    .addTo(map);
 
-    // 1. تعريف الـ source أول مرة
+// إضافة route فارغ
+map.on('load', () => {
     map.addSource('route', {
-      'type': 'geojson',
-      'data': {
-        'type': 'Feature',
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [
-            [lng_delevery_man, lat_delevery_man],
-            [lng_customer, lat_customer]
-          ]
+        'type': 'geojson',
+        'data': {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'LineString',
+                'coordinates': []
+            }
         }
-      }
     });
 
-    // 2. إضافة layer
     map.addLayer({
-      'id': 'route',
-      'type': 'line',
-      'source': 'route',
-      'layout': {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
-      'paint': {
-        'line-color': '#0000FF',
-        'line-width': 4
-      }
+        'id': 'route',
+        'type': 'line',
+        'source': 'route',
+        'layout': {
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        'paint': {
+            'line-color': '#0000FF',
+            'line-width': 4
+        }
     });
+});
 
-    // 3. تحديث المسار كل مرة يتحرك الـ delivery man
-    function updateRoute(newLng, newLat) {
-      const newData = {
+// تتبع حركة المندوب
+function successCallback(pos) {
+    let lng_delevery_man = pos.coords.longitude;
+    let lat_delevery_man = pos.coords.latitude;
+
+    // تحديث موقع المندوب
+    markerDelivery.setLngLat([lng_delevery_man , lat_delevery_man]);
+
+    // جعل الخريطة تتبع المندوب
+    map.setCenter([lng_delevery_man, lat_delevery_man]);
+
+    // تحديث المسار
+    const newData = {
         'type': 'Feature',
         'geometry': {
-          'type': 'LineString',
-          'coordinates': [
-            [newLng, newLat], // الموقع الجديد
-            [lng_customer, lat_customer]
-          ]
+            'type': 'LineString',
+            'coordinates': [
+                [lng_delevery_man, lat_delevery_man],
+                [lng_customer, lat_customer]
+            ]
         }
-      };
-      map.getSource('route').setData(newData);
+    };
+    if (map.getSource('route')) {
+        map.getSource('route').setData(newData);
     }
+}
 
-    
-    // Track
-  
-    
+function errorCallback(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.watchPosition(successCallback, errorCallback, {
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: 5000
 });
-  
+//
+//
+
 
   
 
