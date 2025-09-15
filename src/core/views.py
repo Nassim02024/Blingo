@@ -190,12 +190,12 @@ def cardorder(request, vid):
             phone = request.POST.get("phone")
             address1 = request.POST.get("address-line-1")
             address2 = request.POST.get("address-line-2")        
-       send_mail(
-         subject = "New Order",
-         from_email = settings.EMAIL_HOST_USER,
+        send_mail(
+          subject = "New Order",
+          from_email = settings.EMAIL_HOST_USER,
           
-         message = f"New Order \norder id : {order.id} \nfrom : {request.user.username} \nphone : {phone} \naddress 1 : {address1} \naddress 2 : {address2}  \nDelivery service 100 Dz \nand Order total {order.product_price} Dz \nTOTAL==== {order.product_price + 100} Dz ====",
-         recipient_list=["blingohyper@gmail.com"]
+          message = f"New Order \norder id : {order.id} \nfrom : {request.user.username} \nphone : {phone} \naddress 1 : {address1} \naddress 2 : {address2}  \nDelivery service 100 Dz \nand Order total {order.product_price} Dz \nTOTAL==== {order.product_price + 100} Dz ====",
+          recipient_list=["blingohyper@gmail.com"]
         )
         return HttpResponse(f"✅{order.lng} , {order.lat} تم إنشاء الطلب بنجاح!: ")
 
