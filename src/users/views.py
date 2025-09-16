@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render , redirect
 from .forms import SingUpForm
 from django.contrib.auth import get_user_model
@@ -60,7 +61,7 @@ def login_view(request):
         return redirect("index")
     else:
       messages.warning(request, 'Email or password is incorrect.')
-      return redirect("login_view")
+      return HttpResponse("Email or password is incorrect.")
   context={
     'form':form
   }
