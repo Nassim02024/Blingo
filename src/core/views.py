@@ -1,7 +1,8 @@
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render , redirect
-
+import resend
+from decouple import config
 from ecommestore import settings
 from .models import Product , Category , Vendor , ProductReview ,CartOrder , CartOrderItems
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,11 @@ from django.core.mail import send_mail
 # location
 from django.views.decorators.csrf import csrf_exempt
 import json
+
+# resend.com Email
+# from .emails import send_email_with_resend
+
+
 
 # @login_required(login_url='users:register')
 def index(request):
@@ -122,6 +128,7 @@ def search_product(request , vid):
 
 
 
+import os
 from decimal import Decimal
 # @login_required
 @csrf_exempt
@@ -190,14 +197,24 @@ def cardorder(request, vid):
             phone = request.POST.get("phone")
             address1 = request.POST.get("address-line-1")
             address2 = request.POST.get("address-line-2")        
-        send_mail(
-         subject = "New Order",
-         from_email = settings.EMAIL_HOST_USER,
-          
-         message = f"New Order \norder id : {order.id} \nfrom : {request.user.username} \nphone : {phone} \naddress 1 : {address1} \naddress 2 : {address2}  \nDelivery service 100 Dz \nand Order total {order.product_price} Dz \nTOTAL==== {order.product_price + 100} Dz ====",
-         recipient_list=["blingohyper@gmail.com"]
-        )
-        return HttpResponse(f"✅{order.lng} , {order.lat} تم إنشاء الطلب بنجاح!: ")
+            deliveryservice = 100
+            total = deliveryservice + order.product_price
+
+
+        resend.api_key = config("RESEND_API_KEY")
+
+        params: resend.Emails.SendParams = {
+            "from": "Acme <info@blingoservic.com>",
+            "to": ["blingohyper@gmail.com"],
+            "subject": "hello world",
+            "html": f"<strong>New order From{request.user.username}<br>Phone{phone}<br>Address1{address1}<br>Address2{address2}Delivery Service{deliveryservice}<br>Order Total{order.product_price}<br>TOTAL=={total}==</strong>",
+        }
+
+        email = resend.Emails.send(params)
+        print(email)
+
+  
+        return HttpResponse(f"✅ تم إنشاء الطلب بنجاح!: ")
 
     context = {
         "vendor": vendor,
