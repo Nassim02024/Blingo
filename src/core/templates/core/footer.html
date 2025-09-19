@@ -7,11 +7,13 @@
 
       <div class="col-lg-4">
         <div class="footer-content">
-          <a href="{% url "aboutus" %}" class="logo d-flex align-items-center mb-4">
+          <a href="{% url 'aboutus' %}" class="logo d-flex align-items-center mb-4">
             <span style='color:#ffc43f' class="sitename">Blingo</span>
           </a>
           <p class="mb-4">{% trans "A company specialized in fast and easy delivery services. Our goal is to make your daily life simpler. We provide a platform that brings together restaurants, shops, and various services in one place, ensuring your orders reach your doorstep safely, quickly, and at the best prices." %}</p>
-
+          
+          <p class="mb-4">{% trans "We take pride in our collaboration with the Baraka Association, where we allocate a portion of the delivery fees to support Palestinian children and bring smiles to their faces, confirming that every purchase from our store carries a humanitarian message and a real impact." %}</p>
+           
           <div class="newsletter-form">
             <h5>{% trans 'Stay Updated' %}</h5>
             <form action="#" method="post" class="php-email-form">
@@ -32,11 +34,11 @@
         <div class="footer-links">
           <h4>{% trans 'Company' %}</h4>
           <ul>
-            <li><a href="{% url "aboutus" %}"><i class="bi bi-chevron-right"></i>{% trans 'About' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Work team' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Career opportunities' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Blog' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Our partners' %}</a></li>
+            <li><a href="{% url 'aboutus' %}"><i class="bi bi-chevron-right"></i>{% trans 'About' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Work team' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Career opportunities' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Blog' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Our partners' %}</a></li>
           </ul>
         </div>
       </div>
@@ -45,9 +47,9 @@
         <div class="footer-links">
           <h4>{% trans 'Services' %}</h4>
           <ul>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Order Delivery' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Pricing' %}</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i>{% trans 'Inquiries' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Order Delivery' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Pricing' %}</a></li>
+            <li><a ><i class="bi bi-chevron-right"></i>{% trans 'Inquiries' %}</a></li>
           </ul>
         </div>
       </div>
@@ -105,9 +107,9 @@
         </div>
         <div class="col-lg-6">
           <div class="footer-bottom-links">
-            <a href="#">{% trans 'Privacy Policy' %}</a>
-            <a href="#">{% trans 'Terms of Service' %}</a>
-            <a href="#">{% trans 'Cookie Policy' %}</a>
+            <a >{% trans 'Privacy Policy' %}</a>
+            <a >{% trans 'Terms of Service' %}</a>
+            <a >{% trans 'Cookie Policy' %}</a>
           </div>
           <div class="credits">
             <!-- All the links in the footer should remain intact. -->

@@ -28,6 +28,8 @@ def index(request):
   return render(request, 'core/index.html' , context)
 
 
+
+
 def products(request):
   product = Product.objects.filter(product_status="published")
   context = {
@@ -196,10 +198,10 @@ def cardorder(request, vid):
             
             phone = request.POST.get("phone")
             address1 = request.POST.get("address-line-1")
-            address2 = request.POST.get("address-line-2")        
+            notes = request.POST.get("notes")        
             deliveryservice = 100
             total = deliveryservice + order.product_price
-
+ 
 
         resend.api_key = config("RESEND_API_KEY")
 
@@ -207,7 +209,7 @@ def cardorder(request, vid):
             "from": "Acme <info@blingoservic.com>",
             "to": ["blingohyper@gmail.com"],
             "subject": "hello world",
-            "html": f"<strong>New order From{request.user.username}<br>Phone{phone}<br>Address1{address1}<br>Address2{address2}Delivery Service{deliveryservice}<br>Order Total{order.product_price}<br>TOTAL=={total}==</strong>",
+            "html": f"New order From: {request.user.username}<br>Phone: {phone}<br>Address1: {address1}<br>notes: {notes}<br>Delivery Service: {deliveryservice}<br>Order Total: {order.product_price}<br>TOTAL=={total}==",
         }
 
         email = resend.Emails.send(params)

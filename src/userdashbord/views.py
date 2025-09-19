@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 
 
-@login_required
+# @login_required
 def dashbord(request):
     vendor = Vendor.objects.get(user=request.user)
 
@@ -50,20 +50,20 @@ def dashbord(request):
   # print(context)
   # return render(request, 'userdashbord/dashbord.html' , context)
 
-def billing(request):
-  return render(request, 'userdashbord/billing.html')
+# def billing(request):
+#   return render(request, 'userdashbord/billing.html')
 
-def profile(request):
-  return render(request, 'userdashbord/profile.html')
+# def profile(request):
+#   return render(request, 'userdashbord/profile.html')
 
 def sideBar(request):
   return render(request, 'userdashbord/side-bar.html')
 
-def sign_in(request):
-  return render(request, 'userdashbord/sign-in.html')
+# def sign_in(request):
+#   return render(request, 'userdashbord/sign-in.html')
 
-def sign_up(request):
-  return render(request, 'userdashbord/sign-up.html')
+# def sign_up(request):
+#   return render(request, 'userdashbord/sign-up.html')
 
 
 
@@ -95,5 +95,5 @@ def orderonecustemor(request , id):
     return render(request, 'userdashbord/orderonecustemor.html' , context)
 
 
-def virtual_reality(request):
-  return render(request, 'userdashbord/virtual-reality.html')
+# def virtual_reality(request):
+#   return render(request, 'userdashbord/virtual-reality.html')

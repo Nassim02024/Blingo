@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+import resend
+from decouple import config
 
 def contact(request):
     context = {}
@@ -11,14 +13,18 @@ def contact(request):
             subject = request.POST.get('subject')
             messages = request.POST.get('messages')
 
-            message = f"Name: {name}\nPhone: {phone}\nEmail: {email}\nMessages: {messages}"
+            message = f"Name: {name}\nPhone: {phone}\nEmail: {email}\n{subject}\nMessages: {messages}"
 
-            send_mail(
-                subject="New message from customer in Blingo: " + subject,
-                message=message,
-                from_email=email,
-                recipient_list=['blingohyper@gmail.com'],
-            )
+            resend.api_key = config("RESEND_API_KEY")
+
+            params: resend.Emails.SendParams = {
+                "from": "Acme <info@blingoservic.com>",
+                "to": ["blingohyper@gmail.com"],
+                "subject": "hello world",
+                "html": f"<strong>{message}</strong>",
+            }
+
+            email = resend.Emails.send(params)
             print("success")
             context ["alert_message"] = "تم ارسال بنجاح"
 

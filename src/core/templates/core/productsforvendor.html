@@ -243,7 +243,7 @@
               
               {% for c in categorys %}
               <div class="swiper-slide">
-                <a href="{% url "product_category" c.cid %}">
+                <a href="{% url 'product_category' c.cid %}">
                 <div class="card mb-3 rounded-4 shadow border-0" style="  white-space: nowrap;">
                   <div class="row">
                     <div class="col-md-4">
@@ -360,7 +360,7 @@
               {% for c in categorys %}
 
               {% if c.categoress == "طبخ و الماكولات" %}
-              <a href="{% url "product_category" c.cid %}" class="nav-link category-item swiper-slide">
+              <a href="{% url 'product_category' c.cid %}" class="nav-link category-item swiper-slide">
                 <img src="{% static 'core/images/food.png'%}" alt="Category Thumbnail" loading="lazy">
                 <h2 class="category-title">{% trans 'Food & Cooking' %}</h2>
               </a>
@@ -480,6 +480,14 @@
       </div>
     </div>
   </section>
+  <section class="d-flex justify-content-center align-items-center flex-grow-0 mb-5 ">
+    <img src="{% static 'core/images/baraka.png'%}"   alt="elbaraka-company" style="width: 70px; border-radius: 50%; ">
+    <p style="font-size: clamp(11px, 2vw, 32px); text-align:center">{% trans "With every delivery, we contribute a portion to support a Palestinian child through the Barakah Association." %}</p>         
+     <img src="{% static 'core/images/baraka.png'%}"   alt="elbaraka-company" style="width: 70px; border-radius: 50%; ">
+
+
+  </section>
+  <section>
     <div class="row">
       <div class="col-md-12">
 
@@ -495,7 +503,7 @@
                       {% if get_precentage%}
                         <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
                         {% endif %}
-                        <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
+                        <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
                         <figure>
                           <a href="{% url "productDetils" p.pid %}" title="Product Title">
                             <img style="height:100%;  width:100%;   border-radius: 10px;" src="{{ p.image.url }}" alt="Product Thumbnail" class="tab-image" loading="lazy">

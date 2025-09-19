@@ -157,19 +157,6 @@ class Imgs_product(models.Model):
     
     
 
-# deliveryservice = 100
-#         total = deliveryservice + order.product_price
-
-#         resend.api_key = config("RESEND_API_KEY")
-
-#         params = {
-#             "from": "Acme <info@blingoservic.com>",
-#             "to": ["blingohyper@gmail.com"],
-#             "subject": "New Order",
-#             "html": f"""<strong>New order From{request.user.username}<br>Phone{phone}<br>Address1{address1}<br>Address2{address2}Delivery Service{deliveryservice}<br>Order Total{order.product_price}<br>TOTAL=={total}==</strong>""",
-#         }
-
-#         email = resend.Emails.send(params)
 
 
 ##################################### cartOrder , cartOrderItems ############################################################

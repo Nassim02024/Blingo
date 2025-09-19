@@ -15,6 +15,4 @@ urlpatterns = [
   path('cardorder/<uuid:vid>/', views.cardorder , name='cardorder'),
 
 
-  # path('vendor_orders/', views.vendor_orders , name='vendor_orders'),
-
 ]

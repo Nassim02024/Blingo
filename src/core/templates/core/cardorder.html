@@ -12,17 +12,25 @@
   <link  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
   <link  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {% comment %} favicon {% endcomment %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/logo-tap-icon.png' %}?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'core/images/logo-blingo-512x512.png' %}?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/logo-blingo-192x192.png' %}?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/logo-blingo-apple-touch-icon.png' %}?v=2">
+    <link rel="shortcut icon" href="{% static 'core/images/logo-tap-icon.png' %}"> 
+  {% comment %} favicon {% endcomment %}
   <!-- mapbox JS MAP -->
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
   <!--// END  mapbox JS MAP //-->
-  <title>{% trans 'Document' %}</title>
+  <title>{% trans 'Blingo | Order' %}</title>
 </head>
 
 <body >
-  {% comment %} <img src="{% static "core/images/checkout-order.jpg" %}" alt="checkout" loading="lazy" class="img-fluid imgbg position-fixed" /> {% endcomment %}
+  {% comment %} <img src="{% static 'core/images/checkout-order.jpg' %}" alt="checkout" loading="lazy" class="img-fluid imgbg position-fixed" /> {% endcomment %}
   <form
-  action="{% url "cardorder" vendor.vid  %}"
+  action="{% url 'cardorder' vendor.vid  %}"
   method="POST" 
 >
 {% csrf_token %}
@@ -51,8 +59,8 @@
          <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
             <div class="row text-center  ">
                 
-              <div class="col  my-auto  border-line "><a href="{% url 'product' vendor.vid  %}" ><h5>{% trans "Order" %}</h5></a></div>
-                <div class="col  my-auto  border-line "><a href="{% url "index"  %}" ><h5>{% trans "Cancel" %}</h5></a></div>
+              <div class="col  my-auto  border-line "><a href="{% url 'product' vendor.vid  %}" ><h5>{% trans "back to Order" %}</h5></a></div>
+                <div class="col  my-auto  border-line "><a href="{% url 'index'  %}" ><h5>{% trans "Cancel" %}</h5></a></div>
                 <div class="col  my-auto mx-0 px-0 "><img class="img-fluid cursor-pointer" src="https://img.icons8.com/ios/50/000000/menu-2.png" width="30" height="30"></div>
             </div>
         </div>
@@ -68,36 +76,17 @@
               src="https://ucarecdn.com/412d5bde-bec7-49c8-94c9-f6df6434ed12/address.png"
               alt="Address Form Image"
               class="form-img"
-              loading="lazy"
           />
         
               <div style="margin-bottom: 2rem">
-                  <h2 class="form-title">{% trans "Address Form" %}</h2>
+                  <h2 class="form-title">{% trans "Form order" %}</h2>
                   <p class="form-desc">
                       {% trans "Please provide your address details below. Fields marked with  are required." %}
                       
                   </p>
               </div>
   
-              {% comment %} <label for="fullname" class="form-label">{% trans "Full Name" %}</label>
-              <input
-                  type="text"
-                  name="fullname"
-                  id="fullname"
-                  class="form-input"
-                  placeholder="Enter your full name"
-                  required
-              />
-   {% endcomment %}
-              {% comment %} <label for="email" class="form-label">{% trans "Email Address" %}</label>
-              <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="form-input"
-                  placeholder="Enter your email"
-                  required
-          /> {% endcomment %}
+            
   
               <label for="phone" class="form-label"
                   >{% trans 'Phone Number' %}</label
@@ -111,7 +100,7 @@
               />
   
               <label for="address-line-1" class="form-label"
-                  >{% trans 'Street Address (Line 1)*' %}</label
+                  >{% trans 'Street Address*' %}</label
               >
               <input
                   type="text"
@@ -122,34 +111,32 @@
                   required
               />
   
-              <label for="address-line-2" class="form-label"
-                  >{% trans 'Street Address (Line 2) (Optional)' %}</label
+              <label for="notes" class="form-label"
+                  >{% trans 'Additional notes (Optional)' %}</label
               >
-              <input
+              <textarea
                   type="text"
-                  name="address-line-2"
+                  name="notes"
                   id="address-line-2"
                   class="form-input"
-                  placeholder="Apartment, Suite, Floor, etc."
-              />
-
+              ></textarea>
               <hr >
 
-              <h2>Bill</h2>
+              <h2>{% trans "Bill" %}</h2>
               <div  style="display: flex;flex-direction: column; justify-content: space-between; width: 100%;">
                 
                 <div class="summary" >
-                   <p>Order total</p>
+                   <p>{% trans "Order total" %}</p>
                    <p class='summary_order_tolal'></p>
                 </div>
                   
                 <div class="summary">
-                   <p>Delivery service </p>
+                   <p>{% trans "Delivery service" %} </p>
                    <p class="summary_Delivery_service">  </p>
                 </div>
 
                 <div class="summary">
-                   <h5>Total</h3> 
+                   <h5>{% trans "Total" %}</h3> 
                     <h5 class="summary_order_all"> </h5>
                 </div>
                 
@@ -171,7 +158,7 @@
               </div>
               
                 
-              <button   type="submit" class="form-btn">{% trans 'Submit Address' %}</button>
+              <button   type="submit" class="form-btn">{% trans 'Submit Order' %}</button>
 
 
       </div>

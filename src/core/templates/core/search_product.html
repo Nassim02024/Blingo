@@ -24,9 +24,9 @@
                           {% if get_precentage %}
                           <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
                           {% endif %}
-                          <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
+                          <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
                           <figure>
-                            <a href="{% url "productDetils" p.pid %}" title="Product Title">
+                            <a href="{% url 'productDetils' p.pid %}" title="Product Title">
                               <img width="100%" src="{{p.image.url}}" alt="Product Thumbnail" class="tab-image" loading="lazy">
                             </a> 
                           </figure>

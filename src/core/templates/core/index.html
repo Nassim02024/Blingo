@@ -18,6 +18,8 @@
   <meta name="twitter:description" content="{% blocktrans %} Discover the Blino store  a multi-vendor shopping platform that offers you the best food products and more from trusted sellers. Shop easily and securely, with multiple payment options and fast shipping.{% endblocktrans %}">
   {% comment %} <meta name="twitter:image" content="{% static 'img/logo.png' %}"> {% endcomment %}
 
+  
+
 </head>
 
 <body>
@@ -62,7 +64,7 @@
               <h2 class="section-title">{% trans ' Services' %}</h2>
               
               <div class="d-flex align-items-center">
-                <a href="#" class="btn-link text-decoration-none">{% trans 'View All Services' %}→</a>
+                <a  class="btn-link text-decoration-none">{% trans 'View All Services' %}→</a>
                 <div class="swiper-buttons">
                   <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
                   <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
@@ -176,7 +178,7 @@
                 <h3>{% trans 'Vendors' %}</h3>
                 <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a href="#" class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">{% trans 'All' %}</a>
+                    <a  class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">{% trans 'All' %}</a>
                     <!-- <a href="#" class="nav-link text-uppercase fs-6" id="nav-fruits-tab" data-bs-toggle="tab" data-bs-target="#nav-fruits">{% trans 'Fruits & Veges' %}</a>
                     <a href="#" class="nav-link text-uppercase fs-6" id="nav-juices-tab" data-bs-toggle="tab" data-bs-target="#nav-juices">{% trans 'Juices' %}</a>{% trans '--></div>
                 </nav>
@@ -429,12 +431,8 @@
 
   
 
-          
-
     <style>
-      *{
-      decoration: none;
-    }
+    
       .card_ven {
         width: 350px;
         height: 300px;
@@ -452,9 +450,9 @@
         overflow: hidden;
         font-size:24px;
         font-weight: bold;
-
+  
       }
-
+  
       .card_ven:hover + button {
         background: white;
       }
@@ -466,9 +464,9 @@
         height: 100px;
         position: absolute;
         top: 0;
+        background:url({% static 'core/images/silde_ven.jpg' %});
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
-        background:url({% static 'core/images/silde_ven.jpg' %});
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -497,7 +495,7 @@
         transition: all 0.5s ease;
       }
       
-      card-info:hover{
+      .card-info:hover{
         font-weight: 600;
         font-size: 24px;
         color:rgb(255, 255, 255);
@@ -581,7 +579,7 @@
         color:rgb(241, 241, 241);
       }
     
-
+  
       
       .card_ven:hover .image {
         transform: scale(1.4) translate(-100%,-30%);
@@ -612,6 +610,8 @@
         }
       }
     </style>
+
+    
     {% block scripts %}
     <script>  
         // علّم أننا دخلنا لصفحة product_category نخزن المسار الكامل

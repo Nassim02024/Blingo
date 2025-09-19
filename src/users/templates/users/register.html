@@ -41,15 +41,26 @@
     <title>{% trans 'Blingo | Login' %}</title>
   </head>
   <body style="background-image: url('{% static 'users/images/bglog.jpg' %}')">
-    <div class="lang_icon">{% include "lang/lang.html" %}</div>
-    <h2>{% trans "Welcom in your market" %}</h2>
     {% if form.errors %}
     <div class="alert">
-      <strong style="position: absolute; z-index: 999; font-size: 12px"
-        >{{form.errors}}</strong
+      <p
+        style="
+          position: absolute;
+          top: 5px;
+          z-index: 999;
+          font-size: 10px;
+          margin: auto;
+          width: fit-content;
+          font-weight: 300;
+        "
       >
+        {{form.errors}}
+      </p>
     </div>
     {% endif %}
+    <div class="lang_icon">{% include "lang/lang.html" %}</div>
+    <h2>{% trans "Welcom in your market" %}</h2>
+
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form action="{% url 'users:register' %}" method="POST">
@@ -76,7 +87,7 @@
           <input type="password" name="password" placeholder="Password" />
 
           {% comment %}
-          <a href="#">{% trans 'Forgot your password?' %}</a> {%endcomment %}
+          <a >{% trans 'Forgot your password?' %}</a> {%endcomment %}
 
           <button type="submit">{% trans 'Log In' %}</button>
           <p class="qu" id="signUp2">
@@ -92,16 +103,16 @@
           <div class="overlay-panel overlay-left">
             <h1>{% trans 'Welcome Back!' %}</h1>
             <p>
-              {% trans 'To keep connected with us please login with your
-              personal info' %}
+              {% trans 'To keep connected with us please login with your personal info' %}
+              
             </p>
             <button class="ghost" id="signIn">{% trans 'login' %}</button>
           </div>
           <div class="overlay-panel overlay-right">
             <h1>{% trans 'Hello!' %}</h1>
             <p>
-              {% trans 'Enter your personal details and start journey with us'
-              %}
+              {% trans 'Enter your personal details and start journey with us' %}
+              
             </p>
             <button type="reset" class="ghost" id="signUp">
               {% trans 'Sign Up' %}

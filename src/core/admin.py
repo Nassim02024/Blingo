@@ -11,7 +11,10 @@ class ProductImagesAdmin(admin.TabularInline):
 # from model.py class product line 79
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImagesAdmin]
-    list_display = ["pid", "user" , "title", "product_image", "price", "old_price", "color", "description", "featured", "product_status"]
+    list_display = [
+        "pid", "user", "title", "product_image", "price",
+        "old_price", "color", "description", "featured", "product_status"
+    ]
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -23,11 +26,36 @@ class ProductAdmin(admin.ModelAdmin):
         except Vendor.DoesNotExist:
             return qs.none()
 
+    def get_readonly_fields(self, request, obj=None):
+        # نخليهم للعرض فقط وقت التعديل
+        if obj:  
+            return ["user", "vendor"]
+        return []  # وقت الإضافة يخليهم editable حتى يتعبّو تلقائي
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if not obj:  # يعني وقت إضافة منتج جديد
+            form.base_fields["user"].initial = request.user
+            try:
+                vendor = Vendor.objects.get(user=request.user)
+                form.base_fields["vendor"].initial = vendor
+            except Vendor.DoesNotExist:
+                pass
+        return form
+
     def save_model(self, request, obj, form, change):
-    
+        if not obj.user:
+            obj.user = request.user
+        if not obj.vendor:
+            try:
+                obj.vendor = Vendor.objects.get(user=request.user)
+            except Vendor.DoesNotExist:
+                obj.vendor = None
         super().save_model(request, obj, form, change)
 
+  
 
+  
 # from model.py class category line 36
 class CategoryAdmin(admin.ModelAdmin):
   list_display = ["cid", "categoress" , "Category_imge"] 

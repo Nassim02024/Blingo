@@ -10,8 +10,7 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
-  margin: -20px 0 50px;
+  margin: 10px 0 50px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -19,6 +18,7 @@ body {
   background-blend-mode: overlay;
   overflow: hidden;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 .lang_icon {
   position: absolute;
