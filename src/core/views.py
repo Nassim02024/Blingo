@@ -241,6 +241,7 @@ Disallow: /login_view/
 Disallow: /logout_view/
 Disallow: /cardorder/
 Disallow: /customer/
+Disallow: /createstorevendorform/
 
 
 Allow: /
