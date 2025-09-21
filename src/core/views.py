@@ -224,3 +224,26 @@ def cardorder(request, vid):
         
     }
     return render(request, "core/cardorder.html", context)
+
+
+
+
+
+
+
+def robots_txt(request):
+    content = """
+User-agent: *
+Disallow: /admin/
+Disallow: /lang/
+Disallow: /register/
+Disallow: /login_view/
+Disallow: /logout_view/
+Disallow: /cardorder/
+Disallow: /customer/
+
+
+Allow: /
+Sitemap: https://blingoservic.com/sitemap.xml
+"""
+    return HttpResponse(content, content_type="text/plain")
