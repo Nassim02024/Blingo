@@ -10,8 +10,29 @@
   <head>
     <title>{% block title %} Blingo {% endblock %}</title>
 
-    <meta property="og:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
- 
+    <meta name="description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+
+  <!-- Open Graph (Facebook, Messenger, إلخ) -->
+  <meta property="og:title" content="Blingo | {% blocktrans %}Home | A multi-vendor store for purchasing food products in Touggourt{% endblocktrans %}">
+  <meta property="og:description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+  <meta property="og:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
+  <meta property="og:image:alt" content="Blingo Store">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <meta property="og:url" content="https://blingoservic.com/ar/" />
+  {% else %}
+    <meta property="og:url" content="https://blingoservic.com/en/" />
+  {% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blingo | {% blocktrans %}Home | A multi-vendor store for purchasing food products in Touggourt{% endblocktrans %}">
+  <meta name="twitter:description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+  <meta name="twitter:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <meta name="twitter:url" content="https://blingoservic.com/ar/" />
+  {% else %}
+    <meta name="twitter:url" content="https://blingoservic.com/en/" />
+  {% endif %}
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/logo-tap-icon.png' %}">
     <link rel="icon" type="image/png" sizes="512x512" href="{% static 'core/images/logo-blingo-512x512.png' %}">
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/logo-blingo-192x192.png' %}">
