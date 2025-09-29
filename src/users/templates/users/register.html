@@ -9,24 +9,24 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="{% static 'core/images/logo-tap-icon.png' %}?v=2"
+      href="{% static 'core/images/logo-tap-icon.png' %} "
     />
     <link
       rel="icon"
       type="image/png"
       sizes="512x512"
-      href="{% static 'core/images/logo-blingo-512x512.png' %}?v=2"
+      href="{% static 'core/images/logo-blingo-512x512.png' %} "
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="{% static 'core/images/logo-blingo-192x192.png' %}?v=2"
+      href="{% static 'core/images/logo-blingo-192x192.png' %} "
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="{% static 'core/images/logo-blingo-apple-touch-icon.png' %}?v=2"
+      href="{% static 'core/images/logo-blingo-apple-touch-icon.png' %} "
     />
     <link
       rel="shortcut icon"
@@ -87,7 +87,7 @@
           <input type="password" name="password" placeholder="Password" />
 
           {% comment %}
-          <a >{% trans 'Forgot your password?' %}</a> {%endcomment %}
+          <a>{% trans 'Forgot your password?' %}</a> {%endcomment %}
 
           <button type="submit">{% trans 'Log In' %}</button>
           <p class="qu" id="signUp2">
@@ -103,16 +103,16 @@
           <div class="overlay-panel overlay-left">
             <h1>{% trans 'Welcome Back!' %}</h1>
             <p>
-              {% trans 'To keep connected with us please login with your personal info' %}
-              
+              {% trans 'To keep connected with us please login with your
+              personal info' %}
             </p>
             <button class="ghost" id="signIn">{% trans 'login' %}</button>
           </div>
           <div class="overlay-panel overlay-right">
             <h1>{% trans 'Hello!' %}</h1>
             <p>
-              {% trans 'Enter your personal details and start journey with us' %}
-              
+              {% trans 'Enter your personal details and start journey with us'
+              %}
             </p>
             <button type="reset" class="ghost" id="signUp">
               {% trans 'Sign Up' %}
