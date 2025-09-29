@@ -4,10 +4,13 @@ from django.shortcuts import render , redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from django.utils import translation
 
 User = get_user_model()
 
+
 def register(request):
+    translation.activate(request.LANGUAGE_CODE)  # 
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():

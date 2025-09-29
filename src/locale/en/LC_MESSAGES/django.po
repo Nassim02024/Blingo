@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 16:43+0100\n"
+"POT-Creation-Date: 2025-09-29 20:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,44 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:59
+#: .\src\aboutus\templates\aboutus\aboutus.html:81
 msgid "Who are we?"
 msgstr ""
 
-#: .\src\aboutus\templates\aboutus\aboutus.html:62
-#, fuzzy
-#| msgid ""
-#| "A company specialized in fast and easy delivery services. Our goal is to "
-#| "make your daily life simpler. We provide a platform that brings together "
-#| "restaurants, shops, and various services in one place, ensuring your "
-#| "orders reach your doorstep safely, quickly, and at the best prices."
-msgid ""
-"We are a company specialized in delivering orders quickly and easily, our "
-"goal is to make your daily life simpler. We provide you with a platform that "
-"brings together restaurants, shops, and various services in one place, and "
-"we ensure that your orders arrive safely at your doorstep, on time, and at "
-"the best prices."
-msgstr ""
-"A company specialized in fast and easy delivery services. Our goal is to "
-"make your daily life simpler. We provide a platform that brings together "
-"restaurants, shops, and various services in one place, ensuring your orders "
-"reach your doorstep safely, quickly, and at the best prices."
-
-#: .\src\aboutus\templates\aboutus\aboutus.html:77
+#: .\src\aboutus\templates\aboutus\aboutus.html:103
 msgid "Our Vision"
-msgstr ""
-
-#: .\src\aboutus\templates\aboutus\aboutus.html:80
-msgid ""
-"We strive to be the first choice in the field of delivery services by "
-"building a reliable platform that connects customers with various "
-"restaurants, stores, and service providers in an easy and fast manner. We "
-"aim to redefine the delivery experience to be more comfortable and flexible, "
-"not only meeting the daily needs of customers but also exceeding them to "
-"give them extra time to enjoy their lives. Our vision is to become the "
-"essential partner for every individual and family in their daily lives, by "
-"providing innovative services based on modern technology that meet the "
-"highest standards of quality, safety, and speed."
 msgstr ""
 
 #: .\src\commingsoon\templates\commingsoon\commingsoon.html:7
@@ -121,95 +89,161 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
-#: .\src\core\templates\base.html:139 .\src\core\templates\base.html:296
+#: .\src\core\templates\base.html:13 .\src\core\templates\base.html:17
+#: .\src\core\templates\base.html:30 .\src\core\templates\core\index.html:17
+#: .\src\core\templates\core\index.html:21
+#: .\src\core\templates\core\index.html:35
+msgid ""
+"Discover Blingo, a multi-vendor shopping platform offering the best food "
+"products from trusted sellers. Shop easily and securely with fast shipping."
+msgstr ""
+
+#: .\src\core\templates\base.html:16 .\src\core\templates\base.html:29
+#: .\src\core\templates\core\index.html:10
+#: .\src\core\templates\core\index.html:20
+#: .\src\core\templates\core\index.html:34
+msgid "Home | A multi-vendor store for purchasing food products in Touggourt"
+msgstr ""
+
+#: .\src\core\templates\base.html:167 .\src\core\templates\base.html:325
 msgid "Free delivery"
 msgstr "Free delivery"
 
-#: .\src\core\templates\base.html:148 .\src\core\templates\base.html:310
+#: .\src\core\templates\base.html:176 .\src\core\templates\base.html:339
 msgid "secure payment"
 msgstr "secure payment"
 
-#: .\src\core\templates\base.html:158 .\src\core\templates\base.html:324
+#: .\src\core\templates\base.html:186 .\src\core\templates\base.html:353
 msgid "Quality guarantee"
 msgstr ""
 
-#: .\src\core\templates\base.html:168 .\src\core\templates\base.html:352
+#: .\src\core\templates\base.html:196 .\src\core\templates\base.html:381
 msgid "Daily offers"
 msgstr ""
 
-#: .\src\core\templates\base.html:269
+#: .\src\core\templates\base.html:212
+msgid "Our Recent Blog"
+msgstr ""
+
+#: .\src\core\templates\base.html:214
+msgid "Read All Articles"
+msgstr ""
+
+#: .\src\core\templates\base.html:228
+msgid "22 Aug 2021"
+msgstr ""
+
+#: .\src\core\templates\base.html:229
+msgid "tips & tricks"
+msgstr ""
+
+#: .\src\core\templates\base.html:233
+msgid "Top 10 casual look ideas to dress up your kids"
+msgstr ""
+
+#: .\src\core\templates\base.html:235 .\src\core\templates\base.html:256
+#: .\src\core\templates\base.html:277
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra "
+"enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi..."
+msgstr ""
+
+#: .\src\core\templates\base.html:249
+msgid "25 Aug 2021"
+msgstr ""
+
+#: .\src\core\templates\base.html:250
+msgid "trending"
+msgstr ""
+
+#: .\src\core\templates\base.html:254
+msgid "Latest trends of wearing street wears supremely"
+msgstr ""
+
+#: .\src\core\templates\base.html:270
+msgid "28 Aug 2021"
+msgstr ""
+
+#: .\src\core\templates\base.html:271
+msgid "inspiration"
+msgstr ""
+
+#: .\src\core\templates\base.html:275
+msgid "10 Different Types of comfortable clothes ideas for women"
+msgstr ""
+
+#: .\src\core\templates\base.html:298
 msgid "Shop faster with Blingo App"
 msgstr "Shop faster with Blingo App"
 
-#: .\src\core\templates\base.html:270
+#: .\src\core\templates\base.html:299
 msgid ""
 "Wait for the Blingo app, through which you can shop comfortably and well."
 msgstr ""
 "Wait for the Blingo app, through which you can shop comfortably and well."
 
-#: .\src\core\templates\base.html:338
+#: .\src\core\templates\base.html:367
 msgid "guaranteed savings"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:19
-#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:10
-msgid "Document"
+#: .\src\core\templates\core\cardorder.html:29
+msgid "Blingo | Order"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:32
+#: .\src\core\templates\core\cardorder.html:42
 msgid "Details order"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:56
+#: .\src\core\templates\core\cardorder.html:66
 msgid "back to Order"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:57
+#: .\src\core\templates\core\cardorder.html:67
 msgid "Cancel"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:76
+#: .\src\core\templates\core\cardorder.html:86
 msgid "Form order"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:78
+#: .\src\core\templates\core\cardorder.html:88
 msgid ""
 "Please provide your address details below. Fields marked with  are required."
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:86
+#: .\src\core\templates\core\cardorder.html:96
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
-#: .\src\core\templates\core\cardorder.html:97
+#: .\src\core\templates\core\cardorder.html:107
 msgid "Street Address*"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:109
+#: .\src\core\templates\core\cardorder.html:119
 msgid "Additional notes (Optional)"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:119
+#: .\src\core\templates\core\cardorder.html:129
 msgid "Bill"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:123
+#: .\src\core\templates\core\cardorder.html:133
 msgid "Order total"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:128
+#: .\src\core\templates\core\cardorder.html:138
 msgid "Delivery service"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:133
+#: .\src\core\templates\core\cardorder.html:143
 msgid "Total"
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:150
+#: .\src\core\templates\core\cardorder.html:160
 msgid "I confirm this address is accurate for "
 msgstr ""
 
-#: .\src\core\templates\core\cardorder.html:155
+#: .\src\core\templates\core\cardorder.html:165
 msgid "Submit Order"
 msgstr ""
 
@@ -383,7 +417,7 @@ msgid "My Account"
 msgstr ""
 
 #: .\src\core\templates\core\header.html:256
-#: .\src\customer\templates\customer\customer.html:87
+#: .\src\customer\templates\customer\customer.html:183
 msgid "Dashboard"
 msgstr ""
 
@@ -483,258 +517,232 @@ msgstr ""
 msgid "Get PRO Version"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:8
-#: .\src\core\templates\core\index.html:11
-msgid " Home | A multi-vendor store for purchasing food products in Touggourt "
-msgstr ""
-
-#: .\src\core\templates\core\index.html:10
-msgid ""
-" Discover the Blino store  a multi-vendor shopping platform that offers you "
-"the best food products and more from trusted sellers. Shop easily and "
-"securely, with multiple payment options and fast shipping. "
-msgstr ""
-
-#: .\src\core\templates\core\index.html:12
-#: .\src\core\templates\core\index.html:18
-msgid ""
-" Discover the Blino store  a multi-vendor shopping platform that offers you "
-"the best food products and more from trusted sellers. Shop easily and "
-"securely, with multiple payment options and fast shipping."
-msgstr ""
-
-#: .\src\core\templates\core\index.html:17
-msgid ""
-" Blingo | Home | A multi-vendor store for purchasing food products in "
-"Touggourt "
-msgstr ""
-
-#: .\src\core\templates\core\index.html:43
+#: .\src\core\templates\core\index.html:62
 msgid "Shop from the best stores in your city."
 msgstr ""
 
-#: .\src\core\templates\core\index.html:44
+#: .\src\core\templates\core\index.html:63
 msgid "With the press of a button."
 msgstr ""
 
-#: .\src\core\templates\core\index.html:45
-#: .\src\core\templates\core\index.html:51
+#: .\src\core\templates\core\index.html:64
+#: .\src\core\templates\core\index.html:70
 msgid "start"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:49
+#: .\src\core\templates\core\index.html:68
 msgid "Choose the store that suits you"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:50
+#: .\src\core\templates\core\index.html:69
 msgid "And we will be with you !"
 msgstr "And we will be with you !"
 
-#: .\src\core\templates\core\index.html:65
+#: .\src\core\templates\core\index.html:84
 #: .\src\core\templates\core\productsforvendor.html:344
 msgid " Services"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:68
+#: .\src\core\templates\core\index.html:87
 #: .\src\core\templates\core\productsforvendor.html:347
 msgid "View All Services"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:86
+#: .\src\core\templates\core\index.html:105
 #: .\src\core\templates\core\productsforvendor.html:367
 msgid "Food & Cooking"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:91
+#: .\src\core\templates\core\index.html:110
 #: .\src\core\templates\core\productsforvendor.html:374
 msgid "Cleaning materials"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:96
+#: .\src\core\templates\core\index.html:115
 #: .\src\core\templates\core\productsforvendor.html:381
 msgid "Breads & Sweets"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:101
+#: .\src\core\templates\core\index.html:120
 #: .\src\core\templates\core\productsforvendor.html:389
 msgid "Beverages"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:106
+#: .\src\core\templates\core\index.html:125
 #: .\src\core\templates\core\productsforvendor.html:396
 msgid "Meats & derivatives"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:111
-#: .\src\core\templates\core\index.html:183
+#: .\src\core\templates\core\index.html:130
+#: .\src\core\templates\core\index.html:202
 #: .\src\core\templates\core\productsforvendor.html:403
 msgid "Fruits & Veges"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:116
+#: .\src\core\templates\core\index.html:135
 #: .\src\core\templates\core\productsforvendor.html:410
 msgid "Canned foods"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:121
+#: .\src\core\templates\core\index.html:140
 #: .\src\core\templates\core\productsforvendor.html:417
 msgid "Milk & derivatives"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:126
+#: .\src\core\templates\core\index.html:145
 #: .\src\core\templates\core\productsforvendor.html:424
 msgid "Oils & spices"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:131
+#: .\src\core\templates\core\index.html:150
 #: .\src\core\templates\core\productsforvendor.html:431
 msgid "Nuts"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:136
+#: .\src\core\templates\core\index.html:155
 #: .\src\core\templates\core\productsforvendor.html:438
 msgid "Childrens products"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:141
+#: .\src\core\templates\core\index.html:160
 #: .\src\core\templates\core\productsforvendor.html:445
 msgid "Household products"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:146
+#: .\src\core\templates\core\index.html:165
 #: .\src\core\templates\core\productsforvendor.html:452
 msgid "Electrical products"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:151
+#: .\src\core\templates\core\index.html:170
 #: .\src\core\templates\core\productsforvendor.html:459
 msgid "Health"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:156
+#: .\src\core\templates\core\index.html:175
 #: .\src\core\templates\core\productsforvendor.html:466
 msgid "Cosmetics"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:161
+#: .\src\core\templates\core\index.html:180
 #: .\src\core\templates\core\productsforvendor.html:473
 msgid "School supplies"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:179
+#: .\src\core\templates\core\index.html:198
 msgid "Vendors"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:182
+#: .\src\core\templates\core\index.html:201
 msgid "All"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:184
+#: .\src\core\templates\core\index.html:203
 msgid "Juices"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:208
+#: .\src\core\templates\core\index.html:227
 #: .\src\core\templates\core\search_vendor.html:28
 msgid "Store"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:235
-#: .\src\core\templates\core\index.html:282
-#: .\src\core\templates\core\index.html:325
+#: .\src\core\templates\core\index.html:254
+#: .\src\core\templates\core\index.html:301
+#: .\src\core\templates\core\index.html:344
 #: .\src\core\templates\core\productDetils.html:89
-#: .\src\core\templates\core\productsforvendor.html:518
+#: .\src\core\templates\core\productsforvendor.html:516
 msgid "4.5"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:237
+#: .\src\core\templates\core\index.html:256
 msgid "${{p.old_price}}"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:252
-#: .\src\core\templates\core\index.html:298
-#: .\src\core\templates\core\index.html:341
+#: .\src\core\templates\core\index.html:271
+#: .\src\core\templates\core\index.html:317
+#: .\src\core\templates\core\index.html:360
 #: .\src\core\templates\core\productDetils.html:106
 #: .\src\core\templates\core\product_category.html:65
-#: .\src\core\templates\core\productsforvendor.html:534
+#: .\src\core\templates\core\productsforvendor.html:532
 #: .\src\core\templates\core\search_product.html:53
 msgid "Add to Cart"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:274
+#: .\src\core\templates\core\index.html:293
 #, python-format
 msgid "-30%%"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:281
-#: .\src\core\templates\core\index.html:324
+#: .\src\core\templates\core\index.html:300
+#: .\src\core\templates\core\index.html:343
 msgid "Sunstar Fresh Melon Juice"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:282
-#: .\src\core\templates\core\index.html:325
+#: .\src\core\templates\core\index.html:301
+#: .\src\core\templates\core\index.html:344
 msgid "1 Unit"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:283
-#: .\src\core\templates\core\index.html:326
+#: .\src\core\templates\core\index.html:302
+#: .\src\core\templates\core\index.html:345
 msgid "$18.00"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:368
-#: .\src\core\templates\core\index.html:379
+#: .\src\core\templates\core\index.html:387
+#: .\src\core\templates\core\index.html:398
 #, python-format
 msgid "Upto 25%% Off"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:369
+#: .\src\core\templates\core\index.html:388
 msgid "Luxa Dark Chocolate"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:370
-#: .\src\core\templates\core\index.html:381
+#: .\src\core\templates\core\index.html:389
+#: .\src\core\templates\core\index.html:400
 msgid "Very tasty & creamy vanilla flavour creamy muffins."
 msgstr ""
 
-#: .\src\core\templates\core\index.html:371
-#: .\src\core\templates\core\index.html:382
+#: .\src\core\templates\core\index.html:390
+#: .\src\core\templates\core\index.html:401
 msgid "Show Now"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:380
+#: .\src\core\templates\core\index.html:399
 msgid "Creamy Muffins"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:401
+#: .\src\core\templates\core\index.html:420
 msgid "Get"
 msgstr "Get"
 
-#: .\src\core\templates\core\index.html:401
+#: .\src\core\templates\core\index.html:420
 msgid "free delivery"
 msgstr "free delivery"
 
-#: .\src\core\templates\core\index.html:401
+#: .\src\core\templates\core\index.html:420
 msgid "on your first order"
 msgstr "on your first order"
 
-#: .\src\core\templates\core\index.html:403
+#: .\src\core\templates\core\index.html:422
 msgid "You can also get a gift coupon and free delivery."
 msgstr "You can also get a gift coupon and free delivery."
 
-#: .\src\core\templates\core\index.html:408
-#: .\src\customer\templates\customer\customer.html:181
+#: .\src\core\templates\core\index.html:427
+#: .\src\customer\templates\customer\customer.html:336
 msgid "Name"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:413
-#: .\src\customer\templates\customer\customer.html:210
+#: .\src\core\templates\core\index.html:432
+#: .\src\customer\templates\customer\customer.html:382
 msgid "Email"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:418
+#: .\src\core\templates\core\index.html:437
 msgid "Subscribe to the newsletter"
 msgstr ""
 
-#: .\src\core\templates\core\index.html:421
+#: .\src\core\templates\core\index.html:440
 msgid "Submit"
 msgstr ""
 
@@ -788,59 +796,63 @@ msgid ""
 "through the Barakah Association."
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:559
+#: .\src\core\templates\core\productsforvendor.html:557
 msgid "People are also looking for"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:560
+#: .\src\core\templates\core\productsforvendor.html:558
 msgid "tomat"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:561
+#: .\src\core\templates\core\productsforvendor.html:559
 msgid "margarin"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:560
+#: .\src\core\templates\core\productsforvendor.html:569
+msgid "Salty kettle Corn"
+msgstr ""
+
+#: .\src\core\templates\core\productsforvendor.html:561
+#: .\src\core\templates\core\productsforvendor.html:570
+msgid "Chobani Greek Yogurt"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:562
 #: .\src\core\templates\core\productsforvendor.html:571
-msgid "Salty kettle Corn"
+msgid "Sweet Vanilla Yogurt"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:563
 #: .\src\core\templates\core\productsforvendor.html:572
-msgid "Chobani Greek Yogurt"
+msgid "Foster Farms Takeout Crispy wings"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:564
 #: .\src\core\templates\core\productsforvendor.html:573
-msgid "Sweet Vanilla Yogurt"
+msgid "Warrior Blend Organic"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:565
 #: .\src\core\templates\core\productsforvendor.html:574
-msgid "Foster Farms Takeout Crispy wings"
+msgid "Chao Cheese Creamy"
 msgstr ""
 
 #: .\src\core\templates\core\productsforvendor.html:566
 #: .\src\core\templates\core\productsforvendor.html:575
-msgid "Warrior Blend Organic"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:567
-#: .\src\core\templates\core\productsforvendor.html:576
-msgid "Chao Cheese Creamy"
-msgstr ""
-
-#: .\src\core\templates\core\productsforvendor.html:568
-#: .\src\core\templates\core\productsforvendor.html:577
 msgid "Chicken meatballs"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:569
+#: .\src\core\templates\core\productsforvendor.html:567
 msgid "Blue diamon almonds"
 msgstr ""
 
-#: .\src\core\templates\core\productsforvendor.html:570
+#: .\src\core\templates\core\productsforvendor.html:568
 msgid "Angie’s Boomchickapop Corn"
+msgstr ""
+
+#: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:10
+msgid "Document"
 msgstr ""
 
 #: .\src\createstorevendorform\templates\createstorevendorform\createstorevendorform.html:21
@@ -871,106 +883,105 @@ msgstr ""
 msgid "Address:"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:27
+#: .\src\customer\templates\customer\customer.html:59
 msgid "Profile "
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:39
+#: .\src\customer\templates\customer\customer.html:73
 msgid "Welcome"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:44
+#: .\src\customer\templates\customer\customer.html:83
 msgid "Project Manager"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:46
-#: .\src\customer\templates\customer\customer.html:192
-msgid "Address"
-msgstr ""
-
-#: .\src\customer\templates\customer\customer.html:47
-#: .\src\customer\templates\customer\customer.html:195
+#: .\src\customer\templates\customer\customer.html:92
+#: .\src\customer\templates\customer\customer.html:357
 msgid "Touggourt"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:50
+#: .\src\customer\templates\customer\customer.html:104
 msgid "Log Out"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:72
+#: .\src\customer\templates\customer\customer.html:138
 msgid "Overview"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:75
+#: .\src\customer\templates\customer\customer.html:152
 msgid "Orders"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:78
-#: .\src\customer\templates\customer\customer.html:178
+#: .\src\customer\templates\customer\customer.html:166
+#: .\src\customer\templates\customer\customer.html:331
 msgid "Profile"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:82
+#: .\src\customer\templates\customer\customer.html:171
 msgid "Password"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:97
+#: .\src\customer\templates\customer\customer.html:202
 msgid "Order"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:103
+#: .\src\customer\templates\customer\customer.html:214
 msgid "Total spant"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:109
+#: .\src\customer\templates\customer\customer.html:226
 msgid "Notification"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:134
+#: .\src\customer\templates\customer\customer.html:259
 msgid "Budget"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:135
+#: .\src\customer\templates\customer\customer.html:264
 msgid "Date"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:136
+#: .\src\customer\templates\customer\customer.html:269
 msgid "State"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:137
+#: .\src\customer\templates\customer\customer.html:274
 msgid "Action"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:162
+#: .\src\customer\templates\customer\customer.html:310
 msgid "view"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:187
+#: .\src\customer\templates\customer\customer.html:344
 msgid "Last Name"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:190
+#: .\src\customer\templates\customer\customer.html:347
 msgid "Leo"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:198
+#: .\src\customer\templates\customer\customer.html:352
+msgid "Address"
+msgstr ""
+
+#: .\src\customer\templates\customer\customer.html:362
 msgid "Country"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:201
+#: .\src\customer\templates\customer\customer.html:367
 msgid "Algeria"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:204
+#: .\src\customer\templates\customer\customer.html:372
 msgid "Phone"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:207
+#: .\src\customer\templates\customer\customer.html:377
 msgid "+213 **********"
 msgstr ""
 
-#: .\src\customer\templates\customer\customer.html:219
+#: .\src\customer\templates\customer\customer.html:399
 msgid "nn1509789@gmail.com"
 msgstr ""
 
@@ -994,15 +1005,15 @@ msgstr ""
 msgid "total"
 msgstr ""
 
-#: .\src\ecommestore\settings.py:192 .\src\users\translate.py:4
+#: .\src\ecommestore\settings.py:194 .\src\users\translate.py:4
 msgid "French"
 msgstr ""
 
-#: .\src\ecommestore\settings.py:193 .\src\users\translate.py:5
+#: .\src\ecommestore\settings.py:195 .\src\users\translate.py:5
 msgid "English"
 msgstr ""
 
-#: .\src\ecommestore\settings.py:194 .\src\users\translate.py:6
+#: .\src\ecommestore\settings.py:196 .\src\users\translate.py:6
 msgid "Arabic"
 msgstr ""
 
@@ -1563,6 +1574,24 @@ msgstr ""
 msgid "SEND MESSAGE"
 msgstr ""
 
+#: .\src\users\forms.py:11
+msgid "Enter your email"
+msgstr ""
+
+#: .\src\users\forms.py:16
+msgid "Enter your username"
+msgstr ""
+
+#: .\src\users\forms.py:21
+msgid "Enter your password"
+msgstr ""
+
+#: .\src\users\forms.py:26
+#, fuzzy
+#| msgid "on your first order"
+msgid "Confirm your password"
+msgstr "on your first order"
+
 #: .\src\users\templates\users\register.html:41
 msgid "Blingo | Login"
 msgstr ""
@@ -1575,51 +1604,73 @@ msgstr ""
 msgid "Create Account"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:72
-#: .\src\users\templates\users\register.html:119
+#: .\src\users\templates\users\register.html:81
+#: .\src\users\templates\users\register.html:128
 msgid "Sign Up"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:74
+#: .\src\users\templates\users\register.html:83
 msgid "Already have account ?"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:76
+#: .\src\users\templates\users\register.html:85
 msgid "sign In"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:84
+#: .\src\users\templates\users\register.html:86
+msgid "Use at least 8 characters with symbols"
+msgstr ""
+
 #: .\src\users\templates\users\register.html:93
+#: .\src\users\templates\users\register.html:102
 msgid "Log In"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:95
+#: .\src\users\templates\users\register.html:104
 msgid "Don't have account ?"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:97
+#: .\src\users\templates\users\register.html:106
 msgid "sign Up"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:105
+#: .\src\users\templates\users\register.html:114
 msgid "Welcome Back!"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:107
+#: .\src\users\templates\users\register.html:116
 msgid "To keep connected with us please login with your personal info"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:110
+#: .\src\users\templates\users\register.html:119
 msgid "login"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:113
+#: .\src\users\templates\users\register.html:122
 msgid "Hello!"
 msgstr ""
 
-#: .\src\users\templates\users\register.html:115
+#: .\src\users\templates\users\register.html:124
 msgid "Enter your personal details and start journey with us"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "A company specialized in fast and easy delivery services. Our goal is to "
+#~| "make your daily life simpler. We provide a platform that brings together "
+#~| "restaurants, shops, and various services in one place, ensuring your "
+#~| "orders reach your doorstep safely, quickly, and at the best prices."
+#~ msgid ""
+#~ "We are a company specialized in delivering orders quickly and easily, our "
+#~ "goal is to make your daily life simpler. We provide you with a platform "
+#~ "that brings together restaurants, shops, and various services in one "
+#~ "place, and we ensure that your orders arrive safely at your doorstep, on "
+#~ "time, and at the best prices."
+#~ msgstr ""
+#~ "A company specialized in fast and easy delivery services. Our goal is to "
+#~ "make your daily life simpler. We provide a platform that brings together "
+#~ "restaurants, shops, and various services in one place, ensuring your "
+#~ "orders reach your doorstep safely, quickly, and at the best prices."
 
 #~ msgid "All types of orders"
 #~ msgstr "All types of orders"

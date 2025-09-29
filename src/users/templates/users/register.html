@@ -67,7 +67,16 @@
           {% csrf_token %}
           <h1>{% trans "Create Account" %}</h1>
 
-          {{form.email}} {{form.username}} {{form.password1}} {{form.password2}}
+            {{form.email}} 
+            
+           {{form.username}} 
+           <div style="width:100%; align-items: start; display: flex; flex-direction: column;">
+             {{form.password1}} 
+             <small style="padding: 0; margin: 0; height: fit-content; font-size:10px">
+              {% trans 'Use at least 8 characters with symbols' %}
+            </small>
+           </div>
+           {{form.password2}}
 
           <button type="submit">{% trans 'Sign Up' %}</button>
           <p class="qu" id="signIn2">
