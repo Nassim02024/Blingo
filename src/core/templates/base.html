@@ -9,7 +9,9 @@
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' or LANGUAGE_CODE == 'he' %}rtl{% else %}ltr{% endif %}">  
   <head>
     <title>{% block title %} Blingo {% endblock %}</title>
-  
+
+    <meta property="og:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
+ 
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/logo-tap-icon.png' %}">
     <link rel="icon" type="image/png" sizes="512x512" href="{% static 'core/images/logo-blingo-512x512.png' %}">
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/logo-blingo-192x192.png' %}">
