@@ -132,7 +132,7 @@ def search_product(request , vid):
 
 import os
 from decimal import Decimal
-@login_required(login_url='users:register')
+@login_required(login_url='/users/register/')
 @csrf_exempt
 def cardorder(request, vid):
     vendor = get_object_or_404(Vendor, vid=vid)
@@ -237,7 +237,6 @@ User-agent: *
 Disallow: /admin/
 Disallow: /lang/
 Disallow: /register/
-Disallow: /login_view/
 Disallow: /logout_view/
 Disallow: /cardorder/
 Disallow: /customer/

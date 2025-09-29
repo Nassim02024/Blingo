@@ -1,16 +1,14 @@
-from django.http import HttpResponse
-from django.shortcuts import render , redirect
+from django.http import HttpResponse 
+from django.shortcuts import render , redirect 
 
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib import messages
 from .forms import SignUpForm
-from django.utils import translation
 
 User = get_user_model()
 
 
 def register(request):
-    translation.activate(request.LANGUAGE_CODE)  # 
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -34,23 +32,22 @@ def login_view(request):
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             messages.warning(request, 'Email or password is incorrect.')
-            return render(request, "users/login.html")
+            return render(request, "users/register.html")
         
-        userauth = authenticate(request, username=user.username, password=password)
+        userauth = authenticate(request, email=email , password=password)
         if userauth is not None:
             login(request, userauth)
             messages.success(request, 'You are logged in.')
-            return redirect("core:index")
+            return redirect("index")
         else:
             messages.warning(request, 'Email or password is incorrect.')
 
-    return render(request, "users/login.html")
+    return render(request, "users/register.html")
 
 
 def logout_view(request):
     logout(request)
     return redirect("users:register")
-
 
 
 # User = get_user_model()

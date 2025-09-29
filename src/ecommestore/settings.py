@@ -28,7 +28,7 @@ import cloudinary_storage
 SECRET_KEY = 'django-insecure-ag)-2xlg8@nz7d!xuf&y%=+37&g%i@9$p5z(*g%iwb-vcm@zac'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = [
   "blingo-production-0e82.up.railway.app",
@@ -104,8 +104,7 @@ MIDDLEWARE = [
 ]
 
 # لضغط الملفات (CSS, JS, ...etc)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
@@ -215,18 +214,17 @@ from pathlib import Path
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-  BASE_DIR / 'filestatic',
-  # BASE_DIR / 'core' / 'static',
-  # BASE_DIR / 'users' / 'static',
-  # BASE_DIR / 'aboutus' / 'static',
-  # BASE_DIR / 'commingsoon' / 'static',
-  # BASE_DIR / 'contactpage' / 'static',
-  # BASE_DIR / 'createstorevendorform' / 'static',
-  # BASE_DIR / 'customer' / 'static',
-  # BASE_DIR / 'errorpage' / 'static',
-  # BASE_DIR / 'userdashbord' / 'static',
+  BASE_DIR / 'core' / 'static',
+  BASE_DIR / 'users' / 'static',
+  BASE_DIR / 'aboutus' / 'static',
+  BASE_DIR / 'commingsoon' / 'static',
+  BASE_DIR / 'contactpage' / 'static',
+  BASE_DIR / 'createstorevendorform' / 'static',
+  BASE_DIR / 'customer' / 'static',
+  BASE_DIR / 'errorpage' / 'static',
+  BASE_DIR / 'userdashbord' / 'static',
   
-    
+  
 ]  
 STATIC_ROOT = BASE_DIR / "staticfiles"     
 
@@ -260,7 +258,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'  #اسم التطبيق ثم اسم الكلاس موديل 
 
 
-LOGIN_URL = 'users:login_view'
+LOGIN_URL = '/users/register/'
 LOGIN_REDIRECT_URL = '/'
 
 # Email Setting
@@ -292,23 +290,14 @@ RESEND_API_KEY = config('RESEND_API_KEY')
 
 
 
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
-#     },
-#     "staticfiles": {
-#         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
-#     }
-# }
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+    }
+}
 
-# DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-
-
-
-
-
-
-
-
-
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
