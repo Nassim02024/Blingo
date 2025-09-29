@@ -104,7 +104,7 @@ MIDDLEWARE = [
 ]
 
 # لضغط الملفات (CSS, JS, ...etc)
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
