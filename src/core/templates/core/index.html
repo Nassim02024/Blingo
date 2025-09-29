@@ -5,24 +5,42 @@
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' or LANGUAGE_CODE == 'he' %}rtl{% else %}ltr{% endif %}">  
 
 <head>
-  {% block title %} Blingo |  {% blocktrans %} Home | A multi-vendor store for purchasing food products in Touggourt {% endblocktrans %} {% endblock %}
+  <!-- عنوان الصفحة -->
+  {% block title %}
+    Blingo | {% blocktrans %}Home | A multi-vendor store for purchasing food products in Touggourt{% endblocktrans %}
+  {% endblock %}
+
+  <!-- أيقونات وخطوط -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta name="description" content="{% blocktrans %} Discover the Blino store  a multi-vendor shopping platform that offers you the best food products and more from trusted sellers. Shop easily and securely, with multiple payment options and fast shipping. {% endblocktrans %}" >
-  <meta property="og:title" content="Blingo | {% blocktrans %} Home | A multi-vendor store for purchasing food products in Touggourt {% endblocktrans %}" >
-  <meta property="og:description" content="{% blocktrans %} Discover the Blino store  a multi-vendor shopping platform that offers you the best food products and more from trusted sellers. Shop easily and securely, with multiple payment options and fast shipping.{% endblocktrans %}" >
-  <!-- <meta property="og:image" content="{% static 'img/logo.png' %}" > -->
-  <!-- <meta property="og:url" content="https://blingo.tn/" > -->
 
+  <!-- الوصف العام للصفحة -->
+  <meta name="description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+
+  <!-- Open Graph (Facebook, Messenger, إلخ) -->
+  <meta property="og:title" content="Blingo | {% blocktrans %}Home | A multi-vendor store for purchasing food products in Touggourt{% endblocktrans %}">
+  <meta property="og:description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+  <meta property="og:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
+  <meta property="og:image:alt" content="Blingo Store">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <meta property="og:url" content="https://blingoservic.com/ar/" />
+  {% else %}
+    <meta property="og:url" content="https://blingoservic.com/en/" />
+  {% endif %}
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% blocktrans %} Blingo | Home | A multi-vendor store for purchasing food products in Touggourt {% endblocktrans %} ">
-  <meta name="twitter:description" content="{% blocktrans %} Discover the Blino store  a multi-vendor shopping platform that offers you the best food products and more from trusted sellers. Shop easily and securely, with multiple payment options and fast shipping.{% endblocktrans %}">
-  {% comment %} <meta name="twitter:image" content="{% static 'img/logo.png' %}"> {% endcomment %}
+  <meta name="twitter:title" content="Blingo | {% blocktrans %}Home | A multi-vendor store for purchasing food products in Touggourt{% endblocktrans %}">
+  <meta name="twitter:description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
+  <meta name="twitter:image" content="https://blingoservic.com/static/core/images/logo-blingo.png">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <meta name="twitter:url" content="https://blingoservic.com/ar/" />
+  {% else %}
+    <meta name="twitter:url" content="https://blingoservic.com/en/" />
+  {% endif %}
 
-  
-
-</head>
-
-<body>
+ 
+  </head>
+	
 {% block content %}
 
 
