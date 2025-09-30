@@ -369,6 +369,11 @@ for (let i = 0; i < btnAddCard.length; i++) {
         arrayProduct.push(productData);
         createItem(i);
         localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+
+        document.querySelector(".alerts p").innerHTML = "Product is added to cart";
+        alerts.style.visibility = "visible";
+        document.querySelector(".alerts").style.background = "#ccff33";
+        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
     if (!arrayProduct.some(item => item.pid === pid)) {
@@ -382,7 +387,10 @@ for (let i = 0; i < btnAddCard.length; i++) {
             }
         );
     } else {
-        alert("Product already in cart");
+      document.querySelector(".alerts p").innerHTML = "Product already in cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ffcdd2";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 });
 

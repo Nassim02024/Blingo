@@ -121,93 +121,104 @@
 
   //
   //
-  // Location
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
-const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
-    projection: 'globe',
-    zoom: 11,
-    center: [6.05796000 , 33.10527000],
-});
-
-// موقع العميل
-const lng_customer = parseFloat("{{ lng }}");
-const lat_customer = parseFloat("{{ lat }}");
-
-const markerCustomer = new mapboxgl.Marker()
-    .setLngLat([lng_customer , lat_customer])
-    .addTo(map);
-
-// marker للمندوب
-const markerDelivery = new mapboxgl.Marker({ color: 'red', rotation: 45 })
-    .setLngLat([0,0])
-    .addTo(map);
-
-// إضافة route فارغ
-map.on('load', () => {
-    map.addSource('route', {
-        'type': 'geojson',
-        'data': {
-            'type': 'Feature',
-            'geometry': {
-                'type': 'LineString',
-                'coordinates': []
-            }
-        }
-    });
-
-    map.addLayer({
-        'id': 'route',
-        'type': 'line',
-        'source': 'route',
-        'layout': {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        'paint': {
-            'line-color': '#0000FF',
-            'line-width': 4
-        }
-    });
-});
-
-// تتبع حركة المندوب
-function successCallback(pos) {
-    let lng_delevery_man = pos.coords.longitude;
-    let lat_delevery_man = pos.coords.latitude;
-
-    // تحديث موقع المندوب
-    markerDelivery.setLngLat([lng_delevery_man , lat_delevery_man]);
-
-    // جعل الخريطة تتبع المندوب
-    map.setCenter([lng_delevery_man, lat_delevery_man]);
-
-    // تحديث المسار
-    const newData = {
-        'type': 'Feature',
-        'geometry': {
-            'type': 'LineString',
-            'coordinates': [
-                [lng_delevery_man, lat_delevery_man],
-                [lng_customer, lat_customer]
-            ]
-        }
-    };
-    if (map.getSource('route')) {
-        map.getSource('route').setData(newData);
-    }
-}
-
-function errorCallback(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
-navigator.geolocation.watchPosition(successCallback, errorCallback, {
-    enableHighAccuracy: true,
-    maximumAge: 0,
-    timeout: 5000
-});
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYmxpbmdvIiwiYSI6ImNtZjU5cHB1aDAzY3cya3M5Y3BuN291bjEifQ.fZnLg8Uql1f2NegnAp6Bdw';
+  const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-streets-v11',
+      projection: 'globe',
+      zoom: 11,
+      center: [6.05796000 , 33.10527000],
+  });
+  
+  // موقع العميل
+  const lng_customer = parseFloat("{{ lng }}");
+  const lat_customer = parseFloat("{{ lat }}");
+  
+  const markerCustomer = new mapboxgl.Marker()
+      .setLngLat([lng_customer , lat_customer])
+      .addTo(map);
+  
+  // marker للمندوب
+  const markerDelivery = new mapboxgl.Marker({ color: 'red', rotation: 45 })
+      .setLngLat([0,0])
+      .addTo(map);
+  
+  // إضافة route فارغ
+  map.on('load', () => {
+      map.addSource('route', {
+          'type': 'geojson',
+          'data': {
+              'type': 'Feature',
+              'geometry': {
+                  'type': 'LineString',
+                  'coordinates': []
+              }
+          }
+      });
+  
+      map.addLayer({
+          'id': 'route',
+          'type': 'line',
+          'source': 'route',
+          'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+          },
+          'paint': {
+              'line-color': '#0000FF',
+              'line-width': 4
+          }
+      });
+  });
+  
+  // دالة لجلب مسار على الطرق من Mapbox Directions API
+  async function getRoute(origin, destination) {
+      const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${origin[0]},${origin[1]};${destination[0]},${destination[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.routes && data.routes.length > 0) {
+          return data.routes[0].geometry.coordinates;
+      }
+      return [];
+  }
+  
+  // تتبع حركة المندوب
+  async function successCallback(pos) {
+      const lng_delevery_man = pos.coords.longitude;
+      const lat_delevery_man = pos.coords.latitude;
+  
+      // تحديث موقع المندوب
+      markerDelivery.setLngLat([lng_delevery_man , lat_delevery_man]);
+  
+      // جلب المسار الفعلي على الطرق
+      const routeCoordinates = await getRoute(
+          [lng_delevery_man, lat_delevery_man],
+          [lng_customer, lat_customer]
+      );
+  
+      // تحديث المسار على الخريطة
+      if (map.getSource('route')) {
+          map.getSource('route').setData({
+              type: 'Feature',
+              geometry: {
+                  type: 'LineString',
+                  coordinates: routeCoordinates
+              }
+          });
+      }
+  }
+  
+  function errorCallback(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+  
+  // تتبع حركة المندوب بدون تحريك الكاميرا
+  navigator.geolocation.watchPosition(successCallback, errorCallback, {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 5000
+  });
+  
 //
 //
 
