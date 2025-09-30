@@ -364,21 +364,17 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    // دالة لإضافة المنتج إلى السلة
     function addProduct(lng, lat) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-
-      // رسالة نجاح
       document.querySelector(".alerts p").innerHTML = "Product added to cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
-    // تحقق إذا المنتج موجود بالفعل
     if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
@@ -387,25 +383,23 @@ for (let i = 0; i < btnAddCard.length; i++) {
       return;
     }
 
-    // تحقق حالة الإذن من localStorage
+    // التحقق من حالة الإذن
     let geoStatus = localStorage.getItem('geolocationStatus');
 
     if (geoStatus === 'denied') {
-      // المستخدم رفض سابقًا → لا نضيف المنتج ونظهر رسالة
-      alert("يرجى السماح بالوصول للموقع لإضافة المنتج إلى السلة.");
+      // لا نعيد طلب الإذن، فقط نظهر رسالة وزر لفتح تعليمات
+      alert("لقد رفضت الوصول للموقع. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
       return;
     }
 
-    // طلب الموقع
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        localStorage.setItem('geolocationStatus', 'granted'); // تم السماح
+        localStorage.setItem('geolocationStatus', 'granted');
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        // المستخدم رفض الوصول
         localStorage.setItem('geolocationStatus', 'denied');
-        alert("يرجى السماح بالوصول للموقع لإضافة المنتج إلى السلة.");
+        alert("لقد رفضت الوصول للموقع. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
       }
     );
   });
