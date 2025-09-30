@@ -339,82 +339,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // تعريف العناصر
-let nameOfProduct = document.querySelectorAll('.name-of-product');
-let productPid = document.querySelectorAll('.product-pid');
-let vendorId = document.querySelectorAll('.vendor-id');
-let categoryOfProduct = document.querySelectorAll('.category-of-product');
-let priceInProItem = document.querySelectorAll('.price-in-pro-item');
-let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
-let btnAddCard = document.querySelectorAll('.btn-add-card');
-let listGroup = document.querySelector('.list-group');
-let alerts = document.querySelector('.alerts');
-
-// رسم المنتجات من التخزين
-arrayProduct.forEach((storedProduct) => {
-  let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
-  if (i !== -1) createItem(i);
-});
-
-
-for (let i = 0; i < btnAddCard.length; i++) {
-  btnAddCard[i].addEventListener('click', function () {
+  let nameOfProduct = document.querySelectorAll('.name-of-product');
+  let productPid = document.querySelectorAll('.product-pid');
+  let vendorId = document.querySelectorAll('.vendor-id');
+  let categoryOfProduct = document.querySelectorAll('.category-of-product');
+  let priceInProItem = document.querySelectorAll('.price-in-pro-item');
+  let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
+  let btnAddCard = document.querySelectorAll('.btn-add-card');
+  let listGroup = document.querySelector('.list-group');
+  let alerts = document.querySelector('.alerts');
+  
+  // رسم المنتجات من التخزين عند تحميل الصفحة
+  arrayProduct.forEach((storedProduct) => {
+    let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
+    if (i !== -1) createItem(i);
+  });
+  
+  // دالة لإضافة المنتج إلى السلة
+  function addProduct(i, lng, lat) {
     let productName = nameOfProduct[i].textContent.trim();
     let pid = productPid[i].textContent.trim();
     let vId = vendorId[i].textContent.trim();
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
-
-    function addProduct(lng, lat) {
-      let productData = { productName, prices, pid, vId, qun, lng, lat };
-      arrayProduct.push(productData);
-      createItem(i);
-      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      document.querySelector(".alerts p").innerHTML = "Product added to cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ccff33";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-    }
-
-    if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "Product already in cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ffcdd2";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-      return;
-    }
-
-    // التحقق من حالة الإذن
-    let geoStatus = localStorage.getItem('geolocationStatus');
-
-    if (geoStatus === 'denied') {
-      // لا نعيد طلب الإذن، فقط نظهر رسالة وزر لفتح تعليمات
-      alert("لقد رفضت الوصول للموقع. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        localStorage.setItem('geolocationStatus', 'granted');
-        addProduct(pos.coords.longitude, pos.coords.latitude);
-      },
-      (err) => {
-        localStorage.setItem('geolocationStatus', 'denied');
-        alert("لقد رفضت الوصول للموقع. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
+  
+    let productData = { productName, prices, pid, vId, qun, lng, lat };
+    arrayProduct.push(productData);
+    createItem(i);
+    localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+  
+    // رسالة نجاح
+    document.querySelector(".alerts p").innerHTML = "Product is add to cart";
+    alerts.style.visibility = "visible";
+    document.querySelector(".alerts").style.background = "#ccff33";
+    setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+  }
+  
+  // إضافة أحداث الأزرار
+  for (let i = 0; i < btnAddCard.length; i++) {
+    btnAddCard[i].addEventListener('click', function () {
+  
+      let pid = productPid[i].textContent.trim();
+  
+      // تحقق إذا المنتج موجود بالفعل
+      if (arrayProduct.some(item => item.pid === pid)) {
+        document.querySelector(".alerts p").innerHTML = "Product already in cart";
+        alerts.style.visibility = "visible";
+        document.querySelector(".alerts").style.background = "#ffcdd2";
+        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+        return;
       }
-    );
-  });
-}
-
-
-
-
-
+  
+      // تحقق حالة إذن الموقع
+      let geoStatus = localStorage.getItem('geolocationStatus');
+  
+      if (geoStatus === 'denied') {
+        alert("لقد رفضت الوصول للموقع سابقًا. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
+        return; // لا تضيف المنتج
+      }
+  
+      // طلب الموقع
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          localStorage.setItem('geolocationStatus', 'granted');
+          addProduct(i, pos.coords.longitude, pos.coords.latitude);
+        },
+        (err) => {
+          localStorage.setItem('geolocationStatus', 'denied');
+          alert("لقد رفضت الوصول للموقع. لتتمكن من إضافة المنتج، افتح إعدادات الموقع للسماح بالوصول.");
+        }
+      );
+    });
+  }
+  
+  // الدوال المساعدة للرسم والتحديث
   function createItem(i) {
     let productName = nameOfProduct[i].textContent.trim();
     let unitPrice = parseFloat(priceInProItem[i].innerHTML);
     let quantity = parseInt(quantityOneProduct[i].value) || 1;
     let totalPriceOne = unitPrice * quantity;
-
+  
     let li = document.createElement('li');
     li.className = 'list-group-item d-flex justify-content-between lh-sm list-group-item-card';
     li.innerHTML = `
@@ -427,13 +431,12 @@ for (let i = 0; i < btnAddCard.length; i++) {
       <button class="btn btn-danger delete-item-pro" type="button">
         <i class="bi bi-trash"></i> Delete
       </button>
-
     `;
-
+  
     listGroup.appendChild(li);
     updateTotalPrice();
     updateCount();
-
+  
     li.querySelector('.delete-item-pro').addEventListener('click', function () {
       listGroup.removeChild(li);
       let index = arrayProduct.findIndex(item => item.productName === productName);
@@ -443,7 +446,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
       updateCount();
     });
   }
-
+  
   function updateTotalPrice() {
     let total = 0;
     document.querySelectorAll('.price-for-one').forEach(item => {
@@ -451,12 +454,13 @@ for (let i = 0; i < btnAddCard.length; i++) {
     });
     document.querySelector('.totals-price').innerHTML = total + ' Dz';
   }
-
+  
   function updateCount() {
     let count = arrayProduct.length;
     document.querySelector('.badge').innerHTML = count;
     document.querySelector('.count-for-card-icon').innerHTML = count;
   }
+  
 
 
 
