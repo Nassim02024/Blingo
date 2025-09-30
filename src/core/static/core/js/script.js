@@ -364,49 +364,29 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    // دالة لإضافة المنتج إلى السلة
     function addProduct(lng, lat) {
-      let productData = { productName, prices, pid, vId, qun, lng, lat };
-      arrayProduct.push(productData);
-      createItem(i);
-      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-
-      // رسالة نجاح
-      document.querySelector(".alerts p").innerHTML = "Product is add to cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ccff33";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+        let productData = { productName, prices, pid, vId, qun, lng, lat };
+        arrayProduct.push(productData);
+        createItem(i);
+        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
     }
 
-    // تحقق إذا المنتج موجود بالفعل
     if (!arrayProduct.some(item => item.pid === pid)) {
-      
-      // تحقق إذا سبق أن تم رفض الموقع
-      let denied = localStorage.getItem('geolocationDenied');
-
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          localStorage.removeItem('geolocationDenied'); // تم السماح
-          addProduct(pos.coords.longitude, pos.coords.latitude);
-        },
-        (err) => {
-          // المستخدم رفض الوصول
-          localStorage.setItem('geolocationDenied', 'true');
-          addProduct(null, null); // أضف المنتج بدون موقع
-          alert("يرجى السماح بالوصول للموقع إذا أردت استخدام ميزة الموقع.");
-        }
-      );
-
+        // هذا السطر يفتح نافذة إذن الموقع الحقيقية في كل مرة
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                addProduct(pos.coords.longitude, pos.coords.latitude);
+            },
+            (err) => {
+                alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
+            }
+        );
     } else {
-      // المنتج موجود بالفعل
-      document.querySelector(".alerts p").innerHTML = "Product already in cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ffcdd2";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+        alert("Product already in cart");
     }
-  });
-}
+});
 
+}
 
 
 
