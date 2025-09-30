@@ -364,7 +364,6 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    // دالة لإضافة المنتج إلى السلة
     function addProduct(lng, lat) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
@@ -377,7 +376,6 @@ for (let i = 0; i < btnAddCard.length; i++) {
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
-    // تحقق إذا المنتج موجود بالفعل
     if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
@@ -386,21 +384,30 @@ for (let i = 0; i < btnAddCard.length; i++) {
       return;
     }
 
-    // تحقق إذا سبق رفض الموقع
-    let denied = localStorage.getItem('geolocationDenied');
-    if (denied === 'true') {
+    // تحقق من حالة الموقع المخزنة مسبقًا
+    const geoStatus = localStorage.getItem('geolocationStatus');
+
+    if (geoStatus === 'granted') {
+      // تم السماح مسبقًا → إضافة المنتج مباشرة
+      navigator.geolocation.getCurrentPosition(
+        pos => addProduct(pos.coords.longitude, pos.coords.latitude),
+        () => addProduct(null, null)
+      );
+      return;
+    } else if (geoStatus === 'denied') {
+      // تم الرفض مسبقًا → فقط تحذير
       alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
-      return; // لا يضيف المنتج إذا رفض الموقع مسبقًا
+      return;
     }
 
-    // طلب الموقع
+    // أول مرة يضغط → طلب الإذن
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        localStorage.removeItem('geolocationDenied'); // تم السماح
+        localStorage.setItem('geolocationStatus', 'granted');
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        localStorage.setItem('geolocationDenied', 'true'); // رفض المستخدم
+        localStorage.setItem('geolocationStatus', 'denied');
         alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
       }
     );
