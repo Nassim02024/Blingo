@@ -503,16 +503,16 @@
 
 
   
-    document.addEventListener('DOMContentLoaded', function () {
-      let alertsec = document.querySelectorAll('.alert');
-      for (let i = 0; i < alertsec.length; i++) {
-          setTimeout(() => {
-              alertsec[i].style.transition = "0.5s all ease-in-out"; // صححنا هنا
-              alertsec[i].style.display = 'none';
-          }, 5000);
-      }
-  });
-  
+  document.addEventListener('DOMContentLoaded', function () {
+    let alertsec = document.querySelectorAll('.alert');
+    for (let i = 0; i < alertsec.length; i++) {
+        setTimeout(() => {
+            alertsec[i].style.transition = "0.5s all ease-in-out"; // صححنا هنا
+            alertsec[i].style.display = 'none';
+        }, 5000);
+    }
+});
+
   </script> 
 
   {% comment %} <script src="{% static 'core/js/cardorder.js' %}" ></script>  {% endcomment %}
