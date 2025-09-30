@@ -364,51 +364,48 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
+    // دالة لإضافة المنتج إلى السلة
     function addProduct(lng, lat) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "Product is add to cart";
+      // رسالة نجاح
+      document.querySelector(".alerts p").innerHTML = "Product added to cart";
       alerts.style.visibility = "visible";
-      alerts.style.background = "#ccff33";
+      document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
+    // تحقق إذا المنتج موجود بالفعل
     if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
-      alerts.style.background = "#ffcdd2";
+      document.querySelector(".alerts").style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
       return;
     }
 
-    // تحقق من حالة الموقع المخزنة مسبقًا
-    const geoStatus = localStorage.getItem('geolocationStatus');
+    // تحقق حالة الإذن من localStorage
+    let geoStatus = localStorage.getItem('geolocationStatus');
 
-    if (geoStatus === 'granted') {
-      // تم السماح مسبقًا → إضافة المنتج مباشرة
-      navigator.geolocation.getCurrentPosition(
-        pos => addProduct(pos.coords.longitude, pos.coords.latitude),
-        () => addProduct(null, null)
-      );
-      return;
-    } else if (geoStatus === 'denied') {
-      // تم الرفض مسبقًا → فقط تحذير
-      alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
+    if (geoStatus === 'denied') {
+      // المستخدم رفض سابقًا → لا نضيف المنتج ونظهر رسالة
+      alert("يرجى السماح بالوصول للموقع لإضافة المنتج إلى السلة.");
       return;
     }
 
-    // أول مرة يضغط → طلب الإذن
+    // طلب الموقع
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        localStorage.setItem('geolocationStatus', 'granted');
+        localStorage.setItem('geolocationStatus', 'granted'); // تم السماح
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
+        // المستخدم رفض الوصول
         localStorage.setItem('geolocationStatus', 'denied');
-        alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
+        alert("يرجى السماح بالوصول للموقع لإضافة المنتج إلى السلة.");
       }
     );
   });
