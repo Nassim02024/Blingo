@@ -373,42 +373,59 @@ if (isInWebView()) {
 
 // كود إضافة المنتج (نفس كودك السابق)
 for (let i = 0; i < btnAddCard.length; i++) {
-btnAddCard[i].addEventListener('click', function () {
-  let productName = nameOfProduct[i].textContent.trim();
-  let pid = productPid[i].textContent.trim();
-  let vId = vendorId[i].textContent.trim();
-  let qun = quantityOneProduct[i].value;
-  let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
+  btnAddCard[i].addEventListener('click', function () {
+    let productName = nameOfProduct[i].textContent.trim();
+    let pid = productPid[i].textContent.trim();
+    let vId = vendorId[i].textContent.trim();
+    let qun = quantityOneProduct[i].value;
+    let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-  function addProduct(lng, lat) {
-      document.querySelector(".alerts p").innerHTML = "Product is added to cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ccff33";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-
+    function addProduct(lng = null, lat = null) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-  }
 
-  if (!arrayProduct.some(item => item.pid === pid)) {
-      navigator.geolocation.getCurrentPosition(
-          (pos) => {
-              addProduct(pos.coords.longitude, pos.coords.latitude);
-          },
-          (err) => {
-              alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
-          }
-      );
-  } else {
-    document.querySelector(".alerts p").innerHTML = "Product already in cart";
-    alerts.style.visibility = "visible";
-    document.querySelector(".alerts").style.background = "#ffcdd2";
-    setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-  }
-});
+      document.querySelector(".alerts p").innerHTML = "Product is added to cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ccff33";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+    }
+
+    // إذا المنتج موجود مسبقًا
+    if (arrayProduct.some(item => item.pid === pid)) {
+      document.querySelector(".alerts p").innerHTML = "Product already in cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ffcdd2";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+      return;
+    }
+
+    // دالة للكشف عن WebView
+    function isInWebView() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return /FBAN|FBAV|Instagram|WebView/.test(ua);
+    }
+
+    // إذا المستخدم في WebView
+    if (isInWebView()) {
+      alert("يرجى فتح الموقع في المتصفح لإضافة المنتج.");
+      document.getElementById('openBrowser').style.display = 'block'; // افترض أن لديك زر بالـ id هذا
+      return;
+    }
+
+    // المتصفح العادي → طلب الموقع
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        addProduct(pos.coords.longitude, pos.coords.latitude);
+      },
+      (err) => {
+        alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
+      }
+    );
+  });
 }
+
 
 
 
