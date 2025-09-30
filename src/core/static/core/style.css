@@ -1309,17 +1309,19 @@ html {
   width: 105%;
   height: 100%;
   transition: transform 3.5s 770ms;
-  background: url("images/bacgroun-orange.png");}
+  background: url("images/bacgroun-orange.png");
+  background-repeat: no-repeat;
+}
 
 .app__bgimg-image {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; 
     top: 0px;
 }
 
 .app__bgimg-image--1 {
-  background: url("images/delivry-man.jpg");
+  /* background: url("images/delivry-man.jpg"); */
   background-size: cover;
 }
 

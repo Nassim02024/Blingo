@@ -86,8 +86,8 @@
                         class="list-group-item d-flex justify-content-between align-items-center"
                       >
                         <h6 class="m-0">
-                          <i class="bi bi-geo-alt-fill"></i>{% trans 'Address'
-                          %}
+                          <i class="bi bi-geo-alt-fill"></i>{% trans 'Address' %}
+                          
                         </h6>
                         <span>{% trans 'Touggourt' %}</span>
                       </li>
@@ -188,14 +188,15 @@
                       >
                         <i class="d-flex"
                           ><img
+                            
                             class="icon-oder-detils"
                             src="{% static 'customer/images/shopping_cart_checkout.svg'%}"
                             alt="shopping_cart"
                             loading="lazy"
                           />
-                          <span class="mt-2" style="line-height: inherit">
+                          <span class="mt-2" style="line-height: 0.3">
                             {% comment %} {% for o in order %} {% endcomment %}
-                            <p>{{order.count}}</p>
+                            <p >{{order.count}}</p>
                             {% comment %} {% endfor %} {% endcomment %}
                             <p>{% trans 'Order' %}</p>
                           </span>

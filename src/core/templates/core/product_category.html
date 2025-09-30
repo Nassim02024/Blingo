@@ -78,7 +78,9 @@
 {% block scripts %}
 <script>  
     // علّم أننا دخلنا لصفحة product_category نخزن المسار الكامل
-    sessionStorage.setItem('last_product_category_path', location.pathname + location.search);
+      // علّم أننا دخلنا لصفحة product_category
+      sessionStorage.setItem('was_in_product_category', 'true');
+    
 </script>
 {% endblock %}
 

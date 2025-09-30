@@ -3,7 +3,7 @@ let hours  = document.querySelector('.hours')
 let minutes  = document.querySelector('.minutes')
 let seconds  = document.querySelector('.seconds')
 
-let targetDate = new Date("september 20 2025 00:00:00").getTime();
+let targetDate = new Date("september 20 2026 00:00:00").getTime();
 
 function timer() {
   let curentDate = new Date().getTime();

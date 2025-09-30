@@ -11,8 +11,10 @@
   {% endblock %}
 
   <!-- أيقونات وخطوط -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
   <!-- الوصف العام للصفحة -->
   <meta name="description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
 
@@ -49,9 +51,10 @@
 <div class="cont">
 	<div class="app">
 		<div class="app__bgimg">
-			<div class="app__bgimg-image app__bgimg-image--1">
-			</div>
-			<div class="app__bgimg-image app__bgimg-image--2">
+			<div class="app__bgimg-wrapper app__bgimg-image--1">
+        <img style="background-size: cover; height: 100vh; width: 100%;" src="{% static 'core/images/delivry-man.jpg' %}" class="app__bgimg-image" alt="Delivery Man" loading="eager">
+      </div>
+			<div class="app__bgimg-image app__bgimg-image--2" >
 			</div>
 		</div>
 		<div class="app__img">
@@ -631,13 +634,11 @@
       }
     </style>
 
-    
-    {% block scripts %}
+<!--     
     <script>  
         // علّم أننا دخلنا لصفحة product_category نخزن المسار الكامل
         sessionStorage.setItem('last_product_category_path', location.pathname + location.search);
-    </script>
-    {% endblock %}
+    </script> -->
   
     
   {% endblock content %}

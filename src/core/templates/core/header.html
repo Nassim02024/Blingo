@@ -228,6 +228,7 @@
             {% comment %} </form> {% endcomment %}
 
           </li>
+
           <li  style="position: relative;">
             <input type="checkbox" id="checking" >
             <label for="checking">
@@ -236,16 +237,19 @@
               </a>
             </label>
 
-            <!-- From  --> 
+            
+          
             <div class="inputdrop card-li-clinte">
               {% include "lang/lang.html" %}
 
-              <button class="values">              
-                <a href="{% url 'customer'  %}">
-                  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2"><path fill="#7D8590" d="m1.5 13v1a.5.5 0 0 0 .3379.4731 18.9718 18.9718 0 0 0 6.1621 1.0269 18.9629 18.9629 0 0 0 6.1621-1.0269.5.5 0 0 0 .3379-.4731v-1a6.5083 6.5083 0 0 0 -4.461-6.1676 3.5 3.5 0 1 0 -4.078 0 6.5083 6.5083 0 0 0 -4.461 6.1676zm4-9a2.5 2.5 0 1 1 2.5 2.5 2.5026 2.5026 0 0 1 -2.5-2.5zm2.5 3.5a5.5066 5.5066 0 0 1 5.5 5.5v.6392a18.08 18.08 0 0 1 -11 0v-.6392a5.5066 5.5066 0 0 1 5.5-5.5z"></path></svg>                
-                  {% trans 'My Account' %}
-                </a>
-              </button>
+              {% if request.user.is_authenticated %}
+                <button class="values">              
+                  <a href="{% url 'customer'  %}">
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2"><path fill="#7D8590" d="m1.5 13v1a.5.5 0 0 0 .3379.4731 18.9718 18.9718 0 0 0 6.1621 1.0269 18.9629 18.9629 0 0 0 6.1621-1.0269.5.5 0 0 0 .3379-.4731v-1a6.5083 6.5083 0 0 0 -4.461-6.1676 3.5 3.5 0 1 0 -4.078 0 6.5083 6.5083 0 0 0 -4.461 6.1676zm4-9a2.5 2.5 0 1 1 2.5 2.5 2.5026 2.5026 0 0 1 -2.5-2.5zm2.5 3.5a5.5066 5.5066 0 0 1 5.5 5.5v.6392a18.08 18.08 0 0 1 -11 0v-.6392a5.5066 5.5066 0 0 1 5.5-5.5z"></path></svg>                
+                    {% trans 'My Account' %}
+                  </a>
+                </button>
+              {% endif %}
 
             {% if request.user.is_authenticated and request.user.is_vendor %}
               <button class="values"  style="display: flex; align-items: center; ">
@@ -271,13 +275,15 @@
                 </a>
               </button>
 
-              <button class="values">
-                <a  href="{% url 'createstorevendorform' %} "> 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>                 
-                 {% trans 'Create store ' %}
-                </a>
-              </button>
-
+              {% if request.user.is_authenticated %}
+                <button class="values">
+                  <a  href="{% url 'createstorevendorform' %} "> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>                 
+                  {% trans 'Create store ' %}
+                  </a>
+                </button>
+              {% endif %}
+              
               <button class="values">
                 <a  href="{% url 'commingsoon' %}">
                 <svg fill="none" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m11.9572 4.31201c-3.35401 0-6.00906 2.59741-6.00906 5.67742v3.29037c0 .1986-.05916.3927-.16992.5576l-1.62529 2.4193-.01077.0157c-.18701.2673-.16653.5113-.07001.6868.10031.1825.31959.3528.67282.3528h14.52603c.2546 0 .5013-.1515.6391-.3968.1315-.2343.1117-.4475-.0118-.6093-.0065-.0085-.0129-.0171-.0191-.0258l-1.7269-2.4194c-.121-.1695-.186-.3726-.186-.5809v-3.29037c0-1.54561-.6851-3.023-1.7072-4.00431-1.1617-1.01594-2.6545-1.67311-4.3019-1.67311zm-8.00906 5.67742c0-4.27483 3.64294-7.67742 8.00906-7.67742 2.2055 0 4.1606.88547 5.6378 2.18455.01.00877.0198.01774.0294.02691 1.408 1.34136 2.3419 3.34131 2.3419 5.46596v2.97007l1.5325 2.1471c.6775.8999.6054 1.9859.1552 2.7877-.4464.795-1.3171 1.4177-2.383 1.4177h-14.52603c-2.16218 0-3.55087-2.302-2.24739-4.1777l1.45056-2.1593zm4.05187 11.32257c0-.5523.44772-1 1-1h5.99999c.5523 0 1 .4477 1 1s-.4477 1-1 1h-5.99999c-.55228 0-1-.4477-1-1z" fill="#7D8590" fill-rule="evenodd"></path></svg>
@@ -285,14 +291,29 @@
               </a>
               </button>
 
-              <button class="values">
-                <a href="{% url 'users:logout_view' %}">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>                  
-                  {% trans 'logout' %}
-                </a>
-              </button>
+              {% if request.user.is_authenticated %}
+                <button class="values">
+                  <a href="{% url 'users:logout_view' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>                  
+                    {% trans 'logout' %}
+                  </a>
+                </button>
+
+              {% else %}
+                <button class="values">
+                  <a href="{% url 'users:register' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>                  
+                    {% trans 'Log in' %}
+                  </a>
+                </button>
+
+              {% endif %}
 
             </div>
+
+          
+
+
             {% comment %} <div class="card-li-clinte">
               <ul>
                  <a href="{% url 'customer'  %}">
@@ -479,26 +500,22 @@
   </div>
 
   <script>
-    window.addEventListener("pageshow", function (event) {
-      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
-        window.location.reload();
-      }
-      console.log('ok')
 
-    });
+
+  
     document.addEventListener('DOMContentLoaded', function () {
-    let alertsec = document.querySelectorAll('.alert')
-    for (let i = 0; i < alertsec.length; i++) {
-      setTimeout(() => {
-      alertsec[i].style.display = 'none'
-      alert.style.transition = "0.5s all ease-in-out"
-    }, 5000);
-    }
-    
-  })
+      let alertsec = document.querySelectorAll('.alert');
+      for (let i = 0; i < alertsec.length; i++) {
+          setTimeout(() => {
+              alertsec[i].style.transition = "0.5s all ease-in-out"; // صححنا هنا
+              alertsec[i].style.display = 'none';
+          }, 5000);
+      }
+  });
+  
   </script> 
 
-  {% comment %} <script src="{% static 'core/js/cardorder.js' %}"></script>  {% endcomment %}
+  {% comment %} <script src="{% static 'core/js/cardorder.js' %}" ></script>  {% endcomment %}
 
 </header>
 
