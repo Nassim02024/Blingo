@@ -240,9 +240,7 @@
 
           <div class="brand-carousel swiper">
             <div class="swiper-wrapper">
-              <button id="open-in-browser" style="display:none;">
-                فتح الموقع في المتصفح
-              </button>
+              
               
               {% for c in categorys %}
               <div class="swiper-slide">
@@ -355,6 +353,15 @@
           
         </div>
       </div>
+
+      <!--  -->
+      <!-- زر فتح في المتصفح، مخفي بشكل افتراضي -->
+      <div id="openBrowser" style="display:none; position:fixed; top:10px; right:10px; background:#ff5722; color:#fff; padding:10px; border-radius:5px; cursor:pointer; z-index:1000;">
+        افتح الموقع في المتصفح
+      </div>
+
+      <!--  -->
+      
       <div class="row">
         <div class="col-md-12">
           
