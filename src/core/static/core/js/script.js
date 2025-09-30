@@ -371,41 +371,42 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      // رسالة نجاح
       document.querySelector(".alerts p").innerHTML = "Product is add to cart";
       alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ccff33";
+      alerts.style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
     // تحقق إذا المنتج موجود بالفعل
-    if (!arrayProduct.some(item => item.pid === pid)) {
-      
-      // تحقق إذا سبق أن تم رفض الموقع
-      let denied = localStorage.getItem('geolocationDenied');
-
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          localStorage.removeItem('geolocationDenied'); // تم السماح
-          addProduct(pos.coords.longitude, pos.coords.latitude);
-        },
-        (err) => {
-          // المستخدم رفض الوصول
-          localStorage.setItem('geolocationDenied', 'true');
-          addProduct(null, null); // أضف المنتج بدون موقع
-          alert("يرجى السماح بالوصول للموقع إذا أردت استخدام ميزة الموقع.");
-        }
-      );
-
-    } else {
-      // المنتج موجود بالفعل
+    if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ffcdd2";
+      alerts.style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+      return;
     }
+
+    // تحقق إذا سبق رفض الموقع
+    let denied = localStorage.getItem('geolocationDenied');
+    if (denied === 'true') {
+      alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
+      return; // لا يضيف المنتج إذا رفض الموقع مسبقًا
+    }
+
+    // طلب الموقع
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        localStorage.removeItem('geolocationDenied'); // تم السماح
+        addProduct(pos.coords.longitude, pos.coords.latitude);
+      },
+      (err) => {
+        localStorage.setItem('geolocationDenied', 'true'); // رفض المستخدم
+        alert("يرجى السماح بالوصول للموقع إذا أردت إضافة المنتج.");
+      }
+    );
   });
 }
+
 
 
 
