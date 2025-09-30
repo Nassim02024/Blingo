@@ -355,6 +355,15 @@ arrayProduct.forEach((storedProduct) => {
   if (i !== -1) createItem(i);
 });
 
+// تحقق إذا navigator.geolocation غير متاح (مثل WebView في Facebook)
+if (!navigator.geolocation) {
+  const openBtn = document.getElementById('open-in-browser');
+  openBtn.style.display = 'block'; // أظهر الزر
+  openBtn.addEventListener('click', () => {
+    // فتح الرابط في المتصفح الافتراضي
+    window.open(window.location.href, '_blank');
+  });
+
 
 for (let i = 0; i < btnAddCard.length; i++) {
   btnAddCard[i].addEventListener('click', function () {
@@ -365,15 +374,17 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
     function addProduct(lng, lat) {
+        document.querySelector(".alerts p").innerHTML = "Product is added to cart";
+        alerts.style.visibility = "visible";
+        document.querySelector(".alerts").style.background = "#ccff33";
+        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+
         let productData = { productName, prices, pid, vId, qun, lng, lat };
         arrayProduct.push(productData);
         createItem(i);
         localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-        document.querySelector(".alerts p").innerHTML = "Product is added to cart";
-        alerts.style.visibility = "visible";
-        document.querySelector(".alerts").style.background = "#ccff33";
-        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+        
     }
 
     if (!arrayProduct.some(item => item.pid === pid)) {
@@ -395,7 +406,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
 });
 
 }
-
+}
 
 
 
