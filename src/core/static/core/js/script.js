@@ -363,7 +363,7 @@ if (!navigator.geolocation) {
     // فتح الرابط في المتصفح الافتراضي
     window.open(window.location.href, '_blank');
   });
-
+}
 
 for (let i = 0; i < btnAddCard.length; i++) {
   btnAddCard[i].addEventListener('click', function () {
@@ -406,7 +406,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
 });
 
 }
-}
+
 
 
 
