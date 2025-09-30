@@ -354,6 +354,8 @@ arrayProduct.forEach((storedProduct) => {
   let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
   if (i !== -1) createItem(i);
 });
+
+
 for (let i = 0; i < btnAddCard.length; i++) {
   btnAddCard[i].addEventListener('click', function () {
     let productName = nameOfProduct[i].textContent.trim();
@@ -361,87 +363,38 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let vId = vendorId[i].textContent.trim();
     let qun = quantityOneProduct[i].value;
 
-    if (!arrayProduct.some(item => item.pid === pid)) {
 
-      // محاولة جلب الموقع
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          // إذا وافق المستخدم
-          let lng = pos.coords.longitude;
-          let lat = pos.coords.latitude;
+  if (!arrayProduct.some(item => item.pid === pid)) {
+      document.querySelector(".alerts p").innerHTML = "Product is add to cart";
+      alerts.style.visibility = "visible";
+      document.querySelector(".alerts").style.background = "#ccff33";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
 
-          let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
-          let productData = { productName, prices, pid, vId, qun, lng, lat };
+      let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
 
-          arrayProduct.push(productData);
-          createItem(i);
-          localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      // جلب الموقع وقت الضغط
+      navigator.geolocation.getCurrentPosition((pos) => {
+        let lng = pos.coords.longitude;
+        let lat = pos.coords.latitude;
 
-          document.querySelector(".alerts p").innerHTML = "Product is add to cart";
-          alerts.style.visibility = "visible";
-          document.querySelector(".alerts").style.background = "#ccff33";
-          setTimeout(() => { alerts.style.visibility = "hidden"; }, 2000);
-        },
-        (err) => {
-          // إذا رفض المستخدم أو تعذر الحصول على الموقع
-          alert("Please enable location to add product to cart.");
-        }
-      );
+        // إنشاء object للمنتج
+        let productData = { productName, prices, pid, vId, qun, lng, lat };
+
+        // حفظه في array + localStorage
+        arrayProduct.push(productData);
+        createItem(i);
+        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      });
 
     } else {
       console.log("product already in cart");
       document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ffcdd2";
-      setTimeout(() => { alerts.style.visibility = "hidden"; }, 2000);
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
   });
-}
-  for (let i = 0; i < btnAddCard.length; i++) {
-  btnAddCard[i].addEventListener('click', function () {
-    let productName = nameOfProduct[i].textContent.trim();
-    let pid = productPid[i].textContent.trim();
-    let vId = vendorId[i].textContent.trim();
-    let qun = quantityOneProduct[i].value;
-
-    if (!arrayProduct.some(item => item.pid === pid)) {
-
-      // محاولة جلب الموقع
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          // إذا وافق المستخدم
-          let lng = pos.coords.longitude;
-          let lat = pos.coords.latitude;
-
-          let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(quantityOneProduct[i].value);
-          let productData = { productName, prices, pid, vId, qun, lng, lat };
-
-          arrayProduct.push(productData);
-          createItem(i);
-          localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-
-          document.querySelector(".alerts p").innerHTML = "Product is add to cart";
-          alerts.style.visibility = "visible";
-          document.querySelector(".alerts").style.background = "#ccff33";
-          setTimeout(() => { alerts.style.visibility = "hidden"; }, 2000);
-        },
-        (err) => {
-          // إذا رفض المستخدم أو تعذر الحصول على الموقع
-          alert("Please enable location to add product to cart.");
-        }
-      );
-
-    } else {
-      console.log("product already in cart");
-      document.querySelector(".alerts p").innerHTML = "Product already in cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ffcdd2";
-      setTimeout(() => { alerts.style.visibility = "hidden"; }, 2000);
-    }
-  });
-}
-
-
+} 
 
   function createItem(i) {
     let productName = nameOfProduct[i].textContent.trim();
