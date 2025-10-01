@@ -386,75 +386,45 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "✅ تم إضافة المنتج للسلة";
+      document.querySelector(".alerts p").innerHTML = "Product is added to cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
-    // تحقق إذا المنتج موجود مسبقًا
+    // إذا المنتج موجود مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود بالفعل";
+      document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
       return;
     }
 
-    // كشف WebView (فايسبوك / انستغرام)
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const inWebView = /FBAN|FBAV|Instagram|WebView/i.test(ua);
+    // دالة للكشف عن WebView
+    function isInWebView() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return /FBAN|FBAV|Instagram|WebView/.test(ua);
+    }
 
-    if (inWebView) {
-      // 🟡 أضف المنتج مباشرة
-      addProduct();
-      // 🟡 أظهر الشريط التحذيري أعلى الصفحة (مرة واحدة فقط)
-      if (!document.querySelector('.webview-banner')) {
-        const banner = document.createElement('div');
-        banner.className = 'webview-banner';
-        banner.innerHTML = `
-          ⚠️ لتجربة أفضل افتح الموقع في متصفح خارجي (Chrome أو Safari).
-        `;
-        document.body.prepend(banner);
-      }
+    // إذا المستخدم في WebView
+    if (isInWebView()) {
+      alert("يرجى فتح الموقع في المتصفح لإضافة المنتج.");
+      document.getElementById('openBrowser').style.display = 'block'; // افترض أن لديك زر بالـ id هذا
       return;
     }
 
-    // 🟢 داخل متصفح عادي → لازم إذن الموقع
+    // المتصفح العادي → طلب الموقع
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        document.querySelector(".alerts p").innerHTML = "⚠️ يجب السماح بالوصول للموقع لإضافة المنتج";
-        alerts.style.visibility = "visible";
-        document.querySelector(".alerts").style.background = "#ffcdd2";
-        setTimeout(() => { alerts.style.visibility = "hidden" }, 2500);
+        alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
       }
     );
   });
 }
-
-
-// 💅 CSS بسيط للشريط
-const style = document.createElement('style');
-style.textContent = `
-.webview-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #ffcc00;
-  color: #333;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-  z-index: 9999;
-  font-family: sans-serif;
-}
-`;
-document.head.appendChild(style);
-
 
 
 
