@@ -339,96 +339,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // تعريف العناصر
-let nameOfProduct = document.querySelectorAll('.name-of-product');
-let productPid = document.querySelectorAll('.product-pid');
-let vendorId = document.querySelectorAll('.vendor-id');
-let categoryOfProduct = document.querySelectorAll('.category-of-product');
-let priceInProItem = document.querySelectorAll('.price-in-pro-item');
-let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
-let btnAddCard = document.querySelectorAll('.btn-add-card');
-let listGroup = document.querySelector('.list-group');
-let alerts = document.querySelector('.alerts');
-
-// رسم المنتجات من التخزين
-arrayProduct.forEach((storedProduct) => {
-  let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
-  if (i !== -1) createItem(i);
-});
-
-
-
-
-
-// كود إضافة المنتج (نفس كودك السابق)
-for (let i = 0; i < btnAddCard.length; i++) {
-  btnAddCard[i].addEventListener('click', function () {
-    let productName = nameOfProduct[i].textContent.trim();
-    let pid = productPid[i].textContent.trim();
-    let vId = vendorId[i].textContent.trim();
-    let qun = quantityOneProduct[i].value;
-    let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
-
-    // تحقق من تكرار المنتج
-    if (arrayProduct.some(item => item.pid === pid)) {
-      showAlert(" ⚠️ المنتج موجود مسبقا ", "#ffcdd2");
-      return;
-    }
-
-    // دالة للكشف عن WebView (Facebook / Instagram)
-    function isInWebView() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
-    }
-
-    // دالة لإضافة المنتج
-    function addProduct(lng = null, lat = null) {
-	  showAlert("🛒 تم اضافة المنتج", "#ccff33");
-      let productData = { productName, prices, pid, vId, qun, lng, lat };
-      arrayProduct.push(productData);
-      createItem(i);
-      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      
-    }
-
-    // إذا كان داخل Facebook / Instagram
-    if (isInWebView()) {
-      addProduct();
-      const banner = document.getElementById('webviewBanner');
-      if (banner) banner.style.display = 'block';
-      return;
-    }
-
-    // المتصفح العادي → طلب الموقع
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          addProduct(pos.coords.longitude, pos.coords.latitude);
-        },
-        () => {
-           showAlert("⚠️ يرجى فتح الموقع لاضافة المنتجات", "#ffcdd2");
-        }
-      );
-    } else {
-       showAlert(" ⚠️ متصفحك لايدعم خاصية المواقع يرجى فتح في متصفح آخر", "#ffcdd2");
-    }
+  let nameOfProduct = document.querySelectorAll('.name-of-product');
+  let productPid = document.querySelectorAll('.product-pid');
+  let vendorId = document.querySelectorAll('.vendor-id');
+  let categoryOfProduct = document.querySelectorAll('.category-of-product');
+  let priceInProItem = document.querySelectorAll('.price-in-pro-item');
+  let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
+  let btnAddCard = document.querySelectorAll('.btn-add-card');
+  let listGroup = document.querySelector('.list-group');
+  let alerts = document.querySelector('.alerts');
+  
+  // رسم المنتجات من التخزين
+  arrayProduct.forEach((storedProduct) => {
+    let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
+    if (i !== -1) createItem(i);
   });
-}
-
-// دالة بسيطة للرسائل
-function showAlert(message, bg) {
-  const alertBox = document.querySelector(".alerts");
-  alertBox.querySelector("p").textContent = message;
-  alertBox.style.background = bg;
-  alertBox.style.visibility = "visible";
-  setTimeout(() => {
-    alertBox.style.visibility = "hidden";
-  }, 2000);
-}
-
-
-
-
-
+  
+  // كود إضافة المنتج
+  for (let i = 0; i < btnAddCard.length; i++) {
+    btnAddCard[i].addEventListener('click', function () {
+      let productName = nameOfProduct[i].textContent.trim();
+      let pid = productPid[i].textContent.trim();
+      let vId = vendorId[i].textContent.trim();
+      let qun = quantityOneProduct[i].value;
+      let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
+  
+      // تحقق من تكرار المنتج
+      if (arrayProduct.some(item => item.pid === pid)) {
+        showAlert("⚠️ المنتج موجود مسبقا", "#ffcdd2");
+        return;
+      }
+  
+      // دالة للكشف عن WebView (Facebook / Instagram)
+      function isInWebView() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        return /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
+      }
+  
+      // دالة لإضافة المنتج
+      function addProduct(lng = null, lat = null) {
+        showAlert("🛒 تم إضافة المنتج", "#ccff33");
+        let productData = { productName, prices, pid, vId, qun, lng, lat };
+        arrayProduct.push(productData);
+        createItem(i);
+        localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      }
+  
+      // إذا كان داخل Facebook / Instagram
+      if (isInWebView()) {
+        addProduct();
+        const banner = document.getElementById('webviewBanner');
+        if (banner) banner.style.display = 'block';
+        return;
+      }
+  
+      // المتصفح العادي → طلب الموقع
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            addProduct(pos.coords.longitude, pos.coords.latitude);
+          },
+          () => {
+            showAlert("⚠️ يرجى فتح الموقع لإضافة المنتجات", "#ffcdd2");
+          }
+        );
+      } else {
+        showAlert("⚠️ متصفحك لا يدعم خاصية المواقع، يرجى فتح الموقع في متصفح آخر", "#ffcdd2");
+      }
+    });
+  }
+  
+  // دالة بسيطة للرسائل
+  function showAlert(message, bg) {
+    const alertBox = document.querySelector(".alerts");
+    alertBox.querySelector("p").textContent = message;
+    alertBox.style.background = bg;
+    alertBox.style.visibility = "visible";
+    setTimeout(() => {
+      alertBox.style.visibility = "hidden";
+    }, 2000);
+  }
+  
 
   function createItem(i) {
     let productName = nameOfProduct[i].textContent.trim();
