@@ -370,7 +370,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
 
     // تحقق من تكرار المنتج
     if (arrayProduct.some(item => item.pid === pid)) {
-      showAlert("Product already in cart", "#ffcdd2");
+      showAlert("المنتج موجود مسبقا", "#ffcdd2");
       return;
     }
 
@@ -381,12 +381,12 @@ for (let i = 0; i < btnAddCard.length; i++) {
     }
 
     // دالة لإضافة المنتج
-    function addProduct(lng = null, lat = null) {
+    function addProduct(lng = null, lat = null) { 
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      showAlert("Product added successfully", "#ccff33");
+      showAlert("تم اضافة المنتج الى السلة", "#ccff33");
     }
 
     // إذا كان داخل Facebook / Instagram
@@ -404,11 +404,11 @@ for (let i = 0; i < btnAddCard.length; i++) {
           addProduct(pos.coords.longitude, pos.coords.latitude);
         },
         () => {
-          showAlert("Please allow location to add the product", "#ffcdd2");
+          showAlert("يرجى فتح الموقع لاضافة المنتجات", "#ffcdd2");
         }
       );
     } else {
-      showAlert("Your browser doesn't support location", "#ffcdd2");
+      showAlert("(chrome, Firefox, Safari) متصفحك لا يدعم يرجى الفتح في متصفح آخر" , "#ffcdd2");
     }
   });
 }
