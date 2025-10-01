@@ -386,7 +386,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "Product is added to cart";
+      document.querySelector(".alerts p").innerHTML = "✅ Product added to cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
@@ -394,35 +394,41 @@ for (let i = 0; i < btnAddCard.length; i++) {
 
     // إذا المنتج موجود مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "Product already in cart";
+      document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
       return;
     }
 
-    // دالة للكشف عن WebView
     function isInWebView() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /FBAN|FBAV|Instagram|WebView/.test(ua);
+      return /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
     }
 
-    // إذا المستخدم في WebView
     if (isInWebView()) {
-      alert("يرجى فتح الموقع في المتصفح لإضافة المنتج.");
-      document.getElementById('openBrowser').style.display = 'block'; // افترض أن لديك زر بالـ id هذا
+      // ✅ في فيسبوك: نضيف المنتج مباشرة بدون geolocation
+      addProduct();
+
+      // ✅ نظهر شريط تنبيه أن التجربة أفضل في متصفح خارجي
+      const banner = document.getElementById('webviewBanner');
+      if (banner) banner.style.display = 'block';
       return;
     }
 
-    // المتصفح العادي → طلب الموقع
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        addProduct(pos.coords.longitude, pos.coords.latitude);
-      },
-      (err) => {
-        alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
-      }
-    );
+    // 🌐 في المتصفح العادي: نطلب الموقع
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          addProduct(pos.coords.longitude, pos.coords.latitude);
+        },
+        (err) => {
+          alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
+        }
+      );
+    } else {
+      alert("⚠️ المتصفح لا يدعم تحديد الموقع.");
+    }
   });
 }
 
