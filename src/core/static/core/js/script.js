@@ -356,72 +356,72 @@ arrayProduct.forEach((storedProduct) => {
 });
 
 
-// دالة للتأكد إذا المستخدم داخل WebView (Facebook / Instagram)
-function isInWebView() {
-  let ua = navigator.userAgent || navigator.vendor || window.opera;
-  return (ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram'));
-}
 
-// إذا كان داخل WebView نعرض الزر
-if (isInWebView()) {
-  let btnOpenBrowser = document.getElementById('openBrowser');
-  btnOpenBrowser.style.display = 'block';
-  btnOpenBrowser.addEventListener('click', function() {
-      window.open(window.location.href, '_blank'); // يفتح الموقع في المتصفح الخارجي
-  });
-}
+
 
 // كود إضافة المنتج (نفس كودك السابق)
 for (let i = 0; i < btnAddCard.length; i++) {
-  btnAddCard[i].addEventListener('click', function (e) {
-    e.preventDefault();
-
+  btnAddCard[i].addEventListener('click', function () {
     let productName = nameOfProduct[i].textContent.trim();
     let pid = productPid[i].textContent.trim();
     let vId = vendorId[i].textContent.trim();
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    function addProduct(lng = null, lat = null) {
-      let productData = { productName, prices, pid, vId, qun, lng, lat };
-      arrayProduct.push(productData);
-      createItem(i);
-      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      console.log("✅ المنتج أُضيف:", productData);
-    }
-
-    // تحقق من التكرار
+    // تحقق من تكرار المنتج
     if (arrayProduct.some(item => item.pid === pid)) {
-      console.log("⚠️ المنتج موجود مسبقًا");
+      showAlert("Product already in cart", "#ffcdd2");
       return;
     }
 
+    // دالة للكشف عن WebView (Facebook / Instagram)
     function isInWebView() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
       return /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
     }
 
+    // دالة لإضافة المنتج
+    function addProduct(lng = null, lat = null) {
+      let productData = { productName, prices, pid, vId, qun, lng, lat };
+      arrayProduct.push(productData);
+      createItem(i);
+      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      showAlert("Product added successfully", "#ccff33");
+    }
+
+    // إذا كان داخل Facebook / Instagram
     if (isInWebView()) {
-      console.log("📱 المستخدم داخل Facebook WebView");
       addProduct();
       const banner = document.getElementById('webviewBanner');
       if (banner) banner.style.display = 'block';
       return;
     }
 
+    // المتصفح العادي → طلب الموقع
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           addProduct(pos.coords.longitude, pos.coords.latitude);
         },
-        (err) => {
-          alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
+        () => {
+          showAlert("Please allow location to add the product", "#ffcdd2");
         }
       );
     } else {
-      alert("المتصفح لا يدعم تحديد الموقع.");
+      showAlert("Your browser doesn't support location", "#ffcdd2");
     }
   });
+}
+
+// دالة بسيطة للرسائل
+function showAlert(message, bg) {
+  const alertBox = document.querySelector(".alerts");
+  alertBox.querySelector("p").textContent = message;
+  alertBox.style.background = bg;
+  alertBox.style.visibility = "visible";
+  setTimeout(() => {
+    alertBox.style.visibility = "hidden";
+  }, 2000);
 }
 
 
