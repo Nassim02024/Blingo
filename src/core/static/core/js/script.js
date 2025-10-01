@@ -380,7 +380,6 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    // 🧠 دالة لإضافة المنتج للسلة
     function addProduct(lng = null, lat = null) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
@@ -393,7 +392,6 @@ for (let i = 0; i < btnAddCard.length; i++) {
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
-    // ⛔ تحقق إن كان المنتج مضاف مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
       alerts.style.visibility = "visible";
@@ -402,40 +400,32 @@ for (let i = 0; i < btnAddCard.length; i++) {
       return;
     }
 
-    // 🧭 دالة للكشف عن WebView
-    function isInWebView() {
+    function isInFacebookOrInstagram() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /FBAN|FBAV|Instagram|WebView/i.test(ua);
+      return /FBAN|FBAV|Instagram/i.test(ua);
     }
 
-    // 📱 لو في Facebook أو Instagram → نستخدم الكود القديم فقط
-    if (isInWebView()) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            // ✅ إذا وافق المستخدم → أضف المنتج
-            addProduct(pos.coords.longitude, pos.coords.latitude);
-          },
-          (err) => {
-            // ❌ إذا رفض → لا نفعل شيء الآن، سيظهر طلب الإذن مرة أخرى عند المحاولة التالية
-            alert("⚠️ يجب السماح للموقع لإضافة المنتج إلى السلة.");
-          }
-        );
-      } else {
-        alert("⚠️ جهازك لا يدعم تحديد الموقع.");
-      }
+    // 📱 لو داخل Facebook أو Instagram WebView
+    if (isInFacebookOrInstagram()) {
+      alert("⚠️ يرجى فتح الموقع في المتصفح الخارجي لإضافة المنتج.");
+      // افتح نفس الصفحة في متصفح خارجي
+      window.open(window.location.href, "_blank");
       return;
     }
 
-    // 🌐 لو في متصفح عادي (Chrome مثلًا)
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        addProduct(pos.coords.longitude, pos.coords.latitude);
-      },
-      (err) => {
-        alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
-      }
-    );
+    // 🌐 متصفح عادي
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          addProduct(pos.coords.longitude, pos.coords.latitude);
+        },
+        (err) => {
+          alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
+        }
+      );
+    } else {
+      alert("⚠️ جهازك لا يدعم تحديد الموقع.");
+    }
   });
 }
 
