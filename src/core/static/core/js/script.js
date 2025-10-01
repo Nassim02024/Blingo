@@ -370,7 +370,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
 
     // تحقق من تكرار المنتج
     if (arrayProduct.some(item => item.pid === pid)) {
-      showAlert("Product already in cart", "#ffcdd2");
+      showAlert(" ⚠️ المنتج موجود مسبقا ", "#ffcdd2");
       return;
     }
 
@@ -382,11 +382,12 @@ for (let i = 0; i < btnAddCard.length; i++) {
 
     // دالة لإضافة المنتج
     function addProduct(lng = null, lat = null) {
+	  showAlert("🛒تم اضافة المنتج", "#ccff33");
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      showAlert("Product added successfully", "#ccff33");
+      
     }
 
     // إذا كان داخل Facebook / Instagram
@@ -404,11 +405,11 @@ for (let i = 0; i < btnAddCard.length; i++) {
           addProduct(pos.coords.longitude, pos.coords.latitude);
         },
         () => {
-          showAlert("Please allow location to add the product", "#ffcdd2");
+           showAlert("⚠️ يرجى فتح الموقع لاضافة المنتجات", "#ffcdd2");
         }
       );
     } else {
-      showAlert("Your browser doesn't support location", "#ffcdd2");
+       showAlert(" ⚠️ متصفحك لايدعم خاصية المواقع يرجى فتح في متصفح آخر", "#ffcdd2");
     }
   });
 }
@@ -418,8 +419,8 @@ function showAlert(message, bg) {
   const alertBox = document.querySelector(".alerts");
   alertBox.querySelector("p").textContent = message;
   alertBox.style.background = bg;
-  alertBox.style.visibility = "visible";
-  setTimeout(() => {
+  alertBox.style.visibility = "visiblsetTim
+setTimeout(() => {
     alertBox.style.visibility = "hidden";
   }, 2000);
 }
