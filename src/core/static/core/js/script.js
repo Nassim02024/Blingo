@@ -386,7 +386,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "✅ Product is added to cart";
+      document.querySelector(".alerts p").innerHTML = "✅ Product added to cart";
       alerts.style.visibility = "visible";
       alerts.style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
@@ -405,15 +405,28 @@ for (let i = 0; i < btnAddCard.length; i++) {
       return /FBAN|FBAV|Instagram/i.test(ua);
     }
 
-    // 📱 لو داخل Facebook أو Instagram WebView
+    // 📱 داخل Facebook أو Instagram
     if (isInFacebookOrInstagram()) {
-      alert("⚠️ يرجى فتح الموقع في المتصفح الخارجي لإضافة المنتج.");
-      // افتح نفس الصفحة في متصفح خارجي
-      window.open(window.location.href, "_blank");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            // ✅ إذا وافق المستخدم → نضيف المنتج مباشرة
+            addProduct(pos.coords.longitude, pos.coords.latitude);
+          },
+          (err) => {
+            // ❌ إذا رفض أو حدث خطأ → نطلب فتح الموقع في المتصفح
+            alert("⚠️ يرجى فتح الموقع في المتصفح الخارجي لإضافة المنتج.");
+            window.open(window.location.href, "_blank");
+          }
+        );
+      } else {
+        alert("⚠️ جهازك لا يدعم تحديد الموقع. افتح الموقع في المتصفح.");
+        window.open(window.location.href, "_blank");
+      }
       return;
     }
 
-    // 🌐 متصفح عادي
+    // 🌐 المتصفح العادي
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
