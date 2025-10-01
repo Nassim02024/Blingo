@@ -386,14 +386,14 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "✅ Product added to cart";
+      document.querySelector(".alerts p").innerHTML = "✅ تم اضافة المنتج الى السلة";
       alerts.style.visibility = "visible";
       alerts.style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
+      document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود مسبقا";
       alerts.style.visibility = "visible";
       alerts.style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
