@@ -392,6 +392,7 @@ for (let i = 0; i < btnAddCard.length; i++) {
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
+    // تحقق إذا المنتج موجود مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
       document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود بالفعل";
       alerts.style.visibility = "visible";
@@ -400,24 +401,32 @@ for (let i = 0; i < btnAddCard.length; i++) {
       return;
     }
 
-    // ✅ كشف WebView
+    // كشف WebView (فايسبوك / انستغرام)
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const inWebView = /FBAN|FBAV|Instagram|WebView/i.test(ua);
 
     if (inWebView) {
-      // 🟡 داخل Facebook → أضف المنتج فورًا وأظهر البطاقة بعد لحظة
+      // 🟡 أضف المنتج مباشرة
       addProduct();
-      setTimeout(showExternalBrowserCard, 50);
+      // 🟡 أظهر الشريط التحذيري أعلى الصفحة (مرة واحدة فقط)
+      if (!document.querySelector('.webview-banner')) {
+        const banner = document.createElement('div');
+        banner.className = 'webview-banner';
+        banner.innerHTML = `
+          ⚠️ لتجربة أفضل افتح الموقع في متصفح خارجي (Chrome أو Safari).
+        `;
+        document.body.prepend(banner);
+      }
       return;
     }
 
-    // 🟢 داخل متصفح عادي → يجب السماح بالموقع
+    // 🟢 داخل متصفح عادي → لازم إذن الموقع
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        document.querySelector(".alerts p").innerHTML = "⚠️ يجب السماح بالوصول للموقع";
+        document.querySelector(".alerts p").innerHTML = "⚠️ يجب السماح بالوصول للموقع لإضافة المنتج";
         alerts.style.visibility = "visible";
         document.querySelector(".alerts").style.background = "#ffcdd2";
         setTimeout(() => { alerts.style.visibility = "hidden" }, 2500);
@@ -427,79 +436,21 @@ for (let i = 0; i < btnAddCard.length; i++) {
 }
 
 
-// 🧾 بطاقة فتح المتصفح
-function showExternalBrowserCard() {
-  if (document.querySelector('.external-browser-card')) return;
-
-  const card = document.createElement('div');
-  card.className = 'external-browser-card';
-  card.innerHTML = `
-    <div class="card-content">
-      <h4>⚠️ افتح الموقع في متصفح خارجي</h4>
-      <p>للحصول على تجربة أفضل، انسخ الرابط وافتحه في Chrome أو Safari.</p>
-      <div class="copy-link-box">
-        <input type="text" id="siteLink" value="${window.location.href}" readonly>
-        <button id="copyLinkBtn">📋 نسخ</button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(card);
-
-  document.getElementById('copyLinkBtn').addEventListener('click', () => {
-    const input = document.getElementById('siteLink');
-    input.select();
-    input.setSelectionRange(0, 99999);
-    document.execCommand('copy');
-    document.getElementById('copyLinkBtn').textContent = "✅ تم النسخ";
-    setTimeout(() => {
-      document.getElementById('copyLinkBtn').textContent = "📋 نسخ";
-    }, 1500);
-  });
-}
-
-
-// 💅 تنسيق البطاقة
+// 💅 CSS بسيط للشريط
 const style = document.createElement('style');
 style.textContent = `
-.external-browser-card {
+.webview-banner {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffcc00;
   color: #333;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  border-radius: 12px;
-  padding: 15px;
-  z-index: 9999;
+  padding: 10px;
   text-align: center;
+  font-weight: bold;
+  z-index: 9999;
   font-family: sans-serif;
-}
-.copy-link-box {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-.copy-link-box input {
-  flex: 1;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-.copy-link-box button {
-  padding: 6px 10px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-.copy-link-box button:hover {
-  background: #0056b3;
 }
 `;
 document.head.appendChild(style);
