@@ -380,50 +380,44 @@ for (let i = 0; i < btnAddCard.length; i++) {
     let qun = quantityOneProduct[i].value;
     let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-    // 🧠 دالة إضافة المنتج
     function addProduct(lng = null, lat = null) {
       let productData = { productName, prices, pid, vId, qun, lng, lat };
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "✅ Product added to cart";
+      document.querySelector(".alerts p").innerHTML = "✅ تم إضافة المنتج للسلة";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
-    // 🛑 تحقق إذا المنتج موجود مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
+      document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود بالفعل";
       alerts.style.visibility = "visible";
       document.querySelector(".alerts").style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
       return;
     }
 
-    // 🔍 كشف WebView (فيسبوك / انستجرام)
-    function isWebView() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /FBAN|FBAV|Instagram|WebView/i.test(ua);
-    }
+    // ✅ كشف WebView
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const inWebView = /FBAN|FBAV|Instagram|WebView/i.test(ua);
 
-    if (isWebView()) {
-      // 🟡 داخل فيسبوك / انستجرام → أضف المنتج مباشرة واظهر البطاقة
+    if (inWebView) {
+      // 🟡 داخل Facebook → أضف المنتج فورًا وأظهر البطاقة بعد لحظة
       addProduct();
-      showExternalBrowserCard();
+      setTimeout(showExternalBrowserCard, 50);
       return;
     }
 
-    // 🟢 داخل متصفح عادي (Chrome / Safari)
+    // 🟢 داخل متصفح عادي → يجب السماح بالموقع
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        // ✅ فقط إذا وافق على الموقع → نضيف المنتج
         addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        // ❌ إذا رفض الموقع → لا نضيف المنتج ونظهر رسالة
-        document.querySelector(".alerts p").innerHTML = "⚠️ يجب السماح بالوصول للموقع لإضافة المنتج";
+        document.querySelector(".alerts p").innerHTML = "⚠️ يجب السماح بالوصول للموقع";
         alerts.style.visibility = "visible";
         document.querySelector(".alerts").style.background = "#ffcdd2";
         setTimeout(() => { alerts.style.visibility = "hidden" }, 2500);
@@ -432,16 +426,17 @@ for (let i = 0; i < btnAddCard.length; i++) {
   });
 }
 
-// 🧾 بطاقة "افتح في متصفح خارجي"
+
+// 🧾 بطاقة فتح المتصفح
 function showExternalBrowserCard() {
   if (document.querySelector('.external-browser-card')) return;
 
-  let card = document.createElement('div');
+  const card = document.createElement('div');
   card.className = 'external-browser-card';
   card.innerHTML = `
     <div class="card-content">
-      <h4>⚠️ لتحسين تجربتك</h4>
-      <p>يرجى فتح الموقع في متصفح خارجي مثل Chrome أو Safari لإكمال التسوق بشكل طبيعي.</p>
+      <h4>⚠️ افتح الموقع في متصفح خارجي</h4>
+      <p>للحصول على تجربة أفضل، انسخ الرابط وافتحه في Chrome أو Safari.</p>
       <div class="copy-link-box">
         <input type="text" id="siteLink" value="${window.location.href}" readonly>
         <button id="copyLinkBtn">📋 نسخ</button>
@@ -450,9 +445,8 @@ function showExternalBrowserCard() {
   `;
   document.body.appendChild(card);
 
-  // 📝 زر النسخ
   document.getElementById('copyLinkBtn').addEventListener('click', () => {
-    let input = document.getElementById('siteLink');
+    const input = document.getElementById('siteLink');
     input.select();
     input.setSelectionRange(0, 99999);
     document.execCommand('copy');
@@ -463,7 +457,8 @@ function showExternalBrowserCard() {
   });
 }
 
-// 💅 تنسيقات البطاقة
+
+// 💅 تنسيق البطاقة
 const style = document.createElement('style');
 style.textContent = `
 .external-browser-card {
@@ -482,18 +477,11 @@ style.textContent = `
   text-align: center;
   font-family: sans-serif;
 }
-
-.external-browser-card h4 {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
 .copy-link-box {
   display: flex;
   gap: 8px;
   margin-top: 10px;
 }
-
 .copy-link-box input {
   flex: 1;
   padding: 6px;
@@ -501,7 +489,6 @@ style.textContent = `
   border-radius: 6px;
   font-size: 14px;
 }
-
 .copy-link-box button {
   padding: 6px 10px;
   background: #007bff;
@@ -511,7 +498,6 @@ style.textContent = `
   cursor: pointer;
   font-size: 14px;
 }
-
 .copy-link-box button:hover {
   background: #0056b3;
 }
