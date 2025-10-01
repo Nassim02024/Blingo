@@ -373,7 +373,9 @@ if (isInWebView()) {
 
 // كود إضافة المنتج (نفس كودك السابق)
 for (let i = 0; i < btnAddCard.length; i++) {
-  btnAddCard[i].addEventListener('click', function () {
+  btnAddCard[i].addEventListener('click', function (e) {
+    e.preventDefault();
+
     let productName = nameOfProduct[i].textContent.trim();
     let pid = productPid[i].textContent.trim();
     let vId = vendorId[i].textContent.trim();
@@ -385,19 +387,12 @@ for (let i = 0; i < btnAddCard.length; i++) {
       arrayProduct.push(productData);
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-
-      document.querySelector(".alerts p").innerHTML = "✅ Product added to cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ccff33";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+      console.log("✅ المنتج أُضيف:", productData);
     }
 
-    // إذا المنتج موجود مسبقًا
+    // تحقق من التكرار
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
-      alerts.style.visibility = "visible";
-      document.querySelector(".alerts").style.background = "#ffcdd2";
-      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+      console.log("⚠️ المنتج موجود مسبقًا");
       return;
     }
 
@@ -407,27 +402,24 @@ for (let i = 0; i < btnAddCard.length; i++) {
     }
 
     if (isInWebView()) {
-      // ✅ في فيسبوك: نضيف المنتج مباشرة بدون geolocation
+      console.log("📱 المستخدم داخل Facebook WebView");
       addProduct();
-
-      // ✅ نظهر شريط تنبيه أن التجربة أفضل في متصفح خارجي
       const banner = document.getElementById('webviewBanner');
       if (banner) banner.style.display = 'block';
       return;
     }
 
-    // 🌐 في المتصفح العادي: نطلب الموقع
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           addProduct(pos.coords.longitude, pos.coords.latitude);
         },
         (err) => {
-          alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
+          alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
         }
       );
     } else {
-      alert("⚠️ المتصفح لا يدعم تحديد الموقع.");
+      alert("المتصفح لا يدعم تحديد الموقع.");
     }
   });
 }
