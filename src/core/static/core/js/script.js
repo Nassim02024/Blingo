@@ -372,139 +372,72 @@ if (isInWebView()) {
 }
 
 // كود إضافة المنتج (نفس كودك السابق)
-document.addEventListener('DOMContentLoaded', function () {
+for (let i = 0; i < btnAddCard.length; i++) {
+  btnAddCard[i].addEventListener('click', function () {
+    let productName = nameOfProduct[i].textContent.trim();
+    let pid = productPid[i].textContent.trim();
+    let vId = vendorId[i].textContent.trim();
+    let qun = quantityOneProduct[i].value;
+    let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
 
-  // 🧭 الكشف عن Facebook WebView
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-  const isFacebookWebView = ua.includes("FBAN") || ua.includes("FBAV");
+    // 🧠 دالة لإضافة المنتج للسلة
+    function addProduct(lng = null, lat = null) {
+      let productData = { productName, prices, pid, vId, qun, lng, lat };
+      arrayProduct.push(productData);
+      createItem(i);
+      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-  // ✅ لو داخل Facebook WebView → نطلب الإذن للموقع أول ما يدخل
-  if (isFacebookWebView && navigator.geolocation) {
+      document.querySelector(".alerts p").innerHTML = "✅ Product is added to cart";
+      alerts.style.visibility = "visible";
+      alerts.style.background = "#ccff33";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+    }
+
+    // ⛔ تحقق إن كان المنتج مضاف مسبقًا
+    if (arrayProduct.some(item => item.pid === pid)) {
+      document.querySelector(".alerts p").innerHTML = "⚠️ Product already in cart";
+      alerts.style.visibility = "visible";
+      alerts.style.background = "#ffcdd2";
+      setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
+      return;
+    }
+
+    // 🧭 دالة للكشف عن WebView
+    function isInWebView() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return /FBAN|FBAV|Instagram|WebView/i.test(ua);
+    }
+
+    // 📱 لو في Facebook أو Instagram → نستخدم الكود القديم فقط
+    if (isInWebView()) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            // ✅ إذا وافق المستخدم → أضف المنتج
+            addProduct(pos.coords.longitude, pos.coords.latitude);
+          },
+          (err) => {
+            // ❌ إذا رفض → لا نفعل شيء الآن، سيظهر طلب الإذن مرة أخرى عند المحاولة التالية
+            alert("⚠️ يجب السماح للموقع لإضافة المنتج إلى السلة.");
+          }
+        );
+      } else {
+        alert("⚠️ جهازك لا يدعم تحديد الموقع.");
+      }
+      return;
+    }
+
+    // 🌐 لو في متصفح عادي (Chrome مثلًا)
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        console.log("✅ تم منح إذن الموقع داخل Facebook WebView");
+        addProduct(pos.coords.longitude, pos.coords.latitude);
       },
       (err) => {
-        console.warn("⚠️ لم يتم منح الإذن بعد. يجب السماح لإضافة المنتج.");
-        alert("⚠️ يرجى السماح للموقع حتى تتمكن من إضافة المنتجات إلى السلة.");
+        alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
       }
     );
-  }
-
-  // تعريف البائع الحالي
-  let currentVendorId = document.querySelector('.vendor-id')?.textContent.trim();
-  let arrayProduct = JSON.parse(localStorage.getItem('arrayProduct')) || [];
-
-  // تحقق من البائع
-  if (arrayProduct.length > 0 && arrayProduct[0].vId !== currentVendorId) {
-    localStorage.removeItem('arrayProduct');
-    arrayProduct = [];
-    location.reload();
-    return;
-  }
-
-  // تعريف العناصر
-  let nameOfProduct = document.querySelectorAll('.name-of-product');
-  let productPid = document.querySelectorAll('.product-pid');
-  let vendorId = document.querySelectorAll('.vendor-id');
-  let categoryOfProduct = document.querySelectorAll('.category-of-product');
-  let priceInProItem = document.querySelectorAll('.price-in-pro-item');
-  let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
-  let btnAddCard = document.querySelectorAll('.btn-add-card');
-  let listGroup = document.querySelector('.list-group');
-  let alerts = document.querySelector('.alerts');
-
-  // رسم المنتجات المحفوظة
-  arrayProduct.forEach((storedProduct) => {
-    let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
-    if (i !== -1) createItem(i);
   });
-
-  // إضافة المنتج إلى السلة
-  for (let i = 0; i < btnAddCard.length; i++) {
-    btnAddCard[i].addEventListener('click', function () {
-      let productName = nameOfProduct[i].textContent.trim();
-      let pid = productPid[i].textContent.trim();
-      let vId = vendorId[i].textContent.trim();
-      let qun = quantityOneProduct[i].value;
-
-      if (!arrayProduct.some(item => item.pid === pid)) {
-
-        document.querySelector(".alerts p").innerHTML = "✅ تم إضافة المنتج إلى السلة";
-        alerts.style.visibility = "visible";
-        alerts.style.background = "#ccff33";
-        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-
-        // 🧭 هنا سواء كان Facebook أو Chrome نطلب الموقع فقط عند الضغط
-        navigator.geolocation.getCurrentPosition((pos) => {
-          let lng = pos.coords.longitude;
-          let lat = pos.coords.latitude;
-          let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
-
-          let productData = { productName, prices, pid, vId, qun, lng, lat };
-          arrayProduct.push(productData);
-          createItem(i);
-          localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-        });
-
-      } else {
-        document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود مسبقًا في السلة";
-        alerts.style.visibility = "visible";
-        alerts.style.background = "#ffcdd2";
-        setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
-      }
-    });
-  }
-
-  function createItem(i) {
-    let productName = nameOfProduct[i].textContent.trim();
-    let unitPrice = parseFloat(priceInProItem[i].innerHTML);
-    let quantity = parseInt(quantityOneProduct[i].value) || 1;
-    let totalPriceOne = unitPrice * quantity;
-
-    let li = document.createElement('li');
-    li.className = 'list-group-item d-flex justify-content-between lh-sm list-group-item-card';
-    li.innerHTML = `
-      <div>
-        <h6 class="my-0 name-of-product">${productName}</h6>
-        <small class="text-body-secondary category-of-product">${categoryOfProduct[i].innerText.trim()}</small>
-      </div>
-      <h4 class="text-body-secondary price-in-pro-item price-for-one" style="margin-top: 6px;">${totalPriceOne}</h4>
-      <p style="margin-top:8px;">x${quantity}</p>
-      <button class="btn btn-danger delete-item-pro" type="button">
-        <i class="bi bi-trash"></i> Delete
-      </button>
-    `;
-
-    listGroup.appendChild(li);
-    updateTotalPrice();
-    updateCount();
-
-    li.querySelector('.delete-item-pro').addEventListener('click', function () {
-      listGroup.removeChild(li);
-      let index = arrayProduct.findIndex(item => item.productName === productName);
-      if (index !== -1) arrayProduct.splice(index, 1);
-      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      updateTotalPrice();
-      updateCount();
-    });
-  }
-
-  function updateTotalPrice() {
-    let total = 0;
-    document.querySelectorAll('.price-for-one').forEach(item => {
-      total += parseFloat(item.innerHTML);
-    });
-    document.querySelector('.totals-price').innerHTML = total + ' Dz';
-  }
-
-  function updateCount() {
-    let count = arrayProduct.length;
-    document.querySelector('.badge').innerHTML = count;
-    document.querySelector('.count-for-card-icon').innerHTML = count;
-  }
-
-});
+}
 
 
 
