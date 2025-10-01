@@ -386,61 +386,137 @@ for (let i = 0; i < btnAddCard.length; i++) {
       createItem(i);
       localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
 
-      document.querySelector(".alerts p").innerHTML = "✅ تم اضافة المنتج الى السلة";
+      document.querySelector(".alerts p").innerHTML = "Product is added to cart";
       alerts.style.visibility = "visible";
-      alerts.style.background = "#ccff33";
+      document.querySelector(".alerts").style.background = "#ccff33";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
     }
 
+    // تحقق إذا المنتج موجود مسبقًا
     if (arrayProduct.some(item => item.pid === pid)) {
-      document.querySelector(".alerts p").innerHTML = "⚠️ المنتج موجود مسبقا";
+      document.querySelector(".alerts p").innerHTML = "Product already in cart";
       alerts.style.visibility = "visible";
-      alerts.style.background = "#ffcdd2";
+      document.querySelector(".alerts").style.background = "#ffcdd2";
       setTimeout(() => { alerts.style.visibility = "hidden" }, 2000);
       return;
     }
 
-    function isInFacebookOrInstagram() {
+    // كشف WebView (فايسبوك / انستجرام)
+    function isWebView() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /FBAN|FBAV|Instagram/i.test(ua);
+      return /FBAN|FBAV|Instagram|WebView/.test(ua);
     }
 
-    // 📱 داخل Facebook أو Instagram
-    if (isInFacebookOrInstagram()) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            // ✅ إذا وافق المستخدم → نضيف المنتج مباشرة
-            addProduct(pos.coords.longitude, pos.coords.latitude);
-          },
-          (err) => {
-            // ❌ إذا رفض أو حدث خطأ → نطلب فتح الموقع في المتصفح
-            alert("⚠️ يرجى فتح الموقع في المتصفح الخارجي لإضافة المنتج.");
-            window.open(window.location.href, "_blank");
-          }
-        );
-      } else {
-        alert("⚠️ جهازك لا يدعم تحديد الموقع. افتح الموقع في المتصفح.");
-        window.open(window.location.href, "_blank");
-      }
+    if (isWebView()) {
+      // ✅ يضيف المنتج مباشرة
+      addProduct(); 
+
+      // ✅ إظهار بطاقة أنيقة بدل alert
+      showExternalBrowserCard();
       return;
     }
 
-    // 🌐 المتصفح العادي
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          addProduct(pos.coords.longitude, pos.coords.latitude);
-        },
-        (err) => {
-          alert("⚠️ يرجى السماح بالوصول للموقع لإضافة المنتج.");
-        }
-      );
-    } else {
-      alert("⚠️ جهازك لا يدعم تحديد الموقع.");
-    }
+    // ✅ المتصفحات القوية → طلب الموقع
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        addProduct(pos.coords.longitude, pos.coords.latitude);
+      },
+      (err) => {
+        alert("يرجى السماح بالوصول للموقع لإضافة المنتج.");
+      }
+    );
   });
 }
+
+
+// 🧾 دالة عرض بطاقة "افتح في متصفح خارجي"
+function showExternalBrowserCard() {
+  let existingCard = document.querySelector('.external-browser-card');
+  if (existingCard) return; // لا تنشئ بطاقة مرتين
+
+  let card = document.createElement('div');
+  card.className = 'external-browser-card';
+  card.innerHTML = `
+    <div class="card-content">
+      <h4>⚠️ لتحسين التجربة</h4>
+      <p>افتح الموقع في متصفح خارجي (Chrome أو Safari) ثم أكمل التسوق.</p>
+      <div class="copy-link-box">
+        <input type="text" id="siteLink" value="${window.location.href}" readonly>
+        <button id="copyLinkBtn">📋 نسخ</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(card);
+
+  // زر النسخ
+  document.getElementById('copyLinkBtn').addEventListener('click', () => {
+    let input = document.getElementById('siteLink');
+    input.select();
+    input.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+
+    document.getElementById('copyLinkBtn').textContent = "✅ تم النسخ";
+    setTimeout(() => {
+      document.getElementById('copyLinkBtn').textContent = "📋 نسخ";
+    }, 1500);
+  });
+}
+
+
+// 💅 تنسيق CSS للبطاقة
+const style = document.createElement('style');
+style.textContent = `
+.external-browser-card {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 15px;
+  z-index: 9999;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.external-browser-card h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.copy-link-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.copy-link-box input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.copy-link-box button {
+  padding: 6px 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.copy-link-box button:hover {
+  background: #0056b3;
+}
+`;
+document.head.appendChild(style);
 
 
 
