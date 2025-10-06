@@ -149,6 +149,9 @@ def cardorder(request, vid):
         print("RAW Lng:", request.POST.get("lng"))
         print("RAW Lat:", request.POST.get("lat"))
 
+        send_delivry_service = Decimal(request.POST.get("send_delivry_service"))
+        print("Delivery Service Price:", send_delivry_service)
+
         if lng in [None, "", 'null', 'undefined']:
           lng = None
         else:  
@@ -175,6 +178,7 @@ def cardorder(request, vid):
             user=request.user,
             lng = lng,
             lat = lat,
+            delivry = send_delivry_service
         )
         print("Saved in DB:", order.lng, order.lat)
 
@@ -198,10 +202,12 @@ def cardorder(request, vid):
             
             phone = request.POST.get("phone")
             address1 = request.POST.get("address-line-1")
-            notes = request.POST.get("notes")        
-            deliveryservice = 100
-            total = deliveryservice + order.product_price
- 
+            notes = request.POST.get("notes")  
+                  
+            
+            # deliveryservice 
+            total =  order.product_price + send_delivry_service
+            # print(total)
 
         resend.api_key = config("RESEND_API_KEY")
 
@@ -209,7 +215,7 @@ def cardorder(request, vid):
             "from": "Acme <info@blingoservic.com>",
             "to": ["blingohyper@gmail.com"],
             "subject": "hello world",
-            "html": f"New order From: {request.user.username}<br>Phone: {phone}<br>Address1: {address1}<br>notes: {notes}<br>Delivery Service: {deliveryservice}<br>Order Total: {order.product_price}<br>TOTAL=={total}==",
+            "html": f"New order From: {request.user.username}<br>Phone: {phone}<br>Address1: {address1}<br>notes: {notes}<br>price: {order.product_price} <br>Delivry service: {send_delivry_service} <br>Total: {total}",
         }
 
         email = resend.Emails.send(params)

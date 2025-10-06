@@ -85,12 +85,13 @@ def orderonecustemor(request , id):
     vendor = Vendor.objects.get(user=request.user)
     order = CartOrder.objects.get(vendor=vendor , id=id)
     items = order.items.all() 
-    
+    print(order.delivry)
     context = {
       'order': order,
       'items': items,
       'lng' : order.lng,
       'lat': order.lat,
+      'delivry': order.delivry,
     }
     return render(request, 'userdashbord/orderonecustemor.html' , context)
 

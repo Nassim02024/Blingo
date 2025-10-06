@@ -30,7 +30,6 @@
     {% for p in product %} 
     <div data-product-id="{{p.pid}}" class="col" > 
      <div class="product-item">
-       {% comment %} <center style="width: fit-content;position: absolute;transform: translateX(-50%);left: 50%;" class="price">{{p.vendor.title}}</center> {% endcomment %}
        <p style="display:none;" class="vendor-id">{{p.vendor.vid}}</p>
        {% if get_precentage %}
        <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
@@ -38,7 +37,7 @@
        <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
        <figure style="height:30vh ;">
          <a href="{% url 'productDetils' p.pid %}" title="Product Title">
-           <img style="height:120%;  width:100%;   border-radius: 10px;
+           <img style="height:100%;  width:100%;   border-radius: 10px;
             " src="{{p.image.url}}" alt="Product Thumbnail" class="tab-image" loading="lazy">
          </a> 
        </figure> 
@@ -54,9 +53,9 @@
                    <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
                  </button>
              </span>
-             <input type="text" name="quantity" class="form-control input-number quantity quantity-one-product" value="1">
+             <input style='border:none;' type="text" name="quantity" class="form-control input-number quantity quantity-one-product" value="1">
              <span class="input-group-btn">
-                 <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                 <button  type="button" class="quantity-right-plus btn btn-success btn-number " data-type="plus">
                      <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
                  </button>
              </span>

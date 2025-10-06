@@ -146,8 +146,10 @@
                   </thead>
                   <tbody>
                     {% for order in orders %}
-                    <tr>
-                      <td>
+                    <tr >
+                      <td class="td">
+                        <!-- <div class='notification' style="position: relative;top: 2px;right: 2px;background-color: red;width: 5px;height: 5px;border-radius: 50%;"></div> -->
+
                         <div class="d-flex px-2 py-1">
                           <div>
                             {% comment %} <img src="{% static 'images/team-2.jpg' %}" class="avatar avatar-sm me-3" alt="user1" loading="lazy"> {% endcomment %}
@@ -286,7 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 86400000); // 24 hours in milliseconds
   
   
-
 
 });
 </script>

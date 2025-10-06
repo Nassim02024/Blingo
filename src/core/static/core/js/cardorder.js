@@ -98,24 +98,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let price_one_product = document.querySelectorAll('.price_one_product')
 
-let summary_order_tolal = document.querySelector('.summary_order_tolal')
-let summary_Delivery_service = document.querySelector('.summary_Delivery_service')
-let summary_order_all = document.querySelector('.summary_order_all')
+
 
 let total = 0
 price_one_product.forEach(element => {
   total += parseInt(element.innerText)
-});
+}); 
 
-let deliveryPrice = 100.00;
 
-if (summary_order_tolal) {
+const select = document.querySelector('.country');
+const summary_Delivery_service = document.querySelector('.summary_Delivery_service');
+const summary_order_tolal = document.querySelector('.summary_order_tolal');
+const summary_order_all = document.querySelector('.summary_order_all');
+const end_Delivery_service = document.querySelector('.end_Delivery_service');
+const form = document.querySelector('form');
+
+let hiddenInput = document.createElement('input');
+hiddenInput.type = 'hidden';
+hiddenInput.name = 'send_delivry_service';
+form.appendChild(hiddenInput);
+
+
+const deliveryPrices = {
+  'الزاوية العابدية': 100,
+  'تبسبست': 100,
+  'حي الرمال': 200,
+  'حي المستقبل': 150,
+  'دراع البارود': 250,
+  'حي 360 مسكن': 200,
+  'حي 450 مسكن': 200,
+  'حي 700 مسكن': 200,
+  'حي 300 مسكن': 200,
+  'حي الأمل': 200,
+  'حي الفتح': 200,
+  'حي النصر': 200,
+  'حي السلام': 200,
+  'حي القدس': 200,
+  'حي النسيم': 200,
+  'حي الواحات': 200,
+  'حي الورود': 200,
+  'النزلة': 200,
+  'لبدوع': 200,
+  'تماسين': 350,
+  'لمقارين': 250,
+  'بلدة عمر': 300,
+  'مقر': 350,
+  'بلدة سيدي سليمان': 300,
+  'القوق': 400
+};
+
+select.addEventListener('change', () => {
+  const selectedValue = select.value;
+  const deliveryPrice = deliveryPrices[selectedValue] || 0;
+
   summary_order_tolal.innerText = total + ' Dz';
-} else {
-  console.warn("⚠️" + " summary_order_tolal is not defined");
-}
+  summary_Delivery_service.innerText = deliveryPrice + ' Dz';
+  summary_order_all.innerText = (total + deliveryPrice) + ' Dz';
+  end_Delivery_service.innerText = deliveryPrice + ' Dz'; // ✅ تم التعديل
 
-summary_Delivery_service.innerText = deliveryPrice + ' Dz';
-summary_order_all.innerText = (total + deliveryPrice) + ' Dz';
+  hiddenInput.value = deliveryPrice;
+
+  console.log("🚚 تم تحديث سعر التوصيل:", deliveryPrice);
+});
 
 })

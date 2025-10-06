@@ -99,6 +99,9 @@
                   placeholder="Enter your phone number"
               />
   
+              <input type="hidden" name="send_delivry_service" id="delivery_price_input" class="summary_Delivery_service" value="200">
+
+
               <label for="address-line-1" class="form-label"
                   >{% trans 'Street Address*' %}</label
               >
@@ -110,6 +113,45 @@
                   placeholder="House No., Road Name, etc."
                   required
               />
+
+              <label for="country" class="form-label"
+                  >{% trans 'Select your location*' %}
+                </label>
+              
+              <select name="country" id="country" class="country form-input" multiple required>
+
+                <div style=" overflow-y: auto; margin-bottom: 1rem;" >
+  
+                <option value="الزاوية العابدية">الزاوية العابدية</option>
+                  <option value="تبسبست">تبسبست</option>
+                  <option value="حي الرمال">حي الرمال</option>
+                  <option value="حي المستقبل">حي المستقبل</option>
+                  <option value="دراع البارود"> دراع البارود</option>
+                  <option value="حي 360 مسكن"> حي 360 مسكن</option>
+                  <option value="حي 450 مسكن">حي 450 مسكن</option>
+                  <option value="حي 700 مسكن">حي 700 مسكن</option>
+                  <option value="حي 300 مسكن">حي 300 مسكن</option>
+                  <option value="حي الأمل">حي الأمل</option>
+                  <option value="حي الفتح">حي الفتح</option>
+                  <option value="حي الزهور">حي الزهور</option>
+                  <option value="حي النصر">حي النصر</option>
+                  <option value="حي السلام">حي السلام</option>
+                  <option value="حي القدس">حي القدس</option>
+                  <option value="حي النسيم">حي النسيم</option>
+                  <option value="حي الواحات">حي الواحات</option>
+                  <option value="حي الورود">حي الورود</option>
+                  <option value="النزلة">  النزلة </option>
+                  <option value="لبدوع">  لبدوع </option>
+                  <option value="تماسين">  تماسين </option>
+                  <option value="لمقارين">  لمقارين </option>
+                  <option value="بلدة عمر">  بلدة عمر </option>
+                  <option value="بلدة سيدي سليمان">مقر</option>
+                  <option value="بلدة سيدي سليمان">   بلدة سيدي سليمان </option>
+                  <option value="القوق">القوق</option>
+                </div>
+
+                </select>
+              
   
               <label for="notes" class="form-label"
                   >{% trans 'Additional notes (Optional)' %}</label
@@ -132,7 +174,7 @@
                   
                 <div class="summary">
                    <p>{% trans "Delivery service" %} </p>
-                   <p class="summary_Delivery_service">  </p>
+                   <p class="end_Delivery_service">  </p>
                 </div>
 
                 <div class="summary">

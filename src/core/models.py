@@ -35,7 +35,10 @@ rating = (
 
 
 titlecategory = (
+  ("البقوليات" , "البقوليات"),
   ("المشروبات" , "المشروبات"),
+  ("عجائن" , "عجائن"),
+  ("مواد التنظيف" , "مواد التنظيف"),
   ("طبخ و الماكولات" , "طبخ و الماكولات"),
   ("الخبز والحلويات" , "الخبز والحلويات"),
   ("اللحوم و مشتقاتها" , "اللحوم و مشتقاتها"),
@@ -165,8 +168,9 @@ class Imgs_product(models.Model):
 
 class CartOrder(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  product = models.ForeignKey(Product , on_delete=models.CASCADE  , null=True , blank= True)
-  vendor = models.ForeignKey(Vendor , on_delete=models.CASCADE   , null=True , blank= True)
+  vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, blank=True)
+  product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
+
   
   fullname = models.CharField(max_length=100 , blank=True, null=True)
   email = models.CharField(max_length=100 , blank=True, null=True)
@@ -179,6 +183,7 @@ class CartOrder(models.Model):
   product_status = models.CharField(choices=status_choices , max_length=30 , default="processing")
   lng = models.FloatField(null=True, blank=True)
   lat = models.FloatField(null=True, blank=True)
+  delivry = models.FloatField(null=True, blank=True)
 
   class Meta:
     verbose_name_plural = "Cart Order"

@@ -39,7 +39,7 @@
   
   <div class="summary" style="display: flex;justify-content: space-between; width: 100%">
      <p>Delivery service </p>
-     <p class="summary_Delivery_service"> 100 </p>
+     <p class="summary_Delivery_service"> {{order.delivry}} </p>
   </div>
 
   <div class="summary" style="display: flex;justify-content: space-between; width: 100%">
@@ -236,7 +236,7 @@
     total += parseInt(element.innerText)
   });
   
-  let deliveryPrice = 100.00;
+  let deliveryPrice = document.querySelector('.summary_Delivery_service').innerText
   
   if (summary_order_tolal) {
     summary_order_tolal.innerText = total;
@@ -244,8 +244,8 @@
     console.warn("⚠️" + " summary_order_tolal is not defined");
   }
   
-  summary_Delivery_service.innerText = deliveryPrice + ' Dz';
-  summary_order_all.innerText = (total + deliveryPrice) + ' Dz';
+  summary_Delivery_service.innerText = parseInt(deliveryPrice) + ' Dz';
+  summary_order_all.innerText = (total + parseInt(deliveryPrice)) + ' Dz';
   
 
 

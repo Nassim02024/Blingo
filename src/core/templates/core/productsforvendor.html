@@ -379,8 +379,22 @@
                 <h2 class="category-title">{% trans 'Food & Cooking' %}</h2>
               </a>
               {% endif %}
+
+              {% if c.categoress == "عجائن" %}
+              <a href="{% url 'product_category' c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/wheat.png'%}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Pastries' %}</h2>
+              </a>
+              {% endif %}
+
+              {% if c.categoress == "البقوليات" %}
+              <a href="{% url 'product_category' c.cid %}" class="nav-link category-item swiper-slide">
+                <img src="{% static 'core/images/bean.png'%}" alt="Category Thumbnail" loading="lazy">
+                <h2 class="category-title">{% trans 'Legumes' %}</h2>
+              </a>
+              {% endif %}
             
-              {% if c.categoress == "مواد التنضيف" %}
+              {% if c.categoress == "مواد التنظيف" %}
               <a href="{% url 'product_category' c.cid %}" class="nav-link category-item swiper-slide">
                 <img src="{% static 'core/images/hand-cleaning.png'%}" alt="Category Thumbnail" loading="lazy">
                 <h2 class="category-title">{% trans 'Cleaning materials' %}</h2>
