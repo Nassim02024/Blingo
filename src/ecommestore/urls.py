@@ -26,7 +26,6 @@ urlpatterns += i18n_patterns (
     path('', include('errorpage.urls') , name='errorpage' ),
     path('', include('contactpage.urls') , name='contactpage' ),
     path('', include('lang.urls') , name='lang' ),
-    path('', include('servece.urls') , name='servece' ),
     # prefix_default_language=False
 
   )

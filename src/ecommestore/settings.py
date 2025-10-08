@@ -66,17 +66,16 @@ INSTALLED_APPS = [
     "errorpage",
     "contactpage",
     "lang",
-    "servece",
     
 
 ]
 
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': config('CLOUDINARY_NAME'),
-#     'API_KEY': config('API_KEY'),
-#     'API_SECRET': config('API_SECRET')
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET')
+}
 cloudinary.config(
     cloud_name=config('CLOUDINARY_NAME'),
     api_key=config('API_KEY'),
@@ -105,6 +104,11 @@ MIDDLEWARE = [
 
 # لضغط الملفات (CSS, JS, ...etc)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 
 
@@ -299,5 +303,27 @@ STORAGES = {
     }
 }
 
+
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+
+
+
+
+
+# تأكد أن الجلسات والـ CSRF تعمل عبر HTTPS فقط
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# تأكد أن الـ Cookies متوافقة مع Safari
+SESSION_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SAMESITE = 'None'
+
+# إذا كان موقعك يعمل على https://blingoservic.com
+CSRF_TRUSTED_ORIGINS = [
+    'https://blingoservic.com',
+    'https://www.blingoservic.com',
+    'https://blingo-production-0e82.up.railway.app'
+]
+
