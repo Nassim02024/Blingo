@@ -8,7 +8,7 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(attrs={
-            'placeholder': _('Enter your email')  # سيتم ترجمته تلقائيًا
+            'placeholder': _('Enter your email') 
         })
     )
     username = forms.CharField(

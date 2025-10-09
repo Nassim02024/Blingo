@@ -259,7 +259,7 @@ JAZZMIN_SETTINGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.User'  #اسم التطبيق ثم اسم الكلاس موديل 
+AUTH_USER_MODEL = 'users.User' 
 
 
 LOGIN_URL = '/users/register/'
@@ -312,17 +312,16 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 
-# تأكد أن الجلسات والـ CSRF تعمل عبر HTTPS فقط
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-# تأكد أن الـ Cookies متوافقة مع Safari
 SESSION_COOKIE_SAMESITE = 'None'
 CSRF_COOKIE_SAMESITE = 'None'
 
-# إذا كان موقعك يعمل على https://blingoservic.com
 CSRF_TRUSTED_ORIGINS = [
     'https://blingoservic.com',
+    'http://127.0.0.1:8000/en/users/register/'
+    'http://127.0.0.1:8000/ar/users/register/'
     'https://www.blingoservic.com',
     'https://blingo-production-0e82.up.railway.app'
 ]

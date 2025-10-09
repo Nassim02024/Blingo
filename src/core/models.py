@@ -78,7 +78,7 @@ class Category(models.Model):
     return self.categoress
 
 class Vendor(models.Model):
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  user = models.OneToOneField(User, on_delete=models.CASCADE )
   vid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
   
   
@@ -129,7 +129,7 @@ class Product(models.Model):
   update = models.DateTimeField(auto_now=True)
   
   
-  user = models.ForeignKey(User , on_delete=models.SET_NULL , null=True )
+  user = models.ForeignKey(User , on_delete=models.SET_NULL , null=True, blank=True )
   class Meta:
     verbose_name_plural = "Product"
     
@@ -167,7 +167,7 @@ class Imgs_product(models.Model):
 
 
 class CartOrder(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE , null=True, blank=True)
   vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, blank=True)
   product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
 

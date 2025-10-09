@@ -132,7 +132,7 @@ def search_product(request , vid):
 
 import os
 from decimal import Decimal
-@login_required(login_url='/users/register/')
+# @login_required(login_url='/users/register/')
 @csrf_exempt
 def cardorder(request, vid):
     vendor = get_object_or_404(Vendor, vid=vid)
@@ -169,13 +169,18 @@ def cardorder(request, vid):
 
         # ✅ ننشئ الطلب العام مرة واحدة فقط
         first_product = Product.objects.get(pid=product_ids[0])
+
+        if request.user.is_authenticated:
+          user = request.user
+        else:
+          user = None  
         order = CartOrder.objects.create(
             product_name="، ".join(product_names),  # اختياري: عرض أسماء المنتجات مجتمعة
             qunt=sum([int(q) for q in qun]),
             product_price=sum([Decimal(p) for p in product_prices]),
             vendor=vendor,
             product=first_product,  # أو يمكن تركه فارغًا
-            user=request.user,
+            user=user,
             lng = lng,
             lat = lat,
             delivry = send_delivry_service
