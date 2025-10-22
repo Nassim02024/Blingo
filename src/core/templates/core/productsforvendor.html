@@ -539,8 +539,8 @@
                         <h3 style="display:none;" class="product-pid">{{p.pid}}</h3>
                         <h3 class="name-of-product">{{p.title}}</h3>
                         <p class="category-of-product" style="color: rgb(182, 182, 182); font-size: 9px;">{{p.category.categoress}}</p>
-                        <!-- <span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg>{% trans '4.5' %}</span>{% trans '--><span class="price price-in-pro-item">{{p.price}} Dz</span>
-                        <span style="color: rgb(182, 182, 182); display: inline-block; text-decoration: line-through; font-size: 14px; margin-left: 10px;" class="old_price">DZ{{p.old_price}}</span>
+                        <!-- <span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg>{% trans '4.5' %}</span>{% trans '--><span class="price price-in-pro-item">{{p.price}} </span> <span>{{p.unity}}</span>
+                        <span style="color: rgb(182, 182, 182); display: inline-block; text-decoration: line-through; font-size: 14px; margin-left: 10px;" class="old_price">{{p.old_price}}</span>
                         <div class="d-flex align-items-center justify-content-between">
                           <div class="input-group product-qty">
                               <span class="input-group-btn">

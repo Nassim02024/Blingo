@@ -54,6 +54,22 @@ titlecategory = (
   ("التجميل" , "التجميل"),
   ("الادوات المدرسية" , "الادوات المدرسية"),
 )
+
+unity = (
+  ('kg','kg'),
+  ('g','g'),
+  ("قطعة" , "قطعة"),
+  ("دلو" , "دلو"),
+  ("علبة" , "علبة"),
+  ("قارورة" , "قارورة"),
+  ("كيس" , "كيس"),
+  ("رطل" , "رطل"),
+  ("l" , "l"),
+  ("m" , "m"),
+)
+
+
+
 def user_directory_path(instans , filename):
   return 'user_{0}/{1}'.format(instans.user.id , filename)
 
@@ -117,6 +133,7 @@ class Product(models.Model):
   color = models.CharField(max_length=300 ,  null= True , blank=True)
   price = models.DecimalField(max_digits=999, decimal_places=2 )
   old_price = models.DecimalField(max_digits=999 , decimal_places=2 )
+  unity = models.CharField(choices=unity , max_length=10 , default="kg")
   in_stock = models.CharField(choices=stock , default="yes" ) # mean how many product in stock without "decimal_places(.)"
   specifications = models.TextField(null=True , blank=True , max_length=300)
   # tags = models.ForeignKey(tags , on_delete=models.SET_NULL , null=True)
