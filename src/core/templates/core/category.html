@@ -29,20 +29,20 @@
     <h2>{{category.count}} {% trans "Catecory" %}</h2>
 
     <div class="category_card">
-    {% for category_card in category %}
+{% for c in category %}
+  <div class="product-item">
+    <a class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
+    <figure>
+      <a href="{% url 'product_category' c.cid vendor.vid %}" title="{{ c.categoress }}">
+        <img src="{{ c.imge.url }}" alt="{{ c.categoress }}" class="category-image" loading="lazy">
+      </a>
+    </figure>
+    <center><h3>{{ c.categoress }}</h3></center>
+    <center><p>{{ c.products.count }} {% trans "Product" %}</p></center>
+  </div>
+{% endfor %}
 
-      <div class="product-item">
-      <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
-      <figure>
-        <a href="{% url 'product_category' category_card.cid %}" title="Product Title">
-          <img src="{{category_card.imge.url}}" alt="Product Thumbnail" class="category-image" loading="lazy">
-        </a>
-      </figure>
-      <center><h3>{{category_card.categoress}}</h3></center>
-      <center><p>{{category_card.Category.count}} {% trans "Product" %}{{category_card.Category.count| pluralize:"s"}}</p></center>
-     </div>
 
-    {% endfor %}
   </div>
   
 </main>

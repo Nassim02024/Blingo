@@ -1,6 +1,7 @@
 from django.db import models
 import uuid 
 from django.utils.html import mark_safe
+from createstorevendorform.models import UserStore
 from users.models import User
 
 from cloudinary.models import CloudinaryField
@@ -78,17 +79,17 @@ class Category(models.Model):
   vendor = models.ForeignKey("Vendor", on_delete=models.CASCADE, null=True, blank=True, related_name="VendorCategories")
   
   categoress = models.CharField(max_length=100 , choices=titlecategory , default="men") 
-  descreption = models.CharField(max_length=100 ) 
-  imge = CloudinaryField("image")
+  # descreption = models.CharField(max_length=100 ) 
+  # imge = CloudinaryField("image")
 
      
   class Meta:
     verbose_name_plural = 'Category'
     
-  def Category_imge(self):
-    if self.imge:
-      return mark_safe(f'<img src="{self.imge.url}" width="50" height="50" />')
-    return ""
+  # def Category_imge(self):
+  #   if self.imge:
+  #     return mark_safe(f'<img src="{self.imge.url}" width="50" height="50" />')
+  #   return ""
   
   def __str__(self):
     return self.categoress
@@ -108,7 +109,7 @@ class Vendor(models.Model):
   days_to_return = models.CharField(max_length=100 , null=False , blank=False)
   warranty = models.CharField(max_length=100 , null=True , blank=True) # Garantie(الضمان)
   
-  
+   
   class Meta:
     verbose_name_plural = "Vendor"
     
@@ -171,7 +172,7 @@ class Imgs_product(models.Model):
   images  = CloudinaryField("image")
   product = models.ForeignKey(Product , on_delete=models.SET_NULL , null=True)
   date = models.DateField(auto_now_add=True)
-  
+
   class Meta:
     verbose_name_plural = "Product Images"
     
@@ -201,7 +202,7 @@ class CartOrder(models.Model):
   lng = models.FloatField(null=True, blank=True)
   lat = models.FloatField(null=True, blank=True)
   delivry = models.FloatField(null=True, blank=True)
-
+  
   class Meta:
     verbose_name_plural = "Cart Order"
 

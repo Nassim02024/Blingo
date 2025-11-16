@@ -4,7 +4,6 @@
 
 <body class="g-sidenav-show  bg-gray-100">
   {% include "userdashbord/side-bar.html" %}
-
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
   <!-- Navbar -->
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -125,6 +124,8 @@
     </div>
   </nav>
   <!-- End Navbar -->
+  <a href="{% url 'addproduct'%}" style="position: absolute; right:20px; top:10vh ; background:rgb(125, 244, 50); color:white; padding:10px; border-radius:5px; text-decoration:none; font-size:15px; font-weight:bold;" >create produt +</a>
+
   <div class="container-fluid py-4">
     <div class="row">
       <div class="col-lg-6 col-12">
@@ -182,7 +183,7 @@
                     </div>
                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
                       {% comment %} {% for order in orders %} {% endcomment %}
-                      {{ product.count }}
+                      {{ count_product }}
                       {% comment %} {% endfor %}  {% endcomment %}
                     </h5>
                     <span class="text-white text-sm">Products</span>
@@ -210,7 +211,7 @@
                       <i class="ni ni-cart text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                      {{ orders.count }}
+                      {{ orders.count }} 
                     </h5>
                     <span class="text-white text-sm">Orders</span>
                   </div>

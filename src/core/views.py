@@ -1,8 +1,12 @@
 from datetime import datetime
+from decimal import Decimal
+from pyexpat.errors import messages
+import cloudinary.uploader
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render , redirect
 import resend
 from decouple import config
+
 from ecommestore import settings
 from .models import Product , Category , Vendor , ProductReview ,CartOrder , CartOrderItems
 from django.contrib.auth.decorators import login_required
@@ -58,17 +62,25 @@ def category(request , vid):
   return render(request, 'core/category.html' , context)
 
 
+def product_category(request, cid, vid):
+    # تأكد من أن البائع موجود
+    vendor = get_object_or_404(Vendor, vid=vid)
+    # تأكد من أن التصنيف موجود وبخاص بهذا البائع
+    category = get_object_or_404(Category, cid=cid, vendor=vendor)
 
-def product_category(request , cid):
-  category = Category.objects.get(cid= cid) # cid is all fields
-  product = Product.objects.filter( product_status="published" , category= category)
-  context = {
-    "category": category,
-    "product": product
-  } 
-  
-  return render(request, 'core/product_category.html' , context)
+    # جلب المنتجات التي تنتمي لهذا التصنيف وهذا البائع فقط
+    products = Product.objects.filter(
+        category=category,
+        vendor=vendor,
+        product_status="published"
+    )
 
+    context = {
+        "category": category,
+        "products": products,   # لاحظ أنه "products" وليس "product"
+        "vendor": vendor
+    }
+    return render(request, 'core/product_category.html', context)
 
 
 
@@ -130,10 +142,6 @@ def search_product(request , vid):
 
 
 
-import os
-from decimal import Decimal
-# @login_required(login_url='/users/register/')
-@csrf_exempt
 def cardorder(request, vid):
     vendor = get_object_or_404(Vendor, vid=vid)
     products = Product.objects.filter(vendor=vendor, product_status="published")
@@ -235,8 +243,6 @@ def cardorder(request, vid):
         
     }
     return render(request, "core/cardorder.html", context)
-
-
 
 
 

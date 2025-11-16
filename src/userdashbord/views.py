@@ -4,16 +4,17 @@ from django.db.models import Sum
 from users.models import User
 import datetime
 from django.contrib.auth.decorators import login_required
-
+from userdashbord.forms import AddProductForms
 
 
 # @login_required
 def dashbord(request):
     vendor = Vendor.objects.get(user=request.user)
-
     orders = CartOrder.objects.filter(vendor=vendor).order_by('-order_date')
+    count_product = Product.objects.filter(vendor=vendor).count
     context = {
         'orders': orders,
+        "count_product" : count_product,
     }
     return render(request, 'userdashbord/dashbord.html', context)
 
@@ -94,6 +95,50 @@ def orderonecustemor(request , id):
       'delivry': order.delivry,
     }
     return render(request, 'userdashbord/orderonecustemor.html' , context)
+
+
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import AddProductForms
+import cloudinary.uploader
+
+def addproduct(request):
+    if request.method == 'POST':
+        form = AddProductForms(request.POST , request.FILES)
+        if form.is_valid():
+            try:
+                new_form = form.save(commit=False)
+                new_form.user = request.user
+                new_form.vendor = request.user.vendor 
+                
+                # رفع الصورة على Cloudinary (اختياري حسب حقل الصورة)
+                if 'image' in request.FILES:
+                    upload_result = cloudinary.uploader.upload(
+                        request.FILES['image'],
+                        timeout=30  # زيادة وقت الاتصال إذا بطيء
+                    )
+                    new_form.image = upload_result['secure_url']
+
+                
+                new_form.save()
+                form.save_m2m()  # لحفظ علاقات ManyToMany
+                
+                messages.success(request, "تم إضافة المنتج بنجاح!")
+                return redirect('dashbord')
+
+            except Exception as e:
+                # إذا حدث أي خطأ أثناء الحفظ أو الرفع
+                messages.error(request, f"حدث خطأ أثناء إضافة المنتج: {str(e)}")
+        else:
+            messages.error(request, "البيانات غير صحيحة، يرجى التحقق من النموذج.")
+    else:
+        form = AddProductForms()
+
+    context = {
+        "form": form
+    }
+    return render(request, 'userdashbord/addproduct.html', context)
 
 
 # def virtual_reality(request):

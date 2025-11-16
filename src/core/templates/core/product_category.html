@@ -27,46 +27,27 @@
   <div class="col-md-12  ">
    <div  class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4">
 
-    {% for p in product %} 
-    <div data-product-id="{{p.pid}}" class="col" > 
-     <div class="product-item">
-       <p style="display:none;" class="vendor-id">{{p.vendor.vid}}</p>
-       {% if get_precentage %}
-       <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
-       {% endif %}
-       <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
-       <figure style="height:30vh ;">
-         <a href="{% url 'productDetils' p.pid %}" title="Product Title">
-           <img style="height:100%;  width:100%;   border-radius: 10px;
-            " src="{{p.image.url}}" alt="Product Thumbnail" class="tab-image" loading="lazy">
-         </a> 
-       </figure> 
-       <h3 style="display:none;" class="product-pid">{{p.pid}}</h3>
-       <h3 class="name-of-product">{{p.title}}</h3>
-       <p class="category-of-product" style="color: rgb(182, 182, 182);">{{p.category.categoress}}</p>
-       <!-- <span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg>'4.5' </span>--><span class="price price-in-pro-item">{{p.price}}</span>
-       <span style="color: rgb(182, 182, 182); display: inline-block; text-decoration: line-through; font-size: 14px; margin-left: 10px;" class="old_price">DZ{{p.old_price}}</span>
-       <div class="d-flex align-items-center justify-content-between">
-         <div class="input-group product-qty">
-             <span class="input-group-btn">
-                 <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
-                   <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
-                 </button>
-             </span>
-             <input style='border:none;' type="text" name="quantity" class="form-control input-number quantity quantity-one-product" value="1">
-             <span class="input-group-btn">
-                 <button  type="button" class="quantity-right-plus btn btn-success btn-number " data-type="plus">
-                     <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
-                 </button>
-             </span>
-         </div>
-         <a  class="nav-link btn-add-card">{% trans 'Add to Cart' %}<svg width="18" height="18"><use xlink:href="#cart"></use></svg></a>
-       </div>
+{% for p in products %}
+<div data-product-id="{{p.pid}}" class="col"> 
+ <div class="product-item">
+   <p style="display:none;" class="vendor-id">{{p.vendor.vid}}</p>
+   {% if get_precentage %}
+   <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
+  {% endif %}
+   <a class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
+   <figure style="height:30vh;">
+     <a href="{% url 'productDetils' p.pid %}" title="{{ p.title }}">
+       <img style="height:100%; width:100%; border-radius:10px;" src="{{p.image.url}}" alt="{{p.title}}" loading="lazy">
+     </a> 
+   </figure> 
+   <h3 class="name-of-product">{{p.title}}</h3>
+   <p class="category-of-product" style="color: rgb(182, 182, 182);">{{p.category.categoress}}</p>
+   <span class="price price-in-pro-item">{{p.price}}</span>
+   <span style="color: rgb(182,182,182); text-decoration: line-through; font-size:14px; margin-left:10px;" class="old_price">DZ{{p.old_price}}</span>
+ </div>
+</div>
+{% endfor %}
 
-     </div>
-     </div> 
-   
-   {% endfor %} 
   </div>
   </div>
   </div>

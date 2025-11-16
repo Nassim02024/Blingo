@@ -58,7 +58,7 @@ class ProductAdmin(admin.ModelAdmin):
   
 # from model.py class category line 36
 class CategoryAdmin(admin.ModelAdmin):
-  list_display = ["cid", "categoress" , "Category_imge"] 
+  list_display = ["cid", "categoress" , ] 
   # readonly_fields = ["cid" ,"categoress" , "Category_imge"]
   
   
