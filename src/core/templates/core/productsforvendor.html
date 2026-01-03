@@ -911,8 +911,7 @@
       <div class="row">
         <div class="col-md-12">
           <div
-            class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4"
-          >
+            class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4" >
             <!-- page product one vendor -->
             {% for p in product %}
 
@@ -924,10 +923,8 @@
                   >{{p.get_precentage|floatformat:0}}%</span
                 >
                 {% endif %}
-                <a class="btn-wishlist"
-                  ><svg width="24" height="24">
-                    <use xlink:href="#heart"></use></svg
-                ></a>
+                <a class="btn-wishlist" ><svg width="24" height="24">
+                    <use xlink:href="#heart"></use></svg ></a>
                 <figure>
                   <a
                     href="{% url 'productDetils' p.pid %}"
@@ -1000,8 +997,7 @@
                   </div>
                   <a class="nav-link btn-add-card"
                     >{% trans 'Add to Cart' %}<svg width="18" height="18">
-                      <use xlink:href="#cart"></use></svg
-                  ></a>
+                      <use xlink:href="#cart"></use></svg ></a>
                 </div>
               </div>
             </div>
@@ -1018,60 +1014,24 @@
         <h2 class="my-5 section_most">
           {% trans 'People are also looking for' %}
         </h2>
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'tomat' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'margarin' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Salty kettle Corn' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chobani Greek Yogurt' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Sweet Vanilla Yogurt' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Foster Farms Takeout Crispy wings' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Warrior Blend Organic' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chao Cheese Creamy' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chicken meatballs' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Blue diamon almonds' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Angie’s Boomchickapop Corn' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Salty kettle Corn' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chobani Greek Yogurt' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Sweet Vanilla Yogurt' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Foster Farms Takeout Crispy wings' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Warrior Blend Organic' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chao Cheese Creamy' %}</a
-        >
-        <a class="btn btn-warning me-2 mb-2 value_search"
-          >{% trans 'Chicken meatballs' %}</a
-        >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'tomat' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'margarin' %}</a>
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Salty kettle Corn' %}</a>
+        <a class="btn btn-warning me-2 mb-2 value_search">{% trans 'Chobani Greek Yogurt' %}</a>
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Sweet Vanilla Yogurt' %}</a>
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Foster Farms Takeout Crispy wings' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Warrior Blend Organic' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Chao Cheese Creamy' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Chicken meatballs' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Blue diamon almonds' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Angie’s Boomchickapop Corn' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Salty kettle Corn' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Chobani Greek Yogurt' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Sweet Vanilla Yogurt' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Foster Farms Takeout Crispy wings' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Warrior Blend Organic' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Chao Cheese Creamy' %}</a >
+        <a class="btn btn-warning me-2 mb-2 value_search" >{% trans 'Chicken meatballs' %}</a >
       </div>
     </section>
 

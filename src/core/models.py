@@ -188,6 +188,14 @@ class CartOrder(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE , null=True, blank=True)
   vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, blank=True)
   product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
+  vendor_new = models.ForeignKey(
+    Vendor,
+    on_delete=models.SET_NULL,  # هذا يسمح بحذف Vendor مع تعيين NULL في الحقول المرتبطة
+    null=True,
+    blank=True,
+    related_name='cartorders_new'
+    )
+
 
   
   fullname = models.CharField(max_length=100 , blank=True, null=True)
@@ -209,7 +217,7 @@ class CartOrder(models.Model):
   def __str__(self):
     return f"{self.customer_name} - {self.product_name} - {self.product_price} - {self.lng} - {self.lat}"
   
-
+ 
 class CartOrderItems(models.Model):
   invoice_on = models.CharField(max_length=300 )
   order = models.ForeignKey(CartOrder , on_delete=models.CASCADE , related_name="items")

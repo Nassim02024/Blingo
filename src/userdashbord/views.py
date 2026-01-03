@@ -104,36 +104,42 @@ from .forms import AddProductForms
 import cloudinary.uploader
 
 def addproduct(request):
+    # جلب التاجر المرتبط بالمستخدم الحالي أولاً
+    try:
+        current_vendor = request.user.vendor
+    except Exception:
+        messages.error(request, "لا يوجد متجر مرتبط بهذا الحساب.")
+        return redirect('dashbord')
+
     if request.method == 'POST':
-        form = AddProductForms(request.POST , request.FILES)
+        # نمرر التاجر للـ Form هنا أيضاً ليتأكد من صحة التصنيف المختار
+        form = AddProductForms(request.POST, request.FILES, vendor=current_vendor)
         if form.is_valid():
             try:
                 new_form = form.save(commit=False)
                 new_form.user = request.user
-                new_form.vendor = request.user.vendor 
+                new_form.vendor = current_vendor 
                 
-                # رفع الصورة على Cloudinary (اختياري حسب حقل الصورة)
                 if 'image' in request.FILES:
                     upload_result = cloudinary.uploader.upload(
                         request.FILES['image'],
-                        timeout=30  # زيادة وقت الاتصال إذا بطيء
+                        timeout=30
                     )
                     new_form.image = upload_result['secure_url']
-
                 
                 new_form.save()
-                form.save_m2m()  # لحفظ علاقات ManyToMany
+                form.save_m2m()
                 
                 messages.success(request, "تم إضافة المنتج بنجاح!")
                 return redirect('dashbord')
 
             except Exception as e:
-                # إذا حدث أي خطأ أثناء الحفظ أو الرفع
                 messages.error(request, f"حدث خطأ أثناء إضافة المنتج: {str(e)}")
         else:
             messages.error(request, "البيانات غير صحيحة، يرجى التحقق من النموذج.")
     else:
-        form = AddProductForms()
+        # هنا التمرير الأهم لإظهار التصنيفات الصحيحة في صفحة الإضافة (GET)
+        form = AddProductForms(vendor=current_vendor)
 
     context = {
         "form": form

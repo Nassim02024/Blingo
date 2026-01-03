@@ -52,7 +52,7 @@ STATUS_CHOICES =  (
  
 class AddProductForms(forms.ModelForm):
   title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control' , 'placeholder': 'Enter product Name'}))
-  category = forms.ModelChoiceField(queryset=Category.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
+  category = forms.ModelChoiceField(queryset=Category.objects.none(), widget=forms.Select(attrs={'class': 'form-control'}))  
   unity = forms.ChoiceField(choices = untiy_choices , widget=forms.Select(attrs={'class': 'form-select'}) ) 
   price = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control' , 'placeholder': 'Enter product price'}))
   old_price = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control' , 'placeholder': 'Enter product old_price'}))
@@ -62,3 +62,13 @@ class AddProductForms(forms.ModelForm):
   class Meta:
      model = Product
      fields = ['title', 'image' , 'category', 'unity' , 'product_status', 'in_stock' , 'price', 'old_price']
+  
+  
+  def __init__(self, *args, **kwargs):
+        # نأخذ التاجر من الـ kwargs ونحذفه قبل إرساله للـ super
+        vendor = kwargs.pop('vendor', None)
+        super(AddProductForms, self).__init__(*args, **kwargs)
+        
+        # إذا وجدنا التاجر، نقوم بفلترة التصنيفات الخاصة به فقط
+        if vendor:
+            self.fields['category'].queryset = Category.objects.filter(vendor=vendor)

@@ -63,26 +63,26 @@ def category(request , vid):
 
 
 def product_category(request, cid, vid):
-    # تأكد من أن البائع موجود
+    # جلب التاجر
     vendor = get_object_or_404(Vendor, vid=vid)
-    # تأكد من أن التصنيف موجود وبخاص بهذا البائع
+    
+    # جلب التصنيف المحدد لهذا التاجر فقط
+    # تأكد أن 'cid' هو المعرف الفريد الذي تستخدمه في الموديل
     category = get_object_or_404(Category, cid=cid, vendor=vendor)
 
-    # جلب المنتجات التي تنتمي لهذا التصنيف وهذا البائع فقط
+    # جلب المنتجات (تأكد من استخدام الفلترة الصارمة)
     products = Product.objects.filter(
-        category=category,
-        vendor=vendor,
+        vendor=vendor,      # يجب أن يكون التاجر هو صاحب المنتج
+        category=category,  # يجب أن يكون المنتج مسجلاً تحت هذا التصنيف تحديداً
         product_status="published"
     )
 
     context = {
         "category": category,
-        "products": products,   # لاحظ أنه "products" وليس "product"
+        "products": products,
         "vendor": vendor
     }
     return render(request, 'core/product_category.html', context)
-
-
 
 
 
@@ -140,6 +140,12 @@ def search_product(request , vid):
     return render(request, 'core/search_product.html', context)
 
 
+from decimal import Decimal
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse
+from .models import Vendor, Product, CartOrder, CartOrderItems
+import resend
+from decouple import config
 
 
 def cardorder(request, vid):
@@ -147,103 +153,111 @@ def cardorder(request, vid):
     products = Product.objects.filter(vendor=vendor, product_status="published")
 
     if request.method == "POST":
-        # data = json.loads(request.body)
+
         product_ids = request.POST.getlist("product_id[]")
         product_names = request.POST.getlist("productName[]")
         product_prices = request.POST.getlist("price[]")
         qun = request.POST.getlist("qun[]")
+
         lng = request.POST.get("lng")
         lat = request.POST.get("lat")
-        print("RAW Lng:", request.POST.get("lng"))
-        print("RAW Lat:", request.POST.get("lat"))
 
-        send_delivry_service = Decimal(request.POST.get("send_delivry_service"))
-        print("Delivery Service Price:", send_delivry_service)
+        send_delivry_service = Decimal(request.POST.get("send_delivry_service", 0))
 
-        if lng in [None, "", 'null', 'undefined']:
-          lng = None
-        else:  
-          lng = float(lng)
-        if lat in [None, "", 'null', 'undefined']:
-          lat = None
-        else: 
-          lat = float(lat) 
-          
-        # fullname = request.POST.get('fullname')
-        # email = request.POST.get('email')
+        # معالجة الإحداثيات
+        lng = None if lng in [None, "", "null", "undefined"] else float(lng)
+        lat = None if lat in [None, "", "null", "undefined"] else float(lat)
 
-        if not (len(product_ids) == len(product_names) == len(product_prices)):
-            return HttpResponse("❌ عدد البيانات غير متطابق", status=400)
+        if not product_ids:
+            return HttpResponse("❌ لا يوجد منتجات", status=400)
 
-        # ✅ ننشئ الطلب العام مرة واحدة فقط
-        first_product = Product.objects.get(pid=product_ids[0])
+        # ✅ استخراج vendor من أول منتج (منطقي وصحيح)
+        first_product = get_object_or_404(Product, pid=product_ids[0])
+        vendor = first_product.vendor
 
-        if request.user.is_authenticated:
-          user = request.user
-        else:
-          user = None  
+        user = request.user if request.user.is_authenticated else None
+        customer_name = request.POST.get("name", "Guest")
+
+        # ✅ حساب مجموع الكميات
+        total_quantity = sum(int(q) for q in qun)
+
+        # استخراج Vendor من أول منتج
+        first_product = get_object_or_404(Product, pid=product_ids[0])
+        vendor = first_product.vendor  # هذا Vendor صحيح وموجود
+
+        # إنشاء الطلب
         order = CartOrder.objects.create(
-            product_name="، ".join(product_names),  # اختياري: عرض أسماء المنتجات مجتمعة
-            qunt=sum([int(q) for q in qun]),
-            product_price=sum([Decimal(p) for p in product_prices]),
-            vendor=vendor,
-            product=first_product,  # أو يمكن تركه فارغًا
-            user=user,
-            lng = lng,
-            lat = lat,
-            delivry = send_delivry_service
+            user=request.user if request.user.is_authenticated else None,
+            vendor_new=vendor,  # <-- هنا نستخدم الحقل الجديد
+            customer_name=customer_name,
+            qunt=total_quantity,
+            product_price=Decimal("0.00"),
+            lng=lng,
+            lat=lat,
+            delivry=send_delivry_service,
         )
-        print("Saved in DB:", order.lng, order.lat)
 
-        # ✅ الآن نضيف كل المنتجات المرتبطة بهذا الطلب
+
+        total_price = Decimal("0.00")
+
+        # ✅ إنشاء عناصر الطلب
         for pid, name, price, quantity in zip(product_ids, product_names, product_prices, qun):
-            try:
-                product = Product.objects.get(pid=pid)
-            except Product.DoesNotExist:
+            product = Product.objects.filter(pid=pid).first()
+            if not product:
                 continue
+
+            quantity = int(quantity)
+            price = Decimal(price)
+            item_total = price * quantity
+
             CartOrderItems.objects.create(
                 order=order,
                 product=product,
                 product_status="processing",
                 item=product.title,
                 image=product.image.url if product.image else "",
-                quantity=int(quantity),
-                price=Decimal(price),
-                total=Decimal(price) * int(quantity),
+                quantity=quantity,
+                price=price,
+                total=item_total,
                 invoice_on=f"INV-{order.id}-{product.pid}",
             )
-            
-            phone = request.POST.get("phone")
-            address1 = request.POST.get("address-line-1")
-            notes = request.POST.get("notes")  
-                  
-            
-            # deliveryservice 
-            total =  order.product_price + send_delivry_service
-            # print(total)
 
+            total_price += item_total
+
+        # ✅ تحديث السعر النهائي
+        order.product_price = total_price
+        order.save()
+
+        # بيانات إضافية
+        phone = request.POST.get("phone")
+        address1 = request.POST.get("address-line-1")
+        notes = request.POST.get("notes")
+
+        total = total_price + send_delivry_service
+
+        # ✅ إرسال الإيميل (كما أردت)
         resend.api_key = config("RESEND_API_KEY")
-
-        params: resend.Emails.SendParams = {
+        resend.Emails.send({
             "from": "Acme <info@blingoservic.com>",
             "to": ["blingohyper@gmail.com"],
-            "subject": "hello world",
-            "html": f"New order From: {request.user.username}<br>Phone: {phone}<br>Address1: {address1}<br>notes: {notes}<br>price: {order.product_price} <br>Delivry service: {send_delivry_service} <br>Total: {total}",
-        }
+            "subject": "New Order",
+            "html": f"""
+                New order From: {user.username if user else 'Guest'}<br>
+                Phone: {phone}<br>
+                Address: {address1}<br>
+                Notes: {notes}<br>
+                Products Price: {total_price}<br>
+                Delivery: {send_delivry_service}<br>
+                Total: {total}
+            """
+        })
 
-        email = resend.Emails.send(params)
-        print(email)
+        return HttpResponse("✅ تم إنشاء الطلب بنجاح")
 
-  
-        return HttpResponse(f"✅ تم إنشاء الطلب بنجاح!: ")
-
-    context = {
+    return render(request, "core/cardorder.html", {
         "vendor": vendor,
         "product": products,
-        
-    }
-    return render(request, "core/cardorder.html", context)
-
+    })
 
 
 

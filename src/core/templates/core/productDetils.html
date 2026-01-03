@@ -68,49 +68,7 @@
 
 
 
-      <div class="category_card">
-        {% for p in products %}
-                      
-        <div class="col" >
-          <div class="product-item">
     
-            
-            {% if get_precentage %}
-            <span class="badge bg-success position-absolute m-3">{{p.get_precentage|floatformat:0}}%</span>
-            {% endif %}
-            <a  class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
-            <figure>
-              <a href="{% url 'productDetils' p.pid %}">
-                <img width="100%" src="{{p.image.url}}" alt="Product Thumbnail" class="tab-image" loading="lazy">
-              </a>
-            </figure>
-            <h3>{{p.title}}</h3>
-            <p style="color: rgb(182, 182, 182);">{{p.category.categoress}}</p>
-            <span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg>{% trans '4.5' %}</span>
-            <span class="price">DZ{{p.price}}</span>
-            <span style="color: rgb(182, 182, 182); display: inline-block; text-decoration: line-through; font-size: 14px; margin-left: 10px;" class="old_price">DZ{{p.old_price}}</span>
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="input-group product-qty">
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
-                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
-                      </button>
-                  </span>
-                  <input type="text" name="quantity" class="form-control input-number quantity" value="1">
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
-                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
-                      </button>
-                  </span>
-              </div>
-              <a  class="nav-link">{% trans 'Add to Cart' %}<svg width="18" height="18"><use xlink:href="#cart"></use></svg></a>
-            </div>
-    
-          </div>
-          </div>
-        
-     {% endfor %}
-      </div>
 
 
 </div>

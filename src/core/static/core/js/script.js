@@ -298,127 +298,154 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // تعريف البائع الحالي
+  // --- 1. تعريف البائع والسلة ---
   let currentVendorId = document.querySelector('.vendor-id')?.textContent.trim();
-
-  // جلب السلة من التخزين
   let arrayProduct = JSON.parse(localStorage.getItem('arrayProduct')) || [];
 
-  // ✅ تحقق إذا كانت السلة تخص بائعًا آخر
-  if (arrayProduct.length > 0 && arrayProduct[0].vId !== currentVendorId) {
+  if (arrayProduct.length > 0 && currentVendorId && arrayProduct[0].vId !== currentVendorId) {
     localStorage.removeItem('arrayProduct');
     arrayProduct = [];
-    location.reload(); // لإفراغ الصفحة من منتجات البائع الآخر
+    location.reload();
     return;
   }
 
-
-
-  
-    
-  // navigator.geolocation.getCurrentPosition((pos) =>{
-  //   let lng = pos.coords.longitude
-  //   let lat = pos.coords.latitude
-  
-  
-  //   fetch(`${window.location.origin}{% url 'cardorder' vendor.vid %}?product={{ product.vendor }}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "X-CSRFToken": "{{ csrf_token }}"
-  //     },
-  //     body: JSON.stringify({ lng, lat })
-  //   })
-  //   .then(res => res.text())
-  //   .then(data =>{
-  //     console.log("📌 الرد من السيرفر:", data)
-  //   })
-  // })
-
-  // end location customer
-
-
-  // تعريف العناصر
-  let nameOfProduct = document.querySelectorAll('.name-of-product');
-  let productPid = document.querySelectorAll('.product-pid');
-  let vendorId = document.querySelectorAll('.vendor-id');
-  let categoryOfProduct = document.querySelectorAll('.category-of-product');
-  let priceInProItem = document.querySelectorAll('.price-in-pro-item');
-  let quantityOneProduct = document.querySelectorAll('.quantity-one-product');
-  let btnAddCard = document.querySelectorAll('.btn-add-card');
-  let listGroup = document.querySelector('.list-group');
-  let alerts = document.querySelector('.alerts');
-  
-  // رسم المنتجات من التخزين
+  // --- 2. رسم المنتجات من التخزين عند التحميل ---
+  // ملاحظة: قمت بتعديل هذه الجزئية لتعمل بالـ PID بدلاً من الـ index فقط
   arrayProduct.forEach((storedProduct) => {
-    let i = Array.from(productPid).findIndex(el => el.textContent.trim() === storedProduct.pid);
-    if (i !== -1) createItem(i);
+    renderStoredItem(storedProduct);
   });
-  
-  // كود إضافة المنتج
-  for (let i = 0; i < btnAddCard.length; i++) {
-    btnAddCard[i].addEventListener('click', function () {
-      let productName = nameOfProduct[i].textContent.trim();
-      let pid = productPid[i].textContent.trim();
-      let vId = vendorId[i].textContent.trim();
-      let qun = quantityOneProduct[i].value;
-      let prices = parseFloat(priceInProItem[i].textContent.trim()) * parseInt(qun);
-  
+
+  // --- 3. الحدث الرئيسي (إضافة منتج) باستخدام Event Delegation ---
+  // هذه الطريقة تضمن عمل الزر حتى لو تغير الـ HTML أو كان المنتج داخل Loop مختلف
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.btn-add-card')) {
+      e.preventDefault();
+      
+      // العثور على حاوية المنتج الأقرب (الـ Card)
+      let productCard = e.target.closest('.product-item');
+      
+      // جلب البيانات بدقة من داخل الكارد نفسه وليس عبر Index عام
+      let productName = productCard.querySelector('.name-of-product')?.textContent.trim();
+      let pid = productCard.querySelector('.product-pid')?.textContent.trim();
+      let vId = productCard.querySelector('.vendor-id')?.textContent.trim();
+      let qunInput = productCard.querySelector('.quantity-one-product');
+      let qun = qunInput ? qunInput.value : 1;
+      let priceText = productCard.querySelector('.price-in-pro-item')?.textContent.trim();
+      let unitPrice = parseFloat(priceText);
+      let totalPrice = unitPrice * parseInt(qun);
+
+      // ✅ فحص الأخطاء قبل الإضافة (يمنع IntegrityError)
+      if (!vId || vId === "undefined") {
+        console.error("خطأ: معرف البائع مفقود في الـ HTML");
+        return;
+      }
+      if (!pid) {
+        console.error("خطأ: معرف المنتج (PID) مفقود");
+        return;
+      }
+
       // تحقق من تكرار المنتج
       if (arrayProduct.some(item => item.pid === pid)) {
         showAlert("⚠️ المنتج موجود مسبقا", "#ffcdd2");
         return;
       }
-  
-      // دالة للكشف عن WebView (Facebook / Instagram)
-      function isInWebView() {
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        return /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
-      }
-  
-      // دالة لإضافة المنتج
-      function addProduct(lng = null, lat = null) {
-        showAlert("🛒 تم إضافة المنتج", "#ccff33");
-        let productData = { productName, prices, pid, vId, qun, lng, lat };
+
+      // دالة الإضافة الفعلية
+      const addProduct = (lng = null, lat = null) => {
+        let productData = { 
+            productName, 
+            prices: totalPrice, 
+            pid, 
+            vId, 
+            qun, 
+            lng, 
+            lat,
+            category: productCard.querySelector('.category-of-product')?.textContent.trim() || ""
+        };
+        
         arrayProduct.push(productData);
-        createItem(i);
         localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
-      }
-  
-      // إذا كان داخل Facebook / Instagram
-      if (isInWebView()) {
+        
+        renderStoredItem(productData); // إضافة للعرض
+        showAlert("🛒 تم إضافة المنتج", "#ccff33");
+      };
+
+      // الكشف عن الـ WebView (فيسبوك/انستغرام)
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const isInWebView = /FBAN|FBAV|Instagram|FB_IAB|wv/.test(ua);
+
+      if (isInWebView) {
         addProduct();
-        const banner = document.getElementById('webviewBanner');
-        if (banner) banner.style.display = 'block';
-        return;
-      }
-  
-      // المتصفح العادي → طلب الموقع
-      if (navigator.geolocation) {
+        document.getElementById('webviewBanner')?.style.setProperty('display', 'block');
+      } else if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            addProduct(pos.coords.longitude, pos.coords.latitude);
-          },
-          () => {
-            showAlert("⚠️ يرجى فتح الموقع لإضافة المنتجات", "#ffcdd2");
-          }
+          (pos) => addProduct(pos.coords.longitude, pos.coords.latitude),
+          () => showAlert("⚠️ يرجى فتح الموقع لإضافة المنتجات", "#ffcdd2")
         );
       } else {
-        showAlert("⚠️ متصفحك لا يدعم خاصية المواقع، يرجى فتح الموقع في متصفح آخر", "#ffcdd2");
+        addProduct(); // إضافة بدون موقع إذا كان المتصفح لا يدعم
       }
+    }
+  });
+
+  // --- 4. دالة رسم العنصر في القائمة ---
+  function renderStoredItem(item) {
+    let listGroup = document.querySelector('.list-group');
+    if(!listGroup) return;
+
+    let li = document.createElement('li');
+    li.className = 'list-group-item d-flex justify-content-between lh-sm list-group-item-card';
+    li.innerHTML = `
+      <div>
+        <h6 class="my-0">${item.productName}</h6>
+        <small class="text-body-secondary">${item.category || ""}</small>
+      </div>
+      <h4 class="text-body-secondary price-for-one" style="margin-top: 6px;">${item.prices}</h4>
+      <p style="margin-top:8px;">x${item.qun}</p>
+      <button class="btn btn-danger delete-item-pro" type="button" data-pid="${item.pid}">
+        <i class="bi bi-trash"></i>
+      </button>
+    `;
+
+    listGroup.appendChild(li);
+    updateTotalPrice();
+    updateCount();
+
+    // حذف المنتج
+    li.querySelector('.delete-item-pro').addEventListener('click', function () {
+      li.remove();
+      arrayProduct = arrayProduct.filter(p => p.pid !== item.pid);
+      localStorage.setItem("arrayProduct", JSON.stringify(arrayProduct));
+      updateTotalPrice();
+      updateCount();
     });
   }
-  
-  // دالة بسيطة للرسائل
+
+  // --- 5. تحديث الأرقام ---
+  function updateTotalPrice() {
+    let total = arrayProduct.reduce((sum, item) => sum + parseFloat(item.prices), 0);
+    let totalElement = document.querySelector('.totals-price');
+    if(totalElement) totalElement.innerHTML = total + ' Dz';
+  }
+
+  function updateCount() {
+    let count = arrayProduct.length;
+    document.querySelectorAll('.badge, .count-for-card-icon').forEach(el => {
+      el.innerHTML = count;
+    });
+  }
+
+  // دالة الرسائل التنبيهية
   function showAlert(message, bg) {
     const alertBox = document.querySelector(".alerts");
+    if(!alertBox) return;
     alertBox.querySelector("p").textContent = message;
     alertBox.style.background = bg;
     alertBox.style.visibility = "visible";
-    setTimeout(() => {
-      alertBox.style.visibility = "hidden";
-    }, 2000);
+    setTimeout(() => { alertBox.style.visibility = "hidden"; }, 2000);
   }
+
+  // --- باقي الكود الخاص بالبحث والسكرول (يعمل كما هو) ---
   
 
   function createItem(i) {
