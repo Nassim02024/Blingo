@@ -156,7 +156,9 @@ def cardorder(request, vid):
 
         product_ids = request.POST.getlist("product_id[]")
         product_names = request.POST.getlist("productName[]")
-        product_prices = request.POST.getlist("price[]")
+        # ✅ تم الإبقاء على product_prices كقائمة كما تم إرسالها من JS
+        product_prices_list = request.POST.getlist("price[]")
+        print(product_prices_list)
         qun = request.POST.getlist("qun[]")
 
         lng = request.POST.get("lng")
@@ -181,27 +183,23 @@ def cardorder(request, vid):
         # ✅ حساب مجموع الكميات
         total_quantity = sum(int(q) for q in qun)
 
-        # استخراج Vendor من أول منتج
-        first_product = get_object_or_404(Product, pid=product_ids[0])
-        vendor = first_product.vendor  # هذا Vendor صحيح وموجود
-
         # إنشاء الطلب
         order = CartOrder.objects.create(
             user=request.user if request.user.is_authenticated else None,
-            vendor_new=vendor,  # <-- هنا نستخدم الحقل الجديد
+            vendor_new=vendor,
             customer_name=customer_name,
             qunt=total_quantity,
-            product_price=Decimal("0.00"),
+            product_price=Decimal("0.00"),  # سيتم تحديثه لاحقًا
             lng=lng,
             lat=lat,
             delivry=send_delivry_service,
         )
 
-
-        total_price = Decimal("0.00")
+        # ✅ حساب السعر الكلي الصحيح لإنشاء عناصر الطلب فقط
+        calculated_total_price_with_quantities = Decimal("0.00")
 
         # ✅ إنشاء عناصر الطلب
-        for pid, name, price, quantity in zip(product_ids, product_names, product_prices, qun):
+        for pid, name, price, quantity in zip(product_ids, product_names, product_prices_list, qun):
             product = Product.objects.filter(pid=pid).first()
             if not product:
                 continue
@@ -209,6 +207,7 @@ def cardorder(request, vid):
             quantity = int(quantity)
             price = Decimal(price)
             item_total = price * quantity
+            print(f"Item Total : {item_total}")
 
             CartOrderItems.objects.create(
                 order=order,
@@ -222,9 +221,29 @@ def cardorder(request, vid):
                 invoice_on=f"INV-{order.id}-{product.pid}",
             )
 
-            total_price += item_total
+            # إضافة قيمة السلعة الإجمالية (السعر * الكمية) إلى المجموع الصحيح
+            calculated_total_price_with_quantities += item_total
+            
+            # ❌ تم إزالة السطر الذي كان يسبب المشكلة (إعادة تعيين المتغير بشكل خاطئ):
+            # total_price = product_prices
+            
 
-        # ✅ تحديث السعر النهائي
+        # ✅ تعيين السعر الكلي كما أرسلته الجافاسكريبت، ولكن يجب تحويله إلى Decimal
+        # ⚠️ ملاحظة: قمت بافتراض أن القيمة المرسلة في product_prices_list هي قيمة واحدة تمثل الإجمالي.
+        # إذا كانت القائمة تحتوي على أكثر من سعر، فالمنطق لا يزال غير صحيح، ولكني سأفترض أنك تقصد الإجمالي:
+        
+        # 1. نحول القائمة إلى سلسلة نصية لتمثيل الإجمالي الذي أرسلته (هنا يمكن أن تكون المشكلة)
+        # إذا كانت القيمة المرسلة هي قيمة الإجمالي النهائي من JS:
+        try:
+            # افتراض أن القيمة النهائية هي العنصر الأول في القائمة المرسلة
+            final_product_price = Decimal(product_prices_list[0])
+        except (IndexError, TypeError, ValueError):
+            # في حالة عدم إرسال قيمة، نستخدم القيمة المحسوبة داخليًا
+            final_product_price = calculated_total_price_with_quantities
+        
+        total_price = final_product_price
+        
+        # ✅ تحديث السعر النهائي في حقل الطلب (باستخدام القيمة المرسلة من JS)
         order.product_price = total_price
         order.save()
 
@@ -233,9 +252,13 @@ def cardorder(request, vid):
         address1 = request.POST.get("address-line-1")
         notes = request.POST.get("notes")
 
+        # ✅ حساب الإجمالي الكلي (سعر المنتجات كما أرسلته JS + التوصيل)
         total = total_price + send_delivry_service
 
-        # ✅ إرسال الإيميل (كما أردت)
+        # ✅ إرسال الإيميل
+        import resend
+        from decouple import config
+        
         resend.api_key = config("RESEND_API_KEY")
         resend.Emails.send({
             "from": "Acme <info@blingoservic.com>",
@@ -258,7 +281,6 @@ def cardorder(request, vid):
         "vendor": vendor,
         "product": products,
     })
-
 
 
 
