@@ -147,24 +147,31 @@ from .models import Vendor, Product, CartOrder, CartOrderItems
 import resend
 from decouple import config
 
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from decimal import Decimal
+from .models import Vendor, Product, CartOrder, CartOrderItems
+from decouple import config
+import resend 
 
 def cardorder(request, vid):
     vendor = get_object_or_404(Vendor, vid=vid)
-    products = Product.objects.filter(vendor=vendor, product_status="published")
 
     if request.method == "POST":
 
         product_ids = request.POST.getlist("product_id[]")
         product_names = request.POST.getlist("productName[]")
-        # ✅ تم الإبقاء على product_prices كقائمة كما تم إرسالها من JS
-        product_prices_list = request.POST.getlist("price[]")
-        print(product_prices_list)
+        # ✅ ملاحظة هامة: price_per_item_total هي القيمة الإجمالية للعنصر (السعر * الكمية) كما أرسلها الـ JS
+        price_per_item_total_list = request.POST.getlist("price[]") 
         qun = request.POST.getlist("qun[]")
 
         lng = request.POST.get("lng")
         lat = request.POST.get("lat")
-
-        send_delivry_service = Decimal(request.POST.get("send_delivry_service", 0))
+        
+        try:
+            send_delivry_service = Decimal(request.POST.get("send_delivry_service", '0'))
+        except:
+            send_delivry_service = Decimal('0.00')
 
         # معالجة الإحداثيات
         lng = None if lng in [None, "", "null", "undefined"] else float(lng)
@@ -173,42 +180,52 @@ def cardorder(request, vid):
         if not product_ids:
             return HttpResponse("❌ لا يوجد منتجات", status=400)
 
-        # ✅ استخراج vendor من أول منتج (منطقي وصحيح)
         first_product = get_object_or_404(Product, pid=product_ids[0])
         vendor = first_product.vendor
 
         user = request.user if request.user.is_authenticated else None
         customer_name = request.POST.get("name", "Guest")
-
-        # ✅ حساب مجموع الكميات
+        
         total_quantity = sum(int(q) for q in qun)
 
         # إنشاء الطلب
         order = CartOrder.objects.create(
-            user=request.user if request.user.is_authenticated else None,
+            user=user,
             vendor_new=vendor,
             customer_name=customer_name,
             qunt=total_quantity,
-            product_price=Decimal("0.00"),  # سيتم تحديثه لاحقًا
+            product_price=Decimal("0.00"), 
             lng=lng,
             lat=lat,
             delivry=send_delivry_service,
         )
 
-        # ✅ حساب السعر الكلي الصحيح لإنشاء عناصر الطلب فقط
+        # ✅ المتغير الذي سيحتوي على إجمالي سعر المنتجات فقط
         calculated_total_price_with_quantities = Decimal("0.00")
 
-        # ✅ إنشاء عناصر الطلب
-        for pid, name, price, quantity in zip(product_ids, product_names, product_prices_list, qun):
+        # إنشاء عناصر الطلب وحساب الإجمالي
+        for pid, name, item_total_price_str, quantity_str in zip(product_ids, product_names, price_per_item_total_list, qun):
             product = Product.objects.filter(pid=pid).first()
             if not product:
                 continue
 
-            quantity = int(quantity)
-            price = Decimal(price)
-            item_total = price * quantity
-            print(f"Item Total : {item_total}")
-
+            quantity = int(quantity_str)
+            
+            # 💡 السعر الإجمالي للعنصر كما أرسلته الواجهة الأمامية
+            try:
+                item_total_price = Decimal(item_total_price_str) 
+            except:
+                item_total_price = Decimal("0.00")
+            
+            # ✅ حساب سعر الوحدة الفعلي (Total Price / Quantity)
+            # نضمن عدم القسمة على صفر، واستخدام كمية المنتج من قاعدة البيانات كاحتياطي إذا لزم الأمر
+            if quantity > 0:
+                unit_price = item_total_price / quantity 
+            else:
+                unit_price = Decimal("0.00")
+            
+            # ✅ سعر الوحدة هو الآن price، والسعر الإجمالي للعنصر هو item_total_price
+            
             CartOrderItems.objects.create(
                 order=order,
                 product=product,
@@ -216,35 +233,19 @@ def cardorder(request, vid):
                 item=product.title,
                 image=product.image.url if product.image else "",
                 quantity=quantity,
-                price=price,
-                total=item_total,
+                price=unit_price,  # 💡 تم تسجيل سعر الوحدة الآن
+                total=item_total_price, # 💡 تم تسجيل الإجمالي للعنصر (السعر * الكمية)
                 invoice_on=f"INV-{order.id}-{product.pid}",
             )
 
             # إضافة قيمة السلعة الإجمالية (السعر * الكمية) إلى المجموع الصحيح
-            calculated_total_price_with_quantities += item_total
+            calculated_total_price_with_quantities += item_total_price
             
-            # ❌ تم إزالة السطر الذي كان يسبب المشكلة (إعادة تعيين المتغير بشكل خاطئ):
-            # total_price = product_prices
-            
-
-        # ✅ تعيين السعر الكلي كما أرسلته الجافاسكريبت، ولكن يجب تحويله إلى Decimal
-        # ⚠️ ملاحظة: قمت بافتراض أن القيمة المرسلة في product_prices_list هي قيمة واحدة تمثل الإجمالي.
-        # إذا كانت القائمة تحتوي على أكثر من سعر، فالمنطق لا يزال غير صحيح، ولكني سأفترض أنك تقصد الإجمالي:
-        
-        # 1. نحول القائمة إلى سلسلة نصية لتمثيل الإجمالي الذي أرسلته (هنا يمكن أن تكون المشكلة)
-        # إذا كانت القيمة المرسلة هي قيمة الإجمالي النهائي من JS:
-        try:
-            # افتراض أن القيمة النهائية هي العنصر الأول في القائمة المرسلة
-            final_product_price = Decimal(product_prices_list[0])
-        except (IndexError, TypeError, ValueError):
-            # في حالة عدم إرسال قيمة، نستخدم القيمة المحسوبة داخليًا
-            final_product_price = calculated_total_price_with_quantities
-        
-        total_price = final_product_price
-        
-        # ✅ تحديث السعر النهائي في حقل الطلب (باستخدام القيمة المرسلة من JS)
-        order.product_price = total_price
+        # -------------------------------------------------------------
+        # ✅ التعديل الحاسم: تحديث product_price في الطلب بالقيمة المحسوبة
+        # -------------------------------------------------------------
+        total_products_price = calculated_total_price_with_quantities 
+        order.product_price = total_products_price
         order.save()
 
         # بيانات إضافية
@@ -252,37 +253,61 @@ def cardorder(request, vid):
         address1 = request.POST.get("address-line-1")
         notes = request.POST.get("notes")
 
-        # ✅ حساب الإجمالي الكلي (سعر المنتجات كما أرسلته JS + التوصيل)
-        total = total_price + send_delivry_service
+        # ✅ حساب الإجمالي الكلي (سعر المنتجات كما حسبناه + التوصيل)
+        total = total_products_price + send_delivry_service
+
+        # ---------------------------------------------
+        # ✅ بناء قائمة HTML للمنتجات في الطلب للإيميل (باستخدام القيم الصحيحة)
+        # ---------------------------------------------
+        products_html = "<h3>Products Ordered:</h3><ul style='list-style: none; padding: 0;'>"
+        order_items = CartOrderItems.objects.filter(order=order)
+
+        for item in order_items:
+            products_html += f"""
+            <li style='margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;'>
+                <strong>{item.item}</strong> (Qty: {item.quantity})<br>
+                Price per unit: {item.price}<br>
+                Total for item: {item.total}
+            </li>
+            """
+        products_html += "</ul>"
+        # ---------------------------------------------
 
         # ✅ إرسال الإيميل
-        import resend
-        from decouple import config
-        
-        resend.api_key = config("RESEND_API_KEY")
-        resend.Emails.send({
-            "from": "Acme <info@blingoservic.com>",
-            "to": ["blingohyper@gmail.com"],
-            "subject": "New Order",
-            "html": f"""
-                New order From: {user.username if user else 'Guest'}<br>
-                Phone: {phone}<br>
-                Address: {address1}<br>
-                Notes: {notes}<br>
-                Products Price: {total_price}<br>
-                Delivery: {send_delivry_service}<br>
-                Total: {total}
-            """
-        })
+        try:
+            resend.api_key = config("RESEND_API_KEY")
+            resend.Emails.send({
+                "from": "Acme <info@blingoservic.com>",
+                "to": ["blingohyper@gmail.com"],
+                "subject": f"New Order #{order.id} from {customer_name}",
+                "html": f"""
+                    <h2>Order Summary - Order #{order.id}</h2>
+                    <hr>
+                    New order From: {user.username if user else 'Guest'}<br>
+                    Customer Name: {customer_name}<br>
+                    Phone: {phone}<br>
+                    Address: {address1}<br>
+                    Notes: {notes}<br>
+                    <hr>
+                    
+                    {products_html} <hr>
+                    
+                    Products Price (Subtotal): {total_products_price}<br>
+                    Delivery: {send_delivry_service}<br>
+                    <strong>Total Amount: {total} Dz</strong>
+                """
+            })
+        except Exception as e:
+            print(f"Failed to send email: {e}")
 
         return HttpResponse("✅ تم إنشاء الطلب بنجاح")
 
+    # نعود فقط لعرض الـ Template
+    products = Product.objects.filter(vendor=vendor, product_status="published")
     return render(request, "core/cardorder.html", {
         "vendor": vendor,
         "product": products,
     })
-
-
 
 def robots_txt(request):
     content = """

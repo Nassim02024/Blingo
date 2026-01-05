@@ -64,7 +64,7 @@
           </button>
         </span>
       </div>
-      <a class="nav-link btn-add-card" style="cursor:pointer;">
+      <a class="nav-link btn-add-card" style="cursor: pointer; background-color: #F9F9F9; padding: 10px; border-radius: 11px;">
         {% trans 'Add to Cart' %}
         <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
       </a>
@@ -83,14 +83,14 @@
 {% block scripts %}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{% static 'core/js/jquery-1.11.0.min.js' %}"></script>
-<script>  
+<!-- <script>  
     // علّم أننا دخلنا لصفحة product_category نخزن المسار الكامل
       // علّم أننا دخلنا لصفحة product_category
       sessionStorage.setItem('was_in_product_category', 'true');
     
 
     
-</script>
+</script> -->
 {% endblock %}
 
 {% endblock content %}

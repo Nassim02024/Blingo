@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // 1. جلب البيانات من local storage
     let arrayProduct = JSON.parse(localStorage.getItem('arrayProduct')) || [];
-    let totalProductsPrice = 0;
+    let totalProductsPrice = 0; // سيتم تحديثه في الحلقة
+
+    // 💰 سعر التوصيل الثابت
+    const fixedDeliveryPrice = 250; 
 
     // تنظيف المحتوى قبل البدء
     if (checking) {
@@ -21,18 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
             let productName = element.productName || "منتج غير مسمى";
             let productPrice = parseFloat(element.prices) || 0;
             let productPid = element.pid || "";
-            
-            // ملاحظة: تأكد أن صفحة المنتج تخزن 'vid' بشكل صحيح
-            let vendorVid = element.vid || ""; 
+            let vendorVid = element.vId || ""; 
             let qun = parseInt(element.qun) || 1;
 
-            totalProductsPrice += (productPrice);
+            totalProductsPrice += productPrice; // مجموع أسعار المنتجات فقط
 
             let html = `
             <div class="product-item" style="display: flex; width: 100%; justify-content: space-around; align-items: center; margin-bottom: 10px;"> 
-              <div class="text-muted">
+              <div class="text-muted" style="width:30%;">
                 <h6 style="font-size: 12px;">المنتج</h6>
-                <p class="text-dark" style="font-weight: bold;">${productName}</p>
+                <p class="text-dark" style="font-weight: Normal; font-size: 12px;">${productName}</p>
               </div>
               
               <div class="text-muted">
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 2. إعدادات حساب التوصيل والإجمالي
-    const select = document.querySelector('.country');
+    // const select = document.querySelector('.country'); // تم التعليق عليه: لم يعد مطلوباً لسعر التوصيل الثابت
     const summary_Delivery_service = document.querySelector('.summary_Delivery_service');
     const summary_order_tolal = document.querySelector('.summary_order_tolal');
     const summary_order_all = document.querySelector('.summary_order_all');
@@ -83,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
         form.appendChild(hiddenInput);
     }
 
+    // تم التعليق على قائمة الأسعار: تم استبدالها بـ fixedDeliveryPrice
+    /*
     const deliveryPrices = {
         'الزاوية العابدية': 100, 'تبسبست': 100, 'حي الرمال': 200, 'حي المستقبل': 150,
         'دراع البارود': 250, 'حي 360 مسكن': 200, 'حي 450 مسكن': 200, 'حي 700 مسكن': 200,
@@ -91,23 +94,29 @@ document.addEventListener('DOMContentLoaded', function () {
         'حي الورود': 200, 'النزلة': 200, 'لبدوع': 200, 'تماسين': 350,
         'لمقارين': 250, 'بلدة عمر': 300, 'مقر': 350, 'بلدة سيدي سليمان': 300, 'القوق': 400
     };
+    */
 
-    // وظيفة تحديث الأسعار
+    // وظيفة تحديث الأسعار (الآن أصبحت تعتمد على السعر الثابت)
     function updateTotals() {
-        const selectedValue = select ? select.value : "";
-        const deliveryPrice = deliveryPrices[selectedValue] || 0;
+        // const selectedValue = select ? select.value : ""; // تم التعليق عليه
+        const deliveryPrice = fixedDeliveryPrice; // ✅ استخدام السعر الثابت
 
+        // استخدام innerText لتحديث النصوص
         if (summary_order_tolal) summary_order_tolal.innerText = totalProductsPrice + ' د.ج';
         if (summary_Delivery_service) summary_Delivery_service.innerText = deliveryPrice + ' د.ج';
         if (summary_order_all) summary_order_all.innerText = (totalProductsPrice + deliveryPrice) + ' د.ج';
         if (end_Delivery_service) end_Delivery_service.innerText = deliveryPrice + ' د.ج';
 
+        // تحديث الحقل المخفي
         if (hiddenInput) hiddenInput.value = deliveryPrice;
     }
 
-    if (select) {
+    /*
+    if (select) { // تم التعليق على معالج حدث select
         select.addEventListener('change', updateTotals);
-        // تنفيذ التغيير مرة واحدة عند التحميل الابتدائي لتحديد سعر أول منطقة مختارة
-        updateTotals();
     }
+    */
+    
+    // تنفيذ التغيير مرة واحدة عند التحميل الابتدائي
+    updateTotals();
 });

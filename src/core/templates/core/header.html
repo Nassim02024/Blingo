@@ -2,9 +2,24 @@
 {% load i18n %}
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+  <style>  
+  /* الحالة الافتراضية للعنصر */
+    .salefixd {
+      position: relative;
+      transition: all 0.6s ease; /* لإضافة نعومة عند التحول */
+    }
 
-  <style>
+    /* الحالة التي سيتحول إليها العنصر عند التمرير */
+    .salefixd.is-sticky {
+    position: fixed !important;
+    z-index: 100 !important;
+    top: 30px !important;
+    left: 10px !important;
+    list-style: none; /* لإزالة نقطة القائمة إذا ظهرت */
+     }
     @media (max-width: 701px) {
+    
       .btn-bar{
         position: absolute;
         RIGHT: 10px;
@@ -86,6 +101,7 @@
     right:auto;
   }
     
+
 </style>
 </head>
 
@@ -94,35 +110,68 @@
   </div>
 </div>
 
-<div  class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+<div  class="offcanvas offcanvas-end" style="overflow: auto; " data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+  <div style="max-height: 70vh;">
   <div class="offcanvas-header justify-content-center">
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="order-md-last">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-primary">{% trans 'Your cart' %}</span>
-        <span class="badge bg-primary rounded-pill">0</span>
-      </h4>
-      
-          <ul class="list-group mb-3">
-            <li class="list-group-items d-flex justify-content-between " style="align-items: center;">
-              <span>{% trans 'Total (Dz)' %}</span>
-              
-              <strong class="totals-price">0</strong>
-            </li>
-          </ul>
-          {% if vendor and vendor.vid %}
+    <span class="text-primary">{% trans 'Your cart' %}</span>
+    <span class="badge bg-primary rounded-pill">0</span>
+</h4>
+
+<ul class="list-group mb-3" id="products-list-container" style="max-height: 60vh; overflow-y: auto; ">
+    <!-- عناصر المنتجات ستتم إضافتها هنا ديناميكيًا -->
+</ul>
+
+    <div style=" position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;">
+<ul class="list-group" style="overflow-y: auto;">
+    <li class="list-group-item d-flex justify-content-between " style="align-items: center;padding: 3px;">
+        <span>{% trans 'Total (Dz)' %}</span>
+        <strong class="totals-price">0</strong>
+    </li>
+</ul>
+          <!-- {% if vendor and vendor.vid %}
           <a href="{% url 'cardorder' vendor.vid %}?product={{ product.vendor }}">
             <button class="w-100 btn  btn-lg checkouteorder" type="submit" style="background-color: #ffc43f; color: white; border-radius: 5px;">{% trans 'Continue to checkout' %}</button>
           </a>
       
-        {% endif %}
-        
+        {% endif %} -->
+
+        <div class="offcanvas-body">
+  <div class="order-md-last">
+    {% if vendor.vid %}
+      <a href="{% url 'cardorder' vendor.vid %}">
+        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;">
+          {% trans 'Continue to checkout' %}
+        </button>
+      </a>
+    {% elif productDetils.vendor.vid %}
+      <a href="{% url 'cardorder' productDetils.vendor.vid %}">
+        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;">
+          {% trans 'Continue to checkout' %}
+        </button>
+      </a>
+    {% else %}
+      <button class="w-100 btn btn-lg checkouteorder disabled" style="background-color: #ccc; color: white;">
+        {% trans 'Continue to checkout' %}
+      </button>
+    {% endif %}
+    
+  </div>
+        </div>
+        </div>
         </div>
   </div>
 </div>
-
+</div>  
 <div class="offcanvas offcanvas-end hidd-open" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch">
   <div class="offcanvas-header justify-content-center">
     <button type="button" class="btn-close  close-session-card" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -212,11 +261,11 @@
               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
             </a>
           </li>
-          <li class="" style="position: relative;">
-            <div  style=" background-color: rgba(157, 248, 77, 0.562);position: absolute;bottom:20px;right: 2px;border-radius: 50%;padding: 0px 10px 0px 10px;">
+          <li class="salefixd" style="transition: all 0.6s ease;">
+            <div  style="background-color: #ccff33; position: absolute; bottom: 20px; right: 2px; border-radius: 100%; padding: 0px 12px 0px 10px;">
                <span class="count-for-card-icon"  style="font-size: 12px;font-weight: 700;color: rgb(0, 0, 0);"></span>
             </div>
-            <a  class="rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+            <a  class=" rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
               <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
             </a>
           </li>
@@ -344,8 +393,9 @@
         
       
       </div>
+      {% if request.resolver_match.url_name == "index" %}
           <img src="{% static 'core/images/baraka.png'%}"   alt="elbaraka-company" style="width: 130px; border-radius: 50%; margin: auto; padding-top: 10px;">
-
+      {% endif %}
     </div>
 
   </div>
@@ -513,6 +563,19 @@
             alertsec[i].style.display = 'none';
         }, 5000);
     }
+
+
+  const saleElement = document.querySelector('.salefixd');
+
+  if (saleElement) { // التأكد من وجود العنصر أولاً لتجنب الأخطاء
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 130) {
+          saleElement.classList.add('is-sticky');
+      } else {
+          saleElement.classList.remove('is-sticky');
+      }
+    });
+  }
 });
 
   </script> 

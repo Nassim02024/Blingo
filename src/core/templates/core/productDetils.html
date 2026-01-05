@@ -4,73 +4,84 @@
 {% block content %}
 <head>
   <title>Blingo | product Details</title>
+  <style>
+    /* التصميم الافتراضي للزر (Relative) */
+.add-to-cart-container {
+    padding: 20px;
+    text-align: center;
+}
 
+.btn-dynamic {
+    background-color: #ccff33; /* اللون الأخضر المميز الذي تستخدمه */
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* أنيميشن ناعم عند التحول */
+    width: auto;
+    
+}
+
+/* التصميم عندما يصبح الزر ثابتاً (بعد سكرول 200px) */
+.btn-dynamic.is-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* يأخذ عرض الشاشة بالكامل */
+    border-radius: 0; /* إزالة الحواف الدائرية ليصبح بار */
+    z-index: 9999;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    padding: 10px;
+    animation: slideUp 0.4s ease-out; /* حركة دخول من الأسفل */
+}
+@media (max-width:768px) {
+    .btn-dynamic.is-sticky {
+        width: 90%; /* يأخذ عرض الشاشة بالكامل على الشاشات الصغيرة */
+    }
+  
+}
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+  </style>
 </head>
-<div class="container mt-5">
+<div class="container mt-5 product-item"> 
     <div class="row">
-        <!-- Product Images -->
         <div class="col-md-6 mb-4">
             <img src="{{productDetils.image.url}}" alt="Product" class="img-fluid rounded mb-3 product-image" id="mainImage" loading="lazy">
-            <div class="d-flex justify-content-between">
-                </div>
         </div>
 
-        <!-- Product Details -->
         <div class="col-md-6">
             <h2 class="mb-3 name-of-product">{{productDetils.title}}</h2>
-            <p class="text-muted mb-4">SKU: {{productDetils.pid|truncatechars:10}}</p>
-            <h3 class="product-pid"></h3>
-            <p class="vendor-id"></p>
-            <div class="mb-3">
-                <span class="h4 me-2  price-in-pro-item price-for-one">{{productDetils.price}}</span>
-                <span class="text-muted old_price"><s>{{productDetils.old_price}} Dz </s></span>
-            </div>
-            <div class="mb-3">
-                <i class="bi bi-star-fill" style='color:#FFD700'></i>
-                <i class="bi bi-star-fill" style='color:#FFD700'></i>
-                <i class="bi bi-star-fill" style='color:#FFD700'></i>
-                <i class="bi bi-star-fill" style='color:#FFD700'></i>
-                <i class="bi bi-star-half" style='color:#FFD700'></i>
-                <!-- <span class="ms-2">{% trans '4.5 (120 reviews)' %}</span>{% trans '--></div>
-            {% if productDetils.description %}
-            <p class="mb-4">{{productDetils.description|truncatechars:100}}.</p>
-            {% endif %}
-            <div class="mb-4">
-                <h5>{% trans 'Color:' %}</h5>
-                {% if color %}
-                <div class="btn-group" role="group" aria-label="Color selection">
-                    <input type="radio" class="btn-check" name="color" id="blue" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="blue">{{productDetils.color}}</label>
-                </div>
-                {% else %}
-                 <p>{% trans 'Dont have color' %}</p>
-                {% endif %}
-                
-            </div>
-            <!-- <div class="mb-4">
-                <label for="quantity" class="form-label">{% trans 'Quantity:' %}</label>
-                <input name="quantity" type="number" class="form-control input-number quantity quantity-one-product" id="quantity" value="1" min="1" style="width: 80px;">
-            </div>
             
-            <button class="btn btn-outline-secondary btn-lg mb-3 ">
-                    <i class="bi bi-heart"></i>{% trans 'Add to Wishlist' %}</button>{% trans '--><!-- <div class="mt-4">
-                <h5>{% trans 'Key Features:' %}</h5>
-                <ul>
-                    <li>{% trans 'Industry-leading noise cancellation' %}</li>
-                    <li>{% trans '30-hour battery life' %}</li>
-                    <li>{% trans 'Touch sensor controls' %}</li>
-                    <li>{% trans 'Speak-to-chat technology' %}</li>
-                </ul>
-            </div>{% trans '--></div>
-        
-    
-      </div>
+            <h3 style="display: none" class="product-pid">{{productDetils.pid}}</h3>
+            <p style="display: none" class="vendor-id">{{productDetils.vendor.vid}}</p>
+            <p style="display: none" class="category-of-product">{{productDetils.category.categoress}}</p>
 
+            <p class="text-muted mb-4">SKU: {{productDetils.pid|truncatechars:10}}</p>
+            
+            <div class="mb-3">
+                <span class="h4 me-2 price-in-pro-item">{{productDetils.price}}</span>
+                <span class="text-muted old_price"><s>{{productDetils.old_price}} Dz</s></span>
+            </div>
 
+            <div class="mb-3">
+                <label for="quantity">الكمية:</label>
+                <input type="number" class="form-control quantity-one-product" value="1" min="1" style="width: 80px;">
+            </div>
 
-    
-
-
+            <div class="add-to-cart-container">
+                <button class="btn-add-card btn-dynamic default" data-product-id="{{p.pid}}" id="dynamicCartBtn">
+                    <i class="bi bi-cart-plus"></i> إضافة إلى السلة
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- <div class="rev-section">
@@ -97,6 +108,9 @@
    {% endfor %}
   </div>
 </div>{% trans '-->
+<script src="{% static 'core/js/cardorder.js' %}"  ></script> 
+<!-- <script src="{% static 'core/js/script.js' %}"  ></script>  -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"  ></script>
 {% block scripts %}
 <script>
@@ -105,6 +119,22 @@
             document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
             event.target.classList.add('active');
         }
+
+        window.addEventListener('scroll', function() {
+    const cartBtn = document.getElementById('dynamicCartBtn');
+    const scrollThreshold = 60; // المسافة المطلوبة بالبيكسل
+
+    if (window.scrollY > scrollThreshold) {
+        cartBtn.classList.add('is-sticky');
+    } else {
+        cartBtn.classList.remove('is-sticky');
+    }
+});
+
+
+    
+
+  
 </script>
 {% endblock scripts %}
 

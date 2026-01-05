@@ -166,7 +166,7 @@
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 summary_order_tolal">{{order.product_price}}</p>
+                        <p class="text-xs font-weight-bold mb-0 summary_order_tolal">{{ order.calculated_total | floatformat:2 }} Dz</p>
                       </td>
                       <td class="align-middle text-center text-sm">
                         <span class="state-product">{{order.product_status}}</span>

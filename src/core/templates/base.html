@@ -9,7 +9,8 @@
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' or LANGUAGE_CODE == 'he' %}rtl{% else %}ltr{% endif %}">  
   <head>
     <title>{% block title %} Blingo {% endblock %}</title>
-
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    
     <meta name="description" content="{% blocktrans %}Discover Blingo, a multi-vendor shopping platform offering the best food products from trusted sellers. Shop easily and securely with fast shipping.{% endblocktrans %}">
 
   <!-- Open Graph (Facebook, Messenger, إلخ) -->
@@ -414,6 +415,68 @@
             setTimeout(() => window.location.reload(), 0);
         }
       });
+
+    // هذا الكود يمنع المتصفح بشكل مباشر من تخزين الصفحة في ذاكرة BFcache
+    // مما يجبره على تحميلها من جديد عند استخدام زر الرجوع
+    
+    // window.addEventListener('pageshow', function(event) {
+    //     if (event.persisted) {
+    //         // إذا اكتشفنا أن الصفحة قادمة من الذاكرة المؤقتة، نقوم بإلغاء التخزين المؤقت
+    //         // وإجبار إعادة التحميل.
+    //         // (استخدام window.location.replace هو الأكثر موثوقية هنا)
+    //         window.location.replace(window.location.href);
+    //     }
+    // });
+
+    // // إضافة توجيه لمنع التخزين المؤقت عبر DOM
+    // if (window.performance && window.performance.navigation.type === 2) {
+    //     // إذا كان التنقل عبر تاريخ المتصفح، نقوم بكسر الـ cache بشكل صريح
+    //     window.location.href = window.location.href + '?reload=' + Date.now();
+    // }
+
+
+    // **المفتاح الحقيقي للسلة بناءً على الكود الذي أرسلته**
+    const CART_STORAGE_KEY = 'arrayProduct'; 
+
+    function updateCartUIStatus() {
+        try {
+            // 1. جلب وتحليل بيانات السلة المخزنة محلياً
+            const cartDataJson = localStorage.getItem(CART_STORAGE_KEY);
+            const arrayProduct = cartDataJson ? JSON.parse(cartDataJson) : [];
+            
+            // 2. استخراج معرّفات المنتجات الموجودة في السلة حالياً
+            const inCartProductPids = arrayProduct.map(item => String(item.pid)); 
+            
+            // 3. تحديث العدادات (Counts)
+            const cartCount = arrayProduct.length;
+            document.querySelectorAll('.badge, .count-for-card-icon').forEach(el => {
+                el.textContent = cartCount;
+            });
+
+            // 4. تحديث حالة أزرار "أضف إلى السلة"
+            document.querySelectorAll('.btn-add-card').forEach(element => {
+                const productId = element.dataset.productId ? String(element.dataset.productId) : null; 
+                
+              
+                
+                // **** ملاحظة هامة: تم إزالة سطر element.innerHTML = '...' لضمان عدم تغيير النص ****
+            });
+
+        } catch (error) {
+            console.error('Error during cart status update from Local Storage:', error);
+        }
+    }
+
+    // 5. تفعيل التحديث عند الرجوع إلى الصفحة (BFcache)
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            console.log('BFcache detected. Updating cart UI status...');
+            updateCartUIStatus(); 
+        }
+    });
+    
+    // 6. تشغيل الدالة عند تحميل الصفحة العادي (لضمان حالة الأزرار الصحيحة عند التحميل لأول مرة)
+    document.addEventListener('DOMContentLoaded', updateCartUIStatus);
     </script>
     
     
