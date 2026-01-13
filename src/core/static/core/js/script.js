@@ -229,29 +229,54 @@
 // ✅ 1. تعريف arrayProduct كمتغير عام هنا (متاح لجميع الدوال)
 let arrayProduct = JSON.parse(localStorage.getItem('arrayProduct')) || [];
 
-// ✅ مُحدِّد آمن لقائمة المنتجات (يجب أن يكون هذا ID في HTML)
+// ✅ مُحدِّد آمن لقائمة المنتجات (يجب أن يكون هذا ID في HTML)
 const PRODUCTS_CONTAINER_SELECTOR = '#products-list-container'; 
 
 // ------------------------------------------------
-// 2. الدوال المساعدة: الرسم والتحديث والتنبيهات (معرّفة عالمياً)
+// 2. الدوال المساعدة: التنسيق والرسم والتحديث والتنبيهات 
 // ------------------------------------------------
 
+
+// في ملف CARD_ORDER.JS
+
 /**
- * دالة تحديث السعر الإجمالي
+ * دالة تنسيق السعر بالنمط (XXX.XX) باستخدام النقطة كفاصل عشري وخانتين عشريتين دائمًا.
+ * @param {number|string} number - القيمة الرقمية للسعر
+ * @returns {string} الرقم منسق بالنمط الإنجليزي (en-US)
  */
+function formatPriceDisplay(number) {
+    const num = parseFloat(number);
+    if (isNaN(num)) return number;
+
+    // ✅ التعديل هنا: فرض استخدام 'en-US' لضمان (النقطة) كفاصل عشري
+    // وطلب خانتين عشريتين دائمًا
+    return num.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        // يمكن أيضًا إضافة فاصل الآلاف (الفاصلة)
+        // useGrouping: true 
+    });
+}
+
+// ... بقية الكود تبقى كما هي ...
+
+// مثال على دالة updateTotalPrice بعد هذا التعديل:
 function updateTotalPrice() {
     let total = arrayProduct.reduce((sum, item) => sum + parseFloat(item.prices), 0);
     
-    // ✅ نبحث فقط عن الكلاس .totals-price في أي مكان
     let totalElement = document.querySelector('.totals-price'); 
     
     if (totalElement) {
-        totalElement.innerHTML = total  + ' Dz';
-        console.log("تم العثور على العنصر وتحديث الإجمالي بنجاح:", total);
-    } else {
-        console.error("العنصر الذي يحمل الكلاس '.totals-price' لم يتم العثور عليه. (تحقق من HTML)");
-    }
+        // ✅ سيستخدم الآن (formatPriceDisplay) تنسيق (XXX.XX)
+        let formattedTotal = formatPriceDisplay(total);
+        
+        totalElement.innerHTML = formattedTotal  + ' Dz';
+        // ...
+    } 
+    // ...
 }
+
+// ... ونفس التعديل سيُطبق تلقائيًا في دالة renderStoredItem.
 
 /**
  * دالة تحديث عداد المنتجات في السلة
@@ -279,6 +304,9 @@ function showAlert(message, bg) {
  * دالة رسم عنصر منتج واحد في قائمة السلة
  */
 function renderStoredItem(item) {
+    // ✅ التعديل هنا: تنسيق سعر المنتج قبل عرضه
+    let formattedPrice = formatPriceDisplay(item.prices, 'ar-EG');
+
     // ✅ استخدام ID آمن للرسم
     let listGroup = document.querySelector(PRODUCTS_CONTAINER_SELECTOR); 
     if (!listGroup) return;
@@ -292,7 +320,7 @@ function renderStoredItem(item) {
         </div>
 <div style="display: flex; justify-content: center; align-items: center; "> 
             <p style="font-size: 8px; margin-right: 2px; margin-bottom: 0;">Dz</p>
-            <h4 class="text-body-secondary price-for-one" style="margin-top: 6px; font-size: 14px; margin-bottom: 0;">${item.prices}</h4>
+            <h4 class="text-body-secondary price-for-one" style="margin-top: 6px; font-size: 14px; margin-bottom: 0;">${formattedPrice}</h4>
         </div>
         <p style="font-size: 8px;margin-right: 10px; margin-bottom: 0;padding:5px;">x${item.qun}</p>
 
@@ -380,9 +408,9 @@ document.addEventListener('DOMContentLoaded', function () {
             let priceText = productCard.querySelector('.price-in-pro-item')?.textContent.trim();
             
             let cleanedPrice = priceText
-    .replace('Dz', '')    // إزالة رمز العملة أولاً
-    .replace(/[^\d,]/g, '') // إزالة أي رموز أخرى غير الأرقام أو الفاصلة
-    .replace(',', '.');   // استبدال الفاصلة (,) بالنقطة (.) قبل التحويل
+    .replace('Dz', '')    // إزالة رمز العملة أولاً
+    .replace(/[^\d,.]/g, '') // إزالة أي رموز أخرى غير الأرقام أو الفاصلة أو النقطة
+    .replace(',', '.');   // استبدال الفاصلة (,) بالنقطة (.) قبل التحويل لضمان قراءة parseFloat الصحيحة
 
 let unitPrice = parseFloat(cleanedPrice) || 0;
             let totalPrice = unitPrice * parseInt(qun); 
@@ -406,7 +434,7 @@ let unitPrice = parseFloat(cleanedPrice) || 0;
             const addProduct = (lng = null, lat = null) => {
                 let productData = { 
                     productName, 
-                    prices: totalPrice, 
+                    prices: totalPrice, // يتم تخزينها كرقم خام
                     pid, 
                     vId, 
                     qun, 

@@ -110,7 +110,7 @@
   </div>
 </div>
 
-<div  class="offcanvas offcanvas-end" style="overflow: auto; " data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+<div  class="offcanvas offcanvas-end" style="overflow: auto;z-index: 10000; " data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
   <div style="max-height: 70vh;">
   <div class="offcanvas-header justify-content-center">
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -149,13 +149,13 @@
   <div class="order-md-last">
     {% if vendor.vid %}
       <a href="{% url 'cardorder' vendor.vid %}">
-        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;">
+        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;z-index: 9999999;">
           {% trans 'Continue to checkout' %}
         </button>
       </a>
     {% elif productDetils.vendor.vid %}
       <a href="{% url 'cardorder' productDetils.vendor.vid %}">
-        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;">
+        <button class="w-100 btn btn-lg checkouteorder" style="background-color: #ffc43f; color: white; border-radius: 5px;padding: 4px;z-index: 9999999;">
           {% trans 'Continue to checkout' %}
         </button>
       </a>

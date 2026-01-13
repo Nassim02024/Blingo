@@ -225,7 +225,8 @@ class CartOrderItems(models.Model):
   
   product_status = models.CharField(max_length=300 ) 
   item = models.CharField(max_length=300 )
-  image = CloudinaryField("image")
+  # image = CloudinaryField("image")
+  image = models.CharField(max_length=500, blank=True, null=True)
   quantity = models.IntegerField(default=0)
   price = models.DecimalField(max_digits=999 , decimal_places=2)
   total = models.DecimalField(max_digits=999 , decimal_places=2)
@@ -235,9 +236,10 @@ class CartOrderItems(models.Model):
 
   def order_img(self):
     if self.image:
-      return mark_safe(f'<img src="{self.image.url}" width="50" height="50" />')
+        # لم يعد هناك حاجة لـ .url
+        return mark_safe(f'<img src="{self.image}" width="50" height="50" />')
     return ""
-
+ 
 
 ##################################### Prodact Review ############################################################
 
